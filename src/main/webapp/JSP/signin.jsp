@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet" />
+    <link href="../CSS/signin.css" rel="stylesheet" />
     <title>ログイン画面</title>
 </head>
 <body>
@@ -26,6 +26,6 @@
         <button type="button" onclick="location.href='signup.html'">新規登録はこちら</button>
     </form>
 
-    <script src="login.js"></script>
+    <script src="../JS/signin.js"></script>
 </body>
 </html>
