@@ -34,6 +34,7 @@ public class WebApplicationController implements ApplicationController {
 		
 		req.setAttribute("data", resc.getResult());
 		req.getRequestDispatcher(resc.getTarget()).forward(req, res);
+		//cloneし直しテスト
 
 	}
 
