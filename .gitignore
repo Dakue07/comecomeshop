@@ -64,3 +64,4 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 comecomeshop/build/classes/.gitignore
+src/main/webapp/META-INF/MANIFEST.MF
