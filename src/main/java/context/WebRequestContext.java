@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
-
 public class WebRequestContext implements RequestContext {
 	private Map<String, String[]> parameters;
 	private HttpServletRequest request;
@@ -17,7 +16,7 @@ public class WebRequestContext implements RequestContext {
 	@Override
 	public String getCommandPath() {
 		String path = request.getRequestURI();
-		
+		System.out.println(path);
 		String target = "";
 		return target;
 	}
@@ -42,4 +41,4 @@ public class WebRequestContext implements RequestContext {
 		session = request.getSession();
 		session.invalidate();
 	}
-}
+} 

@@ -14,5 +14,5 @@ public abstract class AbstractCommand {
 		return reqContext;
 	}
 	
-	public abstract ResponseContext execute();
+	public abstract ResponseContext execute();//ApplicationController適用するなら引数は(ResponseContext resc)
 }
