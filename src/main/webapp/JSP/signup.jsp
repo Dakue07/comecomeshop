@@ -26,6 +26,6 @@
         <button type="button" onclick="location.href='signin.html'">新規登録</button>
     </form>
 
-    <script src="login.js"></script>
+    <script src="../JS/login.js"></script>
 </body>
 </html>
