@@ -13,6 +13,8 @@ import commands.CommandFactory;
 import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
+import controller.ApplicationController;
+import controller.WebApplicationController;
 
 public class FrontServlet extends HttpServlet {
 
@@ -26,25 +28,28 @@ public class FrontServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		Map<String, String[]> map = req.getParameterMap();
+		//Map<String, String[]> map = req.getParameterMap();
 
 		req.setCharacterEncoding("UTF-8");
 
-		RequestContext rc = new WebRequestContext();
-		rc.setParameterMap(map);
-		rc.setRequest(req);
-		AbstractCommand command = CommandFactory.getCommand(rc);
+		ApplicationController app = new WebApplicationController();
+		RequestContext reqc = app.getRequest(req);
+		ResponseContext resc = app.handleRequest(reqc);
+		
+		resc.setResponse(reqc);
+		
+		app.handleResponse(reqc, resc);
 
-		if (command != null) {
-			command.init(rc);
-			ResponseContext resc = command.execute();
-			Object bean = resc.getResult();
-			req.setAttribute("data", bean);
-			System.out.println("front target: " + resc.getTarget());
-			req.getRequestDispatcher(resc.getTarget()).forward(req, res);
-
-		} else {
-			res.sendError(HttpServletResponse.SC_NOT_FOUND, "このページは存在しません");
-		}
+//		if (command != null) {
+//			command.init(rc);
+//			ResponseContext resc = command.execute();
+//			Object bean = resc.getResult();
+//			req.setAttribute("data", bean);
+//			System.out.println("front target: " + resc.getTarget());
+//			req.getRequestDispatcher(resc.getTarget()).forward(req, res);
+//
+//		} else {
+//			res.sendError(HttpServletResponse.SC_NOT_FOUND, "このページは存在しません");
+//		}
 	}
 }
