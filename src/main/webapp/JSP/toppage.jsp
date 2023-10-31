@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>toppage</title>
 </head>
-<body>
+ <body>
     <!-- header -->
     <%@include file="../assets/template/header.jsp" %>
     

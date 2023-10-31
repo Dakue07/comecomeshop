@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet" />
+    <link href="../CSS/style.css" rel="stylesheet" />
     <title>ログイン画面</title>
 </head>
 <body>
