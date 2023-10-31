@@ -1,5 +1,6 @@
 package controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,8 +34,15 @@ public class WebApplicationController implements ApplicationController {
 		HttpServletResponse res = (HttpServletResponse) resc.getResponse();
 		
 		req.setAttribute("data", resc.getResult());
-		req.getRequestDispatcher(resc.getTarget()).forward(req, res);
-		
+
+		RequestDispatcher rd = req.getRequestDispatcher(resc.getTarget());
+		try {
+			rd.forward(req, res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//cloneし直しテスト
+
 	}
 
 }
