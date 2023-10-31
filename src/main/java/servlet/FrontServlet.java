@@ -33,6 +33,7 @@ public class FrontServlet extends HttpServlet {
 		ApplicationController app = new WebApplicationController();
 		RequestContext reqc = app.getRequest(req);
 		ResponseContext resc = app.handleRequest(reqc);
+		System.out.println("もどってきちゃお");
 		
 		resc.setResponse(reqc);
 		

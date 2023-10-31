@@ -15,6 +15,7 @@ public class CommandFactory {
 		try {
 			prop.load(new FileInputStream("C:\\comecomeshop\\src\\properties\\commands.properties"));
 			String name = prop.getProperty(rc.getCommandPath());
+			System.out.println("こまふぁく" + name);
 			Class<?> c = Class.forName(name);
 			command = (AbstractCommand) c.newInstance();
 			

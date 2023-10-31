@@ -11,6 +11,8 @@ public class TestCommand extends AbstractCommand {
 
 		resc.setTarget("toppage");
 		
+		System.out.println("テスコま" + resc.getTarget());
+		
 		return resc;
 	}
 }

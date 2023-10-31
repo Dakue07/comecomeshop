@@ -8,11 +8,11 @@
 </head>
  <body>
     <!-- header -->
-    <%@include file="../assets/template/header.jsp" %>
+    <%@include file="../../assets/template/header.jsp" %>
     
     <!-- 中身 -->
     
     <!-- footer -->
-    <%@include file="../assets/template/footer.jsp" %>
+    <%@include file="../../assets/template/footer.jsp" %>
 </body>
 </html>
