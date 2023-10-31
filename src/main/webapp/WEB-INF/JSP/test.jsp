@@ -12,7 +12,10 @@
     
     <!-- 中身 -->
     
-    	<p><a href="<%=request.getContextPath() %>/come/test">てすと</a></p>
+    	<form action="come/test" method="get">
+    		<input type="text" name="tesuto">
+    		<input type="submit" value="go">
+    	</form>
     
     <!-- footer -->
     <%@include file="../assets/template/footer.jsp" %>
