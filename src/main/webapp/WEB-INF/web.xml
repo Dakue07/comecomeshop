@@ -10,5 +10,13 @@
     <welcome-file>default.htm</welcome-file>
     <!-- h -->
   </welcome-file-list>
+  <servlet>
+  	<servlet-name>toppage</servlet-name>
+  	<jsp-file>/JSP/toppage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>toppage</servlet-name>
+  	<url-pattern>/toppage</url-pattern>
+  </servlet-mapping>
   
 </web-app>

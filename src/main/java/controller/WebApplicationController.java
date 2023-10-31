@@ -34,6 +34,7 @@ public class WebApplicationController implements ApplicationController {
 		HttpServletResponse res = (HttpServletResponse) resc.getResponse();
 		
 		req.setAttribute("data", resc.getResult());
+
 		RequestDispatcher rd = req.getRequestDispatcher(resc.getTarget());
 		try {
 			rd.forward(req, res);
