@@ -3,9 +3,16 @@
 CREATE USER 'come'@'localhost' IDENTIFIED BY 'come';
 
 
-# (ユーザーの切り替えと)権限の付与
+# 基本的な機能に関する全ての権限の付与
 
-?
+GRANT ALL PRIVILEGES ON * . * TO 'come'@'localhost';
+
+
+# comeユーザーへの切り替え 切断と接続
+
+quit
+mysql -h localhost -u come -p
+come
 
 
 # ユーザーテーブルの作成 1行目はもし存在していなければ作成としてエラーの要因を排除
@@ -24,10 +31,10 @@ CREATE TABLE IF NOT EXISTS UserTable
 
 CREATE TABLE IF NOT EXISTS RiceTable
 (rice_id int PRIMARY KEY AUTO_INCREMENT,
- rice_name varchar() NOT NULL,
- rice_genre varchar() NOT NULL,
+ rice_name varchar(500) NOT NULL,
+ rice_genre varchar(500) NOT NULL,
  rice_weight int NOT NULL,
- rice_made varchar() NOT NULL,
+ rice_made varchar(500) NOT NULL,
  rice_image mediumblob DEFAULT ,
  rice_stock int NOT NULL,
  rice_price int NOT NULL,
@@ -70,5 +77,4 @@ CREATE TABLE ReviewTable
 );
 
 # 現時点の課題 RiceTableのvarcharの値が決められていない
-# ユーザー名などの設定、ユーザーの切り替えや権限の付与等が決まっていない
 # そもそもこれが動くのかの確認が取れない
