@@ -6,7 +6,7 @@
 	<head>
   	<meta charset="UTF-8">
   	<link rel="stylesheet" href="../css/reset.css">
-  	<link rel="stylesheet" href="../css/style.css">
+  	<link rel="stylesheet" href="../css/header.css">
   	<title>toppage</title>
 	</head>
 	<body>
