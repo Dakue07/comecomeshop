@@ -12,12 +12,30 @@
   </welcome-file-list>
   
   <servlet>
-  	<servlet-name>toppage</servlet-name>
-  	<jsp-file>/WEB-INF/JSP/toppage.jsp</jsp-file>
+  	<servlet-name>productslist</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/productslist.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>toppage</servlet-name>
-  	<url-pattern>/toppage</url-pattern>
+  	<servlet-name>productslist</servlet-name>
+  	<url-pattern>/productslist</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>signin</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/signin.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>signin</servlet-name>
+  	<url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>signup</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/signup.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>signup</servlet-name>
+  	<url-pattern>/signup</url-pattern>
   </servlet-mapping>
   
     <servlet>
