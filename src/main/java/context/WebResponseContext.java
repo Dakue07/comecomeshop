@@ -14,7 +14,7 @@ public class WebResponseContext implements ResponseContext {
 	}
 	
 	public String getTarget() {
-		return target;
+		return "/" + target;
 	}
 	
 	public void setResult(Object bean) {

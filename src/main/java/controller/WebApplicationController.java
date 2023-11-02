@@ -36,7 +36,8 @@ public class WebApplicationController implements ApplicationController {
 		
 		req.setAttribute("data", resc.getResult());
 
-		RequestDispatcher rd = req.getRequestDispatcher("/toppage");
+		System.out.println(resc.getTarget());
+		RequestDispatcher rd = req.getRequestDispatcher(resc.getTarget());
 		try {
 			rd.forward(req, res);
 		} catch (Exception e) {
