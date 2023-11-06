@@ -5,6 +5,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import beans.UserBean;
+
 
 public class WebRequestContext implements RequestContext {
 	private Map<String, String[]> parameters;
@@ -35,6 +37,16 @@ public class WebRequestContext implements RequestContext {
 	
 	public void setRequest(Object request) {
 		this.request = (HttpServletRequest) request;
+	}
+	
+	public void setUserBeanInSession(UserBean bean) {
+		session = request.getSession();
+		session.setAttribute("bean", bean);
+	}
+	
+	public UserBean getUserBeanInSession() {
+		session = request.getSession();
+		return (UserBean)session.getAttribute("bean");
 	}
 	
 	public void InvalidateSession() {
