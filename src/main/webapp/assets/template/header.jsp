@@ -1,34 +1,14 @@
 <%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" %>
    
-<style>
-.header02 {
-  padding: 16px 24px;
-  background-color: #fafafa;
-}
 
-.header02-logo {
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.header02-list {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 24px;
-}
-</style>
 
 <!DOCTYPE html>
 <html>
 	<head>
   	<meta charset="UTF-8">
-  	<link rel="stylesheet" href="../../css/reset.css">
-  	<link rel="stylesheet" href="../../css/header.css">
+  	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/header.css">
+  	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/reset.css">
   	<title>toppage</title>
 	</head>
 	<body>
