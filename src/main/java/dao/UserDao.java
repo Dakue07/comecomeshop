@@ -11,16 +11,16 @@ import dto.UserDto;
 public class UserDao {
 	private static final String INSERT_USER = "INSERT INTO usertable (name, password) VALUES (?, ?)";
 	private static final String SELECT_USER_PASS = "SELECT name, password FROM usertable WHERE name = ?";
-//	private static final String DB_USER = "come";
-//	private static final String DB_PASS = "come";
-//	
+	private static final String DB_USER = "come";
+	private static final String DB_PASS = "come";
+	
 	MySQLOperator ma = new MySQLOperator();
 	
 	Connection cn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public UserDto findRecode(String user) {
+	public UserDto findRecord(String user) {
 		UserDto dto = null;
 		cn = ma.getConnection(cn, DB_USER, DB_PASS); //引数合ってる分からん
 		pstmt = cn.prepareStatement(SELECT_USER_PASS);

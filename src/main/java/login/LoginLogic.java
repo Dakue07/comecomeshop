@@ -1,8 +1,7 @@
 package login;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Encryption;
-
 import dao.UserDao;
+import dto.UserDto;
 
 public class LoginLogic {
 	public static boolean isLoggedIn(String user, String pass) {
