@@ -11,6 +11,16 @@
     <!-- h -->
   </welcome-file-list>
   
+  <filter>
+		<filter-name>sessionfilter</filter-name>
+		<filter-class>filter.SessionFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>sessionfilter</filter-name>
+		<url-pattern>/comecomeshop</url-pattern>
+	</filter-mapping>
+  
   <servlet>
   	<servlet-name>productslist</servlet-name>
   	<jsp-file>/WEB-INF/JSP/productslist.jsp</jsp-file>
