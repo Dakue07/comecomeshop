@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>toppage</title>
+    <title>productslist</title>
 </head>
  <body>
     <!-- header -->

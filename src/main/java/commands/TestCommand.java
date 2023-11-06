@@ -9,7 +9,7 @@ public class TestCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
         ApplicationController app = new WebApplicationController();
 
-		resc.setTarget("toppage");
+		resc.setTarget("productslist");
 		
 		System.out.println("テスコま" + resc.getTarget());
 		
