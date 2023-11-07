@@ -16,7 +16,7 @@ public class LoginCommand extends AbstractCommand {
 		
 		if (LoginLogic.isLoggedIn(name, pass)) {
 			UserBean bean = new UserBean();
-			bean.setUserName(name);
+			bean.setUser_name(name);
 			((WebRequestContext) reqc).setUserBeanInSession(bean);;
 			resc.setTarget("productlist");
 		} else {
