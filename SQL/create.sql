@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS RiceTable
  rice_weight int NOT NULL,
  rice_made varchar(500) NOT NULL,
  rice_image mediumblob,
+ rice_since timestamp NOT NULL,
  rice_stock int NOT NULL,
  rice_price int NOT NULL,
  CONSTRAINT uq_rice_name UNIQUE(rice_name),
