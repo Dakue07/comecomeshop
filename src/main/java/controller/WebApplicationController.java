@@ -13,6 +13,7 @@ import context.WebResponseContext;
 
 public class WebApplicationController implements ApplicationController {
 	
+	//HttpServletRequestをRequestContextにセットしてリターンするメソッド
 	public RequestContext getRequest(Object request) {
 		RequestContext reqc = new WebRequestContext();
 		
@@ -21,6 +22,7 @@ public class WebApplicationController implements ApplicationController {
 		return reqc;
 	}
 	
+	//渡されたRequestContextから
 	public ResponseContext handleRequest(RequestContext req) {
 		AbstractCommand command = CommandFactory.getCommand(req);
 		System.out.println("あぷこん" + command);

@@ -30,13 +30,20 @@ public class FrontServlet extends HttpServlet {
 
 		System.out.println("ie-i");
 		
+		//ApplicationControllerのインスタンスを取得
 		ApplicationController app = new WebApplicationController();
+		
+		//RequestContextの実装クラスのインスタンスを取得
 		RequestContext reqc = app.getRequest(req);
+		
+		//ResponseContextにhandleRequestメソッドの結果を格納
 		ResponseContext resc = app.handleRequest(reqc);
 		System.out.println("もどってきちゃお");
 		
+		//結果をResponseContextにセットする
 		resc.setResponse(res);
 		
+		//forwardする
 		app.handleResponse(reqc, resc);
 
 //		if (command != null) {
