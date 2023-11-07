@@ -20,23 +20,32 @@ public class UserDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
+	public Connection connect() {
+		cn = ma.getConnection(cn, DB_USER, DB_PASS); //引数合ってる分からん 
+		return cn;
+	}
+	
 	public UserDto findRecord(String user) {
 		UserDto dto = null;
-		cn = ma.getConnection(cn, DB_USER, DB_PASS); //引数合ってる分からん
-		pstmt = cn.prepareStatement(SELECT_USER_PASS);
-		pstmt.setString(1, user);
-		rs = pstmt.executeQuery();
-		if(rs != null) {
-			dto = new UserDto(rs.getString(1), rs.getString(2));
-		} else {
-			System.out.println("null");
+		try {
+			cn = connect(); 
+			pstmt = cn.prepareStatement(SELECT_USER_PASS);
+			pstmt.setString(1, user);
+			rs = pstmt.executeQuery();
+			if(rs != null) {
+				dto = new UserDto(rs.getString(1), rs.getString(2));
+			} else {
+				System.out.println("null");
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
 		}
-		ma.close(cn, pstmt, rs);
+		return dto;
 	}
 	
 	public boolean createUser(String name, String user) {
 		try {
-			Connection cn = ma.getConnection(cn, DB_USER, DB_PASS);
+			cn = connect();
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_USER);
 			pstmt.setString(1, name);
 			pstmt.setString(2, user);
@@ -44,6 +53,7 @@ public class UserDao {
 			return row > 0;
 		} catch(SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 	
 	}
