@@ -8,12 +8,12 @@ import context.RequestContext;
 
 public class CommandFactory {
 	@SuppressWarnings({ "deprecation", "finally" })
-	public static AbstractCommand getCommand(RequestContext rc) {
+	public static AbstractCommand getCommand(RequestContext rc, String rootPath) {
 		AbstractCommand command = null;
 		Properties prop = new Properties();
 		
 		try {
-			prop.load(new FileInputStream("C:\\comecomeshop\\src\\properties\\commands.properties"));
+			prop.load(new FileInputStream(rootPath + "WEB-INF\\properties\\commands.properties"));
 			String name = prop.getProperty(rc.getCommandPath());
 			System.out.println("こまふぁく" + name);
 			Class<?> c = Class.forName(name);

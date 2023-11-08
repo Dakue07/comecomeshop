@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +35,11 @@ public class FrontServlet extends HttpServlet {
 		
 		System.out.println(req.getParameter("name"));
 		
+		ServletContext context = getServletContext();
+		String rootPath = context.getRealPath("/");
+		
+		System.out.println(rootPath);
+		
 		//ApplicationControllerのインスタンスを取得
 		ApplicationController app = new WebApplicationController();
 		
@@ -42,7 +48,7 @@ public class FrontServlet extends HttpServlet {
 		
 		reqc.setParameterMap(req.getParameterMap());
 		//ResponseContextにhandleRequestメソッドの結果を格納
-		ResponseContext resc = app.handleRequest(reqc);
+		ResponseContext resc = app.handleRequest(reqc, rootPath);
 		System.out.println("もどってきちゃお");
 		
 		//結果をResponseContextにセットする

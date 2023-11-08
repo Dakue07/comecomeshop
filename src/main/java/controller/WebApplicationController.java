@@ -25,9 +25,9 @@ public class WebApplicationController implements ApplicationController {
 	}
 	
 	//渡されたRequestContextから
-	public ResponseContext handleRequest(RequestContext reqc) {
+	public ResponseContext handleRequest(RequestContext reqc, String rootPath) {
 		
-		AbstractCommand command = CommandFactory.getCommand(reqc);
+		AbstractCommand command = CommandFactory.getCommand(reqc, rootPath);
 		System.out.println("あぷこん" + command);
 		command.init(reqc);
 		
