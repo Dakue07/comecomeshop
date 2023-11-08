@@ -11,9 +11,9 @@ public class MySQLConnector extends MySQLAccessor {
 		Connection cn = null;
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			cn = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/orcl?characterEncoding=UTF-8&serverTimezone=JST",user,pass);
 			
-			cn = DriverManager.getConnection("jdbc:mysql://localhost/orcl?user=" + user + "&password=" + pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
