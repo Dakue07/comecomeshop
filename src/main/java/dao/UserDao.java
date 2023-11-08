@@ -43,12 +43,12 @@ public class UserDao {
 		return dto;
 	}
 	
-	public boolean createUser(String name, String user) {
+	public boolean createUser(String name, String pass) {
 		try {
 			cn = connect();
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_USER);
 			pstmt.setString(1, name);
-			pstmt.setString(2, user);
+			pstmt.setString(2, pass);
 			int row = pstmt.executeUpdate();
 			return row > 0;
 		} catch(SQLException e) {
