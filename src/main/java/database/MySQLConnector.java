@@ -10,6 +10,9 @@ public class MySQLConnector extends MySQLAccessor {
 	public Connection getConnection(String user, String pass) {
 		Connection cn = null;
 		try {
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			
 			cn = DriverManager.getConnection("jdbc:mysql://localhost/orcl?user=" + user + "&password=" + pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
