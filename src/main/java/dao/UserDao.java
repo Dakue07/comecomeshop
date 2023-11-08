@@ -21,7 +21,7 @@ public class UserDao {
 	ResultSet rs = null;
 	
 	public Connection connect() {
-		cn = ma.getConnection(cn, DB_USER, DB_PASS); //引数合ってる分からん 
+		cn = ma.getConnection(DB_USER, DB_PASS); //引数合ってる分からん 
 		return cn;
 	}
 	
