@@ -12,22 +12,25 @@ public class MySQLOperator {
 	private static ResultSet rs = null;
 	private static int choose = 0;
 	
-	public static Connection getConnection(String user, String pass) {
-		return cn = MySQLConnector.getConnection(user, pass);
+	MySQLOperator ma = new MySQLOperator();
+
+	
+	public Connection getConnection(String user, String pass) {
+		return cn = ma.getConnection(user, pass);
 	}
 	
-	public static void close(Connection cn, PreparedStatement _st) {
+	public void close(Connection cn, PreparedStatement _st) {
 		st = _st;
 		choose++;
-		close(cn);
+		ma.close(cn);
 	}
-	public static void close(Connection cn, PreparedStatement _st, ResultSet _rs) {
+	public void close(Connection cn, PreparedStatement _st, ResultSet _rs) {
 		st = _st;
 		rs = _rs;
 		choose += 2;
-		close(cn);
+		ma.close(cn);
 	}
-	public static void close(Connection cn) {
+	public void close(Connection cn) {
 		switch (choose) {
 			case 0:
 				MySQLCloser.close(cn);
