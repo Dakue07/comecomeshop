@@ -15,6 +15,8 @@ public class WebApplicationController implements ApplicationController {
 	
 	//HttpServletRequestをRequestContextにセットしてリターンするメソッド
 	public RequestContext getRequest(Object request) {
+		
+		
 		RequestContext reqc = new WebRequestContext();
 		
 		reqc.setRequest(request);
@@ -23,10 +25,12 @@ public class WebApplicationController implements ApplicationController {
 	}
 	
 	//渡されたRequestContextから
-	public ResponseContext handleRequest(RequestContext req) {
-		AbstractCommand command = CommandFactory.getCommand(req);
+	public ResponseContext handleRequest(RequestContext reqc) {
+		
+		AbstractCommand command = CommandFactory.getCommand(reqc);
 		System.out.println("あぷこん" + command);
-		command.init(req);
+		command.init(reqc);
+		
 		
 		ResponseContext resc = command.execute(new WebResponseContext());
 		return resc;

@@ -19,7 +19,8 @@ public class WebRequestContext implements RequestContext {
 	public String getCommandPath() {
 		String path = request.getRequestURI();
 		System.out.println("ウェブリクエストコンテキスト" + path);
-		String target = "test";
+		String target = path.replace("come", "").replace("shop", "").replace("/","");
+		System.out.println(target);
 		return target;
 	}
 	

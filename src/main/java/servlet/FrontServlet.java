@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,11 +25,14 @@ public class FrontServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		//Map<String, String[]> map = req.getParameterMap();
+		
+		Map<String, String[]> map = req.getParameterMap();
 
 		req.setCharacterEncoding("UTF-8");
 
 		System.out.println("ie-i");
+		
+		System.out.println(req.getParameter("name"));
 		
 		//ApplicationControllerのインスタンスを取得
 		ApplicationController app = new WebApplicationController();
@@ -36,6 +40,7 @@ public class FrontServlet extends HttpServlet {
 		//RequestContextの実装クラスのインスタンスを取得
 		RequestContext reqc = app.getRequest(req);
 		
+		reqc.setParameterMap(req.getParameterMap());
 		//ResponseContextにhandleRequestメソッドの結果を格納
 		ResponseContext resc = app.handleRequest(reqc);
 		System.out.println("もどってきちゃお");

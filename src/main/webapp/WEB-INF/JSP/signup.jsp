@@ -9,7 +9,7 @@
     <title>ログイン画面</title>
 </head>
 <body>
-    <form action="Servlet名" method="post">
+    <form action="come/userinsert" method="post">
         <dl>
             <dt>ユーザー名</dt>
             <dd><input type="text" name="name" autocomplete="off" placeholder="新規ユーザー名"></dd>
@@ -23,7 +23,7 @@
             </dd>
         </dl>
 
-        <button type="button" onclick="location.href='signin.html'">新規登録</button>
+        <button type="submit">新規登録</button>
     </form>
 
     <script src="../JS/login.js"></script>
