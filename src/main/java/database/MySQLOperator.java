@@ -15,8 +15,8 @@ public class MySQLOperator {
 	MySQLConnector ma = new MySQLConnector();
 
 	
-	public Connection getConnection(String user, String pass) {
-		return cn = ma.getConnection(user, pass);
+	public Connection getConnection() {
+		return cn = ma.getConnection();
 	}
 	
 	public void close(Connection cn, PreparedStatement _st) {
@@ -45,7 +45,7 @@ public class MySQLOperator {
 	}
 	
 	public Statement getStatement(String user, String pass) {
-    	Connection cn = getConnection(user, pass);
+    	Connection cn = getConnection();
     	Statement st = null;
     	
     	try {

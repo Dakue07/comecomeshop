@@ -9,8 +9,8 @@ import database.MySQLOperator;
 import dto.UserDto;
 
 public class UserDao {
-	private static final String INSERT_USER = "INSERT INTO usertable (name, password) VALUES (?, ?)";
-	private static final String SELECT_USER_PASS = "SELECT name, password FROM usertable WHERE name = ?";
+	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass) VALUES (?, ?)";
+	private static final String SELECT_USER_PASS = "SELECT user_name, user_pass FROM usertable WHERE name = ?";
 	private static final String DB_USER = "come";
 	private static final String DB_PASS = "come";
 	
@@ -21,7 +21,7 @@ public class UserDao {
 	ResultSet rs = null;
 	
 	public Connection connect() {
-		cn = ma.getConnection(DB_USER, DB_PASS); //引数合ってる分からん 
+		cn = ma.getConnection(); //引数合ってる分からん 
 		return cn;
 	}
 	
@@ -50,7 +50,6 @@ public class UserDao {
 			pstmt.setString(1, name);
 			pstmt.setString(2, pass);
 			int row = pstmt.executeUpdate();
-			cn.commit();
 			return row > 0;
 		} catch(SQLException e) {
 			e.printStackTrace();
