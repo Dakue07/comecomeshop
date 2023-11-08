@@ -3,6 +3,8 @@ package database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class MySQLOperator {
 	private static Connection cn = null;
@@ -38,4 +40,17 @@ public class MySQLOperator {
 				break;
 		}
 	}
+	
+	public Statement getStatement(String user, String pass) {
+    	Connection cn = getConnection(user, pass);
+    	Statement st = null;
+    	
+    	try {
+    		st = cn.createStatement();
+    	} catch(SQLException e) {
+            e.printStackTrace();
+        }
+    	
+    	return st;
+    }
 }
