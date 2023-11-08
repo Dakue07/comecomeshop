@@ -1,11 +1,11 @@
 package dto;
 
-public class UsertableDto {
+public class UserTableDto {
 	private int userId; //これ間違えてるかも
 	private String user;
 	private String pass;
 	
-	public UsertableDto(String user, String pass) {
+	public UserTableDto(String user, String pass) {
 		setUser(user);
 		setPass(pass);
 	}
