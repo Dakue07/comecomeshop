@@ -50,6 +50,7 @@ public class UserDao {
 			pstmt.setString(1, name);
 			pstmt.setString(2, pass);
 			int row = pstmt.executeUpdate();
+			cn.commit();
 			return row > 0;
 		} catch(SQLException e) {
 			e.printStackTrace();
