@@ -7,10 +7,10 @@ import java.sql.SQLException;
 // MySQLに接続するためのクラス
 
 public class MySQLConnector extends MySQLAccessor {
-	public static Connection getConnection(String sqlinstance, String user, String pass) {
+	public static Connection getConnection(String user, String pass) {
 		Connection cn = null;
 		try {
-			cn = DriverManager.getConnection("jdbc:mysql://" + sqlinstance + "/db1?user=" + user + "&password=" + pass);
+			cn = DriverManager.getConnection("jdbc:mysql://localhost/db1?user=" + user + "&password=" + pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

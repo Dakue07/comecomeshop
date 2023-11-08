@@ -1,4 +1,9 @@
-#データベースの選択
+# autocommitの切断
+
+BEGIN;
+
+
+# データベースの選択
 
 CONNECT orcl
 
@@ -19,6 +24,12 @@ DROP TABLE IF EXISTS UserTable;
 quit
 mysql -u root -p
 comecomeshoppass
+
+
+# autocommit切断
+
+BEGIN;
+
 
 # comeユーザーの削除
 
