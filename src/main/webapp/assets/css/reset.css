@@ -143,11 +143,7 @@ a {
   color: inherit;
 }
 
-img {
-  width: 100%;
-  height: auto;
-  vertical-align: bottom;
-}
+
 
 svg {
   display: block;
