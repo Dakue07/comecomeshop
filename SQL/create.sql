@@ -1,3 +1,8 @@
+# autocommit切断
+
+BEGIN;
+
+
 # ユーザーの作成 ユーザー名→ホスト名とパスワードをそれぞれ'で囲み指定
 
 CREATE USER come IDENTIFIED BY 'come';
@@ -13,6 +18,11 @@ GRANT ALL PRIVILEGES ON * . * TO come;
 quit
 mysql -u come -p
 come
+
+
+# autocommit切断
+
+BEGIN;
 
 
 # カレントデータベースを指定

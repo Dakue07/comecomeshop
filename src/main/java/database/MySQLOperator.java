@@ -10,8 +10,8 @@ public class MySQLOperator {
 	private static ResultSet rs = null;
 	private static int choose = 0;
 	
-	public Connection getConnection(String orainstance, String user, String pass) {
-		return cn = MySQLConnector.getConnection(orainstance, user, pass);
+	public Connection getConnection(String user, String pass) {
+		return cn = MySQLConnector.getConnection(user, pass);
 	}
 	
 	public void close(Connection cn, PreparedStatement _st) {
