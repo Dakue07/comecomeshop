@@ -12,7 +12,7 @@ public class MySQLOperator {
 	private static ResultSet rs = null;
 	private static int choose = 0;
 	
-	MySQLOperator ma = new MySQLOperator();
+	MySQLConnector ma = new MySQLConnector();
 
 	
 	public Connection getConnection(String user, String pass) {
@@ -22,13 +22,13 @@ public class MySQLOperator {
 	public void close(Connection cn, PreparedStatement _st) {
 		st = _st;
 		choose++;
-		ma.close(cn);
+		close(cn);
 	}
 	public void close(Connection cn, PreparedStatement _st, ResultSet _rs) {
 		st = _st;
 		rs = _rs;
 		choose += 2;
-		ma.close(cn);
+		close(cn);
 	}
 	public void close(Connection cn) {
 		switch (choose) {
