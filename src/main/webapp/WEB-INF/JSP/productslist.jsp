@@ -10,7 +10,7 @@
 </head>
  <body>
     <!-- header -->
-    <%@include file="../../assets/template/header.jsp" %>
+    <%@include file="../../assets/template/header2.jsp" %>
     
     <!-- 中身 -->
     
