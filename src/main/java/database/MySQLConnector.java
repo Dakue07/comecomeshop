@@ -7,7 +7,7 @@ import java.sql.SQLException;
 // MySQLに接続するためのクラス
 
 public class MySQLConnector extends MySQLAccessor {
-	public static Connection getConnection(String user, String pass) {
+	public Connection getConnection(String user, String pass) {
 		Connection cn = null;
 		try {
 			cn = DriverManager.getConnection("jdbc:mysql://localhost/orcl?user=" + user + "&password=" + pass);
