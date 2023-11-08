@@ -12,9 +12,9 @@
 	<body>
 <!-- header -->
 		<header>
-			<h1>
-				<a href="/">comecomeshop</a>
-			</h1>
+			
+			<% String imagePath = "/comecomeshop/images/logo.png"; %>
+    		<img src="<%= imagePath %>" alt="comecomeshop" width="150" height="80">
 			<nav class="pc-nav">
 				<ul>
 					<li><a href="#">マイページ</a></li>
