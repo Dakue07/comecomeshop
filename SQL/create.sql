@@ -36,8 +36,8 @@ CONNECT orcl
 
 CREATE TABLE IF NOT EXISTS UserTable
 (user_id int PRIMARY KEY AUTO_INCREMENT,
- user_name varchar(40) NOT NULL,
- user_pass varchar(40) NOT NULL,
+ user_name varchar(128) NOT NULL,
+ user_pass varchar(128) NOT NULL,
  CONSTRAINT uq_user_name UNIQUE(user_name)
 );
 
