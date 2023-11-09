@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -26,8 +25,6 @@ public class FrontServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
-		Map<String, String[]> map = req.getParameterMap();
 
 		req.setCharacterEncoding("UTF-8");
 
@@ -38,7 +35,6 @@ public class FrontServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		String rootPath = context.getRealPath("/");
 		
-		System.out.println(rootPath);
 		
 		//ApplicationControllerのインスタンスを取得
 		ApplicationController app = new WebApplicationController();

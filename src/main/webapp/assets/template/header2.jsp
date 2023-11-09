@@ -19,7 +19,7 @@
 				<ul>
 					<li><a href="#">マイページ</a></li>
 					<li><a href="#">カート</a></li>
-					<li><a href="#">新規登録</a></li>
+					<li><a href="<%=request.getContextPath() %>/signup">新規登録</a></li>
 					<li><a href="#">ログイン</a></li>	
 				</ul>
 			</nav>

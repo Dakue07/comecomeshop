@@ -12,11 +12,11 @@ public class UserInsertCommand extends AbstractCommand {
 		
 		RequestContext reqc = getRequestContext();
 		
-		System.out.println(reqc.getParameter("name")[0]);
-		System.out.println(reqc.getParameter("pass")[0]);
+		System.out.println("さいんあっぷこま" + reqc.getParameter("user_name")[0]);
+		System.out.println("さいんあっぷこま" + reqc.getParameter("user_pass")[0]);
 		
-		String user = reqc.getParameter("name")[0];
-		String pass = reqc.getParameter("pass")[0];
+		String user = reqc.getParameter("user_name")[0];
+		String pass = reqc.getParameter("user_pass")[0];
 		
 		String hashed = Encryption.hash(pass);
 		
