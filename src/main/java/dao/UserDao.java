@@ -10,7 +10,7 @@ import dto.UserDto;
 
 public class UserDao {
 	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass) VALUES (?, ?)";
-	private static final String SELECT_USER_PASS = "SELECT user_name, user_pass FROM usertable WHERE name = ?";
+	private static final String SELECT_USER_PASS = "SELECT user_name, user_pass FROM usertable WHERE user_name = ?";
 	private static final String DB_USER = "come";
 	private static final String DB_PASS = "come";
 	
@@ -26,13 +26,14 @@ public class UserDao {
 	}
 	
 	public UserDto findRecord(String user) {
+		
 		UserDto dto = null;
 		try {
 			cn = connect(); 
 			pstmt = cn.prepareStatement(SELECT_USER_PASS);
 			pstmt.setString(1, user);
 			rs = pstmt.executeQuery();
-			if(rs != null) {
+			if(rs != null && rs.next()) {
 				dto = new UserDto(rs.getString(1), rs.getString(2));
 			} else {
 				System.out.println("null");

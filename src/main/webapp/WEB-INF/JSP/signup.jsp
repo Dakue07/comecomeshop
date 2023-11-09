@@ -12,13 +12,13 @@
     <form action="come/userinsert" method="post">
         <dl>
             <dt>ユーザー名</dt>
-            <dd><input type="text" name="name" autocomplete="off" placeholder="新規ユーザー名"></dd>
+            <dd><input type="text" name="user_name" autocomplete="off" placeholder="新規ユーザー名"></dd>
         </dl>
 
         <dl>
             <dt>パスワード</dt>
             <dd>
-                <input type="password" name="pass" id="passwordInput" autocomplete="off" placeholder="新規パスワード">
+                <input type="password" name="user_pass" id="passwordInput" autocomplete="off" placeholder="新規パスワード">
                 <button id="showPasswordButton" type="button">表示</button>
             </dd>
         </dl>
