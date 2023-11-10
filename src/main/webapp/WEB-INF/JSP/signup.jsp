@@ -1,15 +1,14 @@
-﻿<%@ page language="java" pageEncoding="UTF-8"
+﻿<!-- いじるな -->
+<HTML><%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" %>
-
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link href="../CSS/style.css" rel="stylesheet" />
-    <title>ログイン画面</title>
-</head>
-<body>
-    <form action="come/userinsert" method="post">
+
+<%@include file="../../assets/template/header.jsp" %>
+
+
+<!-- ここから下に書いてね -->
+
+<form action="come/userinsert" method="post">
         <dl>
             <dt>ユーザー名</dt>
             <dd><input type="text" name="user_name" autocomplete="off" placeholder="新規ユーザー名"></dd>
@@ -27,5 +26,7 @@
     </form>
 
     <script src="../JS/login.js"></script>
-</body>
-</html>
+
+
+<!-- いじるな -->
+<%@include file="../../assets/template/footer.jsp" %>

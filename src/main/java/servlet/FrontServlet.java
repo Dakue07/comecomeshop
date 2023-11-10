@@ -46,6 +46,7 @@ public class FrontServlet extends HttpServlet {
 		//ResponseContextにhandleRequestメソッドの結果を格納
 		ResponseContext resc = app.handleRequest(reqc, rootPath);
 		System.out.println("もどってきちゃお");
+		System.out.println(resc.getResult());
 		
 		//結果をResponseContextにセットする
 		resc.setResponse(res);

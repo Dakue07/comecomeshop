@@ -1,20 +1,14 @@
-﻿<%@ page language="java" pageEncoding="UTF-8"
+﻿<!-- いじるな -->
+<HTML><%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8"> 
-    <link rel="stylesheet" type="text/css" href="../CSS/style.css"  />
-    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
-    <title>ログイン画面</title>
-</head>
-<body>
-	<!-- header -->
-    <%@include file="../../assets/template/header.jsp" %>
-    
-    <form action="come/login" method="post">
+
+<%@include file="../../assets/template/header.jsp" %>
+
+
+<!-- ここから下に書いてね -->
+
+<form action="come/login" method="post">
         <dl>
             <dt>ユーザー名</dt>
             <dd><input type="text" name="user_name" autocomplete="off" placeholder="ユーザー名" required="required"></dd>
@@ -31,10 +25,10 @@
         <button type="submit">ログイン</button>
         <button type="button" onclick="signup">新規登録はこちら</button>
     </form>
-    
-    <!-- footer -->
-    <%@include file="../../assets/template/footer.jsp" %>
 
-    <script src="../JS/login.js"></script>
-</body>
-</html>
+
+<!-- いじるな -->
+<%@include file="../../assets/template/footer.jsp" %>
+
+
+
