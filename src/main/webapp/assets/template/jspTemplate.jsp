@@ -8,9 +8,8 @@
 
 <!-- ここから下に書いてね -->
 
- ${data.user_name}
+
 
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
-
