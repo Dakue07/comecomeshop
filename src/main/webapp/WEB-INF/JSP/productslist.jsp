@@ -14,6 +14,8 @@
     
     <!-- 中身 -->
     
+    ${data.user_name}
+    
     <!-- footer -->
     <%@include file="../../assets/template/footer.jsp" %>
 </body>
