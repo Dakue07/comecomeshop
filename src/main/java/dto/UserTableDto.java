@@ -1,36 +1,41 @@
 package dto;
 
 public class UserTableDto {
-	private int userId; //これ間違えてるかも
-	private String user;
-	private String pass;
+	private int user_id; //これ間違えてるかも
+	private String user_name;
+	private String user_pass;
+	private String user_mail;
 	
-	public UserTableDto(String user, String pass) {
-		setUser(user);
-		setPass(pass);
+	public UserTableDto(String user_name, String user_pass) {
+		setUser_name(user_name);
+		setUser_pass(user_pass);
 	}
-
 	
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
-
-
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-
-
-	public String getUser() {
-		return user;
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
-	public String getPass() {
-		return pass;
+	public String getUser_pass() {
+		return user_pass;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setUser_pass(String user_pass) {
+		this.user_pass = user_pass;
 	}
+	public String getUser_mail() {
+		return user_mail;
+	}
+	public void setUser_mail(String user_mail) {
+		this.user_mail = user_mail;
+	}
+	
+	
+	
 }
