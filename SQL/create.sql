@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS RiceTable
  rice_since timestamp NOT NULL,
  rice_stock int NOT NULL,
  rice_price int NOT NULL,
+ rice_flag boolean,
  CONSTRAINT uq_rice_name UNIQUE(rice_name),
  CONSTRAINT ck_rice_stock CHECK(rice_stock >= 0)
 );
