@@ -8,7 +8,7 @@
 
 <!-- ここから下に書いてね -->
 
- あいうえお
+<%@include file="../../assets/template/slideshow.jsp" %>
 
 
 <!-- いじるな -->
