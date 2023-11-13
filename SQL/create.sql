@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS UserTable
 (user_id int PRIMARY KEY AUTO_INCREMENT,
  user_name varchar(128) NOT NULL,
  user_pass varchar(128) NOT NULL,
- user_mail varchar(128) NOT NULL,
+ user_Email varchar(128) NOT NULL,
  CONSTRAINT uq_user_name UNIQUE(user_name)
 );
 
@@ -47,15 +47,15 @@ CREATE TABLE IF NOT EXISTS UserTable
 
 CREATE TABLE IF NOT EXISTS RiceTable
 (rice_id int PRIMARY KEY AUTO_INCREMENT,
- rice_name varchar(500) NOT NULL,
- rice_genre varchar(500) NOT NULL,
+ rice_name varchar(128) NOT NULL,
+ rice_genre varchar(128) NOT NULL,
  rice_weight int NOT NULL,
- rice_made varchar(500) NOT NULL,
+ rice_made varchar(128) NOT NULL,
  rice_image_path varchar(128), 
  rice_since timestamp NOT NULL,
  rice_stock int NOT NULL,
  rice_price int NOT NULL,
- rice_flag boolean,
+ rice_flag boolean DEFAULT false,
  CONSTRAINT uq_rice_name UNIQUE(rice_name),
  CONSTRAINT ck_rice_stock CHECK(rice_stock >= 0)
 );
@@ -63,19 +63,19 @@ CREATE TABLE IF NOT EXISTS RiceTable
 CREATE TABLE UserAddressTable
 (user_id int,
  useraddress_postcode int NOT NULL,
- useraddress_state_city varchar(1000) NOT NULL,
- useraddress_street varchar(200) NOT NULL,
+ useraddress_state_city varchar(100) NOT NULL,
+ useraddress_street varchar(100) NOT NULL,
  FOREIGN KEY fk_useraddress_userid (user_id) REFERENCES UserTable(user_id)
 );
 
 CREATE TABLE CardTable
 (user_id int,
  card_holdername varchar(30) NOT NULL,
- card_number int NOT NULL,
+ card_number bigint NOT NULL,
  card_validity int NOT NULL,
  card_securitycord int NOT NULL,
  FOREIGN KEY fk_card_userid (user_id) REFERENCES UserTable(user_id),
- CONSTRAINT uq_card_card UNIQUE(userinfo_card)
+ CONSTRAINT uq_card_number UNIQUE(card_number)
 );
 
 
