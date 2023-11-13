@@ -36,8 +36,8 @@ CONNECT orcl
 
 CREATE TABLE IF NOT EXISTS UserTable
 (user_id int PRIMARY KEY AUTO_INCREMENT,
- user_name varchar(40) NOT NULL,
- user_pass varchar(40) NOT NULL,
+ user_name varchar(128) NOT NULL,
+ user_pass varchar(128) NOT NULL,
  CONSTRAINT uq_user_name UNIQUE(user_name)
 );
 
@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS RiceTable
  rice_since timestamp NOT NULL,
  rice_stock int NOT NULL,
  rice_price int NOT NULL,
+ rice_flag boolean,
  CONSTRAINT uq_rice_name UNIQUE(rice_name),
  CONSTRAINT ck_rice_stock CHECK(rice_stock >= 0)
 );
