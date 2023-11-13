@@ -1,6 +1,6 @@
 package dto;
 
-public class UserDto {
+public class UserDto {//このクラスいらない？
 	private String user;
 	private String pass;
 	
