@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <!-- いじるな -->
-<%@include file="../../assets/template/header.jsp" %>
+<%@include file="../../assets/template/header2.jsp" %>
 
 <!-- ここから下に書いてね -->
 
