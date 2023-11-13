@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import database.MySQLOperator;
-import dto.UserDto;
+import dto.UserTableDto;
 
 public class UserDao {
-	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass) VALUES (?, ?)";
+	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass, user_mail) VALUES (?, ?, ?)";
 	private static final String SELECT_USER_PASS = "SELECT user_name, user_pass FROM usertable WHERE user_name = ?";
 	private static final String DB_USER = "come";
 	private static final String DB_PASS = "come";
@@ -25,16 +25,16 @@ public class UserDao {
 		return cn;
 	}
 	
-	public UserDto findRecord(String user) {
+	public UserTableDto findRecord(String user) {
 		
-		UserDto dto = null;
+		UserTableDto dto = null;
 		try {
 			cn = connect(); 
 			pstmt = cn.prepareStatement(SELECT_USER_PASS);
 			pstmt.setString(1, user);
 			rs = pstmt.executeQuery();
 			if(rs != null && rs.next()) {
-				dto = new UserDto(rs.getString(1), rs.getString(2));
+				dto = new UserTableDto(rs.getString(1), rs.getString(2));
 			} else {
 				System.out.println("null");
 			}
@@ -44,12 +44,13 @@ public class UserDao {
 		return dto;
 	}
 	
-	public boolean createUser(String name, String pass) {
+	public boolean createUser(String name, String pass, String mail) {
 		try {
 			cn = connect();
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_USER);
 			pstmt.setString(1, name);
 			pstmt.setString(2, pass);
+			pstmt.setString(3, mail);
 			int row = pstmt.executeUpdate();
 			return row > 0;
 		} catch(SQLException e) {
