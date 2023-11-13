@@ -1,20 +1,20 @@
 package login;
 
 import dao.UserDao;
-import dto.UserDto;
+import dto.UserTableDto;
 
 public class LoginLogic {
 	public static boolean isLoggedIn(String user, String pass) {
 		boolean flag = false;
 		UserDao dao = new UserDao();
-		UserDto dto = dao.findRecord(user);
+		UserTableDto dto = dao.findRecord(user);
 		if (dto != null) {
 			
 			String hashedpass = null;
-			hashedpass = dto.getPass();
-			System.out.println("loginlogic :" + dto.getPass()); 
+			hashedpass = dto.getUser_pass();
+			System.out.println("loginlogic :" + dto.getUser_pass()); 
 			
-			if(dto != null && user.equals(dto.getUser()) && Encryption.check(pass, hashedpass)) {
+			if(dto != null && user.equals(dto.getUser_name()) && Encryption.check(pass, hashedpass)) {
 				flag = true;
 			}	
 		}

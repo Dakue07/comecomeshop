@@ -25,5 +25,4 @@
       			</ul>
     		</nav>
 		</header>
-	</body>
-</html>
+<!-- ここまで -->
