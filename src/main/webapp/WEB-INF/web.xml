@@ -48,7 +48,7 @@
   	<url-pattern>/signup</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+   <servlet>
   	<servlet-name>testpage</servlet-name>
   	<jsp-file>/WEB-INF/JSP/test.jsp</jsp-file>
   </servlet>
@@ -57,6 +57,14 @@
   	<url-pattern>/testpage</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>yuubinn</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/yuubinn.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>yuubinn</servlet-name>
+  	<url-pattern>/yuubinn</url-pattern>
+  </servlet-mapping>
   
   <servlet>
 		<servlet-name>front</servlet-name>
