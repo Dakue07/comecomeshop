@@ -7,13 +7,9 @@
 
 
 <!-- ここから下に書いてね -->
-<<<<<<< HEAD
 
-=======
 あいうえお
 <%@include file="../../assets/template/slideshow.jsp" %>
->>>>>>> origin/komatsu_3addslideshow
-
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
