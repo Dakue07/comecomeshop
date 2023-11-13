@@ -9,7 +9,8 @@
 <!-- ここから下に書いてね -->
 
  ${data.user_name}
-
+<!-- スライドショーを表示 入れるかどうかは任意 --> 
+<%@include file="../../assets/template/slideshow.jsp" %>
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
