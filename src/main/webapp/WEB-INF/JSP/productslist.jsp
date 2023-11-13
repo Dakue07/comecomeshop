@@ -3,7 +3,7 @@
     contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 
-<%@include file="../../assets/template/header2.jsp" %>
+<%@include file="../../assets/template/header.jsp" %>
 
 
 <!-- ここから下に書いてね -->
