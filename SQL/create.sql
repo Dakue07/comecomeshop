@@ -34,7 +34,7 @@ CONNECT orcl
 # usertable以降はoracleと大して違いはない。
 # SEQUENCEがないため自動で増えるようにAUTO_INCREMENTを付与
 
-CREATE TABLE IF NOT EXISTS UserTable
+CREATE TABLE IF NOT EXISTS USERTABLE
 (user_id int PRIMARY KEY AUTO_INCREMENT,
  user_name varchar(128) NOT NULL,
  user_pass varchar(128) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS UserTable
 
 # 以下同様にテーブルの作成をしていく
 
-CREATE TABLE IF NOT EXISTS RiceTable
+CREATE TABLE IF NOT EXISTS RICETABLE
 (rice_id int PRIMARY KEY AUTO_INCREMENT,
  rice_name varchar(128) NOT NULL,
  rice_genre varchar(128) NOT NULL,
@@ -60,40 +60,52 @@ CREATE TABLE IF NOT EXISTS RiceTable
  CONSTRAINT ck_rice_stock CHECK(rice_stock >= 0)
 );
 
-CREATE TABLE UserAddressTable
+CREATE TABLE USERADDRESSTABLE
 (user_id int,
- useraddress_postcode int NOT NULL,
+ useraddress_postcode char(8) NOT NULL,
  useraddress_state_city varchar(100) NOT NULL,
  useraddress_street varchar(100) NOT NULL,
- FOREIGN KEY fk_useraddress_userid (user_id) REFERENCES UserTable(user_id)
+ FOREIGN KEY fk_useraddress_userid (user_id) REFERENCES USERTABLE(user_id)
 );
 
-CREATE TABLE CardTable
+CREATE TABLE CARDTABLE
 (user_id int,
  card_holdername varchar(30) NOT NULL,
- card_number bigint NOT NULL,
- card_validity int NOT NULL,
- card_securitycord int NOT NULL,
- FOREIGN KEY fk_card_userid (user_id) REFERENCES UserTable(user_id),
+ card_number char(16) NOT NULL,
+ card_validity date NOT NULL,
+ card_securitycode char(3) NOT NULL,
+ FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id),
  CONSTRAINT uq_card_number UNIQUE(card_number)
 );
 
 
-CREATE TABLE CartTable
+CREATE TABLE CARTTABLE
 (user_id int,
  rice_id int,
  cart_quantity int NOT NULL,
- FOREIGN KEY fk_cart_userid (user_id) REFERENCES UserTable(user_id),
- FOREIGN KEY fk_cart_riceid (rice_id) REFERENCES RiceTable(rice_id)
+ FOREIGN KEY fk_cart_userid (user_id) REFERENCES USERTABLE(user_id),
+ FOREIGN KEY fk_cart_riceid (rice_id) REFERENCES RICETABLE(rice_id)
 );
 
-CREATE TABLE OrderedTable
+CREATE TABLE ORDERTABLE
 (user_id int,
  rice_id int,
- ordered_amount int NOT NULL,
- ordered_time timestamp DEFAULT CURRENT_TIMESTAMP,
- FOREIGN KEY fk_ordered_userid (user_id) REFERENCES UserTable(user_id),
- FOREIGN KEY fk_ordered_riceid (rice_id) REFERENCES RiceTable(rice_id)
+ order_amount int NOT NULL,
+ order_time timestamp DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id),
+ FOREIGN KEY fk_order_riceid (rice_id) REFERENCES RICETABLE(rice_id)
+);
+
+CREATE TABLE ORDERDETAILSTABLE
+(order_id int,
+ rice_id int,
+ order_quantity NOT NULL,
+ order_amount int NOT NULL,
+ rice_name varchar(128) NOT NULL,
+ rice_image_path varchar(128), 
+ rice_price int NOT NULL,
+ FOREIGN KEY fk_orderdetails_orderid (order_id) REFERENCES ORDERTABLE(order_id),
+ FOREIGN KEY fk_orderdetails_riceid (rice_id) REFERENCES RICETABLE(rice_id)
 );
 
 CREATE TABLE ReviewTable
@@ -101,8 +113,8 @@ CREATE TABLE ReviewTable
  rice_id int,
  review_comment varchar(600),
  review_star int NOT NULL,
- FOREIGN KEY fk_review_userid (user_id) REFERENCES UserTable(user_id),
- FOREIGN KEY fk_review_riceid (rice_id) REFERENCES RiceTable(rice_id),
+ FOREIGN KEY fk_review_userid (user_id) REFERENCES USERTABLE(user_id),
+ FOREIGN KEY fk_review_riceid (rice_id) REFERENCES RICETABLE(rice_id),
  CONSTRAINT ck_high_review_star CHECK(review_star <= 5),
  CONSTRAINT ck_low_review_star CHECK(review_star >= 1)
 );
