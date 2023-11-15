@@ -8,6 +8,13 @@
 
 <!-- ここから下に書いてね -->
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<c:forEach var="data" items="${data}">
+	{data.rice_name}
+</c:forEach>
+
 あいうえお
 <%@include file="../../assets/template/slideshow.jsp" %>
 
