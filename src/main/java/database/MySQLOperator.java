@@ -44,7 +44,7 @@ public class MySQLOperator {
 		}
 	}
 	
-	public Statement getStatement(String user, String pass) {
+	public Statement getStatement() {
     	Connection cn = getConnection();
     	Statement st = null;
     	

@@ -4,7 +4,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.RiceTableDao;
 
-public class ProductListCommand extends AbstractCommand {
+public class ProductsListCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;

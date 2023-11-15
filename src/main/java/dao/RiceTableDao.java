@@ -11,7 +11,7 @@ import database.MySQLOperator;
 import dto.RiceTableDto;
 public class RiceTableDao {
     //private static final String SELECT_RICE_ALL = "SELECT * FROM RiceTable";
-    private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name LIKE '%?%', rice_flag = true ORDER BY ?" ;
+    private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name LIKE ? AND rice_flag = true ORDER BY rice_id DESC" ;
 //    private static final String DB_USER = "come";
 //    private static final String DB_PASS = "come";
         
@@ -21,6 +21,7 @@ public class RiceTableDao {
     Statement st = null;
     PreparedStatement prstm = null;
     ResultSet rs = null;
+    
     
 //    public ArrayList<RiceTableDto> SelectAllRice() {
 //        ArrayList<RiceTableDto> result = new ArrayList<>();
@@ -65,22 +66,25 @@ public class RiceTableDao {
 //        
 //    }
 //    
-    public RiceTableDto SelectRice(String name, String sort) { //使うのかわからない
+    public RiceTableDto SelectRice(String rice_name, String sortColmnName) { //使うのかわからない
     	ArrayList<RiceTableDto> result = new ArrayList<>();
         RiceTableDto ricedto = null;
-        if (name == null) {
-        	name = "*";
+        if (rice_name == null) {
+        	rice_name = "たけだ";
         }
-        if (sort == null) {
-        	sort = "desc";
+        if (sortColmnName == null) {
+        	sortColmnName = "rice_id desc";
         }
         try {
             cn = ma.getConnection();
             prstm = cn.prepareStatement(SELECT_RICE_NAME);
+
             prstm.setString(1, name);
             prstm.setString(2, sort);
             ResultSet rs = prstm.executeQuery();
             ResultSetMetaData rsMeta = rs.getMetaData();
+
+  
             int colCount = rsMeta.getColumnCount();
             while(rs.next()) {
             ricedto= new RiceTableDto();
