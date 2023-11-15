@@ -7,7 +7,7 @@
 
 <!-- ここから下に書いてね -->
 
-<form action="come/test" method="get">
+<form action="come/productlist" method="get">
 	<input type="text" name="tesuto">
 	<input type="submit" value="go">
 </form>

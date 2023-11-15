@@ -11,7 +11,7 @@ import database.MySQLOperator;
 import dto.RiceTableDto;
 public class RiceTableDao {
     //private static final String SELECT_RICE_ALL = "SELECT * FROM RiceTable";
-    private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name = ?, rice_flag = true ORDER BY ?" ;
+    private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name LIKE '%?%', rice_flag = true ORDER BY ?" ;
 //    private static final String DB_USER = "come";
 //    private static final String DB_PASS = "come";
         
@@ -65,9 +65,15 @@ public class RiceTableDao {
 //        
 //    }
 //    
-    public RiceTableDto SelectRice_Sort(String name, String sort) { //使うのかわからない
+    public RiceTableDto SelectRice(String name, String sort) { //使うのかわからない
     	ArrayList<RiceTableDto> result = new ArrayList<>();
         RiceTableDto ricedto = null;
+        if (name == null) {
+        	name = "*";
+        }
+        if (sort == null) {
+        	sort = "desc";
+        }
         try {
             cn = ma.getConnection();
             prstm = cn.prepareStatement(SELECT_RICE_NAME);
