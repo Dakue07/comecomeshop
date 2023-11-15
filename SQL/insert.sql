@@ -46,7 +46,7 @@ VALUES('ジャスミンライス', 'タイ米', 20, '新潟県上越市',
 
 INSERT INTO USERADDRESSTABLE (user_id, useraddress_receiver, useraddress_postcode,
 	useraddress_state_city, useraddress_street)
-VALUES(1, 'テス・ト', '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134');
+VALUES(1, '石内遼', '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134');
 
 INSERT INTO CARDTABLE (user_id, card_holdername, card_number,
 	card_validity, card_securitycode)
