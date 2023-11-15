@@ -15,7 +15,7 @@ public class ProductsListCommand extends AbstractCommand {
 		
 		resc.setResult(result);
 		
-		resc.setTarget("productlist");
+		resc.setTarget("productslist");
 		
 		return resc;
 	}
