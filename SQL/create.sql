@@ -1,8 +1,5 @@
 # autocommit切断
-
-BEGIN;
-
-
+SET AUTOCOMMIT = 0;
 # ユーザーの作成 ユーザー名→ホスト名とパスワードをそれぞれ'で囲み指定
 
 CREATE USER come IDENTIFIED BY 'come';
@@ -22,7 +19,7 @@ come
 
 # autocommit切断
 
-BEGIN;
+SET AUTOCOMMIT = 0;
 
 
 # カレントデータベースを指定
@@ -33,6 +30,7 @@ CONNECT orcl
 # ユーザーテーブルの作成 1行目はもし存在していなければ作成としてエラーの要因を排除
 # usertable以降はoracleと大して違いはない。
 # SEQUENCEがないため自動で増えるようにAUTO_INCREMENTを付与
+
 
 CREATE TABLE IF NOT EXISTS USERTABLE
 (user_id int PRIMARY KEY AUTO_INCREMENT,
@@ -56,12 +54,12 @@ CREATE TABLE IF NOT EXISTS RICETABLE
  rice_stock int NOT NULL,
  rice_price int NOT NULL,
  rice_flag boolean DEFAULT false,
- CONSTRAINT uq_rice_name UNIQUE(rice_name),
  CONSTRAINT ck_rice_stock CHECK(rice_stock >= 0)
 );
 
 CREATE TABLE USERADDRESSTABLE
 (user_id int,
+ useraddress_receiver varchar(100) NOT NULL,
  useraddress_postcode char(8) NOT NULL,
  useraddress_state_city varchar(100) NOT NULL,
  useraddress_street varchar(100) NOT NULL,
@@ -77,7 +75,6 @@ CREATE TABLE CARDTABLE
  FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id),
  CONSTRAINT uq_card_number UNIQUE(card_number)
 );
-
 
 CREATE TABLE CARTTABLE
 (user_id int,
@@ -109,7 +106,7 @@ CREATE TABLE ORDERDETAILSTABLE
  FOREIGN KEY fk_orderdetails_riceid (rice_id) REFERENCES RICETABLE(rice_id)
 );
 
-CREATE TABLE REVIWETABLE
+CREATE TABLE REVIEWTABLE
 (user_id int,
  rice_id int,
  review_comment varchar(600),

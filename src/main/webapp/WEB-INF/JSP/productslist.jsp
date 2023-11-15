@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
+
 <!--  <%@include file="../../assets/template/header2.jsp" %>-->
 
 
@@ -20,6 +21,6 @@
 
 <!--  <%@include file="../../assets/template/slideshow.jsp" %> -->
 
-<!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
 
+	<!-- いじるな -->
+	<%@include file="../../assets/template/footer.jsp" %>
