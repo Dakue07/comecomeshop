@@ -109,7 +109,7 @@ CREATE TABLE ORDERDETAILSTABLE
  FOREIGN KEY fk_orderdetails_riceid (rice_id) REFERENCES RICETABLE(rice_id)
 );
 
-CREATE TABLE ReviewTable
+CREATE TABLE REVIWETABLE
 (user_id int,
  rice_id int,
  review_comment varchar(600),
