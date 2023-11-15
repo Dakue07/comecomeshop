@@ -14,7 +14,7 @@ public class SerachCommand extends AbstractCommand {
 		
 		RiceTableDao rdao = new RiceTableDao();
 		
-		rdao.SelectRice_Sort(search_name, sort);
+		rdao.SelectRice(search_name, sort);
 		
 		resc.setTarget("productslist");
 		
