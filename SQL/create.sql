@@ -88,7 +88,8 @@ CREATE TABLE CARTTABLE
 );
 
 CREATE TABLE ORDERTABLE
-(user_id int,
+(order_id int PRIMARY KEY AUTO_INCREMENT,
+ user_id int,
  rice_id int,
  order_amount int NOT NULL,
  order_time timestamp DEFAULT CURRENT_TIMESTAMP,
