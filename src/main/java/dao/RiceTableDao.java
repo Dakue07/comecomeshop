@@ -66,11 +66,11 @@ public class RiceTableDao {
 //        
 //    }
 //    
-    public RiceTableDto SelectRice(String rice_name, String sortColmnName) { //使うのかわからない
-    	ArrayList<RiceTableDto> result = new ArrayList<>();
+    public ArrayList<RiceTableDto> SelectRice(String rice_name, String sortColmnName) { //使うのかわからない
+    	ArrayList<RiceTableDto> result = new ArrayList<RiceTableDto>();
         RiceTableDto ricedto = null;
         if (rice_name == null) {
-        	rice_name = "たけだ";
+        	rice_name = "";
         }
         if (sortColmnName == null) {
         	sortColmnName = "rice_id desc";
@@ -79,8 +79,7 @@ public class RiceTableDao {
             cn = ma.getConnection();
             prstm = cn.prepareStatement(SELECT_RICE_NAME);
 
-            prstm.setString(1, name);
-            prstm.setString(2, sort);
+            prstm.setString(1, "%" + rice_name + "%");
             ResultSet rs = prstm.executeQuery();
             ResultSetMetaData rsMeta = rs.getMetaData();
 
@@ -88,21 +87,17 @@ public class RiceTableDao {
             int colCount = rsMeta.getColumnCount();
             while(rs.next()) {
             ricedto= new RiceTableDto();
-              for(int i = 1; i < colCount; i ++) {
-                  ricedto.setRice_id(rs.getInt("rice_id"));
-                  ricedto.setRice_name(rs.getString("rice_name"));
-                  ricedto.setRice_genre(rs.getString("rice_genre"));
-                  ricedto.setRice_weight(rs.getInt("rice_weight"));
-                  ricedto.setRice_made(rs.getString("rice_made"));
-                  ricedto.setRice_image(rs.getString("rice_image"));
-                  ricedto.setRice_since(rs.getString("rice_since"));
-                  ricedto.setRice_stock(rs.getInt("rice_stock"));
-                  ricedto.setRice_price(rs.getInt("rice_price"));
-                  //result.add(ricedto);わかんねえ
-
-              }
+              ricedto.setRice_id(rs.getInt("rice_id"));
+              ricedto.setRice_name(rs.getString("rice_name"));
+              ricedto.setRice_genre(rs.getString("rice_genre"));
+              ricedto.setRice_weight(rs.getInt("rice_weight"));
+              ricedto.setRice_made(rs.getString("rice_made"));
+              ricedto.setRice_image_path(rs.getString("rice_image_path"));
+              ricedto.setRice_since(rs.getString("rice_since"));
+              ricedto.setRice_stock(rs.getInt("rice_stock"));
+              ricedto.setRice_price(rs.getInt("rice_price"));
               result.add(ricedto);
-          }
+            }
         } catch (SQLException e) {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();
@@ -115,6 +110,7 @@ public class RiceTableDao {
                 e.printStackTrace();
             }
         }
-        return ricedto;
+        System.out.println(result.size());
+        return result;
     }
 }

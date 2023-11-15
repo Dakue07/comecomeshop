@@ -6,7 +6,7 @@ public class RiceTableDto {
 	private String rice_genre;
 	private int rice_weight;
 	private String rice_made;
-	private String rice_image;
+	private String rice_image_path;
 	private String rice_since;
 	private int rice_stock;
 	private int rice_price;
@@ -40,11 +40,11 @@ public class RiceTableDto {
 	public void setRice_made(String rice_made) {
 		this.rice_made = rice_made;
 	}
-	public String getRice_image() {
-		return rice_image;
+	public String getRice_image_path() {
+		return rice_image_path;
 	}
-	public void setRice_image(String rice_image) {
-		this.rice_image = rice_image;
+	public void setRice_image_path(String rice_image_path) {
+		this.rice_image_path = rice_image_path;
 	}
 	public String getRice_since() {
 		return rice_since;
