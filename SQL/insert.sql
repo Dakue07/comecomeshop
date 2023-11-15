@@ -1,6 +1,6 @@
 # autocommit切断
 
-BEGIN;
+SET AUTOCOMMIT = 0;
 
 # カレントデータベースを指定
 
@@ -30,9 +30,9 @@ VALUES('おおまつにしき', 'もち米', 15, '神奈川県横須賀市',
 	'2023-11-01 00:00:00', 120, 22500);
 
 
-INSERT INTO USERADDRESSTABLE (user_id, useraddress_postcode,
+INSERT INTO USERADDRESSTABLE (user_id, useraddress_receiver, useraddress_postcode,
 	useraddress_state_city, useraddress_street)
-VALUES(1, '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134');
+VALUES(1, '石内遼',  '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134');
 
 INSERT INTO CARDTABLE (user_id, card_holdername, card_number,
 	card_validity, card_securitycode)
