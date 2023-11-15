@@ -99,7 +99,7 @@ CREATE TABLE ORDERTABLE
 CREATE TABLE ORDERDETAILSTABLE
 (order_id int,
  rice_id int,
- order_quantity NOT NULL,
+ order_quantity int NOT NULL,
  order_amount int NOT NULL,
  rice_name varchar(128) NOT NULL,
  rice_image_path varchar(128), 
