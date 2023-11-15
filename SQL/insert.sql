@@ -1,6 +1,6 @@
 # autocommit切断
 
-BEGIN;
+SET AUTOCOMMIT = 0;
 
 # カレントデータベースを指定
 

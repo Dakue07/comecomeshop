@@ -1,6 +1,6 @@
 # autocommitの切断
 
-BEGIN;
+SET AUTOCOMMIT = 0;
 
 
 # データベースの選択
@@ -30,7 +30,7 @@ comecomeshoppass
 
 # autocommit切断
 
-BEGIN;
+SET AUTOCOMMIT = 0;
 
 
 # comeユーザーの削除
