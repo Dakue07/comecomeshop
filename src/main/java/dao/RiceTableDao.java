@@ -78,9 +78,13 @@ public class RiceTableDao {
         try {
             cn = ma.getConnection();
             prstm = cn.prepareStatement(SELECT_RICE_NAME);
-            prstm.setString(1, "%" + rice_name + "%");
-            ResultSet rs = prstm.executeQuery(SELECT_RICE_NAME);
-            ResultSetMetaData rsMeta = (ResultSetMetaData) rs.getMetaData();
+
+            prstm.setString(1, name);
+            prstm.setString(2, sort);
+            ResultSet rs = prstm.executeQuery();
+            ResultSetMetaData rsMeta = rs.getMetaData();
+
+  
             int colCount = rsMeta.getColumnCount();
             while(rs.next()) {
             ricedto= new RiceTableDto();
