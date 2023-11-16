@@ -67,6 +67,71 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>cart</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/cart.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cart</servlet-name>
+  	<url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>contact</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/contact.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>contact</servlet-name>
+  	<url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>history</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/history.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>history</servlet-name>
+  	<url-pattern>/history</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>mypage</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/mypage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>mypage</servlet-name>
+  	<url-pattern>/mypage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>procedure</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/procedure.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>procedure</servlet-name>
+  	<url-pattern>/procedure</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>product</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/product.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>product</servlet-name>
+  	<url-pattern>/product</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>review</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/review.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>review</servlet-name>
+  	<url-pattern>/review</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
 		<servlet-name>front</servlet-name>
 		<servlet-class>servlet.FrontServlet</servlet-class>
 	</servlet>
@@ -74,6 +139,8 @@
 		<servlet-name>front</servlet-name>
 		<url-pattern>/come/*</url-pattern>
 	</servlet-mapping>
+	
+	
 	
   
 </web-app>

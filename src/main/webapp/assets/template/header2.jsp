@@ -56,8 +56,8 @@ a:hover:before {
 					</form>
 					<li class="nav-item"><a class="nav-link"
 						aria-current="page" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">マイページ</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">カート</a></li>
+					<li class="nav-item"><a class="nav-link" href="come/mypage">マイページ</a></li>
+					<li class="nav-item"><a class="nav-link" href="come/cart">カート</a></li>
 					<li class="nav-item">
 						<button class="btn btn-outline-success me-2" type="button">サインイン</button>
 					</li>
