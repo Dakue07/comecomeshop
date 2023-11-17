@@ -8,6 +8,8 @@ public interface RequestContext {
 	public void setParameterMap(Map<String, String[]> map);
 	public Object getRequest();
 	public void setRequest(Object request);
+	public void setSearchWord(String searchWord);
+	public String getSearchWord();
 	public void InvalidateSession();
 	
 } 
