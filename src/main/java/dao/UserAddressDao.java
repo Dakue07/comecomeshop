@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import database.MySQLOperator;
 
 public class UserAddressDao {
-	private static final String INSERT_ADDRESS = "INSERT INTO useraddresstable values(?, ?, ?, ?)";
+	private static final String INSERT_ADDRESS = "INSERT INTO useraddresstable(user_id, useraddress_postcode, useraddress_state_sity, useraddress_street) values(?, ?, ?, ?)";
 	
 	MySQLOperator ma = new MySQLOperator();
 	
