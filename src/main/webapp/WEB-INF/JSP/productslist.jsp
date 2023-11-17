@@ -10,7 +10,7 @@
 
 
 <!-- ここから下に書いてね -->
-
+商品一覧ページ
 
 
 <c:forEach var="data" items="${data}">
