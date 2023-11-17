@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 
 
-<!--  <%@include file="../../assets/template/header2.jsp" %>-->
+<%@include file="../../assets/template/header2.jsp" %>
 
 
 <!-- ここから下に書いてね -->

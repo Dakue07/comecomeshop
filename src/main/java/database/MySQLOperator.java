@@ -56,4 +56,20 @@ public class MySQLOperator {
     	
     	return st;
     }
+	
+	public void commit() {
+		try {
+			cn.commit();
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void rollback() {
+		try {
+			cn.rollback();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

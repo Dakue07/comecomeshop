@@ -20,9 +20,9 @@ public class UserInsertCommand extends AbstractCommand {
 		String user_name = reqc.getParameter("user_name")[0];
 		String user_pass = reqc.getParameter("user_pass")[0];
 		String user_Email = reqc.getParameter("user_Email")[0];
-		String useraddress_postcord = reqc.getParameter("user_postcode")[0];
-		String useraddress_state_sity = reqc.getParameter("user_state_sity")[0];
-		String useraddress_street = reqc.getParameter("user_street")[0];
+		String useraddress_postcord = reqc.getParameter("useraddress_postcode")[0];
+		String useraddress_state_sity = reqc.getParameter("useraddress_state_city")[0];
+		String useraddress_street = reqc.getParameter("useraddress_street")[0];
 		
 		String hashed = Encryption.hash(user_pass);
 		
@@ -36,11 +36,14 @@ public class UserInsertCommand extends AbstractCommand {
 			resc.setResult("miss");
 			resc.setTarget("signup");
 		} else {
-			String user_id = userDao.findUser_id(user_name, user_pass);
-			UAddressDao.insertAddress(user_id, useraddress_postcord, useraddress_state_sity, useraddress_street);
-			resc.setTarget("productslist");
+			String user_id = userDao.findUser_id(user_name, hashed);
+			if (UAddressDao.insertAddress(user_id, useraddress_postcord, useraddress_state_sity, useraddress_street) == false) {
+				resc.setResult("miss");
+				resc.setTarget("signup");
+			} else {
+				resc.setTarget("productslist");
+			}
 		}
-		
 		return resc;
 	}
 }
