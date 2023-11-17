@@ -42,7 +42,7 @@ a:hover:before {
 			crossorigin="anonymous"></script>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary full-width">
 
-			<a class="navbar-brand ms-3" href="#"> <img
+			<a class="navbar-brand ms-3" href="<%=request.getContextPath() %>/come/productslist"> <img
 				src="/comecomeshop/images/logo.png" alt="Bootstrap" width="150"
 				height="80">
 			</a>
@@ -55,14 +55,14 @@ a:hover:before {
 						<button class="btn btn-outline-success" type="submit">serch</button>
 					</form>
 					<li class="nav-item"><a class="nav-link"
-						aria-current="page" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="come/mypage">マイページ</a></li>
-					<li class="nav-item"><a class="nav-link" href="come/cart">カート</a></li>
+						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/cart">カート</a></li>
 					<li class="nav-item">
-						<button class="btn btn-outline-success me-2" type="button">サインイン</button>
+						<button class="btn btn-outline-success me-2" type="button" onclick="location.href='<%=request.getContextPath() %>/signin'">サインイン</button>
 					</li>
 					<li class="nav-item">
-						<button class="btn btn-outline-success me-2" type="button">新規登録</button>
+						<button class="btn btn-outline-success me-2" type="button" onclick="location.href='<%=request.getContextPath() %>/signup'">新規登録</button>
 					</li>
 					
 				</ul>
