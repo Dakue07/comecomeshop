@@ -45,16 +45,25 @@ public class UserDao {
 		return dto;
 	}
 	
-	public boolean createUser(String name, String pass, String mail) {
+	public boolean createUser(String name, String pass, String mail, String useraddress_postcord, String useraddress_state_sity, String useraddress_street) {
 		try {
 			cn = connect();
+			cn.setAutoCommit(false);
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_USER);
 			pstmt.setString(1, name);
 			pstmt.setString(2, pass);
 			pstmt.setString(3, mail);
 			int row = pstmt.executeUpdate();
+			UserAddressDao uDao = new UserAddressDao();
+			uDao.insertAddress(cn, name, useraddress_postcord, useraddress_state_sity, useraddress_street);
+			cn.commit();
 			return row > 0;
 		} catch(SQLException e) {
+			try {
+				cn.rollback();
+			} catch(SQLException e2) {
+				e2.printStackTrace();
+			}
 			e.printStackTrace();
 			return false;
 		}

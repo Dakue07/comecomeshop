@@ -32,17 +32,12 @@ public class UserInsertCommand extends AbstractCommand {
 		UserAddressDao UAddressDao = new UserAddressDao();
 		
 		
-		if (userDao.createUser(user_name, hashed, user_Email) == false) {
+		if (userDao.createUser(user_name, hashed, user_Email, useraddress_postcord, useraddress_state_sity, useraddress_street) == false) {
 			resc.setResult("miss");
 			resc.setTarget("signup");
 		} else {
-			String user_id = userDao.findUser_id(user_name, hashed);
-			if (UAddressDao.insertAddress(user_id, useraddress_postcord, useraddress_state_sity, useraddress_street) == false) {
-				resc.setResult("miss");
-				resc.setTarget("signup");
-			} else {
-				resc.setTarget("productslist");
-			}
+			resc.setTarget("productslist");
+				
 		}
 		return resc;
 	}
