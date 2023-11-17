@@ -51,8 +51,8 @@ a:hover:before {
 					<!-- 検索form -->
 					<form class="d-flex flex-row me-3" role="search">
 						<input class="form-control me-2" type="search"
-							placeholder="Enter content..." aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">serch</button>
+							placeholder="Enter content..." aria-label="Search">							
+						<button class="btn btn-outline-success" type="submit" onclick="location.href='<%=request.getContextPath() %>/come/search'">serch</button>
 					</form>
 					<li class="nav-item"><a class="nav-link"
 						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">Home</a></li>

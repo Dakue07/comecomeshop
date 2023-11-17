@@ -50,6 +50,20 @@ public class WebRequestContext implements RequestContext {
 		return (UserBean)session.getAttribute("bean");
 	}
 	
+	public void setSearchWord(String searchWord) {
+		session = request.getSession();
+		session.setAttribute("searchWord", searchWord);
+	}
+	
+	public String getSearchWord() {
+		session = request.getSession();
+		return (String)session.getAttribute("searchWord");
+	}
+	
+	public void ShouldRedirect() {
+		
+	}
+	
 	public void InvalidateSession() {
 		session = request.getSession();
 		session.invalidate();
