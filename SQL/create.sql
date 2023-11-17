@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS RICETABLE
 
 CREATE TABLE USERADDRESSTABLE
 (user_id int,
- useraddress_receiver varchar(100) NOT NULL,
+ useraddress_receiver varchar(100),
  useraddress_postcode char(8) NOT NULL,
  useraddress_state_city varchar(100) NOT NULL,
  useraddress_street varchar(100) NOT NULL,

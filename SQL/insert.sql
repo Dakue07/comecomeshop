@@ -1,18 +1,8 @@
 # autocommit切断
 
-SET AUTOCOMMIT = 0;
-
-# カレントデータベースを指定
-
-CONNECT orcl
-
-
-# テストデータの挿入
-# UserTableはtest と testdata
-
-INSERT INTO USERTABLE (user_name, user_pass, user_Email)
-VALUES('test', '$2a$12$0qAYFd1EuEDaXXGvNj4gh.IjBTvPZmfiv5MAKczw1OvWsmnOCmLSC'
-	, 'ri22304001@ga.ttc.ac.jp');
+# I-NSERT INTO USERTABLE (user_name, user_pass, user_Email)
+# VALUES('メテオ', 'africa'
+# 	, 'paradox@gmail.com');
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
 	rice_since, rice_stock, rice_price)
