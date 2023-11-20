@@ -54,8 +54,14 @@ public class UserDao {
 			pstmt.setString(2, pass);
 			pstmt.setString(3, mail);
 			int row = pstmt.executeUpdate();
+			pstmt = cn.prepareStatement(SELECT_USER_ID);
+			pstmt.setString(1, name);
+			pstmt.setString(2, pass);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int user_id = rs.getInt(1);
 			UserAddressDao uDao = new UserAddressDao();
-			uDao.insertAddress(cn, name, useraddress_postcord, useraddress_state_sity, useraddress_street);
+			uDao.insertAddress(cn, user_id, useraddress_postcord, useraddress_state_sity, useraddress_street);
 			cn.commit();
 			return row > 0;
 		} catch(SQLException e) {
