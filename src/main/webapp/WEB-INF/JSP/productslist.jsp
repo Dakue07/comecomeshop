@@ -3,6 +3,11 @@
     contentType="text/html; charset=UTF-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+	crossorigin="anonymous">
 <!DOCTYPE html>
 
 
@@ -11,19 +16,39 @@
 
 <!-- ここから下に書いてね -->
 商品一覧ページ
-<br>
+<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+			crossorigin="anonymous"></script>
 
 
-${data.userBean.user_name}<br>
 
 
-<c:forEach var="rice" items="${data.riceDto}">
-	 ${rice.rice_name} ${rice.rice_id} ${rice.rice_genre} ${rice.rice_weight} ${rice.rice_made} ${rice.rice_image_path} ${rice.rice_since} ${rice.rice_stock} ${rice.rice_price}<br>
-</c:forEach>
 
-あいうえお
 
-<!--  <%@include file="../../assets/template/slideshow.jsp" %> -->
+<%@include file="../../assets/template/slideshow.jsp" %>
+
+
+<div class="row justify-content-center">
+  <c:forEach var="data" items="${data}">
+    <div class="col-md-auto mb-3 d-flex justify-content-center">
+      <div class="card" style="width: 12rem;">
+        <img src="${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
+        <div class="card-body">
+          <h5 class="card-title">${data.rice_name}</h5>
+          <p class="card-text">
+            ${data.rice_genre}<br>
+            ${data.rice_weight}kg<br>
+            ${data.rice_made}<br>
+            ${data.rice_since}<br>
+            ${data.rice_price}円<br>
+          </p>
+          <a href="#" class="btn btn-primary">カートへ入れる</a>
+         </div>
+      </div>
+    </div>
+  </c:forEach>
+</div>
 
 
 	<!-- いじるな -->
