@@ -42,7 +42,7 @@ public class RiceTableDao {
                     ricedto.setRice_genre(rs.getString("rice_genre"));
                     ricedto.setRice_weight(rs.getInt("rice_weight"));
                     ricedto.setRice_made(rs.getString("rice_made"));
-                    ricedto.setRice_image_path(rs.getString("rice_imag"));
+                    ricedto.setRice_image_path(rs.getString("rice_image_path"));
                     ricedto.setRice_since(rs.getString("rice_since"));
                     ricedto.setRice_stock(rs.getInt("rice_stock"));
                     ricedto.setRice_price(rs.getInt("rice_price"));
