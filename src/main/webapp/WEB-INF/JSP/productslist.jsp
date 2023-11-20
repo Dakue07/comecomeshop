@@ -37,18 +37,18 @@
 
 
 <div class="row justify-content-center">
-  <c:forEach var="data" items="${data}">
+  <c:forEach var="rice" items="${data.riceDto}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
       <div class="card" style="width: 12rem;">
-        <img src="${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
+        <img src="${rice.rice_image_path}" class="card-img-top" alt="${rice.rice_name}">
         <div class="card-body">
-          <h5 class="card-title">${data.rice_name}</h5>
+          <h5 class="card-title">${rice.rice_name}</h5>
           <p class="card-text">
-            ${data.rice_genre}<br>
-            ${data.rice_weight}kg<br>
-            ${data.rice_made}<br>
-            ${data.rice_since}<br>
-            ${data.rice_price}円<br>
+            ${rice.rice_genre}<br>
+            ${rice.rice_weight}kg<br>
+            ${rice.rice_made}<br>
+            ${rice.rice_since}<br>
+            ${rice.rice_price}円<br>
           </p>
           <a href="#" class="btn btn-primary">カートへ入れる</a>
          </div>
