@@ -55,15 +55,10 @@ public class UserDao {
 			prsmt.setString(3, mail);
 			int row = prsmt.executeUpdate();
 
-			PreparedStatement pstmt = cn.prepareStatement(INSERT_USER);
-			pstmt.setString(1, name);
-			pstmt.setString(2, pass);
-			pstmt.setString(3, mail);
-			int row = pstmt.executeUpdate();
-			pstmt = cn.prepareStatement(SELECT_USER_ID);
-			pstmt.setString(1, name);
-			pstmt.setString(2, pass);
-			rs = pstmt.executeQuery();
+			prsmt = cn.prepareStatement(SELECT_USER_ID);
+			prsmt.setString(1, name);
+			prsmt.setString(2, pass);
+			rs = prsmt.executeQuery();
 			rs.next();
 			int user_id = rs.getInt(1);
       
