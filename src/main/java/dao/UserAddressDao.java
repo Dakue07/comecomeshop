@@ -16,10 +16,10 @@ public class UserAddressDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public boolean insertAddress(Connection cn, String user_id, String useraddress_postcode, String useraddress_state_city, String useraddress_street) {
+	public boolean insertAddress(Connection cn, int user_id, String useraddress_postcode, String useraddress_state_city, String useraddress_street) {
 		try {
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_ADDRESS);
-			pstmt.setString(1, user_id);
+			pstmt.setInt(1, user_id);
 			pstmt.setString(2, useraddress_postcode);
 			pstmt.setString(3, useraddress_state_city);
 			pstmt.setString(4, useraddress_street);
