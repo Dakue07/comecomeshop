@@ -11,10 +11,14 @@
 
 <!-- ここから下に書いてね -->
 商品一覧ページ
+<br>
 
 
-<c:forEach var="data" items="${data}">
-	${data.rice_name} ${data.rice_id} ${data.rice_genre} ${data.rice_weight} ${data.rice_made} ${data.rice_image_path} ${data.rice_since} ${data.rice_stock} ${data.rice_price}<br>
+${data.userBean.user_name}<br>
+
+
+<c:forEach var="rice" items="${data.riceDto}">
+	 ${rice.rice_name} ${rice.rice_id} ${rice.rice_genre} ${rice.rice_weight} ${rice.rice_made} ${rice.rice_image_path} ${rice.rice_since} ${rice.rice_stock} ${rice.rice_price}<br>
 </c:forEach>
 
 あいうえお
