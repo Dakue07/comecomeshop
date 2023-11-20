@@ -13,8 +13,14 @@
 商品一覧ページ
 <br>
 
+<c:if test="${not empty data.userBean}">
+    ${data.userBean.user_name}<br>
+</c:if>
 
-${data.userBean.user_name}<br>
+<c:if test="${empty data.userBean}">
+	ゆーざーないよ<br>
+</c:if>
+
 
 
 <c:forEach var="rice" items="${data.riceDto}">

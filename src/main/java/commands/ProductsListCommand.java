@@ -1,7 +1,11 @@
 package commands;
 
+import java.util.ArrayList;
+
+import beans.UserRiceBean;
 import context.RequestContext;
 import context.ResponseContext;
+import context.WebRequestContext;
 import dao.RiceTableDao;
 
 public class ProductsListCommand extends AbstractCommand {
@@ -9,11 +13,16 @@ public class ProductsListCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
 		
+		UserRiceBean userRiceBean = new UserRiceBean();
+		
 		RiceTableDao riceDao = new RiceTableDao();
 		
 		result = riceDao.SelectRice(null, null);
 		
-		resc.setResult(result);
+		userRiceBean.setRiceDto((ArrayList)result);
+		userRiceBean.setUserBean(((WebRequestContext) reqc).getUserBeanInSession());
+		
+		resc.setResult(userRiceBean);
 		
 		resc.setTarget("productslist");
 		
