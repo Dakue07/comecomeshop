@@ -22,6 +22,10 @@
 			crossorigin="anonymous"></script>
 
 
+<c:if test="${not empty data.userBean}">
+	${data.userBean.getUser_name()}<br>
+</c:if>
+
 
 
 
@@ -44,7 +48,10 @@
             ${rice.rice_since}<br>
             ${rice.rice_price}円<br>
           </p>
-          <a href="#" class="btn btn-primary">カートへ入れる</a>
+          <form action="/come/cart" method="post">
+          		<button class="btn btn-primary">カートへ入れる</button>
+          		<input type="hidden" name="rice_id" value="${rice.rice_id}">
+          </form>
          </div>
       </div>
     </div>
