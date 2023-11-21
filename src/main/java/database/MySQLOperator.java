@@ -1,20 +1,22 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MySQLOperator {
-	private static Connection cn = null;
+	private Connection cn = null;
 	private static PreparedStatement st = null;
 	private static ResultSet rs = null;
 	private static int choose = 0;
 	
 	private static MySQLOperator operator = null;
-	private MySQLConnector ma = new MySQLConnector();
 
+	private MySQLOperator() {}
+	
 	public static MySQLOperator getInstance() {
 		if (operator == null) {
 			operator = new MySQLOperator();
@@ -22,8 +24,28 @@ public class MySQLOperator {
 		return operator;
 	}
 	
+	public Connection createConnection() {
+		String DATABASE_NAME = "orcl";
+        String PROPATIES = "?characterEncoding=UTF-8&useTimezone=true&serverTimezone=Asia/Tokyo";
+        String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME + PROPATIES;
+
+        String USER = "come";
+        String PASS = "come";
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            cn = DriverManager.getConnection(URL, USER, PASS);
+            
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+		
+		return cn;
+	}
+	
 	public Connection getConnection() {
-		return cn = ma.getConnection();
+		return cn;
 	}
 	
 	public void close(Connection cn, PreparedStatement _st) {
@@ -50,6 +72,9 @@ public class MySQLOperator {
 				break;
 		}
 	}
+	public void close() {
+		close(cn, st, rs);
+	}
 	
 	public Statement getStatement() {
     	Connection cn = getConnection();
@@ -65,11 +90,13 @@ public class MySQLOperator {
     }
 	
 	public void commit() {
-		try {
-			cn.commit();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
+	    try {
+ // ここでトランザクションを開始
+	        cn.commit();
+	        close();
+	    } catch (SQLException e){
+	        e.printStackTrace();
+	    }
 	}
 	
 	public void rollback() {
@@ -82,7 +109,7 @@ public class MySQLOperator {
 	
 	public void beginTransaction() {
 		if (cn == null) {
-			getConnection();
+			createConnection();
 		}
 		try {
 			cn.setAutoCommit(false);

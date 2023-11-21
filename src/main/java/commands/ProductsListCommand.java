@@ -13,6 +13,8 @@ public class ProductsListCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
 		
+		operator.beginTransaction();
+		
 		UserRiceBean userRiceBean = new UserRiceBean();
 		
 		RiceTableDao riceDao = new RiceTableDao();
@@ -23,6 +25,8 @@ public class ProductsListCommand extends AbstractCommand {
 		userRiceBean.setUserBean(((WebRequestContext) reqc).getUserBeanInSession());
 		
 		resc.setResult(userRiceBean);
+		
+		operator.commit();
 		
 		resc.setTarget("productslist");
 		

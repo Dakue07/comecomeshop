@@ -9,14 +9,15 @@ import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import dao.RiceTableDao;
+import database.MySQLOperator;
 import login.LoginLogic;
 
 public class LoginCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		
+		MySQLOperator.getInstance().beginTransaction();
 		Object userResult = null;
-		
 		Object riceResult = null;
 		
 		String name = reqc.getParameter("user_name")[0];
@@ -40,6 +41,10 @@ public class LoginCommand extends AbstractCommand {
 			
 			userRiceBean.setUserBean(userBean);
 			userRiceBean.setRiceDto((ArrayList)riceResult);
+			
+			MySQLOperator.getInstance().commit();
+			
+			MySQLOperator.getInstance().close();
 			
 			resc.setResult(userRiceBean);
 			resc.setTarget("productslist");

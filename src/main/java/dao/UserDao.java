@@ -15,14 +15,12 @@ public class UserDao {
 	private static final String DB_USER = "come";
 	private static final String DB_PASS = "come";
 	
-	MySQLOperator ma = new MySQLOperator();
-	
 	Connection cn = null;
 	PreparedStatement prsmt = null;
 	ResultSet rs = null;
 	
 	public Connection connect() {
-		cn = ma.getConnection(); //引数合ってる分からん 
+		cn = MySQLOperator.getInstance().getConnection(); //引数合ってる分からん 
 		return cn;
 	}
 	
@@ -47,7 +45,9 @@ public class UserDao {
 	
 	public boolean createUser(String name, String pass, String mail, String useraddress_postcord, String useraddress_state_sity, String useraddress_street) {
 		try {
-			cn = connect();
+			cn = null;
+			cn = MySQLOperator.getInstance().getConnection();
+					
 			cn.setAutoCommit(false);
 			prsmt = cn.prepareStatement(INSERT_USER);
 			prsmt.setString(1, name);

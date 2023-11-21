@@ -9,6 +9,8 @@ public class ProductCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
 		
+		operator.beginTransaction();
+		
 		RiceTableDao riceDao = new RiceTableDao();
 		
 		String rice_id = reqc.getParameter("rice_id")[0];
@@ -16,6 +18,8 @@ public class ProductCommand extends AbstractCommand {
 		result = riceDao.SelectProduct(rice_id);
 		
 		resc.setResult(result);
+		
+		operator.commit();
 		
 		resc.setTarget("product");
 		
