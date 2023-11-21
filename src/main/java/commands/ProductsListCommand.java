@@ -1,8 +1,5 @@
 package commands;
 
-import java.util.ArrayList;
-
-import beans.UserRiceBean;
 import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
@@ -12,17 +9,13 @@ public class ProductsListCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
-		
-		UserRiceBean userRiceBean = new UserRiceBean();
-		
 		RiceTableDao riceDao = new RiceTableDao();
 		
 		result = riceDao.SelectRice(null, null);
 		
-		userRiceBean.setRiceDto((ArrayList)result);
-		userRiceBean.setUserBean(((WebRequestContext) reqc).getUserBeanInSession());
+		((WebRequestContext) reqc).getUserBeanInSession();
 		
-		resc.setResult(userRiceBean);
+		resc.setResult(result);
 		
 		resc.setTarget("productslist");
 		
