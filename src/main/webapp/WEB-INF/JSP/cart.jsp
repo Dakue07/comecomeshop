@@ -9,8 +9,8 @@
 
 <!-- ここから下に書いてね -->
 カート
-<c:forEach var="rice" items="${data.riceDto}">
-	${rice}
+<c:forEach var="data" items="${data}">
+	${data.rice_name}
 </c:forEach>
 
 
