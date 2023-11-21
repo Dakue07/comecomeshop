@@ -1,10 +1,7 @@
 package commands;
 
 
-import java.util.ArrayList;
-
 import beans.UserBean;
-import beans.UserRiceBean;
 import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
@@ -29,19 +26,11 @@ public class LoginCommand extends AbstractCommand {
 			userBean.setUser_name(name);
 			((WebRequestContext) reqc).setUserBeanInSession(userBean);
 			
-			userResult = userBean;
-			
-			
 			RiceTableDao riceDao = new RiceTableDao();
 			
 			riceResult = riceDao.SelectRice(null, null);
 			
-			UserRiceBean userRiceBean = new UserRiceBean();
-			
-			userRiceBean.setUserBean(userBean);
-			userRiceBean.setRiceDto((ArrayList)riceResult);
-			
-			resc.setResult(userRiceBean);
+			resc.setResult(riceResult);
 			resc.setTarget("productslist");
 		} else {
 			resc.setResult("miss");
