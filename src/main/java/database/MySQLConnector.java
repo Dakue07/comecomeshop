@@ -7,10 +7,10 @@ import java.sql.SQLException;
 // MySQLに接続するためのクラス
 
 public class MySQLConnector extends MySQLAccessor {
-	public static Connection getConnection() {
+	public Connection getConnection() {
         String DATABASE_NAME = "orcl";
         String PROPATIES = "?characterEncoding=UTF-8&useTimezone=true&serverTimezone=Asia/Tokyo";
-        String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME+PROPATIES;
+        String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME + PROPATIES;
 
         String USER = "come";
         String PASS = "come";

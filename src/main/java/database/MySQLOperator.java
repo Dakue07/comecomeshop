@@ -12,8 +12,15 @@ public class MySQLOperator {
 	private static ResultSet rs = null;
 	private static int choose = 0;
 	
-	MySQLConnector ma = new MySQLConnector();
+	private static MySQLOperator operator = null;
+	private MySQLConnector ma = new MySQLConnector();
 
+	public static MySQLOperator getInstance() {
+		if (operator == null) {
+			operator = new MySQLOperator();
+		}		
+		return operator;
+	}
 	
 	public Connection getConnection() {
 		return cn = ma.getConnection();
@@ -68,6 +75,17 @@ public class MySQLOperator {
 	public void rollback() {
 		try {
 			cn.rollback();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void beginTransaction() {
+		if (cn == null) {
+			getConnection();
+		}
+		try {
+			cn.setAutoCommit(false);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
