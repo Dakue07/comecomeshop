@@ -79,4 +79,15 @@ public class MySQLOperator {
 			e.printStackTrace();
 		}
 	}
+	
+	public void beginTransaction() {
+		if (cn == null) {
+			getConnection();
+		}
+		try {
+			cn.setAutoCommit(false);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
