@@ -21,13 +21,11 @@
 			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 			crossorigin="anonymous"></script>
 
+
 <c:if test="${not empty data.userBean}">
 	${data.userBean.getUser_name()}<br>
 </c:if>
 
-<c:if test="${empty data.userBean}">
-	ゆーざーないよ<br>
-</c:if>
 
 
 
