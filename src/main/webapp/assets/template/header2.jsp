@@ -58,12 +58,26 @@ a:hover:before {
 						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/cart">カート</a></li>
-					<li class="nav-item">
-						<button class="btn btn-outline-success me-2" type="button" onclick="location.href='<%=request.getContextPath() %>/signin'">サインイン</button>
-					</li>
-					<li class="nav-item">
-						<button class="btn btn-outline-success me-2" type="button" onclick="location.href='<%=request.getContextPath() %>/signup'">新規登録</button>
-					</li>
+					
+					<c:if test="${not empty userBean}">
+						<li class="nav-item dropdown">
+						    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">${userBean.user_name}</a>
+						    <ul class="dropdown-menu">
+						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/signin">アカウント切り替え</a></li>
+						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/come/logout">サインアウト</a></li>
+						    </ul>
+						 </li>
+					</c:if>
+					
+					<c:if test="${empty userBean}">
+						<li class="nav-item">
+							<button class="btn btn-outline-success me-2" type="button" onclick="location.href='<%=request.getContextPath() %>/signin'">サインイン</button>
+						</li>
+						<li class="nav-item">
+							<button class="btn btn-outline-success me-2" type="button" onclick="location.href='<%=request.getContextPath() %>/signup'">新規登録</button>
+						</li>
+					</c:if>
+					
 					
 				</ul>
 			</div>

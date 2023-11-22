@@ -42,12 +42,12 @@ public class WebRequestContext implements RequestContext {
 	
 	public void setUserBeanInSession(UserBean bean) {
 		session = request.getSession();
-		session.setAttribute("bean", bean);
+		session.setAttribute("userBean", bean);
 	}
 	
 	public UserBean getUserBeanInSession() {
 		session = request.getSession();
-		return (UserBean)session.getAttribute("bean");
+		return (UserBean)session.getAttribute("userBean");
 	}
 	
 	public void setSearchWord(String searchWord) {

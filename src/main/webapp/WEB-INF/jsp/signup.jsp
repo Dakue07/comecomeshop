@@ -11,8 +11,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ユーザー登録</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<main class="container">
-	<h2 class="text-center p-5" style="font-size: 35px;" >ユーザー登録</h2>
+  <body class="bg-light">
+	<div class="container">
+	<div class="main container-fluid">
+    <div class="row bg-light text-dark py-5">
+	<h2 class="fs-1 mb-5 text-center fw-bold">ユーザー登録</h2>
 
 	<form action="come/userinsert" method="post">
 		<div class="row">
@@ -47,15 +50,18 @@
             	<span class="text-danger">*</span>
             	<input type="text" class="form-control" name="useraddress_street" id="state_city" autocomplete="off" placeholder="市区町村・番地・(部屋番号・建物名)" required>
             </div>
-        <div class="d-grid mb-3"> 	
-        <button class="btn btn-primary" type="submit">新規登録</button>
+        <div class="text-center mb-3"> 	
+        <button class="btn btn-primary btn-md" type="submit" style="width: 30%;">新規登録</button>
         </div>
        </div>
     </form>
+    </div>
+    </div>
+    </div>
 
     <script src="<%= request.getContextPath() %>/JS/login.js"></script>
 
-</main>
+
 </HTML>
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>

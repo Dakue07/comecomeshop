@@ -1,15 +1,14 @@
 package commands;
 
 
-import java.util.ArrayList;
-
 import beans.UserBean;
-import beans.UserRiceBean;
 import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import dao.RiceTableDao;
 import database.MySQLOperator;
+import dao.UserDao;
+import dto.UserTableDto;
 import login.LoginLogic;
 
 public class LoginCommand extends AbstractCommand {
@@ -25,28 +24,22 @@ public class LoginCommand extends AbstractCommand {
 		
 		if (LoginLogic.isLoggedIn(name, pass)) {
 			
+			UserDao userDao = new UserDao();
+			
+			UserTableDto userDto = userDao.findRecord(name);
 			
 			UserBean userBean = new UserBean();
-			userBean.setUser_name(name);
+			userBean.setUser_id(userDto.getUser_id());
+			userBean.setUser_name(userDto.getUser_name());
 			((WebRequestContext) reqc).setUserBeanInSession(userBean);
-			
-			userResult = userBean;
-			
 			
 			RiceTableDao riceDao = new RiceTableDao();
 			
 			riceResult = riceDao.SelectRice(null, null);
 			
-			UserRiceBean userRiceBean = new UserRiceBean();
-			
-			userRiceBean.setUserBean(userBean);
-			userRiceBean.setRiceDto((ArrayList)riceResult);
-			
 			MySQLOperator.getInstance().commit();
-			
-			MySQLOperator.getInstance().close();
-			
-			resc.setResult(userRiceBean);
+
+			resc.setResult(riceResult);
 			resc.setTarget("productslist");
 		} else {
 			resc.setResult("miss");

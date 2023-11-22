@@ -21,41 +21,44 @@
 			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 			crossorigin="anonymous"></script>
 
-<c:if test="${not empty data.userBean}">
-    ${data.userBean.user_name}<br>
+<c:if test="${not empty userBean}">
+    ${userBean.user_name}<br>
+    ${userBean.user_id}<br>
 </c:if>
 
-<c:if test="${empty data.userBean}">
+<c:if test="${empty userBean}">
 	ゆーざーないよ<br>
 </c:if>
-
-
-
 
 
 <%@include file="../../assets/template/slideshow.jsp" %>
 
 
 <div class="row justify-content-center">
-  <c:forEach var="rice" items="${data.riceDto}">
+  <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
       <div class="card" style="width: 12rem;">
-        <img src="${rice.rice_image_path}" class="card-img-top" alt="${rice.rice_name}">
+        <img src="${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
         <div class="card-body">
-          <h5 class="card-title">${rice.rice_name}</h5>
+          <h5 class="card-title">${data.rice_name}</h5>
           <p class="card-text">
-            ${rice.rice_genre}<br>
-            ${rice.rice_weight}kg<br>
-            ${rice.rice_made}<br>
-            ${rice.rice_since}<br>
-            ${rice.rice_price}円<br>
+            ${data.rice_genre}<br>
+            ${data.rice_weight}kg<br>
+            ${data.rice_made}<br>
+            ${data.rice_since}<br>
+            ${data.rice_price}円<br>
           </p>
-          <a href="#" class="btn btn-primary">カートへ入れる</a>
+          <form action = "<%= request.getContextPath() %>/come/cart" method = post>
+          	<button class="btn btn-primary">カートへ入れる</button>
+          	<input type="hidden" name="rice_id" value="${data.rice_id}">
+          </form>
          </div>
       </div>
     </div>
   </c:forEach>
 </div>
+
+<a href="<%=request.getContextPath() %>/come/cart" class="btn btn-primary">カートへ入れる</a>
 
 
 	<!-- いじるな -->
