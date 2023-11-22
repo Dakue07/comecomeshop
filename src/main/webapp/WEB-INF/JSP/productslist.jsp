@@ -28,8 +28,6 @@
 <c:if test="${empty userBean}">
 	ゆーざーないよ<br>
 </c:if>
-${}
-
 
 
 
