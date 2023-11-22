@@ -6,7 +6,8 @@ public class UserTableDto {
 	private String user_pass;
 	private String user_mail;
 	
-	public UserTableDto(String user_name, String user_pass) {
+	public UserTableDto(int user_id, String user_name, String user_pass) {
+		setUser_id(user_id);
 		setUser_name(user_name);
 		setUser_pass(user_pass);
 	}

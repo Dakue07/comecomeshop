@@ -3,13 +3,13 @@ package beans;
 import java.io.Serializable;
 
 public class UserBean implements Serializable {
-	private String user_id;
+	private int user_id;
 	private String user_name;
 	private String user_pass;
-	public String getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 	public String getUser_name() {

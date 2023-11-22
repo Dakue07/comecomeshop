@@ -1,5 +1,6 @@
 package commands;
 
+import beans.UserBean;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.CartTableDao;
@@ -16,6 +17,10 @@ public class CartCommand extends AbstractCommand {
 		result = cartDao.AllSelect(rice_id);
 		
 		resc.setResult(result);
+		
+		UserBean userBean = reqc.getUserBeanInSession();
+		
+		System.out.println("cartこまんど" + userBean.getUser_id());
 		
 		resc.setTarget("productslist");
 		
