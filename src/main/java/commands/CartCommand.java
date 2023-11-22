@@ -13,11 +13,13 @@ public class CartCommand extends AbstractCommand {
 		CartTableDao cartDao = new CartTableDao();
 		
 		String rice_id = reqc.getParameter("rice_id")[0];
+		System.out.println("ライスID:" + rice_id);
 		
 		result = cartDao.AllSelect(rice_id);
 		
 		resc.setResult(result);
 		
+
 		UserBean userBean = reqc.getUserBeanInSession();
 		
 		System.out.println("cartこまんど" + userBean.getUser_id());
