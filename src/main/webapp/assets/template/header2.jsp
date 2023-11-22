@@ -57,7 +57,7 @@ a:hover:before {
 					<li class="nav-item"><a class="nav-link"
 						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/cart">カート</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/come/cart">カート</a></li>
 					
 					<c:if test="${not empty userBean}">
 						<li class="nav-item dropdown">
