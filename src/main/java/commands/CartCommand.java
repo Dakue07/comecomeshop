@@ -10,21 +10,22 @@ public class CartCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
 		
+		UserBean userBean = reqc.getUserBeanInSession();
+		int id = userBean.getUser_id();
+		String user_id = String.valueOf(id);
+		
 		CartTableDao cartDao = new CartTableDao();
 		
-		String rice_id = reqc.getParameter("rice_id")[0];
-		System.out.println("ライスID:" + rice_id);
+//		String rice_id = reqc.getParameter("rice_id")[0];
+//		System.out.println("ライスID:" + rice_id);
 		
-		result = cartDao.AllSelect(rice_id);
+		result = cartDao.AllSelect(user_id);
 		
 		resc.setResult(result);
 		
-
-		UserBean userBean = reqc.getUserBeanInSession();
+		System.out.println("cartこまんど" + result);
 		
-		System.out.println("cartこまんど" + userBean.getUser_id());
-		
-		resc.setTarget("productslist");
+		resc.setTarget("cart");
 		
 		return resc;
 	}
