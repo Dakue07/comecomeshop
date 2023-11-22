@@ -19,7 +19,7 @@
     			<ul class="header02-list">
 					<li class="header02-item"><a href="">マイページ</a></li>
 					<li class="header02-item"><a href="">カート</a></li>
-					<li class="header02-item"><a href="/come/signup">新規登録</a></li>
+					<li class="header02-item"><a href="/signup">新規登録</a></li>
 					<li class="header02-item"><a href="">ログイン</a></ii>
 					<li class="header02-item header02-item--contact"><a href="">お問い合わせ</a></li>
       			</ul>
