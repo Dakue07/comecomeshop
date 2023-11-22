@@ -6,6 +6,8 @@ import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import dao.RiceTableDao;
+import dao.UserDao;
+import dto.UserTableDto;
 import login.LoginLogic;
 
 public class LoginCommand extends AbstractCommand {
@@ -21,9 +23,13 @@ public class LoginCommand extends AbstractCommand {
 		
 		if (LoginLogic.isLoggedIn(name, pass)) {
 			
+			UserDao userDao = new UserDao();
+			
+			UserTableDto userDto = userDao.findRecord(name);
 			
 			UserBean userBean = new UserBean();
-			userBean.setUser_name(name);
+			userBean.setUser_id(userDto.getUser_id());
+			userBean.setUser_name(userDto.getUser_name());
 			((WebRequestContext) reqc).setUserBeanInSession(userBean);
 			
 			RiceTableDao riceDao = new RiceTableDao();

@@ -10,7 +10,7 @@ import dto.UserTableDto;
 
 public class UserDao {
 	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass, user_Email) VALUES (?, ?, ?)";
-	private static final String SELECT_USER_PASS = "SELECT user_name, user_pass FROM usertable WHERE user_name = ?";
+	private static final String SELECT_USER_PASS = "SELECT user_id, user_name, user_pass FROM usertable WHERE user_name = ?";
 	private static final String SELECT_USER_ID = "SELECT user_id FROM usertable WHERE user_name = ? AND user_pass = ?";
 	private static final String DB_USER = "come";
 	private static final String DB_PASS = "come";
@@ -35,7 +35,7 @@ public class UserDao {
 			prsmt.setString(1, user);
 			rs = prsmt.executeQuery();
 			if(rs != null && rs.next()) {
-				dto = new UserTableDto(rs.getString(1), rs.getString(2));
+				dto = new UserTableDto(rs.getInt(1), rs.getString(2), rs.getString(3));
 			} else {
 				System.out.println("null");
 			}

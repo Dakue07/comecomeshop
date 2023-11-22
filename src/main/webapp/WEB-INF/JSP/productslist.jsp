@@ -23,12 +23,12 @@
 
 <c:if test="${not empty userBean}">
     ${userBean.user_name}<br>
+    ${userBean.user_id}<br>
 </c:if>
 
 <c:if test="${empty userBean}">
 	ゆーざーないよ<br>
 </c:if>
-
 
 
 <%@include file="../../assets/template/slideshow.jsp" %>
@@ -57,6 +57,8 @@
     </div>
   </c:forEach>
 </div>
+
+<a href="<%=request.getContextPath() %>/come/cart" class="btn btn-primary">カートへ入れる</a>
 
 
 	<!-- いじるな -->
