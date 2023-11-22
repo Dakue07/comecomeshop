@@ -16,19 +16,18 @@ public class RiceTableDao {
 //    private static final String DB_USER = "come";
 //    private static final String DB_PASS = "come";
         
-    MySQLOperator ma = new MySQLOperator();
-    
-    Connection cn = null;
+    MySQLOperator ma = MySQLOperator.getInstance();
+    Connection cn = ma.getConnection();
     Statement st = null;
     PreparedStatement prstm = null;
     ResultSet rs = null;
-    
-    
+        
     public ArrayList<RiceTableDto> SelectProduct(String rice_id) {
         ArrayList<RiceTableDto> result = new ArrayList<>();
         ResultSet rs = null;
         try {
-        	cn = ma.getConnection();
+        	System.out.println("いあいあクトゥルフ");
+            cn.setAutoCommit(false);
             rs = st.executeQuery(SELECT_PRODUCT);
         
 //            ResultSetMetaData rsMeta = (ResultSetMetaData) rs.getMetaData();
