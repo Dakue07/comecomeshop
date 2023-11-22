@@ -45,8 +45,7 @@ public class UserDao {
 	
 	public boolean createUser(String name, String pass, String mail, String useraddress_postcord, String useraddress_state_sity, String useraddress_street) {
 		try {
-			cn = null;
-			cn = MySQLOperator.getInstance().getConnection();
+			cn = connect();
 					
 			cn.setAutoCommit(false);
 			prsmt = cn.prepareStatement(INSERT_USER);
@@ -64,14 +63,9 @@ public class UserDao {
       
 			UserAddressDao uDao = new UserAddressDao();
 			uDao.insertAddress(cn, user_id, useraddress_postcord, useraddress_state_sity, useraddress_street);
-			cn.commit();
 			return row > 0;
 		} catch(SQLException e) {
-			try {
-				cn.rollback();
-			} catch(SQLException e2) {
-				e2.printStackTrace();
-			}
+			MySQLOperator.getInstance().rollback();
 			e.printStackTrace();
 			return false;
 		}

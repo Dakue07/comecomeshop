@@ -4,6 +4,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.UserAddressDao;
 import dao.UserDao;
+import database.MySQLOperator;
 import login.Encryption;
 
 public class UserInsertCommand extends AbstractCommand {
@@ -16,7 +17,7 @@ public class UserInsertCommand extends AbstractCommand {
 		System.out.println("さいんあっぷこま" + reqc.getParameter("user_name")[0]);
 		System.out.println("さいんあっぷこま" + reqc.getParameter("user_pass")[0]);
 		
-		operator.beginTransaction();
+		MySQLOperator.getInstance().beginTransaction();
 		
 		String user_name = reqc.getParameter("user_name")[0];
 		String user_pass = reqc.getParameter("user_pass")[0];
@@ -34,13 +35,13 @@ public class UserInsertCommand extends AbstractCommand {
 		
 		
 		if (userDao.createUser(user_name, hashed, user_Email, useraddress_postcord, useraddress_state_sity, useraddress_street) == false) {
-			operator.rollback();
+			MySQLOperator.getInstance().rollback();
 			
 			resc.setResult("miss");
 			resc.setTarget("signup");
 
 		} else {
-			operator.commit();
+			MySQLOperator.getInstance().commit();
 			resc.setTarget("productslist");
 		}
 		return resc;
