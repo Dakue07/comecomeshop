@@ -1,9 +1,12 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import database.MySQLOperator;
@@ -46,21 +49,27 @@ public class CartTableDao {
 			System.out.println("while文のはじめ");
 			while(rs.next()) {
 				RiceCartTableDto rcdto = new RiceCartTableDto();
-				rcdto.setCart_quantity(rs.getInt("cart_quantity"));
-				rcdto.setRice_name(rs.getString("rice_name"));
-				rcdto.setRice_genre(rs.getString("rice_genre"));
-				rcdto.setRice_weight(rs.getString("rice_weight"));
-				rcdto.setRice_made(rs.getString("rice_made"));
-				rcdto.setRice_image_path(rs.getString("rice_image_path"));
-				rcdto.setRice_since(rs.getTimestamp("rice_since"));
-				rcdto.setRice_stock(rs.getString("rice_stock"));
-				rcdto.setRice_price(rs.getString("rice_price"));
+				 rcdto.setCart_quantity(rs.getInt("cart_quantity"));
+	                rcdto.setRice_name(rs.getString("rice_name"));
+	                rcdto.setRice_genre(rs.getString("rice_genre"));
+	                rcdto.setRice_weight(rs.getString("rice_weight"));
+	                rcdto.setRice_made(rs.getString("rice_made"));
+	                rcdto.setRice_image_path(rs.getString("rice_image_path"));
+
+	                Timestamp timestamp = rs.getTimestamp("rice_since");
+	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	                String rice_since = sdf.format(new Date(timestamp.getTime()));
+	                rcdto.setRice_since(rice_since);
+
+	                rcdto.setRice_stock(rs.getString("rice_stock"));
+	                rcdto.setRice_price(rs.getString("rice_price"));
+
 				
 				System.out.println(rs.getInt("cart_quantity"));
 				System.out.println(rs.getString("rice_name"));
 				System.out.println(rs.getString("rice_genre"));
 				System.out.println(rs.getInt("rice_weight"));
-				System.out.println(rs.getInt("rice_since"));
+				System.out.println(rs.getTimestamp("rice_since"));
 				System.out.println("石川qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
 				result.add(rcdto);
 				System.out.println(result);

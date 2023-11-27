@@ -1,7 +1,5 @@
 package dto;
 
-import java.sql.Timestamp;
-
 public class RiceCartTableDto {
 	
 	private int cart_quantity;
@@ -10,7 +8,7 @@ public class RiceCartTableDto {
 	private String rice_weight;
 	private String rice_made;
 	private String rice_image_path;
-	private Timestamp rice_since;
+	private String rice_since;
 	private String rice_stock;
 	private String rice_price;
 	public int getCart_quantity() {
@@ -49,10 +47,10 @@ public class RiceCartTableDto {
 	public void setRice_image_path(String rice_image_path) {
 		this.rice_image_path = rice_image_path;
 	}
-	public Timestamp getRice_since() {
+	public String getRice_since() {
 		return rice_since;
 	}
-	public void setRice_since(Timestamp rice_since) {
+	public void setRice_since(String rice_since) {
 		this.rice_since = rice_since;
 	}
 	public String getRice_stock() {
