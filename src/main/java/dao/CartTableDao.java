@@ -12,39 +12,34 @@ import dto.RiceCartTableDto;
 public class CartTableDao {
 	private static final String SELECT_ALL = "SELECT cart_quantity, rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price "
 											+ "FROM CartTable INNER JOIN RiceTable ON CartTable.rice_id = RiceTable.rice_id WHERE CartTable.user_id = ?";//カートに追加したものをすべて表示する
+
 	private static final String INSERT_CART = "INSERT INTO CartTable VALUES(?, ?, ?)";//カートに追加するとき11/22の時点では個数選択はまだ出来ないので1を入れてます。by和希
 	
-	MySQLOperator ma = new MySQLOperator();
-	
+
 	Connection cn = null;
 	PreparedStatement prsmt = null;
 	ResultSet rs = null;
 	
 	public void CartInsert(int cart_quantity, int user_id, String rice_id) {//違うかも
 		try {
-			cn = ma.getConnection();
-			cn.setAutoCommit(false);
+			cn = MySQLOperator.getInstance().getConnection();
 			prsmt = cn.prepareStatement(INSERT_CART);
 			prsmt.setInt(1, user_id);
 			prsmt.setString(2, rice_id);
 			prsmt.setInt(3, cart_quantity);
 			prsmt.executeUpdate();
-			cn.commit();
 		} catch(SQLException e) {
-			try {
-				cn.rollback();
-			} catch(SQLException e2) {
-				e2.printStackTrace();
-			}
+			MySQLOperator.getInstance().rollback();
 		}
 	}
 	
 	public  ArrayList<RiceCartTableDto> AllSelect(String user_id) {
 		ArrayList<RiceCartTableDto> result = new ArrayList<RiceCartTableDto>();
 		try {
-			System.out.println("ALLSELECT石川");
+      System.out.println("ALLSELECT石川");
 			rs = null;
-			cn = ma.getConnection();
+			cn = MySQLOperator.getInstance().getConnection();
+
 			prsmt = cn.prepareStatement(SELECT_ALL);
 			prsmt.setString(1, user_id);
 			rs = prsmt.executeQuery();

@@ -3,6 +3,7 @@ package commands;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.RiceTableDao;
+import database.MySQLOperator;
 
 public class SearchCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
@@ -13,13 +14,13 @@ public class SearchCommand extends AbstractCommand {
 		
 		reqc.setSearchWord(search_name);
 		
-		operator.beginTransaction();
+		MySQLOperator.getInstance().beginTransaction();
 		
 		RiceTableDao rdao = new RiceTableDao();
 		
 		rdao.SelectRice(search_name, sort);
 		
-		operator.commit();
+		MySQLOperator.getInstance().commit();
 		
 		resc.setTarget("productslist");
 		

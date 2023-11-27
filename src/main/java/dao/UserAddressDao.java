@@ -10,9 +10,7 @@ import database.MySQLOperator;
 public class UserAddressDao {
 	private static final String INSERT_ADDRESS = "INSERT INTO useraddresstable(user_id, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?)";
 	
-	MySQLOperator ma = new MySQLOperator();
-	
-	Connection cn = null;
+	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	

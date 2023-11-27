@@ -16,8 +16,7 @@ public class RiceTableDao {
 //    private static final String DB_USER = "come";
 //    private static final String DB_PASS = "come";
         
-    MySQLOperator ma = MySQLOperator.getInstance();
-    Connection cn = ma.getConnection();
+    Connection cn = MySQLOperator.getInstance().getConnection();
     Statement st = null;
     PreparedStatement prstm = null;
     ResultSet rs = null;
@@ -26,8 +25,6 @@ public class RiceTableDao {
         ArrayList<RiceTableDto> result = new ArrayList<>();
         ResultSet rs = null;
         try {
-        	System.out.println("いあいあクトゥルフ");
-            cn.setAutoCommit(false);
             rs = st.executeQuery(SELECT_PRODUCT);
         
 //            ResultSetMetaData rsMeta = (ResultSetMetaData) rs.getMetaData();
@@ -75,7 +72,7 @@ public class RiceTableDao {
         	sortColmnName = "rice_id desc";
         }
         try {
-            cn = ma.getConnection();
+            cn = MySQLOperator.getInstance().getConnection();
             prstm = cn.prepareStatement(SELECT_RICE_NAME);
 
             prstm.setString(1, "%" + rice_name + "%");

@@ -3,13 +3,14 @@ package commands;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.RiceTableDao;
+import database.MySQLOperator;
 
 public class ProductCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
 		
-		operator.beginTransaction();
+		MySQLOperator.getInstance().beginTransaction();
 		
 		RiceTableDao riceDao = new RiceTableDao();
 		
@@ -19,7 +20,7 @@ public class ProductCommand extends AbstractCommand {
 		
 		resc.setResult(result);
 		
-		operator.commit();
+		MySQLOperator.getInstance().commit();
 		
 		resc.setTarget("product");
 		
