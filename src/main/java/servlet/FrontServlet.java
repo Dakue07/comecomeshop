@@ -27,10 +27,6 @@ public class FrontServlet extends HttpServlet {
 	private void doAction(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
 		req.setCharacterEncoding("UTF-8");
-
-		System.out.println("ie-i");
-		
-		System.out.println(req.getParameter("name"));
 		
 		ServletContext context = getServletContext();
 		String rootPath = context.getRealPath("/");
@@ -43,10 +39,10 @@ public class FrontServlet extends HttpServlet {
 		RequestContext reqc = app.getRequest(req);
 		
 		reqc.setParameterMap(req.getParameterMap());
+		
 		//ResponseContextにhandleRequestメソッドの結果を格納
 		ResponseContext resc = app.handleRequest(reqc, rootPath);
-		System.out.println("もどってきちゃお");
-		System.out.println(resc.getResult());
+		System.out.println("ふろんと" + resc.getResult());
 		
 		//結果をResponseContextにセットする
 		resc.setResponse(res);
@@ -54,16 +50,5 @@ public class FrontServlet extends HttpServlet {
 		//forwardする
 		app.handleResponse(reqc, resc);
 
-//		if (command != null) {
-//			command.init(rc);
-//			ResponseContext resc = command.execute();
-//			Object bean = resc.getResult();
-//			req.setAttribute("data", bean);
-//			System.out.println("front target: " + resc.getTarget());
-//			req.getRequestDispatcher(resc.getTarget()).forward(req, res);
-//
-//		} else {
-//			res.sendError(HttpServletResponse.SC_NOT_FOUND, "このページは存在しません");
-//		}
 	}
 }
