@@ -38,6 +38,11 @@ INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
 VALUES('ジャスミンライス', 'タイ米', 20, '新潟県上越市',
 	'2022-06-08 00:00:00', 275, 12000);
 
+INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
+	rice_since, rice_stock, rice_price)
+VALUES('かしわき', '無洗米', 15, '石川県金沢市',
+	'2020-09-26 00:00:00', 180, 6300);
+
 INSERT INTO USERADDRESSTABLE (user_id, useraddress_receiver, useraddress_postcode,
 	useraddress_state_city, useraddress_street)
 VALUES(1, '石内遼', '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134');
