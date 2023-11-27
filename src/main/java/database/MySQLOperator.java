@@ -93,7 +93,7 @@ public class MySQLOperator {
 	    try {
  // ここでトランザクションを開始
 	        cn.commit();
-	        cn.close();
+	        close();
 	    } catch (SQLException e){
 	        e.printStackTrace();
 	    }
