@@ -6,11 +6,14 @@ import context.ResponseContext;
 import context.WebRequestContext;
 import dao.CartTableDao;
 import dao.RiceTableDao;
+import database.MySQLOperator;
 
 public class CartInsertCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
+		
+		MySQLOperator.getInstance().beginTransaction();
 		
 		UserBean userBean = reqc.getUserBeanInSession();
 		int user_id = userBean.getUser_id();
@@ -30,6 +33,8 @@ public class CartInsertCommand extends AbstractCommand {
 		((WebRequestContext) reqc).getUserBeanInSession();
 		
 		resc.setResult(result);
+		
+		//MySQLOperator.getInstance().commit();
 		
 		resc.setTarget("productslist");
 		

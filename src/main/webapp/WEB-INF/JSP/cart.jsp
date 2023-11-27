@@ -10,7 +10,8 @@
 <!-- ここから下に書いてね -->
 カート
 <c:forEach var="data" items="${data}">
-	${data.rice_name}${data.rice_name}
+	<br>${data.rice_name}<br>${data.rice_genre}<br>${data.rice_made}<br>${data.rice_weight}<br>${data.cart_quantity}${data.rice_image_path}<br>
+	${data.rice_since}<br>${data.rice_stock}<br>${data.rice_price}<br>
 </c:forEach>
 
 
