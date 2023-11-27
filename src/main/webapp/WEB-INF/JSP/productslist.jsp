@@ -58,7 +58,7 @@
   </c:forEach>
 </div>
 
-<a href="<%=request.getContextPath() %>/come/cart" class="btn btn-primary">カートへ入れる</a>
+<a href="<%=request.getContextPath() %>/come/cartInsert" class="btn btn-primary">カートへ入れる</a>
 
 
 	<!-- いじるな -->

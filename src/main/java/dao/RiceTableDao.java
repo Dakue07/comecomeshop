@@ -27,12 +27,9 @@ public class RiceTableDao {
         try {
             rs = st.executeQuery(SELECT_PRODUCT);
         
-//            ResultSetMetaData rsMeta = (ResultSetMetaData) rs.getMetaData();
-//            int colCount = rsMeta.getColumnCount();
-//            
+          
             while(rs.next()) {
                 RiceTableDto ricedto= new RiceTableDto();
-//                for(int i = 1; i < colCount; i ++) {
                     ricedto.setRice_id(rs.getInt("rice_id"));
                     ricedto.setRice_name(rs.getString("rice_name"));
                     ricedto.setRice_genre(rs.getString("rice_genre"));
