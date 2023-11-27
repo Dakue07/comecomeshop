@@ -64,7 +64,7 @@ a:hover:before {
 						    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">${userBean.user_name}</a>
 						    <ul class="dropdown-menu">
 						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/signin">アカウント切り替え</a></li>
-						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>come//logout">サインアウト</a></li>
+						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/come/logout">サインアウト</a></li>
 						    </ul>
 						 </li>
 					</c:if>
