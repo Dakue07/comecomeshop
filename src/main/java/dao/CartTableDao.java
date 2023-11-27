@@ -13,10 +13,11 @@ import database.MySQLOperator;
 import dto.RiceCartTableDto;
 
 public class CartTableDao {
-	private static final String SELECT_ALL = "SELECT cart_quantity, rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price "
+	private static final String SELECT_ALL = "SELECT RiceTable.rice_id, cart_quantity, rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price "
 											+ "FROM CartTable INNER JOIN RiceTable ON CartTable.rice_id = RiceTable.rice_id WHERE CartTable.user_id = ?";//カートに追加したものをすべて表示する
 
 	private static final String INSERT_CART = "INSERT INTO CartTable VALUES(?, ?, ?)";//カートに追加するとき11/22の時点では個数選択はまだ出来ないので1を入れてます。by和希
+	private static final String DELETE_CART = "DELETE FROM CartTable WHERE rice_id = ? AND user_id = ?";
 	
 
 	Connection cn = null;
@@ -36,59 +37,55 @@ public class CartTableDao {
 		}
 	}
 	
-	public  ArrayList<RiceCartTableDto> AllSelect(String user_id) {
+	public  ArrayList<RiceCartTableDto> AllSelect(int user_id) {
 		ArrayList<RiceCartTableDto> result = new ArrayList<RiceCartTableDto>();
 		try {
-      System.out.println("ALLSELECT石川");
-			rs = null;
+			//rs = null;
 			cn = MySQLOperator.getInstance().getConnection();
 
 			prsmt = cn.prepareStatement(SELECT_ALL);
-			prsmt.setString(1, user_id);
+			prsmt.setInt(1, user_id);
 			rs = prsmt.executeQuery();
 			System.out.println("while文のはじめ");
 			while(rs.next()) {
 				RiceCartTableDto rcdto = new RiceCartTableDto();
-				 rcdto.setCart_quantity(rs.getInt("cart_quantity"));
-	                rcdto.setRice_name(rs.getString("rice_name"));
-	                rcdto.setRice_genre(rs.getString("rice_genre"));
-	                rcdto.setRice_weight(rs.getString("rice_weight"));
-	                rcdto.setRice_made(rs.getString("rice_made"));
-	                rcdto.setRice_image_path(rs.getString("rice_image_path"));
+				rcdto.setRice_id(rs.getInt("rice_id"));
+				rcdto.setCart_quantity(rs.getInt("cart_quantity"));
+                rcdto.setRice_name(rs.getString("rice_name"));
+                rcdto.setRice_genre(rs.getString("rice_genre"));
+                rcdto.setRice_weight(rs.getString("rice_weight"));
+                rcdto.setRice_made(rs.getString("rice_made"));
+                rcdto.setRice_image_path(rs.getString("rice_image_path"));
 
-	                Timestamp timestamp = rs.getTimestamp("rice_since");
-	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	                String rice_since = sdf.format(new Date(timestamp.getTime()));
-	                rcdto.setRice_since(rice_since);
+                Timestamp timestamp = rs.getTimestamp("rice_since");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String rice_since = sdf.format(new Date(timestamp.getTime()));
+                rcdto.setRice_since(rice_since);
 
-	                rcdto.setRice_stock(rs.getString("rice_stock"));
-	                rcdto.setRice_price(rs.getString("rice_price"));
-
-				
-				System.out.println(rs.getInt("cart_quantity"));
-				System.out.println(rs.getString("rice_name"));
-				System.out.println(rs.getString("rice_genre"));
-				System.out.println(rs.getInt("rice_weight"));
-				System.out.println(rs.getTimestamp("rice_since"));
-				System.out.println("石川qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+                rcdto.setRice_stock(rs.getString("rice_stock"));
+                rcdto.setRice_price(rs.getString("rice_price"));
 				result.add(rcdto);
-				System.out.println(result);
+				
+				System.out.println(rcdto.getRice_name());
 				
 			}
 			
 		} catch (SQLException e) {
-            // TODO 自動生成された catch ブロック
-			
-            e.printStackTrace();
-        } finally {
-            try {
-                if(rs != null) {
-                    rs.close();
-                }
-            } catch(SQLException e) {
-                e.printStackTrace();
-            }
-        }
+			MySQLOperator.getInstance().rollback();
+        } 
         return result;
+	}
+	
+	public void CartDelete(int rice_id, int user_id) {
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			prsmt = cn.prepareStatement(DELETE_CART);
+			prsmt.setInt(1, rice_id);
+			prsmt.setInt(2, user_id);
+			prsmt.executeUpdate();
+		} catch(SQLException e) {
+			MySQLOperator.getInstance().rollback();
+		}
+		
 	}
 }
