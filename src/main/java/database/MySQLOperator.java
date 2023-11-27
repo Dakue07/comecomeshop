@@ -108,9 +108,7 @@ public class MySQLOperator {
 	}
 	
 	public void beginTransaction() {
-		if (cn == null) {
-			createConnection();
-		}
+		createConnection();
 		try {
 			cn.setAutoCommit(false);
 		} catch (SQLException e) {
