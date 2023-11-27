@@ -12,6 +12,10 @@
 <c:forEach var="data" items="${data}">
 	<br>${data.rice_name}<br>${data.rice_genre}<br>${data.rice_made}<br>${data.rice_weight}<br>${data.cart_quantity}${data.rice_image_path}<br>
 	${data.rice_since}<br>${data.rice_stock}<br>${data.rice_price}<br>
+		<form action = "<%= request.getContextPath() %>/come/cartDelete" method = post>
+          	<button class="btn btn-primary">削除</button>
+          	<input type="hidden" name="rice_id" value="${data.rice_id}">
+        </form>
 </c:forEach>
 
 
