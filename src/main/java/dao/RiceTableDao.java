@@ -42,7 +42,6 @@ public class RiceTableDao {
                     result.add(ricedto);
 
                 }
-            //}
         
         } catch (SQLException e) {
             e.printStackTrace();
