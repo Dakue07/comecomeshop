@@ -42,7 +42,7 @@ a:hover:before {
 			crossorigin="anonymous"></script>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary full-width">
 
-			<a class="navbar-brand ms-3" href="<%=request.getContextPath() %>/productslist"> <img
+			<a class="navbar-brand ms-3" href="<%=request.getContextPath() %>/come/productslist"> <img
 				src="/comecomeshop/images/logo.png" alt="Bootstrap" width="150"
 				height="80">
 			</a>
@@ -55,16 +55,16 @@ a:hover:before {
 						<button class="btn btn-outline-success" type="submit" onclick="location.href='<%=request.getContextPath() %>/come/search'">serch</button>
 					</form>
 					<li class="nav-item"><a class="nav-link"
-						aria-current="page" href="<%=request.getContextPath() %>/productslist">Home</a></li>
+						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/cart">カート</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/come/cart">カート</a></li>
 					
 					<c:if test="${not empty userBean}">
 						<li class="nav-item dropdown">
 						    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">${userBean.user_name}</a>
 						    <ul class="dropdown-menu">
 						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/signin">アカウント切り替え</a></li>
-						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/logout">サインアウト</a></li>
+						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>come//logout">サインアウト</a></li>
 						    </ul>
 						 </li>
 					</c:if>
