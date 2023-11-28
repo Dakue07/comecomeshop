@@ -44,7 +44,8 @@ public class CardTableDao {
 				CardBean cardBean = new CardBean();
 				cardBean.setUser_id(rs.getInt("user_id"));
 				cardBean.setCard_holdername(rs.getString("card_holdername"));
-				cardBean.setCard_number(rs.getString("card_number"));
+				String number = "************" + rs.getString("card_number").substring(12);
+				cardBean.setCard_number(number);
 				cardBean.setCard_validity(rs.getDate("card_validity"));
 				cardBean.setCard_securitycode(rs.getString("card_securitycode"));
 				
