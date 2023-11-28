@@ -5,7 +5,7 @@ import context.ResponseContext;
 import dao.UserAddressDao;
 import database.MySQLOperator;
 
-public class MyPageCommand extends AbstractCommand {
+public class UserPostCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		
@@ -19,10 +19,12 @@ public class MyPageCommand extends AbstractCommand {
 		
 		result = userAddressDao.selectAddressByUser(user_id);
 		
+		System.out.println(result);
+		
 		MySQLOperator.getInstance().commit();
 		
 		resc.setResult(result);
-		resc.setTarget("mypage");
+		resc.setTarget("post");
 		
 		return resc;
 	}
