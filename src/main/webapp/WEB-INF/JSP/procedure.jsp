@@ -10,13 +10,11 @@
 <!-- ここから下に書いてね -->
 購入手続き
 
-
+<a href="<%=request.getContextPath() %>/come/cardInsert" class="btn btn-primary">カード情報の登録</a>
 
 <c:forEach var="data" items="${data}">
-	${data.card_holdername}<br>
-	${data.card_number}<br>
-	${data.card_validity}<br>
-	${data.card_securitycode}<br>
+	カード名義:${data.card_holdername}<br>
+	カード番号:${data.card_number}<br>
 </c:forEach>
 
 
