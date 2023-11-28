@@ -18,7 +18,7 @@
         </form>
 </c:forEach>
 
-<a href="<%=request.getContextPath() %>/come/procedure">購入する</a>
+<a href="<%=request.getContextPath() %>/come/procedure" class="btn btn-primary">購入する</a>
 
 
 <!-- いじるな -->
