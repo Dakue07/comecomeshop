@@ -32,6 +32,10 @@ a:before {
 a:hover:before {
 	transform: scale(1);
 }
+
+form .btn.btn-outline-success {
+    width: 150px;
+}
 </style>
 </head>
 <body>
@@ -52,10 +56,10 @@ a:hover:before {
 					<form class="d-flex flex-row me-3" role="search">
 						<input class="form-control me-2" type="search"
 							placeholder="Enter content..." aria-label="Search">							
-						<button class="btn btn-outline-success" type="submit" onclick="location.href='<%=request.getContextPath() %>/come/search'">serch</button>
+						<button class="btn btn-outline-success" type="submit" onclick="location.href='<%=request.getContextPath() %>/come/search'">検索</button>
 					</form>
 					<li class="nav-item"><a class="nav-link"
-						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">Home</a></li>
+						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">ホーム</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/come/cart">カート</a></li>
 					

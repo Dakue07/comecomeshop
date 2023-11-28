@@ -40,13 +40,13 @@
       <div class="card" style="width: 12rem;">
         <img src="${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
         <div class="card-body">
-          <h5 class="card-title">${data.rice_name}</h5>
+          <h5 class="card-title">米の名前:${data.rice_name}</h5>
           <p class="card-text">
-            ${data.rice_genre}<br>
-            ${data.rice_weight}kg<br>
-            ${data.rice_made}<br>
-            ${data.rice_since}<br>
-            ${data.rice_price}円<br>
+            米の種類:${data.rice_genre}<br>
+            米の重さ:${data.rice_weight}kg<br>
+            米の収穫地:${data.rice_made}<br>
+            米の収穫日${data.rice_since}<br>
+            価格:${data.rice_price}円<br>
           </p>
           <form action = "<%= request.getContextPath() %>/come/cartInsert" method = post>
           	<button class="btn btn-primary">カートへ入れる</button>
