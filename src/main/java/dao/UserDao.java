@@ -12,6 +12,7 @@ public class UserDao {
 	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass, user_Email) VALUES (?, ?, ?)";
 	private static final String SELECT_USER_PASS = "SELECT user_id, user_name, user_pass FROM usertable WHERE user_name = ?";
 	private static final String SELECT_USER_ID = "SELECT user_id FROM usertable WHERE user_name = ? AND user_pass = ?";
+	private static final String DELETE_USER = "DELETE FROM usertable WHERE user_id = ?";
 	private static final String DB_USER = "come";
 	private static final String DB_PASS = "come";
 	
@@ -38,7 +39,7 @@ public class UserDao {
 				System.out.println("null");
 			}
 		} catch(SQLException e) {
-			e.printStackTrace();
+			MySQLOperator.getInstance().rollback();
 		}
 		return dto;
 	}
@@ -47,7 +48,6 @@ public class UserDao {
 		try {
 			cn = connect();
 					
-			cn.setAutoCommit(false);
 			prsmt = cn.prepareStatement(INSERT_USER);
 			prsmt.setString(1, name);
 			prsmt.setString(2, pass);
@@ -85,9 +85,20 @@ public class UserDao {
 			user_id = rs.getString(1);
 			System.out.println(user_id);
 		} catch(SQLException e) {
-			e.printStackTrace();
+			MySQLOperator.getInstance().rollback();
 		}
 		
 		return user_id;
+	}
+	
+	public void deleteUser(int user_id) {
+		try {
+			cn = connect();
+			prsmt = cn.prepareStatement(DELETE_USER);
+			prsmt.setInt(1, user_id);
+			prsmt.executeUpdate();
+		} catch(SQLException e) {
+			MySQLOperator.getInstance().rollback();
+		}
 	}
 }
