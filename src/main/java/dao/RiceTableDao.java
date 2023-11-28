@@ -90,6 +90,7 @@ public class RiceTableDao {
               ricedto.setRice_price(rs.getInt("rice_price"));
               result.add(ricedto);
             }
+            
         } catch (SQLException e) {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();

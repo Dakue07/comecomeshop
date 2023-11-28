@@ -9,18 +9,25 @@ public class SearchCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		
-		String search_name = reqc.getParameter("name")[0];
-		String sort = reqc.getParameter("sort")[0];
+		Object result = null;
 		
-		reqc.setSearchWord(search_name);
+		String search_name = null;
+		String sort = null;
+		
+		search_name = reqc.getParameter("name")[0];
+		try {
+			sort = reqc.getParameter("sort")[0];
+		} catch (NullPointerException e) { }
 		
 		MySQLOperator.getInstance().beginTransaction();
 		
 		RiceTableDao rdao = new RiceTableDao();
 		
-		rdao.SelectRice(search_name, sort);
+		result = rdao.SelectRice(search_name, sort);
 		
 		MySQLOperator.getInstance().commit();
+		
+		resc.setResult(result);
 		
 		resc.setTarget("productslist");
 		
