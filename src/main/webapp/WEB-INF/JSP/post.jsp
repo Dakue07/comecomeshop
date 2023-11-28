@@ -7,11 +7,8 @@
 
 
 <!-- ここから下に書いてね -->
-まいぱげ
 
-<a href="<%=request.getContextPath() %>/come/userPost">住所</a>
-
-
+${data.useraddress_receiver}<br>
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
