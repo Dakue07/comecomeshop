@@ -129,6 +129,15 @@
   	<url-pattern>/review</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>post</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/post.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>post</servlet-name>
+  	<url-pattern>/post</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>

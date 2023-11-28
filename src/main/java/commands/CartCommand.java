@@ -10,8 +10,16 @@ public class CartCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
 		
+		int user_id;
+		
 		UserBean userBean = reqc.getUserBeanInSession();
-		int user_id = userBean.getUser_id();
+		
+		try {
+			user_id = userBean.getUser_id();
+		} catch (NullPointerException e) {
+			resc.setTarget("signin");
+			return resc;
+		}
 		
 		CartTableDao cartDao = new CartTableDao();
 		
