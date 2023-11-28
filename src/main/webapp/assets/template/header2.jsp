@@ -53,9 +53,9 @@ form .btn.btn-outline-success {
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav nav-underline ms-auto grid gap-3">
 					<!-- 検索form -->
-					<form class="d-flex flex-row me-3" role="search">
+					<form class="d-flex flex-row me-3" action="<%= request.getContextPath() %>/come/search" role="search" method="get">
 						<input class="form-control me-2" type="search"
-							placeholder="Enter content..." aria-label="Search">							
+							placeholder="Enter content..." aria-label="Search" name="name">							
 						<button class="btn btn-outline-success" type="submit" onclick="location.href='<%=request.getContextPath() %>/come/search'">検索</button>
 					</form>
 					<li class="nav-item"><a class="nav-link"
