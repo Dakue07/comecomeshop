@@ -10,20 +10,21 @@ import beans.UserAddressBean;
 import database.MySQLOperator;
 
 public class UserAddressDao {
-	private static final String INSERT_ADDRESS = "INSERT INTO useraddresstable(user_id, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?)";
+	private static final String INSERT_ADDRESS = "INSERT INTO useraddresstable(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?, ?)";
 	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM useraddresstable WHERE user_id = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public boolean insertAddress(Connection cn, int user_id, String useraddress_postcode, String useraddress_state_city, String useraddress_street) {
+	public boolean insertAddress(int user_id, String useraddress_receiver, String useraddress_postcode, String useraddress_state_city, String useraddress_street) {
 		try {
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_ADDRESS);
 			pstmt.setInt(1, user_id);
-			pstmt.setString(2, useraddress_postcode);
-			pstmt.setString(3, useraddress_state_city);
-			pstmt.setString(4, useraddress_street);
+			pstmt.setString(2, useraddress_receiver);
+			pstmt.setString(3, useraddress_postcode);
+			pstmt.setString(4, useraddress_state_city);
+			pstmt.setString(5, useraddress_street);
 			int row = pstmt.executeUpdate();
 			return row > 0;
 		} catch (SQLException e) {

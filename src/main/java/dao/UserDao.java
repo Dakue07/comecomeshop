@@ -43,7 +43,7 @@ public class UserDao {
 		return dto;
 	}
 	
-	public boolean createUser(String name, String pass, String mail, String useraddress_postcord, String useraddress_state_sity, String useraddress_street) {
+	public boolean createUser(String name, String pass, String mail) {
 		try {
 			cn = connect();
 					
@@ -53,16 +53,7 @@ public class UserDao {
 			prsmt.setString(2, pass);
 			prsmt.setString(3, mail);
 			int row = prsmt.executeUpdate();
-
-			prsmt = cn.prepareStatement(SELECT_USER_ID);
-			prsmt.setString(1, name);
-			prsmt.setString(2, pass);
-			rs = prsmt.executeQuery();
-			rs.next();
-			int user_id = rs.getInt(1);
       
-			UserAddressDao uDao = new UserAddressDao();
-			uDao.insertAddress(cn, user_id, useraddress_postcord, useraddress_state_sity, useraddress_street);
 			return row > 0;
 		} catch(SQLException e) {
 			MySQLOperator.getInstance().rollback();

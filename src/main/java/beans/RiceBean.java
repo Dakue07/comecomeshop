@@ -3,56 +3,76 @@ package beans;
 import java.io.Serializable;
 
 public class RiceBean implements Serializable {
-	private int riceId;
-	private String riceName;
-	private String riceGenre;
-	private int riceWeight;
-	private String riceMade;
-	private String riceImage; //一旦String
-	private int riceStock;
-	
-	
-	public int getRiceId() {
-		return riceId;
+	private int rice_id;
+	private String rice_name;
+	private String rice_genre;
+	private int rice_weight;
+	private String rice_made;
+	private String rice_image_path;
+	private String rice_since;
+	private int rice_stock;
+	private int rice_price;
+	private boolean rice_flag;
+	public int getRice_id() {
+		return rice_id;
 	}
-	public void setRiceId(int riceId) {
-		this.riceId = riceId;
+	public void setRice_id(int rice_id) {
+		this.rice_id = rice_id;
 	}
-	public String getRiceName() {
-		return riceName;
+	public String getRice_name() {
+		return rice_name;
 	}
-	public void setRiceName(String riceName) {
-		this.riceName = riceName;
+	public void setRice_name(String rice_name) {
+		this.rice_name = rice_name;
 	}
-	public String getRiceGenre() {
-		return riceGenre;
+	public String getRice_genre() {
+		return rice_genre;
 	}
-	public void setRiceGenre(String riceGenre) {
-		this.riceGenre = riceGenre;
+	public void setRice_genre(String rice_genre) {
+		this.rice_genre = rice_genre;
 	}
-	public int getRiceWeight() {
-		return riceWeight;
+	public int getRice_weight() {
+		return rice_weight;
 	}
-	public void setRiceWeight(int riceWeight) {
-		this.riceWeight = riceWeight;
+	public void setRice_weight(int rice_weight) {
+		this.rice_weight = rice_weight;
 	}
-	public String getRiceMade() {
-		return riceMade;
+	public String getRice_made() {
+		return rice_made;
 	}
-	public void setRiceMade(String riceMade) {
-		this.riceMade = riceMade;
+	public void setRice_made(String rice_made) {
+		this.rice_made = rice_made;
 	}
-	public String getRiceImage() {
-		return riceImage;
+	public String getRice_image_path() {
+		return rice_image_path;
 	}
-	public void setRiceImage(String riceImage) {
-		this.riceImage = riceImage;
+	public void setRice_image_path(String rice_image_path) {
+		this.rice_image_path = rice_image_path;
 	}
-	public int getRiceStock() {
-		return riceStock;
+	public String getRice_since() {
+		return rice_since;
 	}
-	public void setRiceStock(int riceStock) {
-		this.riceStock = riceStock;
+	public void setRice_since(String rice_since) {
+		this.rice_since = rice_since;
 	}
+	public int getRice_stock() {
+		return rice_stock;
+	}
+	public void setRice_stock(int rice_stock) {
+		this.rice_stock = rice_stock;
+	}
+	public int getRice_price() {
+		return rice_price;
+	}
+	public void setRice_price(int rice_price) {
+		this.rice_price = rice_price;
+	}
+	public boolean isRice_flag() {
+		return rice_flag;
+	}
+	public void setRice_flag(boolean rice_flag) {
+		this.rice_flag = rice_flag;
+	}
+
 	
 }

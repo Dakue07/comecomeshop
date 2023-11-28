@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import beans.RiceBean;
 import database.MySQLOperator;
 import dto.RiceTableDto;
 public class RiceTableDao {
-    //private static final String SELECT_RICE_ALL = "SELECT * FROM RiceTable";
+    private static final String SELECT_RICE_ALL = "SELECT * FROM RiceTable";
     private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name LIKE ? AND rice_flag = 0 ORDER BY rice_id DESC" ;
     private static final String SELECT_PRODUCT = "SELECT * FROM RIceTable where rice_id = ?";
 //    private static final String DB_USER = "come";
@@ -106,4 +107,39 @@ public class RiceTableDao {
         System.out.println(result.size());
         return result;
     }
+    
+	public ArrayList<RiceBean> SelectAll() {
+	    ArrayList<RiceBean> result = new ArrayList<>();
+	    ResultSet rs = null;
+	    try {
+	        rs = st.executeQuery(SELECT_RICE_ALL);
+	    
+	      
+	        while(rs.next()) {
+	            RiceBean riceBean = new RiceBean();
+	            riceBean.setRice_id(rs.getInt("rice_id"));
+			    riceBean.setRice_name(rs.getString("rice_name"));
+			    riceBean.setRice_genre(rs.getString("rice_genre"));
+			    riceBean.setRice_weight(rs.getInt("rice_weight"));
+			    riceBean.setRice_made(rs.getString("rice_made"));
+			    riceBean.setRice_image_path(rs.getString("rice_image_path"));
+			    riceBean.setRice_since(rs.getString("rice_since"));
+			    riceBean.setRice_stock(rs.getInt("rice_stock"));
+			    riceBean.setRice_price(rs.getInt("rice_price"));
+	            result.add(riceBean);
+	        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(rs != null) {
+                    rs.close();
+                }
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+        
+   }
 }

@@ -48,7 +48,12 @@
          	<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">市区町村・番地・(部屋番号・建物名)</label>
             	<span class="text-danger">*</span>
-            	<input type="text" class="form-control" name="useraddress_street" id="state_city" autocomplete="off" placeholder="市区町村・番地・(部屋番号・建物名)" required>
+            	<input type="text" class="form-control" name="useraddress_street" id="street" autocomplete="off" placeholder="市区町村・番地・(部屋番号・建物名)" required>
+            </div>
+            <div class="col-md-6 mb-3">
+				<label class="form-label" for="inputEmail">受取人</label>
+            	<span class="text-danger">*</span>
+            	<input type="text" class="form-control" name="useraddress_receiver" id="receiver" autocomplete="off" placeholder="受取人" required>
             </div>
         <div class="text-center mb-3"> 	
         <button class="btn btn-primary btn-md" type="submit" style="width: 30%;">新規登録</button>

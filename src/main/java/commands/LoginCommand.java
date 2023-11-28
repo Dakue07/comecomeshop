@@ -6,8 +6,8 @@ import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import dao.RiceTableDao;
-import database.MySQLOperator;
 import dao.UserDao;
+import database.MySQLOperator;
 import dto.UserTableDto;
 import login.LoginLogic;
 
@@ -22,7 +22,18 @@ public class LoginCommand extends AbstractCommand {
 		String name = reqc.getParameter("user_name")[0];
 		String pass = reqc.getParameter("user_pass")[0];
 		
-		if (LoginLogic.isLoggedIn(name, pass)) {
+		System.out.println(name);
+		
+		System.out.println();
+		
+		if (name.equals("admin")) {
+			System.out.println("よお");
+			if (LoginLogic.isLoggedIn(name, pass) == true) {
+				resc.setTarget("admin");
+				return resc;
+			}
+			
+		} else if(LoginLogic.isLoggedIn(name, pass)) {
 			
 			UserDao userDao = new UserDao();
 			
