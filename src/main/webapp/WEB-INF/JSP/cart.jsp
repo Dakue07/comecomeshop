@@ -18,6 +18,8 @@
         </form>
 </c:forEach>
 
+<a href="<%=request.getContextPath() %>/come/procedure">購入する</a>
+
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
