@@ -15,11 +15,13 @@ public class UserPostCommand extends AbstractCommand {
 		
 		int user_id = reqc.getUserBeanInSession().getUser_id();
 		
+		System.out.println("UserPostCommand" + user_id);
+		
 		UserAddressDao userAddressDao = new UserAddressDao();
 		
 		result = userAddressDao.selectAddressByUser(user_id);
 		
-		System.out.println(result);
+		System.out.println("UserPostCommand" + result);
 		
 		MySQLOperator.getInstance().commit();
 		

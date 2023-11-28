@@ -3,11 +3,11 @@ package beans;
 import java.io.Serializable;
 
 public class UserAddressBean implements Serializable {
-	int user_id;
-	String useraddress_receiver;
-	String useraddress_postcode;
-	String useraddress_state_city;
-	String useraddress_street;
+	private int user_id;
+	private String useraddress_receiver;
+	private String useraddress_postcode;
+	private String useraddress_state_city;
+	private String useraddress_street;
 	public int getUser_id() {
 		return user_id;
 	}
