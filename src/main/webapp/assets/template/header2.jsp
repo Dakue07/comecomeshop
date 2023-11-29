@@ -29,9 +29,7 @@ a:before {
 	transition: 0.4s;
 }
 
-a:hover:before {
-	transform: scale(1);
-}
+
 
 form .btn.btn-outline-success {
     width: 150px;
