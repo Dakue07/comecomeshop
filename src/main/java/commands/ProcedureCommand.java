@@ -1,30 +1,31 @@
 package commands;
 
+import beans.UserBean;
 import context.RequestContext;
 import context.ResponseContext;
-import dao.UserAddressDao;
+import dao.CardTableDao;
 import database.MySQLOperator;
 
-public class UserPostCommand extends AbstractCommand {
+public class ProcedureCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
-		
 		Object result = null;
 		
 		MySQLOperator.getInstance().beginTransaction();
 		
-		int user_id = reqc.getUserBeanInSession().getUser_id();
+		UserBean userBean = reqc.getUserBeanInSession();
+		int user_id = userBean.getUser_id();
 		
-		UserAddressDao userAddressDao = new UserAddressDao();
+		CardTableDao cardDao = new CardTableDao();
 		
-		result = userAddressDao.selectAddressByUser(user_id);
+		result = cardDao.selectCardByUser(user_id);
+		resc.setResult(result);
 		
 		MySQLOperator.getInstance().commit();
 		
-		resc.setResult(result);
-		resc.setTarget("post");
+		resc.setTarget("procedure");
 		
 		return resc;
 	}
-	
+
 }
