@@ -14,7 +14,7 @@ public class RiceTableDao {
     private static final String SELECT_RICE_ALL = "SELECT * FROM RiceTable";
     private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name LIKE ? AND rice_flag = true ORDER BY rice_id ASC" ;
     private static final String SELECT_PRODUCT = "SELECT * FROM RIceTable where rice_id = ?";
-    private static final String INSERT_PRODUCT = "INSERT INTO RiceTable (rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price, rice_flag) Values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_PRODUCT = "INSERT INTO RiceTable (rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price) Values(?, ?, ?, ?, ?, ?, ?, ?, )";
     private static final String CHANGE_TRUE = "UPDATE RiceTable SET rice_flag = true WHERE rice_id = ?";
     private static final String CHANGE_FALSE = "UPDATE RiceTable SET rice_flag = false WHERE rice_id = ?";
 
@@ -149,7 +149,7 @@ public class RiceTableDao {
         
    }
 
-    public void insertProduct(String rice_name, String rice_genre, int rice_weight, String rice_made, String rice_image_path, String rice_since, int rice_stock, int rice_price, boolean rice_flag) {
+    public void insertProduct(String rice_name, String rice_genre, int rice_weight, String rice_made, String rice_image_path, String rice_since, int rice_stock, int rice_price) {
     	try {
             cn = MySQLOperator.getInstance().getConnection();
             prstm = cn.prepareStatement(INSERT_PRODUCT);
@@ -161,7 +161,6 @@ public class RiceTableDao {
             prstm.setString(6, rice_since);
             prstm.setInt(7, rice_stock);
             prstm.setInt(8, rice_price);
-            prstm.setBoolean(9, rice_flag);
             prstm.executeUpdate();
     	} catch(SQLException e) {
 			MySQLOperator.getInstance().rollback();
