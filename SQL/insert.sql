@@ -45,17 +45,17 @@ INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
 VALUES('かしわき', '無洗米', 15, '石川県金沢市',
 	'2020-09-26 00:00:00', 180, 6300);
 
-INSERT INTO USERADDRESSTABLE (user_id, useraddress_receiver, useraddress_postcode,
-	useraddress_state_city, useraddress_street)
-VALUES(1, '石内遼', '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134');
+# user_id, useraddress_receiver, useraddress_postcode,
+	useraddress_state_city, useraddress_street
+# 1, '石内遼', '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134'
 
-INSERT INTO USERADDRESSTABLE (user_id, useraddress_receiver, useraddress_postcode,
-	useraddress_state_city, useraddress_street)
-VALUES(2, '光宙', '111-0032', '東京都台東区浅草', '舞茸ビル2-3-1');
+# user_id, useraddress_receiver, useraddress_postcode,
+	useraddress_state_city, useraddress_street
+# 2, '光宙', '111-0032', '東京都台東区浅草', '舞茸ビル2-3-1'
 
-INSERT INTO USERADDRESSTABLE (user_id, useraddress_receiver, useraddress_postcode,
-	useraddress_state_city, useraddress_street)
-VALUES(3, 'admin', '100-0002', '東京都千代田区千代田', '1番1号');
+# user_id, useraddress_receiver, useraddress_postcode,
+	useraddress_state_city, useraddress_street
+# 3, 'admin', '100-0002', '東京都千代田区千代田', '1番1号'
 
 INSERT INTO CARDTABLE (user_id, card_holdername, card_number,
 	card_validity, card_securitycode)
