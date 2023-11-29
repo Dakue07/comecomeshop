@@ -27,7 +27,7 @@
 			<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">パスワード</label>
 				<span class="text-danger">*</span>
-                <input type="password" class="form-control" name="user_pass" id="passwordInput" autocomplete="off" placeholder="新規パスワード">
+                <input type="password" class="form-control" name="user_pass" id="passwordInput" autocomplete="off" placeholder="新規パスワード" required>
                 <button id="showPasswordButton" type="button">表示</button>
             </div>
             <div class="col-md-6 mb-3">
