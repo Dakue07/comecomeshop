@@ -9,7 +9,7 @@
 
 
 <a href="usermanage">ユーザー管理</a>
-<a href="productmanage">商品管理</a>
+<a href="<%= request.getContextPath() %>/come/adminproduct">商品管理</a>
 
 
 

@@ -15,5 +15,6 @@ public interface RequestContext {
 	public void setSearchWord(String searchWord);
 	public String getSearchWord();
 	public void InvalidateSession();
+	public String getContextPath();
 	
 } 
