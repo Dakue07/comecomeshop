@@ -68,4 +68,8 @@ public class WebRequestContext implements RequestContext {
 		session = request.getSession();
 		session.invalidate();
 	}
+	
+	public String getContextPath() {
+		return request.getContextPath();
+	}
 } 

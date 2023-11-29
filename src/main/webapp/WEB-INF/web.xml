@@ -147,6 +147,15 @@
   	<url-pattern>/admin</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>productmanage</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/productmanage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>productmanage</servlet-name>
+  	<url-pattern>/productmanage</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>
