@@ -156,6 +156,15 @@
   	<url-pattern>/productmanage</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>addproduct</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/addproduct.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addproduct</servlet-name>
+  	<url-pattern>/addproduct</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>

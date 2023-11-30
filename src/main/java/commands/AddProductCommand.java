@@ -21,6 +21,8 @@ public class AddProductCommand extends AbstractCommand {
 		int rice_stock = Integer.valueOf(reqc.getParameter("rice_stock")[0]);
 		int rice_price = Integer.valueOf(reqc.getParameter("rice_price")[0]);
 		
+		System.out.println(reqc.getParameter("rice_name")[0]);
+		
 		RiceTableDao riceDao = new RiceTableDao();
 
 		riceDao.insertProduct(rice_name,rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price);
