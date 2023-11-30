@@ -11,6 +11,8 @@ public class MySQLConnector extends MySQLAccessor {
         String DATABASE_NAME = "orcl";
         String PROPATIES = "?characterEncoding=UTF-8&useTimezone=true&serverTimezone=Asia/Tokyo";
         String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME + PROPATIES;
+        //aws用
+        //String URL = "jdbc:mySQL://database-1.ci5ri829smix.us-east-1.rds.amazonaws.com:3306/" + DATABASE_NAME + PROPATIES;
 
         String USER = "come";
         String PASS = "come";
