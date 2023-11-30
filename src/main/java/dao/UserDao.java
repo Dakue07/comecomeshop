@@ -9,12 +9,10 @@ import database.MySQLOperator;
 import dto.UserTableDto;
 
 public class UserDao {
-	private static final String INSERT_USER = "INSERT INTO usertable (user_name, user_pass, user_Email) VALUES (?, ?, ?)";
-	private static final String SELECT_USER_PASS = "SELECT user_id, user_name, user_pass FROM usertable WHERE user_name = ?";
-	private static final String SELECT_USER_ID = "SELECT user_id FROM usertable WHERE user_name = ? AND user_pass = ?";
-	private static final String DELETE_USER = "DELETE FROM usertable WHERE user_id = ?";
-	private static final String DB_USER = "come";
-	private static final String DB_PASS = "come";
+	private static final String INSERT_USER = "INSERT INTO USERTABLE (user_name, user_pass, user_Email) VALUES (?, ?, ?)";
+	private static final String SELECT_USER_PASS = "SELECT user_id, user_name, user_pass FROM USERTABLE WHERE user_name = ?";
+	private static final String SELECT_USER_ID = "SELECT user_id FROM USERTABLE WHERE user_name = ? AND user_pass = ?";
+	private static final String DELETE_USER = "DELETE FROM USERTABLE WHERE user_id = ?";
 	
 	Connection cn = null;
 	PreparedStatement prsmt = null;

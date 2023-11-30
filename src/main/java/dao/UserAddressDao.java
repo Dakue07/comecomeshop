@@ -10,8 +10,8 @@ import beans.UserAddressBean;
 import database.MySQLOperator;
 
 public class UserAddressDao {
-	private static final String INSERT_ADDRESS = "INSERT INTO useraddresstable(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?, ?)";
-	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM useraddresstable WHERE user_id = ?";
+	private static final String INSERT_ADDRESS = "INSERT INTO USERADDRESSTABLE(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?, ?)";
+	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM USERADDRESSTABLE WHERE user_id = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
