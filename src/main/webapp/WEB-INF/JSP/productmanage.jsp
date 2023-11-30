@@ -23,6 +23,8 @@
     }
 </style>
 
+<a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
+
 
 <div class="row justify-content-center">
     <c:forEach var="data" items="${data}" varStatus="loopStatus">

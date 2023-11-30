@@ -7,7 +7,7 @@ public class LogoutCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		reqc.InvalidateSession();
-		resc.setTarget("productslist");
+		resc.setTarget("/come/productslist");
 		
 		return resc;
 	}

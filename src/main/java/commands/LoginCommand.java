@@ -51,7 +51,7 @@ public class LoginCommand extends AbstractCommand {
 			MySQLOperator.getInstance().commit();
 
 			resc.setResult(riceResult);
-			resc.setTarget("productslist");
+			resc.setTarget("/come/productslist");
 		} else {
 			resc.setResult("miss");
 			resc.setTarget("signin");
