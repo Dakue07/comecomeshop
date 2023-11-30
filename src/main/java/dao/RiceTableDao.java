@@ -11,13 +11,13 @@ import beans.RiceBean;
 import database.MySQLOperator;
 import dto.RiceTableDto;
 public class RiceTableDao {
-    private static final String SELECT_RICE_ALL = "SELECT * FROM RiceTable";
-    private static final String SELECT_RICE_NAME = "SELECT * FROM RiceTable WHERE rice_name LIKE ? AND rice_flag = true ORDER BY rice_id ASC" ;
-    private static final String SELECT_PRODUCT = "SELECT * FROM RIceTable where rice_id = ?";
-    private static final String INSERT_PRODUCT = "INSERT INTO RiceTable (rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price) Values(?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String DELETE_PRODUCT = "DELETE FROM RiceTable WHERE rice_id = ?";
-    private static final String CHANGE_TRUE = "UPDATE RiceTable SET rice_flag = true WHERE rice_id = ?";
-    private static final String CHANGE_FALSE = "UPDATE RiceTable SET rice_flag = false WHERE rice_id = ?";
+    private static final String SELECT_RICE_ALL = "SELECT * FROM RICETABLE";
+    private static final String SELECT_RICE_NAME = "SELECT * FROM RICETABLE WHERE rice_name LIKE ? AND rice_flag = true ORDER BY rice_id ASC" ;
+    private static final String SELECT_PRODUCT = "SELECT * FROM RICETABLE where rice_id = ?";
+    private static final String INSERT_PRODUCT = "INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price) Values(?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String DELETE_PRODUCT = "DELETE FROM RICETABLE WHERE rice_id = ?";
+    private static final String CHANGE_TRUE = "UPDATE RICETABLE SET rice_flag = true WHERE rice_id = ?";
+    private static final String CHANGE_FALSE = "UPDATE RICETABLE SET rice_flag = false WHERE rice_id = ?";
 
 
         

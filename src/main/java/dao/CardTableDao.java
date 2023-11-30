@@ -11,8 +11,8 @@ import beans.CardBean;
 import database.MySQLOperator;
 
 public class CardTableDao {
-	private static final String INSERT_CARD = "INSERT INTO cardtable(user_id, card_holdername, card_number, card_validity, card_securitycode) values(?, ?, ?, ?, ?)";
-	private static final String SELECT_CARD_BY_USER = "SELECT * FROM cardtable WHERE user_id = ?";
+	private static final String INSERT_CARD = "INSERT INTO CARDTABLE(user_id, card_holdername, card_number, card_validity, card_securitycode) values(?, ?, ?, ?, ?)";
+	private static final String SELECT_CARD_BY_USER = "SELECT * FROM CARDTABLE WHERE user_id = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
