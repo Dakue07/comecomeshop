@@ -46,7 +46,7 @@ public class UserInsertCommand extends AbstractCommand {
 			UAddressDao.insertAddress(user_id, useraddress_receiver, useraddress_postcord, useraddress_state_sity, useraddress_street);
 			
 			MySQLOperator.getInstance().commit();
-			resc.setTarget("productslist");
+			resc.setTarget("/come/signin");
 		}
 		return resc;
 	}

@@ -15,7 +15,7 @@ import dto.RiceCartTableDto;
 public class CartTableDao {
 	private static final String SELECT_ALL = "SELECT RICETABLE.rice_id, cart_quantity, rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price "
 											+ "FROM CARTTABLE INNER JOIN RICETABLE ON CARTTABLE.rice_id = RiceTable.rice_id WHERE CARTTABLE.user_id = ?";//カートに追加したものをすべて表示する
-
+	
 	private static final String INSERT_CART = "INSERT INTO CARTTABLE VALUES(?, ?, ?)";//カートに追加するとき11/22の時点では個数選択はまだ出来ないので1を入れてます。by和希
 	private static final String DELETE_CART = "DELETE FROM CARTTABLE WHERE rice_id = ? AND user_id = ?";
 	

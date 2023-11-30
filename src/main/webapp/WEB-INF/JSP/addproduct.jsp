@@ -7,6 +7,8 @@
 
 
 <!-- ここから下に書いてね -->
+<a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
+
 <form action ="<%= request.getContextPath() %>/come/addproduct">
     <table>
         <tr>

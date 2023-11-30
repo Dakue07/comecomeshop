@@ -18,7 +18,7 @@
         <div class="col-md-8 offset-md-2">
 	<h2 class="fs-1 mb-5 text-center fw-bold">サインイン</h2>
 	
-	<form action="come/login" method="post">
+	<form action="come/signin" method="post">
 		<div class="row">
 			<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">ユーザー名</label>
