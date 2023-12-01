@@ -25,41 +25,40 @@
 
 <a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
 
-<a href="<%=request.getContextPath() %>/addproduct">商品を追加する</a>
 
-
-<div class="row justify-content-center">
+<div class="row">
     <c:forEach var="data" items="${data}" varStatus="loopStatus">
-        <div class="col-md-auto mb-3 d-flex justify-content-center rice-item">
-            id:${data.rice_id}<br>
-            ${data.rice_name}<br>
-            ${data.rice_genre}<br>
-            ${data.rice_weight}<br>
-            ${data.rice_made}<br>
-            ${data.rice_image_path}<br>
-            ${data.rice_since}<br>
-            ${data.rice_stock}<br>
-            ${data.rice_price}<br>
-            <c:if test="${data.rice_flag == true}">販売中</c:if>
-            <c:if test="${data.rice_flag == false}">販売停止中</c:if><br>
-            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-            	<c:if test="${data.rice_flag == true}">
-            		<form action = "<%= request.getContextPath() %>/come/nonindecateproduct" method = post>
-			          	<button type="submit" class="btn btn-outline-warning">サイトから消す</button>
-			          	<input type="hidden" name="rice_id" value="${data.rice_id}">
-			        </form>
-			    </c:if>
-			    <c:if test="${data.rice_flag == false}">
-	            	<form action = "<%= request.getContextPath() %>/come/indecateproduct" method = post>
-			          	<button type="submit" class="btn btn-outline-primary">サイトに表示する</button>
-			          	<input type="hidden" name="rice_id" value="${data.rice_id}">
-			        </form>
-			    </c:if>
-		        <form action="<%= request.getContextPath() %>/come/deleteproduct" method="post">
-		        	<button type="submit" class="btn btn-outline-danger">商品削除</button>
-		        	<input type="hidden" name="rice_id" value="${data.rice_id}">
-		        </form>
-			</div>
+        <div class="col-md-3 mb-3">
+            <div class="card rice-item">
+                <div class="card-body">
+                    <h5 class="card-title">ID: ${data.rice_id}</h5>
+                    <p class="card-text">商品名: ${data.rice_name}</p>
+                    <p class="card-text">種類: ${data.rice_genre}</p>
+                    <p class="card-text">サイズ: ${data.rice_weight}kg</p>
+                    <p class="card-text">生産地: ${data.rice_made}</p>
+                    <p class="card-text">${data.rice_image_path}</p>
+                    <p class="card-text">精米日: ${data.rice_since}</p>
+                    <p class="card-text">在庫数: ${data.rice_stock}</p>
+                    <p class="card-text">価格: ${data.rice_price}円</p>
+                    <p class="card-text">
+                        <c:if test="${data.rice_flag == true}">販売中</c:if>
+                        <c:if test="${data.rice_flag == false}">販売停止中</c:if>
+                    </p>
+                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                        <form action="<%= request.getContextPath() %>/come/indecateproduct" method="post">
+                            <button type="submit" class="btn btn-outline-primary">サイトに表示する</button>
+                            <input type="hidden" name="rice_id" value="${data.rice_id}">
+                        </form>
+                        <form action="<%= request.getContextPath() %>/come/nonindecateproduct" method="post">
+                            <button type="submit" class="btn btn-outline-danger">サイトから消す</button>
+                            <input type="hidden" name="rice_id" value="${data.rice_id}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
         <%-- 4つごとに改行 --%>
         <c:if test="${loopStatus.index % 4 == 3}">
