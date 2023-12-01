@@ -29,7 +29,7 @@ public class AddProductCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().commit();
 		
-		resc.setTarget("productmanage");
+		resc.setTarget("come/adminproduct");
 		
 		return resc;
 	}
