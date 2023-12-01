@@ -45,7 +45,7 @@
             種類:${data.rice_genre}<br>
             重さ:${data.rice_weight}kg<br>
             収穫地:${data.rice_made}<br>
-            収穫日:${data.rice_since}<br>
+            収穫日:${data.rice_since}月<br>
             価格:${data.rice_price}円<br>
           </p>
           <form action = "<%= request.getContextPath() %>/come/cartInsert" method = post>

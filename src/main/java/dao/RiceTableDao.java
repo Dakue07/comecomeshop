@@ -41,7 +41,11 @@ public class RiceTableDao {
                     ricedto.setRice_weight(rs.getInt("rice_weight"));
                     ricedto.setRice_made(rs.getString("rice_made"));
                     ricedto.setRice_image_path(rs.getString("rice_image_path"));
-                    ricedto.setRice_since(rs.getString("rice_since"));
+                    
+                    String rice_since = rs.getString("rice_since").substring(0, 7).replace("-", "年");
+                    System.out.println(rice_since + "これが生まれた時間や");
+                    ricedto.setRice_since(rice_since);
+                    
                     ricedto.setRice_stock(rs.getInt("rice_stock"));
                     ricedto.setRice_price(rs.getInt("rice_price"));
                     result.add(ricedto);
@@ -90,7 +94,11 @@ public class RiceTableDao {
               ricedto.setRice_weight(rs.getInt("rice_weight"));
               ricedto.setRice_made(rs.getString("rice_made"));
               ricedto.setRice_image_path(rs.getString("rice_image_path"));
-              ricedto.setRice_since(rs.getString("rice_since"));
+
+              String rice_since = rs.getString("rice_since").substring(0, 7).replace("-", "年");
+              System.out.println(rice_since + "これが生まれた時間や");
+              ricedto.setRice_since(rice_since);
+              
               ricedto.setRice_stock(rs.getInt("rice_stock"));
               ricedto.setRice_price(rs.getInt("rice_price"));
               result.add(ricedto);
@@ -129,8 +137,12 @@ public class RiceTableDao {
 			    riceBean.setRice_weight(rs.getInt("rice_weight"));
 			    riceBean.setRice_made(rs.getString("rice_made"));
 			    riceBean.setRice_image_path(rs.getString("rice_image_path"));
-			    riceBean.setRice_since(rs.getString("rice_since"));
-			    riceBean.setRice_stock(rs.getInt("rice_stock"));
+			    
+			    String rice_since = rs.getString("rice_since").substring(0, 7).replace("-", "年");
+                System.out.println(rice_since + "これが生まれた時間や");
+                riceBean.setRice_since(rice_since);
+
+                riceBean.setRice_stock(rs.getInt("rice_stock"));
 			    riceBean.setRice_price(rs.getInt("rice_price"));
 			    riceBean.setRice_flag(rs.getBoolean("rice_flag"));
 	            result.add(riceBean);
@@ -159,7 +171,11 @@ public class RiceTableDao {
             prstm.setInt(3, rice_weight);
             prstm.setString(4, rice_made);
             prstm.setString(5, rice_image_path);
+            
+            rice_since = rice_since.substring(0, 7).replace("-", "年");
+            System.out.println(rice_since + "これが生まれた時間や");
             prstm.setString(6, rice_since);
+            
             prstm.setInt(7, rice_stock);
             prstm.setInt(8, rice_price);
             prstm.executeUpdate();
