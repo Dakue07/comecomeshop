@@ -25,6 +25,7 @@
 
 <a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
 
+
 <div class="row">
     <c:forEach var="data" items="${data}" varStatus="loopStatus">
         <div class="col-md-3 mb-3">
@@ -55,6 +56,9 @@
                     </div>
                 </div>
             </div>
+
+
+
         </div>
         <%-- 4つごとに改行 --%>
         <c:if test="${loopStatus.index % 4 == 3}">
