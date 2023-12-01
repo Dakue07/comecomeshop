@@ -38,7 +38,7 @@
                     <p class="card-text">サイズ: ${data.rice_weight}kg</p>
                     <p class="card-text">生産地: ${data.rice_made}</p>
                     <img src="${data.rice_image_path}" alt="商品の画像" class="card-img-top">
-                    <p class="card-text">精米日: ${data.rice_since}</p>
+                    <p class="card-text">収穫日: ${data.rice_since}月</p>
                     <p class="card-text">在庫数: ${data.rice_stock}</p>
                     <p class="card-text">価格: ${data.rice_price}円</p>
                     <p class="card-text">
