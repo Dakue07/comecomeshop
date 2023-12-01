@@ -1,5 +1,6 @@
 <!-- いじるな -->
-<HTML><%@ page language="java" pageEncoding="UTF-8"
+<HTML>
+<%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -36,7 +37,7 @@
                     <p class="card-text">種類: ${data.rice_genre}</p>
                     <p class="card-text">サイズ: ${data.rice_weight}kg</p>
                     <p class="card-text">生産地: ${data.rice_made}</p>
-                    <p class="card-text">${data.rice_image_path}</p>
+                    <img src="${data.rice_image_path}" alt="商品の画像" class="card-img-top">
                     <p class="card-text">精米日: ${data.rice_since}</p>
                     <p class="card-text">在庫数: ${data.rice_stock}</p>
                     <p class="card-text">価格: ${data.rice_price}円</p>
@@ -56,9 +57,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
         <%-- 4つごとに改行 --%>
         <c:if test="${loopStatus.index % 4 == 3}">
