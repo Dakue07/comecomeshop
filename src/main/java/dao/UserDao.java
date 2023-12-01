@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.MySQLOperator;
 import dto.UserTableDto;
@@ -12,6 +13,7 @@ public class UserDao {
 	private static final String INSERT_USER = "INSERT INTO USERTABLE (user_name, user_pass, user_Email) VALUES (?, ?, ?)";
 	private static final String SELECT_USER_PASS = "SELECT user_id, user_name, user_pass FROM USERTABLE WHERE user_name = ?";
 	private static final String SELECT_USER_ID = "SELECT user_id FROM USERTABLE WHERE user_name = ? AND user_pass = ?";
+	private static final String SELECT_ALL = "SELECT * FROM USERTABLE";
 	private static final String DELETE_USER = "DELETE FROM USERTABLE WHERE user_id = ?";
 	
 	Connection cn = null;
@@ -42,14 +44,14 @@ public class UserDao {
 		return dto;
 	}
 	
-	public boolean createUser(String name, String pass, String mail) {
+	public boolean createUser(String name, String pass, String Email) {
 		try {
 			cn = connect();
 					
 			prsmt = cn.prepareStatement(INSERT_USER);
 			prsmt.setString(1, name);
 			prsmt.setString(2, pass);
-			prsmt.setString(3, mail);
+			prsmt.setString(3, Email);
 			int row = prsmt.executeUpdate();
       
 			return row > 0;
@@ -78,6 +80,30 @@ public class UserDao {
 		}
 		
 		return user_id;
+	}
+	
+	public ArrayList<UserTableDto> SelectAll() {
+		ArrayList<UserTableDto> result = new ArrayList<UserTableDto>();
+		try {
+			System.out.println("SelectAll始まり");
+			cn = connect();
+			prsmt = cn.prepareStatement(SELECT_ALL);
+			rs = prsmt.executeQuery();
+			while(rs.next()) {
+				UserTableDto userdto = new UserTableDto();
+				userdto.setUser_id(rs.getInt("user_id"));
+				userdto.setUser_name(rs.getString("user_name"));
+				userdto.setUser_pass(rs.getString("user_pass"));
+				userdto.setUser_Email(rs.getString("user_Email"));
+				result.add(userdto);
+				System.out.println("SelectAll" + result);
+			}
+			
+		} catch(SQLException e) {
+			MySQLOperator.getInstance().rollback();
+		}
+		return result;
+		
 	}
 	
 	public void deleteUser(int user_id) {

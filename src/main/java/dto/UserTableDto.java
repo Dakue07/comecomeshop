@@ -4,13 +4,15 @@ public class UserTableDto {
 	private int user_id; //これ間違えてるかも
 	private String user_name;
 	private String user_pass;
-	private String user_mail;
+	private String user_Email;
 	
 	public UserTableDto(int user_id, String user_name, String user_pass) {
 		setUser_id(user_id);
 		setUser_name(user_name);
 		setUser_pass(user_pass);
 	}
+	
+	public UserTableDto() {}
 	
 	public int getUser_id() {
 		return user_id;
@@ -30,12 +32,15 @@ public class UserTableDto {
 	public void setUser_pass(String user_pass) {
 		this.user_pass = user_pass;
 	}
-	public String getUser_mail() {
-		return user_mail;
+
+	public String getUser_Email() {
+		return user_Email;
 	}
-	public void setUser_mail(String user_mail) {
-		this.user_mail = user_mail;
+
+	public void setUser_Email(String user_Email) {
+		this.user_Email = user_Email;
 	}
+	
 	
 	
 	
