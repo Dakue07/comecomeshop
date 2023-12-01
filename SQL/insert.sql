@@ -42,7 +42,7 @@ VALUES('ジャスミンライス', 'タイ米', 20, '新潟県上越市',
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
 	rice_since, rice_stock, rice_price)
-VALUES('かしわき', '無洗米', 15, '石川県金沢市',
+VALUES('かしわき', '無精米', 15, '石川県金沢市',
 	'2020-09-26 00:00:00', 180, 6300);
 
 # user_id, useraddress_receiver, useraddress_postcode,
@@ -73,6 +73,9 @@ VALUES(2, 6, 10);
 INSERT INTO CARTTABLE (user_id, rice_id, cart_quantity)
 VALUES(2, 6, 20);
 
+INSERT INTO CARTTABLE (user_id, rice_id, cart_quantity)
+VALUES(2, 7, 5);
+
 INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
 VALUES(1, 1, 19200);
 
@@ -81,6 +84,9 @@ VALUES(1, 6, 24000);
 
 INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
 VALUES(2, 6, 120000);
+
+INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
+VALUES(2, 7, 31500);
 
 INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
 	order_amount, rice_name, rice_price)
@@ -94,6 +100,10 @@ INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
 	order_amount, rice_name, rice_price)
 VALUES(2, 6, 10, 120000, 'ジャスミンライス', 12000);
 
+INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
+	order_amount, rice_name, rice_price)
+VALUES(2, 7, 5, 31500, 'かしわき', 6300);
+
 INSERT INTO REVIEWTABLE (user_id, rice_id, review_comment, review_star)
 VALUES(1, 1, 'なんか白くておいしかったかも～', 4);
 
@@ -102,3 +112,6 @@ VALUES(1, 6, '安い割にコメがふっくらしていて美味しかった！
 
 INSERT INTO REVIEWTABLE (user_id, rice_id, review_comment, review_star)
 VALUES(1, 6, '米がパラパラしててチャーハンにいいね。こっちに乗り換えようかなって思った。定期的に買おうかな', 5);
+
+INSERT INTO REVIEWTABLE (user_id, rice_id, review_comment, review_star)
+VALUES(2, 7, 'ちょっと苦みが強すぎるかも。でも奥深い味だった', 3);
