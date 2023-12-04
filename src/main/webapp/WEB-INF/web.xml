@@ -157,6 +157,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>usermanage</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/usermanage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>usermanage</servlet-name>
+  	<url-pattern>/usermanage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>addproduct</servlet-name>
   	<jsp-file>/WEB-INF/JSP/addproduct.jsp</jsp-file>
   </servlet>

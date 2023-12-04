@@ -8,7 +8,7 @@
 <!-- ここから下に書いてね -->
 
 
-<a href="usermanage">ユーザー管理</a>
+<a href="<%= request.getContextPath() %>/come/adminuser">ユーザー管理</a>
 <a href="<%= request.getContextPath() %>/come/adminproduct">商品管理</a>
 <a href="<%= request.getContextPath() %>/come/signout">サインアウト</a>
 
