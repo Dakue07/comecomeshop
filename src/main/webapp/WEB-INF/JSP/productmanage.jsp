@@ -25,6 +25,8 @@
 
 <a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
 
+<a href="<%=request.getContextPath() %>/addproduct">商品を追加する</a><br>
+
 
 <div class="row">
     <c:forEach var="data" items="${data}" varStatus="loopStatus">
@@ -45,15 +47,23 @@
                         <c:if test="${data.rice_flag == false}">販売停止中</c:if>
                     </p>
                     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                        <form action="<%= request.getContextPath() %>/come/indecateproduct" method="post">
-                            <button type="submit" class="btn btn-outline-primary">サイトに表示する</button>
-                            <input type="hidden" name="rice_id" value="${data.rice_id}">
-                        </form>
-                        <form action="<%= request.getContextPath() %>/come/nonindecateproduct" method="post">
-                            <button type="submit" class="btn btn-outline-danger">サイトから消す</button>
-                            <input type="hidden" name="rice_id" value="${data.rice_id}">
-                        </form>
-                    </div>
+		            	<c:if test="${data.rice_flag == true}">
+		            		<form action = "<%= request.getContextPath() %>/come/nonindecateproduct" method = post>
+					          	<button type="submit" class="btn btn-outline-warning">サイトから消す</button>
+					          	<input type="hidden" name="rice_id" value="${data.rice_id}">
+					        </form>
+					    </c:if>
+					    <c:if test="${data.rice_flag == false}">
+			            	<form action = "<%= request.getContextPath() %>/come/indecateproduct" method = post>
+					          	<button type="submit" class="btn btn-outline-primary">サイトに表示する</button>
+					          	<input type="hidden" name="rice_id" value="${data.rice_id}">
+					        </form>
+					    </c:if>
+				        <form action="<%= request.getContextPath() %>/come/deleteproduct" method="post">
+				        	<button type="submit" class="btn btn-outline-danger">商品削除</button>
+				        	<input type="hidden" name="rice_id" value="${data.rice_id}">
+				        </form>
+					</div>
                 </div>
             </div>
 
