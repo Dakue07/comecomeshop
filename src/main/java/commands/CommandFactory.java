@@ -1,23 +1,23 @@
 package commands;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import context.RequestContext;
 
 public class CommandFactory {
 	@SuppressWarnings({ "deprecation", "finally" })
-	public static AbstractCommand getCommand(RequestContext rc, String rootPath) {
+	public static AbstractCommand getCommand(RequestContext rc, InputStream file) {
 		AbstractCommand command = null;
 		Properties prop = new Properties();
 		
 		try {
-			prop.load(new FileInputStream(rootPath + "WEB-INF\\properties\\commands.properties"));
+			prop.load(file);
 			String name = prop.getProperty(rc.getCommandPath());
 			System.out.println("こまふぁく" + name);
 			Class<?> c = Class.forName(name);
-			command = (AbstractCommand) c.newInstance();
+			command = (AbstractCommand) c.getDeclaredConstructor().newInstance();
 			
 		} catch (ClassNotFoundException |IOException e) {
 			e.printStackTrace();

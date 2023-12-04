@@ -31,7 +31,6 @@ public class FrontServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		String rootPath = context.getRealPath("/");
 		
-		
 		//ApplicationControllerのインスタンスを取得
 		ApplicationController app = new WebApplicationController();
 		
@@ -41,7 +40,7 @@ public class FrontServlet extends HttpServlet {
 		reqc.setParameterMap(req.getParameterMap());
 		
 		//ResponseContextにhandleRequestメソッドの結果を格納
-		ResponseContext resc = app.handleRequest(reqc, rootPath);
+		ResponseContext resc = app.handleRequest(reqc, req.getServletContext().getResourceAsStream("/WEB-INF/properties/commands.properties"));
 		System.out.println("ふろんと" + resc.getResult());
 		
 		//結果をResponseContextにセットする

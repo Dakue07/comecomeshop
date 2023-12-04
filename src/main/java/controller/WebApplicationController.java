@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.InputStream;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,9 +27,9 @@ public class WebApplicationController implements ApplicationController {
 	}
 	
 	//渡されたRequestContextから
-	public ResponseContext handleRequest(RequestContext reqc, String rootPath) {
+	public ResponseContext handleRequest(RequestContext reqc, InputStream file) {
 		
-		AbstractCommand command = CommandFactory.getCommand(reqc, rootPath);
+		AbstractCommand command = CommandFactory.getCommand(reqc, file);
 		System.out.println("あぷこん" + command);
 		command.init(reqc);
 		
