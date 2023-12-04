@@ -8,7 +8,7 @@
 	<head>
   	<meta charset="UTF-8">
   	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/header.css">
-  	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/reset.css">
+  	<!--<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/reset.css">-->
   	<title>toppage</title>
 	</head>
 	<body>

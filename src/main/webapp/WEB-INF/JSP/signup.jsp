@@ -38,17 +38,17 @@
            	<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">郵便番号</label>
 				<span class="text-danger">*</span>
-            	<input type="text" class="form-control" name="useraddress_postcode" id="postcode" autocomplete="off" placeholder="郵便番号" required>
+            	<input type="text" id="input_zip" class="form-control" name="useraddress_postcode" id="postcode" autocomplete="off" placeholder="郵便番号" required>
            	</div>
 			<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">都道府県</label>
             	<span class="text-danger">*</span>
-            	<input type="text" class="form-control" name="useraddress_state_city" id="state_city" autocomplete="off" placeholder="都道府県" required>
+            	<input type="text" id="input_state_town" class="form-control" name="useraddress_state_city" id="state_city" autocomplete="off" placeholder="都道府県" required>
          	</div>
          	<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">市区町村・番地・(部屋番号・建物名)</label>
             	<span class="text-danger">*</span>
-            	<input type="text" class="form-control" name="useraddress_street" id="street" autocomplete="off" placeholder="市区町村・番地・(部屋番号・建物名)" required>
+            	<input type="text" id="input_street" class="form-control" name="useraddress_street" id="street" autocomplete="off" placeholder="市区町村・番地・(部屋番号・建物名)" required>
             </div>
             <div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">受取人</label>
@@ -65,6 +65,9 @@
     </div>
 
     <script src="<%= request.getContextPath() %>/JS/login.js"></script>
+    
+    <script type="text/javascript" src="https://postcode-jp.com/js/postcodejp.js" charset="utf-8"> </script>　<!--srcはそのままでお願いします-->
+	<script type="text/javascript" src="${pageContext.request.contextPath}/JS/postcodejp_script.js" charset="utf-8"></script>
 
 
 </HTML>
