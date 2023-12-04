@@ -7,6 +7,8 @@ import database.MySQLOperator;
 
 public class UserDeleteCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
+		
+		System.out.println("deletecommand");
 		RequestContext reqc = getRequestContext();
 		
 		MySQLOperator.getInstance().beginTransaction();

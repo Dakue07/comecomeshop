@@ -107,12 +107,14 @@ public class UserDao {
 	}
 	
 	public void deleteUser(int user_id) {
+		System.out.println("deleteの始まりとuser_id:" + user_id );
 		try {
 			cn = connect();
 			prsmt = cn.prepareStatement(DELETE_USER);
 			prsmt.setInt(1, user_id);
 			prsmt.executeUpdate();
 		} catch(SQLException e) {
+			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
 		}
 	}

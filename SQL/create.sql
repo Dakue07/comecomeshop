@@ -64,16 +64,17 @@ CREATE TABLE USERADDRESSTABLE
  useraddress_state_city varchar(100) NOT NULL,
  useraddress_street varchar(100) NOT NULL,
  FOREIGN KEY fk_useraddress_userid (user_id) REFERENCES USERTABLE(user_id)
+ ON DELETE CASCADE
 );
 
-CREATE TABLE CARDTABLE
-(user_id int,
- card_holdername varchar(30) NOT NULL,
- card_number char(16) NOT NULL,
- card_validity date NOT NULL,
- card_securitycode char(3) NOT NULL,
- FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id),
- CONSTRAINT uq_card_number UNIQUE(card_number)
+CREATE TABLE CARDTABLE (
+    user_id int,
+    card_holdername varchar(30) NOT NULL,
+    card_number char(16) NOT NULL,
+    card_validity date NOT NULL,
+    card_securitycode char(3) NOT NULL,
+    CONSTRAINT uq_card_number UNIQUE(card_number),
+    FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE CARTTABLE
@@ -82,6 +83,7 @@ CREATE TABLE CARTTABLE
  cart_quantity int NOT NULL,
  FOREIGN KEY fk_cart_userid (user_id) REFERENCES USERTABLE(user_id),
  FOREIGN KEY fk_cart_riceid (rice_id) REFERENCES RICETABLE(rice_id)
+ ON DELETE CASCADE
 );
 
 CREATE TABLE ORDERTABLE
@@ -92,6 +94,7 @@ CREATE TABLE ORDERTABLE
  order_time timestamp DEFAULT CURRENT_TIMESTAMP,
  FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id),
  FOREIGN KEY fk_order_riceid (rice_id) REFERENCES RICETABLE(rice_id)
+ ON DELETE CASCADE
 );
 
 CREATE TABLE ORDERDETAILSTABLE
@@ -104,6 +107,7 @@ CREATE TABLE ORDERDETAILSTABLE
  rice_price int NOT NULL,
  FOREIGN KEY fk_orderdetails_orderid (order_id) REFERENCES ORDERTABLE(order_id),
  FOREIGN KEY fk_orderdetails_riceid (rice_id) REFERENCES RICETABLE(rice_id)
+ ON DELETE CASCADE
 );
 
 CREATE TABLE REVIEWTABLE
@@ -111,8 +115,10 @@ CREATE TABLE REVIEWTABLE
  rice_id int,
  review_comment varchar(600),
  review_star int NOT NULL,
- FOREIGN KEY fk_review_userid (user_id) REFERENCES USERTABLE(user_id),
- FOREIGN KEY fk_review_riceid (rice_id) REFERENCES RICETABLE(rice_id),
+ FOREIGN KEY fk_review_userid (user_id) REFERENCES USERTABLE(user_id)
+ ON DELETE CASCADE,
+ FOREIGN KEY fk_review_riceid (rice_id) REFERENCES RICETABLE(rice_id)
+ ON DELETE CASCADE,
  CONSTRAINT ck_high_review_star CHECK(review_star <= 5),
  CONSTRAINT ck_low_review_star CHECK(review_star >= 1)
 );
