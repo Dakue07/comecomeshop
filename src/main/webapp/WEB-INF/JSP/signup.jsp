@@ -61,6 +61,7 @@
        </div>
     </form>
     </div>
+    <div class="text-muted text-center"><small>すでにアカウントをお持ちの方は<a href="<%=request.getContextPath() %>/signin">こちら</a></small></div>
     </div>
     </div>
 
