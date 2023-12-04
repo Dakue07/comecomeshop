@@ -18,14 +18,14 @@ public class CardTableDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public boolean insertCard(Connection cn, int user_id, String card_holdername, String card_number,Date card_validity, String card_securitycode) {
+	public boolean insertCard(int user_id, String card_number, String card_securitycode, String card_holdername, Date card_validity) {
 		try {
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_CARD);
 			pstmt.setInt(1, user_id);
-			pstmt.setString(2, card_holdername);
-			pstmt.setString(3, card_number);
-			pstmt.setDate(4, card_validity);
-			pstmt.setString(5, card_securitycode);
+			pstmt.setString(2, card_number);
+			pstmt.setString(3, card_securitycode);
+			pstmt.setString(4, card_holdername);
+			pstmt.setDate(5, card_validity);
 			int row = pstmt.executeUpdate();
 			return row > 0;
 		} catch (SQLException e) {
