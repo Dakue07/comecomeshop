@@ -4,7 +4,7 @@
 <!DOCTYPE html>
   	<meta charset="UTF-8">
   	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/footer.css">
-  	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/reset.css">
+  	<!--<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/reset.css">-->
 <!-- footer -->
 <footer>
 	<div class="footer02">

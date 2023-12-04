@@ -7,8 +7,8 @@ function initPostcodeJp() {
     postcodeJp.setZipTextbox('input_zip')
 
     // 住所補完フィールドを追加
-    postcodeJp.add(new postcodejp.address.StateTownTextbox('input_state_town'));
-    postcodeJp.add(new postcodejp.address.StreetTextbox('input_street'));
+    postcodeJp.add(new postcodejp.address.StateTextbox('input_state_town'));
+    postcodeJp.add(new postcodejp.address.TownStreetTextbox('input_street'));
     
 
     // 郵便番号テキストボックスの監視を開始
