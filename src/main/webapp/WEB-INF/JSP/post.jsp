@@ -18,6 +18,7 @@
 	${data.useraddress_postcode}<br>
 	${data.useraddress_state_city}<br>
 	${data.useraddress_street}<br>
+	<a href="<%= request.getContextPath() %>/come/deletepost">この住所を削除する</a>
 </c:forEach>
 
 <!-- いじるな -->

@@ -12,6 +12,7 @@ import database.MySQLOperator;
 public class UserAddressDao {
 	private static final String INSERT_ADDRESS = "INSERT INTO USERADDRESSTABLE(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?, ?)";
 	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM USERADDRESSTABLE WHERE user_id = ?";
+	private static final String DELETE_ADDRESS = "DELETE FROM USERADDRESSTABLE WHERE user_id = ?, useraddress_postcode = ?, useraddress_state_city = ?, useraddress_street = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
@@ -55,6 +56,23 @@ public class UserAddressDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public void deleteAddress(int user_id, String useraddress_postcode, String useraddress_state_city, String useraddress_street) {
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			PreparedStatement pstmt = cn.prepareStatement(DELETE_ADDRESS);
+			pstmt.setInt(1, user_id);
+			pstmt.setString(2, useraddress_postcode);
+			pstmt.setString(3, useraddress_state_city);
+			pstmt.setString(4, useraddress_street);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			MySQLOperator.getInstance().rollback();
+		}
 	}
 	
 }
