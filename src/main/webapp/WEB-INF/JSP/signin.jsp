@@ -2,6 +2,7 @@
 <HTML><%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@include file="../../assets/template/header2.jsp" %>
 
@@ -17,6 +18,10 @@
     <div class="row bg-light text-dark py-5">
         <div class="col-md-8 offset-md-2">
 	<h2 class="fs-1 mb-5 text-center fw-bold">サインイン</h2>
+	
+	<c:if test="${data eq 'miss'}">
+		<p class=" text-center text-danger">ユーザIDまたはパスワードが違います。</p>
+    </c:if>
 	
 	<form action="come/signin" method="post">
 		<div class="row">
@@ -37,6 +42,7 @@
        </div>
 	</form>
 	</div>
+		<div class="text-muted text-center"><small>アカウントがない場合は <a href="<%=request.getContextPath() %>/signup">こちら</a></small></div>
 	</div>
 	</div>
 	</div>

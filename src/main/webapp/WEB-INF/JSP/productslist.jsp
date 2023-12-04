@@ -58,8 +58,5 @@
   </c:forEach>
 </div>
 
-<a href="<%=request.getContextPath() %>/come/cartInsert" class="btn btn-primary">カートへ入れる</a>
-
-
 	<!-- いじるな -->
 	<%@include file="../../assets/template/footer.jsp" %>
