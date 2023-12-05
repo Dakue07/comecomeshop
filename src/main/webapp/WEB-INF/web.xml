@@ -168,6 +168,15 @@
   	<url-pattern>/addproduct</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>createpost</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/createpost.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>createpost</servlet-name>
+  	<url-pattern>/createpost</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>
