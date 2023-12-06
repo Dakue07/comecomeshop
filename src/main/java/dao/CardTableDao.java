@@ -18,7 +18,7 @@ public class CardTableDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public boolean insertCard(int user_id, String card_number, String card_securitycode, String card_holdername, Date card_validity) {
+	public void insertCard(int user_id, String card_number, String card_securitycode, String card_holdername, Date card_validity) {
 		try {
 			PreparedStatement pstmt = cn.prepareStatement(INSERT_CARD);
 			pstmt.setInt(1, user_id);
@@ -26,11 +26,11 @@ public class CardTableDao {
 			pstmt.setString(3, card_securitycode);
 			pstmt.setString(4, card_holdername);
 			pstmt.setDate(5, card_validity);
-			int row = pstmt.executeUpdate();
-			return row > 0;
+			pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
+			MySQLOperator.getInstance().rollback();
 			e.printStackTrace();
-			return false;
 		}
 	}
 	
