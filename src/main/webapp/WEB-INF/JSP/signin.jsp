@@ -47,7 +47,7 @@
 	</div>
 	</div>
     <!-- パスワードの表示 -->
-    <script src="<%= request.getContextPath() %>/JS/login.js"></script>
+    <script src="<%= request.getContextPath() %>/JS/password.js"></script>
 
 </HTML>
 <!-- いじるな -->
