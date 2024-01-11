@@ -65,7 +65,7 @@
     </div>
     </div>
 
-    <script src="<%= request.getContextPath() %>/JS/login.js"></script>
+    <script src="<%= request.getContextPath() %>/JS/password.js"></script>
     
     <script type="text/javascript" src="https://postcode-jp.com/js/postcodejp.js" charset="utf-8"> </script>　<!--srcはそのままでお願いします-->
 	<script type="text/javascript" src="${pageContext.request.contextPath}/JS/postcodejp_script.js" charset="utf-8"></script>
