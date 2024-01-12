@@ -16,12 +16,12 @@
 	</filter-mapping>
   
   <servlet>
-  	<servlet-name>productslist</servlet-name>
-  	<jsp-file>/WEB-INF/JSP/productslist.jsp</jsp-file>
+  	<servlet-name>productlist</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/productlist.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>productslist</servlet-name>
-  	<url-pattern>/productslist</url-pattern>
+  	<servlet-name>productlist</servlet-name>
+  	<url-pattern>/productlist</url-pattern>
   </servlet-mapping>
   
   <servlet>

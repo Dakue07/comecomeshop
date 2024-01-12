@@ -7,7 +7,7 @@ import dao.UserDao;
 import database.MySQLOperator;
 import login.Encryption;
 
-public class UserInsertCommand extends AbstractCommand {
+public class AddUserCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
 		System.out.println("ユーザー登録まできてるよ");

@@ -17,7 +17,7 @@
     <div class="row bg-light text-dark py-5">
 	<h2 class="fs-1 mb-5 text-center fw-bold">ユーザー登録</h2>
 
-	<form action="come/userinsert" method="post">
+	<form action="come/adduser" method="post">
 		<div class="row">
 			<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">ユーザー名</label>

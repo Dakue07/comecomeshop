@@ -25,7 +25,7 @@
             ${data.user_name}<br>
             ${data.user_pass}<br>
             ${data.user_Email}<br>
-            <form action = "<%= request.getContextPath() %>/come/userdelete" method = post>
+            <form action = "<%= request.getContextPath() %>/come/deleteuser" method = post>
 	          	<button type="submit" class="btn btn-outline-warning">サイトから消す</button>
 	          	<input type="hidden" name="user_id" value="${data.user_id}">
 			</form>

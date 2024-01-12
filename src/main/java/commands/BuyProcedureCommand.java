@@ -6,7 +6,7 @@ import context.ResponseContext;
 import dao.CardTableDao;
 import database.MySQLOperator;
 
-public class ProcedureCommand extends AbstractCommand {
+public class BuyProcedureCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;

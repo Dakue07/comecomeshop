@@ -12,7 +12,7 @@ public class TestCommand extends AbstractCommand {
         
         RequestContext reqc = getRequestContext();
         
-		resc.setTarget("productslist");
+		resc.setTarget("productlist");
 		
 		System.out.println("テスコま" + resc.getTarget());
 		

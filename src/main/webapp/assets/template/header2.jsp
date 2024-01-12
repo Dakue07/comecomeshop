@@ -44,7 +44,7 @@ form .btn.btn-outline-success {
 			crossorigin="anonymous"></script>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary full-width">
 
-			<a class="navbar-brand ms-3" href="<%=request.getContextPath() %>/come/productslist"> <img
+			<a class="navbar-brand ms-3" href="<%=request.getContextPath() %>/come/productlist"> <img
 				src="/comecomeshop/images/logo.png" alt="Bootstrap" width="150"
 				height="80">
 			</a>
@@ -57,7 +57,7 @@ form .btn.btn-outline-success {
 						<button class="btn btn-outline-success" type="submit" onclick="location.href='<%=request.getContextPath() %>/come/search'">検索</button>
 					</form>
 					<li class="nav-item"><a class="nav-link"
-						aria-current="page" href="<%=request.getContextPath() %>/come/productslist">ホーム</a></li>
+						aria-current="page" href="<%=request.getContextPath() %>/come/productlist">ホーム</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/come/cart">カート</a></li>
 					

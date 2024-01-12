@@ -5,7 +5,7 @@ import context.ResponseContext;
 import dao.UserDao;
 import database.MySQLOperator;
 
-public class UserDeleteCommand extends AbstractCommand {
+public class DeleteUserCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
 		System.out.println("deletecommand");

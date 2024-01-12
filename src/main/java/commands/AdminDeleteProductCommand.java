@@ -5,7 +5,7 @@ import context.ResponseContext;
 import dao.RiceTableDao;
 import database.MySQLOperator;
 
-public class DeleteProductCommand extends AbstractCommand {
+public class AdminDeleteProductCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		

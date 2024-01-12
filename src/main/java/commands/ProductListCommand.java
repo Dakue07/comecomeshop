@@ -6,7 +6,7 @@ import context.WebRequestContext;
 import dao.RiceTableDao;
 import database.MySQLOperator;
 
-public class ProductsListCommand extends AbstractCommand {
+public class ProductListCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
@@ -23,7 +23,7 @@ public class ProductsListCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().commit();
 		
-		resc.setTarget("productslist");
+		resc.setTarget("productlist");
 		
 		return resc;
 	}
