@@ -5,7 +5,7 @@ import context.ResponseContext;
 import dao.UserAddressDao;
 import database.MySQLOperator;
 
-public class InsertPostCommand extends AbstractCommand {
+public class AddPostCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
 		RequestContext reqc = getRequestContext();
