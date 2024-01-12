@@ -8,7 +8,7 @@ import dao.CartTableDao;
 import dao.RiceTableDao;
 import database.MySQLOperator;
 
-public class InsertCartCommand extends AbstractCommand {
+public class AddCartCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;

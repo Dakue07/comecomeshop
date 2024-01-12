@@ -48,7 +48,7 @@
             収穫日:${data.rice_since}月<br>
             価格:${data.rice_price}円<br>
           </p>
-          <form action = "<%= request.getContextPath() %>/come/insertCart" method = post>
+          <form action = "<%= request.getContextPath() %>/come/addcart" method = post>
           	<button class="btn btn-primary">カートへ入れる</button>
           	<input type="hidden" name="rice_id" value="${data.rice_id}">
           </form>
