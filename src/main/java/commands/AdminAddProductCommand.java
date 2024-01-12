@@ -5,7 +5,7 @@ import context.ResponseContext;
 import dao.RiceTableDao;
 import database.MySQLOperator;
 
-public class AddProductCommand extends AbstractCommand {
+public class AdminAddProductCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
 		RequestContext reqc = getRequestContext();

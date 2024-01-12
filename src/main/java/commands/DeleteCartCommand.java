@@ -8,7 +8,7 @@ import database.MySQLOperator;
 
 
 
-public class CartDeleteCommand extends AbstractCommand {
+public class DeleteCartCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		Object result = null;
 		

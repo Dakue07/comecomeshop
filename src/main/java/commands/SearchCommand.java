@@ -29,7 +29,7 @@ public class SearchCommand extends AbstractCommand {
 		
 		resc.setResult(result);
 		
-		resc.setTarget("productslist");
+		resc.setTarget("productlist");
 		
 		return resc;
 	}
