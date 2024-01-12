@@ -37,13 +37,23 @@ VALUES('おおまつにしき', 'もち米', 5, '神奈川県横須賀市',
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
 	rice_since, rice_stock, rice_price)
-VALUES('ジャスミンライス', 'タイ米', 20, '新潟県上越市',
+VALUES('ジャスミンライス', 'タイ米', 20, 'タイ',
 	'2022-06-08 00:00:00', 275, 12000);
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
 	rice_since, rice_stock, rice_price)
 VALUES('かしわき', '無精米', 15, '石川県金沢市',
 	'2020-09-26 00:00:00', 180, 6300);
+
+INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
+	rice_since, rice_stock, rice_price)
+VALUES('さわやか', 'うるち米', 5, '静岡県沼津市',
+	'2019-08-22 00:00:00', 210, 3300);
+
+INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
+	rice_since, rice_stock, rice_price)
+VALUES('さこぴりか', 'もち米', 10, '埼玉県川口市',
+	'2013-07-18 00:00:00', 335, 7700);
 
 # user_id, useraddress_receiver, useraddress_postcode,
 	useraddress_state_city, useraddress_street
