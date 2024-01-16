@@ -34,6 +34,7 @@
 <%@include file="../../assets/template/slideshow.jsp" %>
 
 
+
 <div class="row justify-content-center">
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
@@ -48,7 +49,10 @@
             収穫日:${data.rice_since}月<br>
             価格:${data.rice_price}円<br>
           </p>
-          <form action = "<%= request.getContextPath() %>/come/addcart" method = post>
+          <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
+          <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
+    	  </select>
+
           	<button class="btn btn-primary">カートへ入れる</button>
           	<input type="hidden" name="rice_id" value="${data.rice_id}">
           </form>
@@ -57,6 +61,31 @@
     </div>
   </c:forEach>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var selects = document.querySelectorAll('.mySelect');
+        selects.forEach(function (select) {
+            var riceStockValue = parseInt(select.dataset.riceStock, 10);
+            for (var i = 1; i <= riceStockValue; i++) {
+                var option = document.createElement('option');
+                option.value = i;
+                option.innerHTML = i;
+                select.add(option);
+            }
+        });
+    });
+
+    function checkUserId() {
+        var user_id = "${userBean.user_id}";
+        if (!user_id || user_id.trim() === "") {
+          window.location.href = "<%=request.getContextPath() %>/signin";
+          return false; 
+        }
+        return true; 
+	}
+</script>
+
 
 	<!-- いじるな -->
 	<%@include file="../../assets/template/footer.jsp" %>

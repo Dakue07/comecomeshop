@@ -17,6 +17,7 @@ public class AddCartCommand extends AbstractCommand {
 		
 		UserBean userBean = reqc.getUserBeanInSession();
 		int user_id = userBean.getUser_id();
+		int cart_quantity = Integer.valueOf(reqc.getParameter("cart_quantity")[0]);
 		
 		CartTableDao cartDao = new CartTableDao();
 		String rice_id = reqc.getParameter("rice_id")[0];
@@ -24,7 +25,7 @@ public class AddCartCommand extends AbstractCommand {
 
 		System.out.println("ライスID:" + rice_id);
 		
-		cartDao.CartInsert(1,user_id, rice_id);
+		cartDao.UpdateCartQuantity(cart_quantity,user_id, rice_id);
 		
 		RiceTableDao riceDao = new RiceTableDao();
 		
