@@ -18,6 +18,8 @@ public class CartTableDao {
 	
 	private static final String INSERT_CART = "INSERT INTO CARTTABLE VALUES(?, ?, ?)";//カートに追加するとき11/22の時点では個数選択はまだ出来ないので1を入れてます。by和希
 	private static final String DELETE_CART = "DELETE FROM CARTTABLE WHERE rice_id = ? AND user_id = ?";
+	private static final String UPDATE_CART_QUANTITY = "UPDATE CARTTABLE SET cart_quantity = ? WHERE user_id = ? AND rice_id = ?";
+	private static final String SELECT_CART_RICEID = "SELECT * FROM CARTTABLE WHERE user_id = ? AND rice_id = ?";
 	
 
 	Connection cn = null;
@@ -36,6 +38,47 @@ public class CartTableDao {
 			MySQLOperator.getInstance().rollback();
 		}
 	}
+	
+	public void UpdateCartQuantity(int cart_quantity, int user_id, String rice_id) {
+	    try {
+	        cn = MySQLOperator.getInstance().getConnection();
+
+	        prsmt = cn.prepareStatement(SELECT_CART_RICEID);
+	        prsmt.setInt(1, user_id);
+	        prsmt.setString(2, rice_id);
+	        rs = null;
+	        rs = prsmt.executeQuery();
+	        System.out.println(rs);
+
+	        int newQuantity = cart_quantity; // newQuantityを初期化
+	        if (rs.next()) {
+	            // カーソルを移動させる
+	            String existingRice_id = rs.getString("rice_id");
+	            System.out.println("rice_id" + rs.getString("rice_id"));
+	            System.out.println(existingRice_id.equals(rice_id));
+	            if (existingRice_id.equals(rice_id)) {
+	            	System.out.println("ifのなかに行けたよ");
+	                int existingQuantity = rs.getInt("cart_quantity");
+	                System.out.println("個数" + rs.getInt("cart_quantity"));
+	                newQuantity += existingQuantity; // 既存の数量と新しい数量を加算
+	                System.out.println("個数" + newQuantity);
+	                prsmt = cn.prepareStatement(UPDATE_CART_QUANTITY);
+	                prsmt.setInt(1, newQuantity);
+	                prsmt.setInt(2, user_id);
+	                prsmt.setString(3, rice_id);
+	                prsmt.executeUpdate();
+	            } else {
+	                CartInsert(cart_quantity, user_id, rice_id);
+	            }
+	        } else {
+	            CartInsert(cart_quantity, user_id, rice_id);
+	        }
+	    } catch (SQLException e) {
+	        MySQLOperator.getInstance().rollback();
+	    }
+	}
+
+
 	
 	public  ArrayList<RiceCartTableDto> AllSelect(int user_id) {
 		ArrayList<RiceCartTableDto> result = new ArrayList<RiceCartTableDto>();
