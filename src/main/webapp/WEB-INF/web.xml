@@ -177,6 +177,15 @@
   	<url-pattern>/createpost</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>card</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/card.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>card</servlet-name>
+  	<url-pattern>/card</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>
