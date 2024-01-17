@@ -20,9 +20,6 @@
     	background-color: #c0c0c0;
     }
 </style>
-まいぱげ
-
-<a href="<%=request.getContextPath() %>/come/userpost">住所</a>
 
 <script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -91,7 +88,7 @@
   	</div>
   
   <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
+		<a href="<%=request.getContextPath() %>/come/cart" style="text-decoration:none;">
     	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
@@ -111,7 +108,7 @@
   	</div>
   
   <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
+		<a href="<%=request.getContextPath() %>/come/card" style="text-decoration:none;">
     	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
@@ -131,7 +128,7 @@
   	</div>
   
   <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
+		<a href="<%=request.getContextPath() %>/come/userpost" style="text-decoration:none;">
     	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
