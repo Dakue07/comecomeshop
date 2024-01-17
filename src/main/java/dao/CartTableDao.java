@@ -16,10 +16,11 @@ public class CartTableDao {
 	private static final String SELECT_ALL = "SELECT RICETABLE.rice_id, cart_quantity, rice_name, rice_genre, rice_weight, rice_made, rice_image_path, rice_since, rice_stock, rice_price "
 											+ "FROM CARTTABLE INNER JOIN RICETABLE ON CARTTABLE.rice_id = RiceTable.rice_id WHERE CARTTABLE.user_id = ?";//カートに追加したものをすべて表示する
 	
-	private static final String INSERT_CART = "INSERT INTO CARTTABLE VALUES(?, ?, ?)";//カートに追加するとき11/22の時点では個数選択はまだ出来ないので1を入れてます。by和希
+	private static final String INSERT_CART = "INSERT INTO CARTTABLE VALUES(?, ?, ?)";
 	private static final String DELETE_CART = "DELETE FROM CARTTABLE WHERE rice_id = ? AND user_id = ?";
 	private static final String UPDATE_CART_QUANTITY = "UPDATE CARTTABLE SET cart_quantity = ? WHERE user_id = ? AND rice_id = ?";
 	private static final String SELECT_CART_RICEID = "SELECT * FROM CARTTABLE WHERE user_id = ? AND rice_id = ?";
+	//無理private static final String SELECT_CART_USERADDRESS_CARD = "SELECT u.user_id, u.useraddress_receiver, u.useraddress_postcode, u.useraddress_state_city, u.useraddress_street, c.card_number, c.card_securitycode, c.card_holdername, c.card_validity, r.rice_id, r.cart_quantity  FROM USERADDRESSTABLE u JOIN CARDTABLE c ON u.user_id = c.user_id JOIN CARTTABLE r ON u.user_id = r.user_id;"
 	
 
 	Connection cn = null;
