@@ -6,6 +6,7 @@ public class CardBean {
 	private int user_id;
 	private String card_holdername;
 	private String card_number;
+	private String card_replace_number;
 	private Date card_validity;
 	private String card_securitycode;
 	
@@ -23,6 +24,12 @@ public class CardBean {
 	}
 	public String getCard_number() {
 		return card_number;
+	}
+	public String getCard_replace_number() {
+		return card_replace_number;
+	}
+	public void setCard_replace_number(String card_replace_number) {
+		this.card_replace_number = card_replace_number;
 	}
 	public void setCard_number(String card_numbe) {
 		this.card_number = card_numbe;

@@ -13,6 +13,7 @@ import database.MySQLOperator;
 public class CardTableDao {
 	private static final String INSERT_CARD = "INSERT INTO CARDTABLE(user_id, card_holdername, card_number, card_validity, card_securitycode) values(?, ?, ?, ?, ?)";
 	private static final String SELECT_CARD_BY_USER = "SELECT * FROM CARDTABLE WHERE user_id = ?";
+	private static final String DELETE_CARD = "DELETE FROM CARDTABLE WHERE user_id = ? AND card_number = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
@@ -42,10 +43,12 @@ public class CardTableDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CardBean cardBean = new CardBean();
+				String card_number = rs.getString("card_number");
 				cardBean.setUser_id(rs.getInt("user_id"));
 				cardBean.setCard_holdername(rs.getString("card_holdername"));
-				String number = "************" + rs.getString("card_number").substring(12);
-				cardBean.setCard_number(number);
+				cardBean.setCard_number(rs.getString("card_number"));
+				String replace_number = "************" + card_number.substring(12);
+				cardBean.setCard_replace_number(replace_number);
 				cardBean.setCard_validity(rs.getDate("card_validity"));
 				cardBean.setCard_securitycode(rs.getString("card_securitycode"));
 				
@@ -56,4 +59,17 @@ public class CardTableDao {
 		}
 		return result;
 	}	
+	
+	public void deleteCard(int user_id, String card_number) {
+		try {
+			pstmt = cn.prepareStatement(DELETE_CARD);
+			pstmt.setInt(1, user_id);
+			pstmt.setString(2, card_number);
+			pstmt.executeUpdate();
+			System.out.println("さくじょできた");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
