@@ -51,7 +51,7 @@
 	        <table>
 	        	<tr>
 	        		<td>カード番号</td>
-	        		<td><input type="tel" name="card_number" required></td>
+	        		<td><input type="tel" name="card_number" minlength="16" maxlength="16" required></td>
 	        	</tr>
 	        	<tr>
 	        		<td>クレジットカード名義人</td>
@@ -59,7 +59,7 @@
 	        	</tr>
 	        	<tr>
 	        		<td>セキュリティコード</td>
-	        		<td><input type="number" name="card_securitycode" maxlength="3" required></input></td>
+	        		<td><input type="number" name="card_securitycode" minlength="3" maxlength="3" required></input></td>
 	        	</tr>
 	        	<tr>
 	        		<td>有効期限</td>
@@ -113,9 +113,10 @@
 </div>
 
 <c:forEach var="data" items="${data}"> 
-		${data.card_number}<br>
+		${data.card_replace_number}<br>
 		${data.card_holdername}<br>
 		<form action = "<%= request.getContextPath() %>/come/deletecard" method = post>
+			<input type="hidden" name="card_number" value="${data.card_number}">
 			<input type="submit" value="このカードを削除する">
 		</form>
 		
