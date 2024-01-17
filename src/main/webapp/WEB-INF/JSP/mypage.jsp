@@ -32,7 +32,7 @@
 <div class="row">
 	<div class="col-md-4 text-center">
 		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
+    	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
         			<div class="col-md-4">
@@ -40,8 +40,8 @@
         			</div>
         			<div class="col-md-8">
           				<div class="card-body">
-            				<h5 class="card-title">注文履歴</h5>
-            				<p class="card-text"><small class="text-body-secondary">注文内容の確認</small></p>
+            				<h5 class="card-title d-flex flex-column">注文履歴</h5>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">注文内容の確認</small></p>
           				</div>
         			</div>
       			</div>
@@ -52,7 +52,7 @@
 
   <div class="col-md-4 text-center">
 		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
+    	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
         			<div class="col-md-4">
@@ -60,8 +60,8 @@
         			</div>
         			<div class="col-md-8">
           				<div class="card-body">
-            				<h5 class="card-title">お問い合わせ</h5>
-            				<p class="card-text"><small class="text-body-secondary">メールの送信</small></p>
+            				<h5 class="card-title d-flex flex-column">お問い合わせ</h5>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">メールの送信</small></p>
           				</div>
         			</div>
       			</div>
@@ -72,7 +72,7 @@
   
   <div class="col-md-4 text-center">
 		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
+    	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
         			<div class="col-md-4">
@@ -80,8 +80,8 @@
         			</div>
         			<div class="col-md-8">
           				<div class="card-body">
-            				<h5 class="card-title">セキュリティ</h5>
-            				<p class="card-text"><small class="text-body-secondary">アカウント情報の変更</small></p>
+            				<h5 class="card-title d-flex flex-column">セキュリティ</h5>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">アカウント情報の<br>確認・変更</small></p>
           				</div>
         			</div>
       			</div>
@@ -92,7 +92,7 @@
   
   <div class="col-md-4 text-center">
 		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
+    	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
         			<div class="col-md-4">
@@ -100,8 +100,8 @@
         			</div>
         			<div class="col-md-8">
           				<div class="card-body">
-            				<h5 class="card-title">カート</h5>
-            				<p class="card-text"><small class="text-body-secondary">カート情報の確認</small></p>
+            				<h5 class="card-title d-flex flex-column">カート</h5>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">カート情報の確認</small></p>
           				</div>
         			</div>
       			</div>
@@ -112,7 +112,7 @@
   
   <div class="col-md-4 text-center">
 		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
+    	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
         			<div class="col-md-4">
@@ -120,8 +120,8 @@
         			</div>
         			<div class="col-md-8">
           				<div class="card-body">
-            				<h5 class="card-title">お支払い方法</h5>
-            				<p class="card-text"><small class="text-body-secondary">お支払い方法の確認・変更</small></p>
+            				<h5 class="card-title d-flex flex-column">お支払い方法</h5>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">お支払い方法の<br>追加・変更・確認</small></p>
           				</div>
         			</div>
       			</div>
@@ -132,16 +132,16 @@
   
   <div class="col-md-4 text-center">
 		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
+    	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">
         			<div class="col-md-4">
-          				<img src="/comecomeshop/images/icon/clock-history.svg" width=150px alt="履歴アイコン" class="img-fluid rounded-start">
+          				<img src="/comecomeshop/images/icon/house.svg" width=150px alt="履歴アイコン" class="img-fluid rounded-start">
         			</div>
         			<div class="col-md-8">
           				<div class="card-body">
-            				<h5 class="card-title">評価・レビューの管理</h5>
-            				<p class="card-text"><small class="text-body-secondary">注文内容の確認</small></p>
+            				<h5 class="card-title d-flex flex-column">住所の変更</h5>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">住所の変更</small></p>
           				</div>
         			</div>
       			</div>
@@ -149,68 +149,7 @@
     	</div>
     	</a>
   	</div>
-  
-  <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
-    		<div class="cursor">
-      			<div class="row g-4">
-        			<div class="col-md-4">
-          				<img src="/comecomeshop/images/icon/clock-history.svg" width=150px alt="履歴アイコン" class="img-fluid rounded-start">
-        			</div>
-        			<div class="col-md-8">
-          				<div class="card-body">
-            				<h5 class="card-title">注文履歴</h5>
-            				<p class="card-text"><small class="text-body-secondary">注文内容の確認</small></p>
-          				</div>
-        			</div>
-      			</div>
-    		</div>
-    	</div>
-    	</a>
-  	</div>
-  
-  <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
-    		<div class="cursor">
-      			<div class="row g-4">
-        			<div class="col-md-4">
-          				<img src="/comecomeshop/images/icon/clock-history.svg" width=150px alt="履歴アイコン" class="img-fluid rounded-start">
-        			</div>
-        			<div class="col-md-8">
-          				<div class="card-body">
-            				<h5 class="card-title">注文履歴</h5>
-            				<p class="card-text"><small class="text-body-secondary">注文内容の確認</small></p>
-          				</div>
-        			</div>
-      			</div>
-    		</div>
-    	</div>
-    	</a>
-  	</div>
-  
-  <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
-    	<div class="card mb-3" style="max-width: 400px;">
-    		<div class="cursor">
-      			<div class="row g-4">
-        			<div class="col-md-4">
-          				<img src="/comecomeshop/images/icon/clock-history.svg" width=150px alt="履歴アイコン" class="img-fluid rounded-start">
-        			</div>
-        			<div class="col-md-8">
-          				<div class="card-body">
-            				<h5 class="card-title">注文履歴</h5>
-            				<p class="card-text"><small class="text-body-secondary">注文内容の確認</small></p>
-          				</div>
-        			</div>
-      			</div>
-    		</div>
-    	</div>
-    	</a>
-  	</div>
-  
-  
+
   
 </div>
 
