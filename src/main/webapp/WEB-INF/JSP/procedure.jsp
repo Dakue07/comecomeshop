@@ -53,7 +53,7 @@
 受取場所<br>
 
 <button id="chooseAddressBtn">住所選択</button><br>
-<div id="modalContainer" class="modal-container">
+<div id="address_modalContainer" class="modal-container">
 	<div class="modal-content">
 	    <span class="close-btn" onclick="closeModal()">&times;</span>
         <c:forEach var="data" items="${data[1]}">
@@ -65,16 +65,32 @@
     </div>
 </div>
 
-<button id="choosePayMentBtn">支払い方法選択</button><br>
+<button id="choosePaymentBtn">支払い方法選択</button><br>
+
+<div id="payment_modalContainer" class="modal-container">
+	<div class="modal-content">
+	    <span class="close-btn" onclick="closeModal()">&times;</span>
+        <c:forEach var="data" items="${data[2]}">
+        ${data.card_replace_number}<br>
+        ${data.card_holdername}<br>
+        ${data.card_validity}<br>
+       	</c:forEach>	        
+    </div>
+</div>
 
 <button id="ConfirmOrderBtn">注文確定</button>
 
 
 <script>
 document.getElementById('chooseAddressBtn').addEventListener('click', openModal)
+document.getElementById('choosePaymentBtn').addEventListener('click', openModal)
 
-function openModal() {
-    document.getElementById('modalContainer').style.display = 'flex';
+function addressOpenModal() {
+    document.getElementById('address_modalContainer').style.display = 'flex';
+}
+
+function paymentOpenModal() {
+	document.getElementById('modal')
 }
 
 function closeModal() {
