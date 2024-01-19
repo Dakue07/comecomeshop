@@ -18,10 +18,8 @@ public class RiceTableDao {
     private static final String DELETE_PRODUCT = "DELETE FROM RICETABLE WHERE rice_id = ?";
     private static final String CHANGE_TRUE = "UPDATE RICETABLE SET rice_flag = true WHERE rice_id = ?";
     private static final String CHANGE_FALSE = "UPDATE RICETABLE SET rice_flag = false WHERE rice_id = ?";
-
-
-        
-    Connection cn = MySQLOperator.getInstance().getConnection();
+    
+    Connection cn = null; 
     Statement st = null;
     PreparedStatement prstm = null;
     ResultSet rs = null;
@@ -30,7 +28,11 @@ public class RiceTableDao {
         ArrayList<RiceTableDto> result = new ArrayList<>();
         ResultSet rs = null;
         try {
-            rs = st.executeQuery(SELECT_PRODUCT);
+            cn = MySQLOperator.getInstance().getConnection();
+        	System.out.println(cn);
+            prstm = cn.prepareStatement(SELECT_PRODUCT);           
+            prstm.setString(1, rice_id);
+            rs = prstm.executeQuery();
         
           
             while(rs.next()) {
