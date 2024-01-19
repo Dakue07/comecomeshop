@@ -111,7 +111,8 @@ CREATE TABLE ORDERDETAILSTABLE
 );
 
 CREATE TABLE REVIEWTABLE
-(user_id int,
+(review_id int PRIMARY KEY AUTO_INCREMENT,
+ user_id int,
  rice_id int,
  review_comment varchar(600),
  review_star int NOT NULL,
