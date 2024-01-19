@@ -96,7 +96,6 @@ public class RiceTableDao {
               ricedto.setRice_image_path(rs.getString("rice_image_path"));
 
               String rice_since = rs.getString("rice_since").substring(0, 7).replace("-", "年");
-              System.out.println(rice_since + "これが生まれた時間や");
               ricedto.setRice_since(rice_since);
               
               ricedto.setRice_stock(rs.getInt("rice_stock"));
@@ -139,7 +138,6 @@ public class RiceTableDao {
 			    riceBean.setRice_image_path(rs.getString("rice_image_path"));
 			    
 			    String rice_since = rs.getString("rice_since").substring(0, 7).replace("-", "年");
-                System.out.println(rice_since + "これが生まれた時間や");
                 riceBean.setRice_since(rice_since);
 
                 riceBean.setRice_stock(rs.getInt("rice_stock"));

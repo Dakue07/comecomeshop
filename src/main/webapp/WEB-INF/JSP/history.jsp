@@ -9,6 +9,9 @@
 <!-- ここから下に書いてね -->
 購入履歴
 
+<a href="<%=request.getContextPath() %>/come/review" style="text-decoration:none;">
+	<button>review表示</button>
+</a>
 
 
 <!-- いじるな -->
