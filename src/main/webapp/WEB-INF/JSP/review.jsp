@@ -11,6 +11,8 @@
 れびゅうぺーじ
 <c:forEach var="data" items="${data}">
 	${data.rice_image_path}<br>${data.rice_name}<br>${data.review_comment}<br>${data.review_star}<br>
+	          <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
+	
 </c:forEach>
 
 

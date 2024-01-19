@@ -23,14 +23,9 @@ public class CartCommand extends AbstractCommand {
 		
 		CartTableDao cartDao = new CartTableDao();
 		
-//		String rice_id = reqc.getParameter("rice_id")[0];
-//		System.out.println("ライスID:" + rice_id);
-		
 		result = cartDao.AllSelect(user_id);
 		
 		resc.setResult(result);
-		
-		System.out.println("cartこまんど" + result);
 		
 		resc.setTarget("cart");
 		
