@@ -51,18 +51,14 @@ public class CartTableDao {
 	        rs = prsmt.executeQuery();
 	        System.out.println(rs);
 
-	        int newQuantity = cart_quantity; // newQuantityを初期化
+	        int newQuantity = cart_quantity;
 	        if (rs.next()) {
-	            // カーソルを移動させる
 	            String existingRice_id = rs.getString("rice_id");
 	            System.out.println("rice_id" + rs.getString("rice_id"));
 	            System.out.println(existingRice_id.equals(rice_id));
 	            if (existingRice_id.equals(rice_id)) {
-	            	System.out.println("ifのなかに行けたよ");
 	                int existingQuantity = rs.getInt("cart_quantity");
-	                System.out.println("個数" + rs.getInt("cart_quantity"));
 	                newQuantity += existingQuantity; // 既存の数量と新しい数量を加算
-	                System.out.println("個数" + newQuantity);
 	                prsmt = cn.prepareStatement(UPDATE_CART_QUANTITY);
 	                prsmt.setInt(1, newQuantity);
 	                prsmt.setInt(2, user_id);
@@ -90,7 +86,6 @@ public class CartTableDao {
 			prsmt = cn.prepareStatement(SELECT_ALL);
 			prsmt.setInt(1, user_id);
 			rs = prsmt.executeQuery();
-			System.out.println("while文のはじめ");
 			while(rs.next()) {
 				RiceCartTableDto rcdto = new RiceCartTableDto();
 				rcdto.setRice_id(rs.getInt("rice_id"));
