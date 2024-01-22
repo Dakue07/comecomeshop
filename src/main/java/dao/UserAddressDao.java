@@ -44,11 +44,12 @@ public class UserAddressDao {
 			while (rs.next()) {
 				UserAddressBean userAddressBean = new UserAddressBean();
 				
-				userAddressBean.setUser_id(rs.getInt(1));
-				userAddressBean.setUseraddress_receiver(rs.getString(2));
-				userAddressBean.setUseraddress_postcode(rs.getString(3));
-				userAddressBean.setUseraddress_state_city(rs.getString(4));
-				userAddressBean.setUseraddress_street(rs.getString(5));
+				userAddressBean.setUseraddress_id(rs.getInt(1));
+				userAddressBean.setUser_id(rs.getInt(2));
+				userAddressBean.setUseraddress_receiver(rs.getString(3));
+				userAddressBean.setUseraddress_postcode(rs.getString(4));
+				userAddressBean.setUseraddress_state_city(rs.getString(5));
+				userAddressBean.setUseraddress_street(rs.getString(6));
 				
 				result.add(userAddressBean);
 			}

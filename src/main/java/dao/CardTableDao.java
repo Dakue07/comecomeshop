@@ -43,6 +43,7 @@ public class CardTableDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CardBean cardBean = new CardBean();
+				cardBean.setCard_id(rs.getInt("card_id"));
 				String card_number = rs.getString("card_number");
 				cardBean.setUser_id(rs.getInt("user_id"));
 				cardBean.setCard_holdername(rs.getString("card_holdername"));

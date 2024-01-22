@@ -58,7 +58,8 @@ CREATE TABLE IF NOT EXISTS RICETABLE
 );
 
 CREATE TABLE USERADDRESSTABLE
-(user_id int,
+(useraddress_id int PRIMARY KEY AUTO_INCREMENT,
+ user_id int,
  useraddress_receiver varchar(100),
  useraddress_postcode char(8) NOT NULL,
  useraddress_state_city varchar(100) NOT NULL,
@@ -68,6 +69,7 @@ CREATE TABLE USERADDRESSTABLE
 );
 
 CREATE TABLE CARDTABLE (
+	card_id int PRIMARY KEY AUTO_INCREMENT,
     user_id int,
     card_holdername varchar(30) NOT NULL,
     card_number char(16) NOT NULL,

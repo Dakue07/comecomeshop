@@ -3,6 +3,7 @@ package beans;
 import java.sql.Date;
 
 public class CardBean {
+	private int card_id;
 	private int user_id;
 	private String card_holdername;
 	private String card_number;
@@ -10,6 +11,12 @@ public class CardBean {
 	private Date card_validity;
 	private String card_securitycode;
 	
+	public int getCard_id() {
+		return card_id;
+	}
+	public void setCard_id(int card_id) {
+		this.card_id = card_id;
+	}
 	public int getUser_id() {
 		return user_id;
 	}
