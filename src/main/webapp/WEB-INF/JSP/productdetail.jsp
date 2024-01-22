@@ -9,10 +9,12 @@
 
 <!-- ここから下に書いてね -->
 れびゅうぺーじ
-<c:forEach var="data" items="${data}">
-	${data.rice_image_path}<br>${data.rice_name}<br>${data.review_comment}<br>${data.review_star}<br>
-	          <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
-	
+<c:forEach var="data" items="${data[0]}">
+	<br>${data.rice_image_path}<br>${data.rice_name}<br>${data.rice_price}
+</c:forEach>
+
+<c:forEach var="data" items="${data[1]}">
+	<br>${data.review_comment}<br>${data.review_star}<br>
 </c:forEach>
 
 

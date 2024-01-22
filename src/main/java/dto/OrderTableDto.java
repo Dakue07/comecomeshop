@@ -1,16 +1,17 @@
 package dto;
 
 public class OrderTableDto {
-	private int usr_id;
+	private int user_id;
 	private int rice_id;
 	private int order_amount;
 	private String order_time;
 	
-	public int getUsr_id() {
-		return usr_id;
+	
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setUsr_id(int usr_id) {
-		this.usr_id = usr_id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public int getRice_id() {
 		return rice_id;

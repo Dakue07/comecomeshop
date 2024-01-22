@@ -2,12 +2,21 @@ package dto;
 
 public class OrderDetailsTableDto {
 	private int order_id;
+	private int user_id;
 	private int rice_id;
-	private int order_quqntity;
+	private int order_quantity;
 	private int order_amount;
 	private String rice_name;
 	private String rice_iamge_path;
 	private int rice_price;
+	
+	
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 	public int getOrder_id() {
 		return order_id;
 	}
@@ -20,11 +29,11 @@ public class OrderDetailsTableDto {
 	public void setRice_id(int rice_id) {
 		this.rice_id = rice_id;
 	}
-	public int getOrder_quqntity() {
-		return order_quqntity;
+	public int getOrder_quantity() {
+		return order_quantity;
 	}
-	public void setOrder_quqntity(int order_quqntity) {
-		this.order_quqntity = order_quqntity;
+	public void setOrder_quantity(int order_quantity) {
+		this.order_quantity = order_quantity;
 	}
 	public int getOrder_amount() {
 		return order_amount;
