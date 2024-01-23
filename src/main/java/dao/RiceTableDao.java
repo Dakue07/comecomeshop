@@ -18,6 +18,7 @@ public class RiceTableDao {
     private static final String DELETE_PRODUCT = "DELETE FROM RICETABLE WHERE rice_id = ?";
     private static final String CHANGE_TRUE = "UPDATE RICETABLE SET rice_flag = true WHERE rice_id = ?";
     private static final String CHANGE_FALSE = "UPDATE RICETABLE SET rice_flag = false WHERE rice_id = ?";
+    private static final String SELECT_RICE_PRICE = "SELECT rice_price FROM RICETABLE WHERE rice_id = ?";
     
     Connection cn = null; 
     Statement st = null;
@@ -217,5 +218,21 @@ public class RiceTableDao {
     	} catch(SQLException e) {
 			MySQLOperator.getInstance().rollback();
     	}
+    }
+    
+    public int getRicePrice(int rice_id) {
+    	int price = 0;
+    	try {
+    		cn = MySQLOperator.getInstance().getConnection();
+    		prstm = cn.prepareStatement(SELECT_RICE_PRICE);
+    		prstm.setInt(1, rice_id);
+    		rs = prstm.executeQuery();
+    		rs.next();
+    		price = rs.getInt(1);
+    		
+    	} catch (SQLException e) {
+    		MySQLOperator.getInstance().rollback();
+    	}
+    	return price;
     }
 }
