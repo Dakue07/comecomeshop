@@ -1,4 +1,3 @@
-<HTML>
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -50,7 +49,7 @@
     .radio-group input {
         margin-bottom: 10px;
     }
-    
+
     .rating-buttons button {
         background: none;
         border: none;
@@ -60,6 +59,7 @@
 
     .rating-buttons button.selected {
         color: gold;
+    }
 </style>
 
 <!-- ここから下に書いてね -->
@@ -68,54 +68,68 @@
     <br><img src="${data.rice_image_path}" alt="${data.rice_name}">
     ${data.rice_image_path}${data.rice_name}${data.order_quantity}${data.order_amount}
     <form action="<%= request.getContextPath() %>/come/productdetail" method="post" onsubmit="return checkUserId()">
-        <button>ここ押したらproductDetailに飛ぶよ</button><!-- 購入履歴ページから。削除はproductdetailに飛ばす -->
+        <button>ここ押したらproductDetailに飛ぶよ</button>
+        <!-- 購入履歴ページから。削除はproductdetailに飛ばす -->
         <input type="hidden" name="rice_id" value="${data.rice_id}">
     </form>
-    <button type="button" onclick="toggleModal('review')">reviewの追加</button><br>
+    <button type="button" onclick="toggleModal('review', '${data.rice_id}')">reviewの追加</button><br>
     <div id="review_modal" class="modal-container">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <p>reviewの追加</p>
-            <form action="come/addreview" method="post">
-            <input type="submit" value="reviewを追加する" />
-        	<input type="hidden" name="rice_id" value="${data.rice_id}">
-			    <table>
-			        <tr>
-			            <td>評価</td>
-			            <td>
-			                <div class="rating-buttons">
-			                    <button type="button" onclick="setRating(1)"><i class="fas fa-star"></i></button>
-			                    <button type="button" onclick="setRating(2)"><i class="fas fa-star"></i></button>
-			                    <button type="button" onclick="setRating(3)"><i class="fas fa-star"></i></button>
-			                    <button type="button" onclick="setRating(4)"><i class="fas fa-star"></i></button>
-			                    <button type="button" onclick="setRating(5)"><i class="fas fa-star"></i></button>
-			                </div>
-			                <input type="hidden" name="review_star" id="evaluation" value="1">
-			            </td>
-			        </tr>
-			        <tr>
-			            <td>コメント</td>
-			            <td>
-			            	<input type="text" name="review_comment">
-			            </td>
-			        </tr>
-			    </table>
-			</form>
+            <form id="review_form" action="<%= request.getContextPath() %>/come/addreview" method="post">
+                <!-- モーダル内のボタンを変更 -->
+                <button type="button" onclick="submitReviewForm()">reviewの追加</button><br>
+                <table>
+                    <tr>
+                        <td>評価</td>
+                        <td>
+                            <div class="rating-buttons">
+                                <button type="button" onclick="setRating(1)"><i class="fas fa-star"></i></button>
+                                <button type="button" onclick="setRating(2)"><i class="fas fa-star"></i></button>
+                                <button type="button" onclick="setRating(3)"><i class="fas fa-star"></i></button>
+                                <button type="button" onclick="setRating(4)"><i class="fas fa-star"></i></button>
+                                <button type="button" onclick="setRating(5)"><i class="fas fa-star"></i></button>
+                            </div>
+                            <input type="hidden" name="review_star" id="evaluation" value="1">
+                            <input type="hidden" name="rice_id" id="rice_id_input" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>コメント</td>
+                        <td>
+                            <input type="text" name="review_comment">
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
 </c:forEach>
 
 <script>
+    function submitReviewForm() {
+        // フォーム送信
+        document.getElementById('review_form').submit();
+        // モーダルを手動で閉じる
+        closeModal();
+    }
 
-	function initializeRating() {
-    	var initialRating = 1;
-    	document.getElementById('evaluation').value = initialRating;
-    	updateStarRating(initialRating);
-	}
+    function initializeRating() {
+        var initialRating = 1;
+        document.getElementById('evaluation').value = initialRating;
+        updateStarRating(initialRating);
+    }
 
-    function toggleModal(modalType) {
+    function toggleModal(modalType, riceId) {
         var modal = document.getElementById(modalType + '_modal');
         modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+
+        // rice_idを表示してみる
+        console.log("rice_id: " + riceId);
+
+        // rice_idをhidden inputに設定
+        document.getElementById('rice_id_input').value = riceId;
     }
 
     function closeModal() {
