@@ -10,10 +10,10 @@ import database.MySQLOperator;
 import dto.ReviewTableDto;
 
 public class ReviewTableDao {
-	private static final String INSERT_ALL ="INSERT INTO REVIEWTABLE VALUE(?, ?, ?, ?)";
+	private static final String INSERT_ALL ="INSERT INTO REVIEWTABLE (rice_id, user_id, review_comment, review_star) VALUES (?, ?, ?, ?)";
 	private static final String SELECT_REVIEW = "SELECT * FROM REVIEWTABLE WHERE rice_id = ?";							
 	private static final String DELETE_REVIEW = "DELETE FROM REVIEWTABLE WHERE review_id = ?";
-	private static final String ADMIN_SELECT_REVIEW = "SELECT r.user_id, r.review_comment, r.review_star FROM USERTABLE u JOIN REBIEWTABLE r ON u.user_id = r.user_id WHERE user_id = ?, rice_id = ?";
+	private static final String ADMIN_SELECT_REVIEW = "SELECT r.user_id, r.review_comment, r.review_star FROM USERTABLE u JOIN REVIEWTABLE r ON u.user_id = r.user_id WHERE user_id = ? AND rice_id = ?";
 	
 	Connection cn = null;
 	PreparedStatement prsmt = null;
@@ -30,6 +30,7 @@ public class ReviewTableDao {
 			prsmt.executeUpdate();
 		} catch(SQLException e) {
 			MySQLOperator.getInstance().rollback();
+			e.printStackTrace();
 		}
 	}
 	

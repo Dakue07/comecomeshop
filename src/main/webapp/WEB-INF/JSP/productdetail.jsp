@@ -8,9 +8,9 @@
 
 
 <!-- ここから下に書いてね -->
-れびゅうぺーじ
+productdetail
 <c:forEach var="data" items="${data[0]}">
-	<br>${data.rice_image_path}<br>${data.rice_name}<br>${data.rice_price}
+	<br><img src="${data.rice_image_path}" alt="${data.rice_name}"><br>${data.rice_name}<br>${data.rice_price}
 </c:forEach>
 
 <c:forEach var="data" items="${data[1]}">
