@@ -7,7 +7,7 @@ public class OrderDetailsTableDto {
 	private int order_quantity;
 	private int order_amount;
 	private String rice_name;
-	private String rice_iamge_path;
+	private String rice_image_path;
 	private int rice_price;
 	
 	
@@ -47,11 +47,11 @@ public class OrderDetailsTableDto {
 	public void setRice_name(String rice_name) {
 		this.rice_name = rice_name;
 	}
-	public String getRice_iamge_path() {
-		return rice_iamge_path;
+	public String getRice_image_path() {
+		return rice_image_path;
 	}
-	public void setRice_iamge_path(String rice_iamge_path) {
-		this.rice_iamge_path = rice_iamge_path;
+	public void setRice_iamge_path(String rice_image_path) {
+		this.rice_image_path = rice_image_path;
 	}
 	public int getRice_price() {
 		return rice_price;
