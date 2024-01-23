@@ -10,10 +10,15 @@
 <!-- ここから下に書いてね -->
 購入履歴
 <c:forEach var = "data" items = "${data}">
-	<a href="<%=request.getContextPath() %>/come/productdetail" style="text-decoration:none;">
-		${data.rice_image_path}<br>${data.rice_name}<br>${data.order_quantity}<br>${data.order_amount}
-		<button>レビュー削除</button><!--後でforEach使って購入履歴の数ぶん追加する。削除はproductdetailに飛ばす -->
-	</a>
+    <br><img src="${data.rice_image_path}" alt="${data.rice_name}">
+	${data.rice_image_path}${data.rice_name}${data.order_quantity}${data.order_amount}
+		<form action = "<%= request.getContextPath() %>/come/productdetail" method = post onsubmit="return checkUserId()">
+			<button>ここ押したらOrderDetailに飛ぶよ</button><!--購入履歴ページから。削除はproductdetailに飛ばす -->
+			<input type="hidden" name = "rice_id" value = "${data.rice_id}">
+		</form>
+		<form>
+			<button>ここ押したらreviewが書ける予定</button>
+		</form>
 </c:forEach>
 
 

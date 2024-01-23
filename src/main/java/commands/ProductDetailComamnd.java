@@ -14,8 +14,8 @@ public class ProductDetailComamnd extends AbstractCommand{
 			Object result3 = null;
 			Object result2 = null;
 			
-			String rice_id = "6";
-			//String rice_id = reqc.getParameter("rice_id")[0];
+			String rice_id = reqc.getParameter("rice_id")[0];
+			System.out.println("ProductDetailCommand" + rice_id);
 			
 			RiceTableDao ricedao = new RiceTableDao();
 			
