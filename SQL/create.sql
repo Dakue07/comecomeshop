@@ -89,9 +89,10 @@ CREATE TABLE CARTTABLE
 );
 
 CREATE TABLE ORDERTABLE
-(order_id int PRIMARY KEY AUTO_INCREMENT,
+(order_id int NOT NULL,
  user_id int,
  rice_id int,
+ order_quantity int NOT NULL,
  order_amount int NOT NULL,
  order_time timestamp DEFAULT CURRENT_TIMESTAMP,
  FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id),
@@ -99,18 +100,18 @@ CREATE TABLE ORDERTABLE
  ON DELETE CASCADE
 );
 
-CREATE TABLE ORDERDETAILSTABLE
-(order_id int,
- rice_id int,
- order_quantity int NOT NULL,
- order_amount int NOT NULL,
- rice_name varchar(128) NOT NULL,
- rice_image_path varchar(128), 
- rice_price int NOT NULL,
- FOREIGN KEY fk_orderdetails_orderid (order_id) REFERENCES ORDERTABLE(order_id),
- FOREIGN KEY fk_orderdetails_riceid (rice_id) REFERENCES RICETABLE(rice_id)
- ON DELETE CASCADE
-);
+#CREATE TABLE ORDERDETAILSTABLE
+#(order_id int,
+# rice_id int,
+# order_quantity int NOT NULL,
+# order_amount int NOT NULL,
+# rice_name varchar(128) NOT NULL,
+# rice_image_path varchar(128), 
+# rice_price int NOT NULL,
+# FOREIGN KEY fk_orderdetails_orderid (order_id) REFERENCES ORDERTABLE(order_id),
+# FOREIGN KEY fk_orderdetails_riceid (rice_id) REFERENCES RICETABLE(rice_id)
+# ON DELETE CASCADE
+#);
 
 CREATE TABLE REVIEWTABLE
 (review_id int PRIMARY KEY AUTO_INCREMENT,

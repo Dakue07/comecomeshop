@@ -1,26 +1,64 @@
 package commands;
 
+import java.util.ArrayList;
+
 import context.RequestContext;
 import context.ResponseContext;
+import dao.CartTableDao;
+import dao.OrderTableDao;
+import dao.RiceTableDao;
 import database.MySQLOperator;
+import dto.RiceCartTableDto;
 
 public class AddOrderDetailCommand extends AbstractCommand {
+	
+	
+	
 	public ResponseContext execute(ResponseContext resc) {
+		
+		//データベース内の値を1増加させる何か
+		
 		
 		RequestContext reqc = getRequestContext();
 		
 		MySQLOperator.getInstance().beginTransaction();
 		
+		ArrayList <RiceCartTableDto> cartlist = new ArrayList<RiceCartTableDto>();
+		
+		int order_id;
+		int rice_id;
+		int rice_price;
+		int order_quantity;
+		int rice_amount;
 		int user_id = reqc.getUserBeanInSession().getUser_id();
-		String user_address = reqc.getParameter("addressOption")[0];
+		String address = reqc.getParameter("addressOption")[0];
 		String payment = reqc.getParameter("paymentOption")[0];
 		
-		System.out.println("アドオーダー" + user_address);
-		System.out.println("あど" + payment);
+		CartTableDao cart = new CartTableDao();
+		OrderTableDao order = new OrderTableDao();
+		RiceTableDao rice = new RiceTableDao();
+		
+		order_id = order.IncrementId();
+		
+		order_id++;
+		
+		System.out.println("おーだーいｄ" + order_id);
+		
+		cartlist = cart.AllSelect(user_id);
+		
+		System.out.println(cartlist.get(0).getRice_id());
+		
+		for (int i = 0; i < cartlist.size(); i++) {
+			rice_id = cartlist.get(i).getRice_id();
+			rice_price = rice.getRicePrice(rice_id);
+			order_quantity = cartlist.get(i).getCart_quantity();
+			rice_amount = order_quantity * rice_price; 
+			order.InsertOrder(order_id, user_id, rice_id, order_quantity, rice_amount);
+		}
 		
 		MySQLOperator.getInstance().commit();
 
-		resc.setTarget("come/userpost");
+		resc.setTarget("come/productlist");
 		
 		return resc;
 	}
