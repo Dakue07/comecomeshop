@@ -31,8 +31,8 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		int order_quantity;
 		int rice_amount;
 		int user_id = reqc.getUserBeanInSession().getUser_id();
-		String address = reqc.getParameter("addressOption")[0];
-		String payment = reqc.getParameter("paymentOption")[0];
+		int address_id = Integer.parseInt(reqc.getParameter("addressOption")[0]);
+		int card_id = Integer.parseInt(reqc.getParameter("paymentOption")[0]);
 		
 		CartTableDao cart = new CartTableDao();
 		OrderTableDao order = new OrderTableDao();
@@ -53,9 +53,12 @@ public class AddOrderDetailCommand extends AbstractCommand {
 			rice_price = rice.getRicePrice(rice_id);
 			order_quantity = cartlist.get(i).getCart_quantity();
 			rice_amount = order_quantity * rice_price; 
-			order.InsertOrder(order_id, user_id, rice_id, order_quantity, rice_amount);
+			order.InsertOrder(order_id, user_id, rice_id, address_id, card_id, order_quantity, rice_amount);
+			rice.updateRiceStock(rice_id, order_quantity);
 		}
 		
+		cart.deleteCart(user_id);
+			
 		MySQLOperator.getInstance().commit();
 
 		resc.setTarget("come/productlist");

@@ -19,6 +19,7 @@ public class RiceTableDao {
     private static final String CHANGE_TRUE = "UPDATE RICETABLE SET rice_flag = true WHERE rice_id = ?";
     private static final String CHANGE_FALSE = "UPDATE RICETABLE SET rice_flag = false WHERE rice_id = ?";
     private static final String SELECT_RICE_PRICE = "SELECT rice_price FROM RICETABLE WHERE rice_id = ?";
+    private static final String UPDATE_RICE_STOCK = "UPDATE RICETABLE SET rice_stock = rice_stock-? WHERE rice_id = ?";
     
     Connection cn = null; 
     Statement st = null;
@@ -234,5 +235,16 @@ public class RiceTableDao {
     		MySQLOperator.getInstance().rollback();
     	}
     	return price;
+    }
+    
+    public void updateRiceStock(int rice_id, int order_quantity) {
+    	try {
+    		cn = MySQLOperator.getInstance().getConnection();
+    		prstm = cn.prepareStatement(UPDATE_RICE_STOCK);
+    		prstm.setInt(1, order_quantity);
+    		prstm.setInt(2, rice_id);
+    	} catch (SQLException e) {
+    		MySQLOperator.getInstance().rollback();
+    	}
     }
 }
