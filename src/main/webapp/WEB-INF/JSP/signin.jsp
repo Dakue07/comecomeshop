@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@include file="../../assets/template/header2.jsp" %>
-
 
 <!-- ここから下に書いてね -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
