@@ -66,7 +66,6 @@
         send_data.onreadystatechange = function () {
             if (send_data.readyState == 4 && send_data.status == 200) {
                 // サーバーからの応答を処理する（必要に応じて）
-                console.log(send_data.responseText);
             }
         };
 
