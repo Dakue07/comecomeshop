@@ -71,7 +71,7 @@
         };
 
         // 送信するデータを組み立てる
-        var data = 'rice_id=' + encodeURIComponent(riceId) + '&cart_quantity=' + encodeURIComponent(rice_quantity);
+        var data = 'rice_id=' + encodeURIComponent(riceId) + '&absolute_cart_quantity=' + encodeURIComponent(rice_quantity);
 
         // データを送信
         send_data.send(data);
@@ -111,9 +111,9 @@
                     <c:set var="ricePrice" value="${data.rice_price * data.cart_quantity}" />
                     <c:set var="totalPrice" value="${totalPrice + ricePrice}" />
                     
-					<select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity2" onChange="selectPullDown(this, '${data.rice_id}');">
+					<select class="mySelect" data-rice-stock="${data.rice_stock}" name="absolute_cart_quantity" onChange="selectPullDown(this, '${data.rice_id}');">
     					<c:forEach var="i" begin="1" end="${data.rice_stock}">
-    					    <option value="${i}" <c:if test="${i == data.cart_quantity}">selected</c:if>>${i}</option>
+    					    <option value="${i}" <c:if test="${i eq data.cart_quantity}">selected</c:if>>${i}</option>
 					    </c:forEach>
 					</select>
 					
