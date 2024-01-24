@@ -187,6 +187,15 @@
   </servlet-mapping>
   
   
+  <servlet>
+  	<servlet-name>review</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/review.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>review</servlet-name>
+  	<url-pattern>/review</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
 		<servlet-name>front</servlet-name>
