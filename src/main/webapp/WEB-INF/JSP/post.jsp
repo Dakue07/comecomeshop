@@ -7,10 +7,15 @@
 
 <!-- ここから下に書いてね -->
 
+<title>住所の変更</title>
 <style>
     h1 {
         text-align: center;
         line-height: 200px;
+    }
+    
+    h2 {
+        text-align: center;
     }
 
     /* Center-align the link text */
@@ -40,26 +45,28 @@
     }
 </style>
 
+<h2>登録された住所一覧</h2>
+
 <c:if test="${empty data}">
     <h1>住所が登録されていません</h1>
-    <a class="register-link" href="<%= request.getContextPath() %>/createpost">新しく住所を登録する</a>
 </c:if>
+
 
 <c:if test="${not empty data}">
     <div class="address-container">
         <c:forEach var="data" items="${data}">
             <div class="address-item">
-                郵便番号：${data.useraddress_receiver}<br>
-                都道府県：${data.useraddress_postcode}<br>
-                市町村・番地(部屋番号・建物名)：${data.useraddress_state_city}<br>
-                受取人：${data.useraddress_street}<br>
+                <b>郵便番号：</b>${data.useraddress_receiver}<br>
+                <b>都道府県：</b>${data.useraddress_postcode}<br>
+                <b>市町村・番地(部屋番号・建物名)：</b>${data.useraddress_state_city}<br>
+                <b>受取人：</b>${data.useraddress_street}<br>
                 <form action="<%= request.getContextPath() %>/come/deletepost" method="post">
                     <input type="hidden" name="user_id" value="${data.user_id}">
                     <input type="hidden" name="useraddress_receiver" value="${data.useraddress_receiver}">
                     <input type="hidden" name="useraddress_postcode" value="${data.useraddress_postcode}">
                     <input type="hidden" name="useraddress_state_city" value="${data.useraddress_state_city}">
-                    <input type="hidden" name="useraddress_street" value="${data.useraddress_street}">
-                    <input type="submit" value="この住所を削除する">
+                    <input type="hidden" name="useraddress_street" value="${data.useraddress_street}"><br>
+                    <button type="submit" class="btn btn-outline-danger">この住所を削除する</button>
                 </form>
             </div>
         </c:forEach>
