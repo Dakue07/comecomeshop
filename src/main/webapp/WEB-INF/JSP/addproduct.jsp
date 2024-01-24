@@ -7,7 +7,29 @@
 
 
 <!-- ここから下に書いてね -->
-<a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
+<style>
+    body {
+        text-align: center;
+    }
+
+    form {
+        display: inline-block;
+        text-align: left;
+        max-width: 1000px; /* フォームの最大幅を設定 */
+        width: 100%; /* 幅が最大幅より小さい場合、親要素の幅いっぱいに広がるように */
+        margin: 70px auto; /* 上下に余白を追加し、水平方向に中央揃え */
+        padding-left: 400px;
+    }
+
+    table {
+        width: 100%;
+    }
+    
+    .center-align {
+        text-align: center;
+    }
+</style>
+<h1>商品登録</h1>
 
 <form action ="<%= request.getContextPath() %>/come/addproduct">
     <table>
@@ -43,15 +65,18 @@
             <td>値段</td>
             <td><input type="text" name="rice_price"></td>
         </tr>
-        <tr>
-            <input type="submit" value="登録">
-        </tr>
+         
     </table>
+    <div class="center-align">
+        	<input type="submit" value="登録">
+    	 </div>
 </form>
+
+<a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a>
 
 
 
 
 
 <!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
+
