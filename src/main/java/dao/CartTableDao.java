@@ -17,11 +17,11 @@ public class CartTableDao {
 											+ "FROM CARTTABLE INNER JOIN RICETABLE ON CARTTABLE.rice_id = RiceTable.rice_id WHERE CARTTABLE.user_id = ?";//カートに追加したものをすべて表示する
 	
 	private static final String INSERT_CART = "INSERT INTO CARTTABLE VALUES(?, ?, ?)";
-	private static final String DELETE_CART = "DELETE FROM CARTTABLE WHERE rice_id = ? AND user_id = ?";
+	private static final String DELETE_CART_PRODUCT = "DELETE FROM CARTTABLE WHERE rice_id = ? AND user_id = ?";
 	private static final String UPDATE_CART_QUANTITY = "UPDATE CARTTABLE SET cart_quantity = ? WHERE user_id = ? AND rice_id = ?";
 	private static final String SELECT_CART_RICEID = "SELECT * FROM CARTTABLE WHERE user_id = ? AND rice_id = ?";
 	//無理private static final String SELECT_CART_USERADDRESS_CARD = "SELECT u.user_id, u.useraddress_receiver, u.useraddress_postcode, u.useraddress_state_city, u.useraddress_street, c.card_number, c.card_securitycode, c.card_holdername, c.card_validity, r.rice_id, r.cart_quantity  FROM USERADDRESSTABLE u JOIN CARDTABLE c ON u.user_id = c.user_id JOIN CARTTABLE r ON u.user_id = r.user_id;"
-	
+	private static final String DELETE_CART = "DELETE FROM CARTTABLE WHERE user_id = ?";
 
 	Connection cn = null;
 	PreparedStatement prsmt = null;
@@ -115,10 +115,10 @@ public class CartTableDao {
         return result;
 	}
 	
-	public void CartDelete(int rice_id, int user_id) {
+	public void deleteCartProduct(int rice_id, int user_id) {
 		try {
 			cn = MySQLOperator.getInstance().getConnection();
-			prsmt = cn.prepareStatement(DELETE_CART);
+			prsmt = cn.prepareStatement(DELETE_CART_PRODUCT);
 			prsmt.setInt(1, rice_id);
 			prsmt.setInt(2, user_id);
 			prsmt.executeUpdate();
@@ -126,5 +126,16 @@ public class CartTableDao {
 			MySQLOperator.getInstance().rollback();
 		}
 		
+	}
+	
+	public void deleteCart(int user_id) {
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			prsmt = cn.prepareStatement(DELETE_CART_PRODUCT);
+			prsmt.setInt(1, user_id);
+			prsmt.executeUpdate();
+		} catch (SQLException e) {
+			MySQLOperator.getInstance().rollback();
+		}
 	}
 }

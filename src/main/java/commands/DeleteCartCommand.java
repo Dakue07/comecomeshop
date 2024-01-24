@@ -24,7 +24,7 @@ public class DeleteCartCommand extends AbstractCommand {
 		int rice_id = Integer.parseInt(reqc.getParameter("rice_id")[0]);
 		
 		CartTableDao cartDao = new CartTableDao();
-		cartDao.CartDelete(rice_id, user_id);
+		cartDao.deleteCartProduct(rice_id, user_id);
 		
 		
 		result = cartDao.AllSelect(user_id);
