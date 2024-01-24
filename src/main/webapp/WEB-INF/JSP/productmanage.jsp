@@ -64,6 +64,10 @@
 				        	<button type="submit" class="btn btn-outline-danger">商品削除</button>
 				        	<input type="hidden" name="rice_id" value="${data.rice_id}">
 				        </form>
+				        <form action="<%= request.getContextPath() %>/come/adminreview" method="post">
+				        	<button type="submit" class="btn btn-outline-danger">review一覧</button>
+				        	<input type="hidden" name="rice_id" value="${data.rice_id}">
+				        </form>
 					</div>
                 </div>
             </div>

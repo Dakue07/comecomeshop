@@ -29,6 +29,15 @@ public class LoginCommand extends AbstractCommand {
 		if (name.equals("admin")) {
 			System.out.println("よお");
 			if (LoginLogic.isLoggedIn(name, pass) == true) {
+				UserDao userDao = new UserDao();
+				
+				UserTableDto userDto = userDao.findRecord(name);
+				
+				UserBean userBean = new UserBean();
+				userBean.setUser_id(userDto.getUser_id());
+				userBean.setUser_name(userDto.getUser_name());
+				((WebRequestContext) reqc).setUserBeanInSession(userBean);
+				
 				resc.setTarget("admin");
 				return resc;
 			}
