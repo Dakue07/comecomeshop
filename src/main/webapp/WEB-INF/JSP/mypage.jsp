@@ -25,6 +25,14 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 			crossorigin="anonymous"></script>
+			
+<c:if test="${empty userBean}">
+    <script>
+        alert("ログイン情報がありません。サインインしてください");
+        window.location.href = "<%=request.getContextPath() %>/signin";
+    </script>
+</c:if>
+
 
 <div class="row">
 	<div class="col-md-4 text-center">

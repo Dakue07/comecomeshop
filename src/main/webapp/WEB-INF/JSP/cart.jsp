@@ -8,6 +8,14 @@
 
 <!-- ここから下に書いてね -->
 カート
+
+<c:if test="${empty userBean}">
+    <script>
+        alert("ログイン情報がありません。サインインしてください");
+        window.location.href = "<%=request.getContextPath() %>/signin";
+    </script>
+</c:if>
+
 <c:forEach var="data" items="${data}">
     <br>${data.rice_name}<br>${data.rice_genre}<br>${data.rice_made}<br>${data.rice_weight}<br>${data.cart_quantity}${data.rice_image_path}<br>
     ${data.rice_since}<br>${data.rice_stock}<br>${data.rice_price}<br>

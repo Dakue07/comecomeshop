@@ -26,8 +26,12 @@
     ${userBean.user_id}<br>
 </c:if>
 
+<!-- ユーザーがログインしていない状態で操作するとalertが出る -->
 <c:if test="${empty userBean}">
-	ゆーざーないよ<br>
+    <script>
+        alert("ログイン情報がありません。サインインしてください");
+        window.location.href = "<%=request.getContextPath() %>/signin";
+    </script>
 </c:if>
 
 
