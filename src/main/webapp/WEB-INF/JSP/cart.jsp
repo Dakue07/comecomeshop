@@ -7,37 +7,12 @@
 <%@include file="../../assets/template/header2.jsp" %>
 
 <!-- ここから下に書いてね -->
-カート
-<c:forEach var="data" items="${data}">
-    <br>${data.rice_name}<br>${data.rice_genre}<br>${data.rice_made}<br>${data.rice_weight}<br>${data.cart_quantity}${data.rice_image_path}<br>
-    ${data.rice_since}<br>${data.rice_stock}<br>${data.rice_price}<br>
-	<select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity" onChange="calculateSubTotal(this)" onClick="selectPullDown(this)">
-        <c:forEach var="i" begin="1" end="${data.rice_stock}">
-            <option  value="${i}" <c:if test="${i == data.cart_quantity}">selected</c:if>>${i}</option>
-        </c:forEach>
-    </select>
-    <span class="subtotal">${data.cart_quantity * data.rice_price}</span>
-    
-    <form action="<%= request.getContextPath() %>/come/deleteCart" method="post">
-        <button class="btn btn-primary">削除</button>
-        <input type="hidden" name="rice_id" value="${data.rice_id}">
-    </form>
-</c:forEach>
-
-<span id="total">合計: 0</span>
-
-
-<form action="<%= request.getContextPath() %>/come/procedure" method="post">
-    <button class="btn btn-primary">購入</button>
-    <input type="hidden" name="rice_id" value="${rice_id}">
-</form>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var selects = document.querySelectorAll('.mySelect');
         selects.forEach(function (select) {
-            var riceStockValue = parseInt(select.dataset.rice-stock, 10);
+            var riceStockValue = parseInt(select.dataset.riceStock, 10);
 
             select.innerHTML = '';
             
@@ -53,16 +28,20 @@
     });
 
     // 数量が変更されたときに小計を計算して表示する関数
-    function calculateSubtotal(select) {
-        var quantity = parseInt(select.value, 10);
-        var priceElement = select.parentElement.nextElementSibling.nextElementSibling;
-        var price = priceElement ? parseInt(priceElement.innerHTML, 10) : 0;
-        var subtotal = quantity * price;
-        // 小計を表示するspan要素を取得して更新する
-        select.nextElementSibling.innerHTML = subtotal;
-        // 合計を計算して表示する関数を呼び出す
-        calculateTotal();
-    }
+	function calculateSubtotal(select) {
+    	var quantity = parseInt(select.value, 10);
+    	var priceElement = select.closest('.card').querySelector('.card-text .rice-price');
+    	var price = priceElement ? parseInt(priceElement.innerHTML, 10) : 0;
+    	var subtotal = quantity * price;
+    
+    	console.log('quantity:', quantity);  // デバッグ用
+    	console.log('price:', price);        // デバッグ用
+    
+    	// 小計を表示するspan要素を取得して更新する
+    	select.nextElementSibling.innerHTML = subtotal;
+    	// 合計を計算して表示する関数を呼び出す
+    	calculateTotal();
+	}
 
     // 合計を計算して表示する関数
     function calculateTotal() {
@@ -74,8 +53,30 @@
         // 合計を表示するspan要素を取得して更新する
         document.getElementById('total').innerHTML = '合計: ' + total;
     }
-    function selectPullDown(select) {
-		
+    function selectPullDown(quantitySelect, riceId) {
+        var rice_quantity = quantitySelect.value;
+        console.log('rice_Id:', riceId);           // デバッグ用
+        console.log('rice_quantity:', rice_quantity); // デバッグ用
+
+        // XMLHttpRequestオブジェクトを初期化
+        var send_data = new XMLHttpRequest();
+
+        send_data.open('POST', '<%= request.getContextPath() %>/come/addcart', true);
+        send_data.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        send_data.onreadystatechange = function () {
+            if (send_data.readyState == 4 && send_data.status == 200) {
+                // サーバーからの応答を処理する（必要に応じて）
+                console.log(send_data.responseText);
+            }
+        };
+
+        // 送信するデータを組み立てる
+        var data = 'rice_id=' + encodeURIComponent(riceId) + '&cart_quantity=' + encodeURIComponent(rice_quantity);
+
+        // データを送信
+        send_data.send(data);
+        // 数量が変更されたときに小計を計算して表示する関数を呼び出す
+        calculateSubtotal(quantitySelect);
     }
 </script>
 
@@ -101,19 +102,22 @@
                 <img src="${data.rice_image_path}" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title">${data.rice_name}</h5>
-                    <p class="card-text">
-                        ${data.rice_genre}<br>
-                        ${data.rice_weight} kg<br>
-                        ${data.rice_price} 円
-                    </p>
+                  	<p class="card-text">
+					    ${data.rice_genre}<br>
+					    ${data.rice_weight} kg<br>
+					    <span class="rice-price">${data.rice_price}</span> 円
+					</p>
+
                     <c:set var="ricePrice" value="${data.rice_price * data.cart_quantity}" />
                     <c:set var="totalPrice" value="${totalPrice + ricePrice}" />
                     
-                    <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity_${data.rice_id}">
-                        <c:forEach var="i" begin="1" end="${data.rice_stock}">
-                            <option value="${i}" <c:if test="${i == data.cart_quantity}">selected</c:if>>${i}</option>
-                        </c:forEach>
-                    </select>
+					<select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity2" onChange="selectPullDown(this, '${data.rice_id}');">
+    					<c:forEach var="i" begin="1" end="${data.rice_stock}">
+    					    <option value="${i}" <c:if test="${i == data.cart_quantity}">selected</c:if>>${i}</option>
+					    </c:forEach>
+					</select>
+					
+                     <span class="subtotal">${data.cart_quantity * data.rice_price}</span>
                     <form action="<%= request.getContextPath() %>/come/deleteCart" method="post" style="float: right;">
                         <button class="btn btn-primary">削除</button>
                         <input type="hidden" name="rice_id" value="${data.rice_id}">
@@ -122,6 +126,7 @@
             </div>
         </c:forEach>
     </div>
+    
 
     <!-- カートの購入フォーム -->
     <div id="purchaseContainer" style="margin-top: 120px;">
@@ -129,7 +134,7 @@
             <div class="card" style="width: 18rem; margin-bottom: 70px; float: right;">
                 <div class="card-body">
                     <!-- 合計金額のフォントサイズを大きくし、色を赤に変更 -->
-                    合計金額：<span id="overallTotalPrice" style="font-size: 1.5em; color: red;">${totalPrice}</span>円
+                    合計金額：<span id="total" style="font-size: 1.5em; color: red;">${totalPrice}</span>円
                     <button class="btn btn-primary" style="width: 15rem; height: 5rem;">購入</button>
                     <c:forEach var="data" items="${data}">
                         <input type="hidden" name="cart_quantity_${data.rice_id}" value="${data.cart_quantity}">
