@@ -119,6 +119,7 @@ public class CartTableDao {
 			}
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
         } 
         return result;
@@ -132,6 +133,7 @@ public class CartTableDao {
 			prsmt.setInt(2, user_id);
 			prsmt.executeUpdate();
 		} catch(SQLException e) {
+			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
 		}
 		
@@ -140,10 +142,11 @@ public class CartTableDao {
 	public void deleteCart(int user_id) {
 		try {
 			cn = MySQLOperator.getInstance().getConnection();
-			prsmt = cn.prepareStatement(DELETE_CART_PRODUCT);
+			prsmt = cn.prepareStatement(DELETE_CART);
 			prsmt.setInt(1, user_id);
 			prsmt.executeUpdate();
 		} catch (SQLException e) {
+			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
 		}
 	}

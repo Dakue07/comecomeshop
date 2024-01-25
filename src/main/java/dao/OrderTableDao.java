@@ -31,6 +31,7 @@ public class OrderTableDao {
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
 		}
 	}

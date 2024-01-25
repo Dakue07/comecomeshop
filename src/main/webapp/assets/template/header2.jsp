@@ -59,13 +59,13 @@ form .btn.btn-outline-success {
 					</form>
 					<li class="nav-item"><a class="nav-link"
 						aria-current="page" href="<%=request.getContextPath() %>/come/productlist">ホーム</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
+					<li class="nav-item"><a class="nav-link" onclick="return checkUserId()" href="<%=request.getContextPath() %>/mypage">マイページ</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/come/cart">カート</a></li>
 					
 					<c:if test="${not empty userBean}">
 						<li class="nav-item dropdown">
 						    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">${userBean.user_name}</a>
-						    <ul class="dropdown-menu">
+						    <ul class="dropdown-menu dropdown-menu-end">
 						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/signin">アカウント切り替え</a></li>
 						      <li><a class="dropdown-item" href="<%=request.getContextPath() %>/come/signout">サインアウト</a></li>
 						    </ul>
