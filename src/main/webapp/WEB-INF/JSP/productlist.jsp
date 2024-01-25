@@ -35,20 +35,13 @@
 
 
 
-<div class="row justify-content-center">
+<div class="row justify-content-center m-4" style="max-width: 100%;">
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
-      <div class="card" style="width: 17rem;">
+      <div class="card " style="width: 17rem;">
         <img src="${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
         <div class="card-body">
-          <h5 class="card-title">名前:${data.rice_name}</h5>
-          <p class="card-text">
-            種類:${data.rice_genre}<br>
-            重さ:${data.rice_weight}kg<br>
-            収穫地:${data.rice_made}<br>
-            収穫日:${data.rice_since}月<br>
-            価格:${data.rice_price}円<br>
-          </p>
+          <h5 class="card-title">${data.rice_name} ${data.rice_weight}kg</h5>
           <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
           <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
     	  </select>
