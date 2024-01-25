@@ -5,15 +5,15 @@
     <welcome-file>/WEB-INF/JSP/index.jsp</welcome-file>
   </welcome-file-list>
   
-  <filter>
-		<filter-name>sessionfilter</filter-name>
-		<filter-class>filter.SessionFilter</filter-class>
-	</filter>
+<!--  <filter>-->
+<!--		<filter-name>sessionfilter</filter-name>-->
+<!--		<filter-class>filter.SessionFilter</filter-class>-->
+<!--	</filter>-->
 
-	<filter-mapping>
-		<filter-name>sessionfilter</filter-name>
-		<url-pattern>/comecomeshop</url-pattern>
-	</filter-mapping>
+<!--	<filter-mapping>-->
+<!--		<filter-name>sessionfilter</filter-name>-->
+<!--		<url-pattern>/comecomeshop</url-pattern>-->
+<!--	</filter-mapping>-->
   
   <servlet>
   	<servlet-name>productlist</servlet-name>

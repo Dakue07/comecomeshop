@@ -49,6 +49,7 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		System.out.println(cartlist.get(0).getRice_id());
 		
 		for (int i = 0; i < cartlist.size(); i++) {
+			System.out.println("アドオーダー" + i + "回目");
 			rice_id = cartlist.get(i).getRice_id();
 			rice_price = rice.getRicePrice(rice_id);
 			order_quantity = cartlist.get(i).getCart_quantity();

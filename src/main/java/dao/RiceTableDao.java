@@ -243,7 +243,9 @@ public class RiceTableDao {
     		prstm = cn.prepareStatement(UPDATE_RICE_STOCK);
     		prstm.setInt(1, order_quantity);
     		prstm.setInt(2, rice_id);
+    		prstm.executeUpdate();
     	} catch (SQLException e) {
+    		e.printStackTrace();
     		MySQLOperator.getInstance().rollback();
     	}
     }
