@@ -7,13 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import database.MySQLOperator;
+import dto.ReviewRiceUserTableDto;
 import dto.ReviewTableDto;
 
 public class ReviewTableDao {
-	private static final String INSERT_ALL ="INSERT INTO REVIEWTABLE VALUE(?, ?, ?, ?)";
+	private static final String INSERT_ALL ="INSERT INTO REVIEWTABLE (rice_id, user_id, review_comment, review_star) VALUES (?, ?, ?, ?)";
 	private static final String SELECT_REVIEW = "SELECT * FROM REVIEWTABLE WHERE rice_id = ?";							
 	private static final String DELETE_REVIEW = "DELETE FROM REVIEWTABLE WHERE review_id = ?";
-	private static final String ADMIN_SELECT_REVIEW = "SELECT r.user_id, r.review_comment, r.review_star FROM USERTABLE u JOIN REBIEWTABLE r ON u.user_id = r.user_id WHERE user_id = ?, rice_id = ?";
+	private static final String ADMIN_SELECT_REVIEW = "SELECT r.rice_id, r.review_id, u.user_name, r.review_comment, r.review_star FROM USERTABLE u JOIN REVIEWTABLE r ON u.user_id = r.user_id WHERE rice_id = ?";
 	
 	Connection cn = null;
 	PreparedStatement prsmt = null;
@@ -30,6 +31,7 @@ public class ReviewTableDao {
 			prsmt.executeUpdate();
 		} catch(SQLException e) {
 			MySQLOperator.getInstance().rollback();
+			e.printStackTrace();
 		}
 	}
 	
@@ -62,9 +64,35 @@ public class ReviewTableDao {
 			cn = MySQLOperator.getInstance().getConnection();
 			prsmt = cn.prepareStatement(DELETE_REVIEW);
 			prsmt.setInt(1, review_id);
-			rs = prsmt.executeQuery();
+			prsmt.executeUpdate();
 		} catch(SQLException e) {
 			MySQLOperator.getInstance().rollback();
 		}
 	}
+	
+	public ArrayList<ReviewRiceUserTableDto> Admin_Select_Review(String rice_id) {
+		ArrayList<ReviewRiceUserTableDto> result = new ArrayList<ReviewRiceUserTableDto>();
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			System.out.println(rice_id);
+			prsmt = cn.prepareStatement(ADMIN_SELECT_REVIEW);
+			prsmt.setString(1, rice_id);
+			rs = prsmt.executeQuery();
+			while(rs.next()) {
+				ReviewRiceUserTableDto reviewriceuserdto = new ReviewRiceUserTableDto();
+				reviewriceuserdto.setRice_id(rs.getInt("rice_id"));
+				reviewriceuserdto.setReview_id(rs.getInt("review_id"));
+				reviewriceuserdto.setUser_name(rs.getString("user_name"));
+				reviewriceuserdto.setReview_comment(rs.getString("review_comment"));
+				reviewriceuserdto.setReview_star(rs.getInt("review_star"));
+				result.add(reviewriceuserdto);
+			}
+			
+		} catch(SQLException e) {
+			MySQLOperator.getInstance().rollback();
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }

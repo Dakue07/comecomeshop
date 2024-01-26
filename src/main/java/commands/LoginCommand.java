@@ -19,6 +19,8 @@ public class LoginCommand extends AbstractCommand {
 		Object userResult = null;
 		Object riceResult = null;
 		
+		
+		
 		String name = reqc.getParameter("user_name")[0];
 		String pass = reqc.getParameter("user_pass")[0];
 		
@@ -29,6 +31,7 @@ public class LoginCommand extends AbstractCommand {
 		if (name.equals("admin")) {
 			System.out.println("よお");
 			if (LoginLogic.isLoggedIn(name, pass) == true) {
+				
 				resc.setTarget("admin");
 				return resc;
 			}
