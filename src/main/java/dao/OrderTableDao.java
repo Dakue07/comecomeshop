@@ -14,13 +14,14 @@ public class OrderTableDao {
 	private static final String INSERT_ORDER = "INSERT INTO ORDERTABLE(order_id, user_id, rice_id, useraddress_id, card_id, order_quantity, order_amount) VALUES(?, ?, ?, ?, ?, ?, ?)";
 	private static final String SELECT_ORDER_BY_ORDER_ID = "SELECT * FROM ORDERTABLE WHERE order_id = ?";
 	private static final String SELECT_ORDER_BY_USER_ID = "SELECT o.order_id, o.user_id, o.rice_id, o.order_quantity, o.order_amount, o.order_time, o.useraddress_id, o.card_id, r.rice_name, r.rice_genre, r.rice_weight, r.rice_made, r.rice_image_path, r.rice_since, r.rice_stock, r.rice_price, r.rice_flag FROM ORDERTABLE o JOIN RICETABLE r ON o.rice_id = r.rice_id WHERE o.user_id = ?";
+	private static final String ORDER_CANCEL = "DELETE FROM ORDERTABLE WHERE order_id = ?";
 	
 	
 	Connection cn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public void  InsertOrder(int order_id, int user_id, int rice_id, int useraddress_id, int card_id, int order_quantity, int order_amount) {
+	public void InsertOrder(int order_id, int user_id, int rice_id, int useraddress_id, int card_id, int order_quantity, int order_amount) {
 		try {
 			cn = MySQLOperator.getInstance().getConnection();
 			pstmt = cn.prepareStatement(INSERT_ORDER);
@@ -117,5 +118,17 @@ public ArrayList<OrderRiceDto> selectOrderByUserId(int user_id) {
 			MySQLOperator.getInstance().rollback();
 		}
 		return max_order_id;
+	}
+	
+	public void orderCancel(int order_id) {
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			pstmt = cn.prepareStatement(ORDER_CANCEL);
+			pstmt.setInt(1, order_id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			MySQLOperator.getInstance().rollback();
+		}
 	}
 }
