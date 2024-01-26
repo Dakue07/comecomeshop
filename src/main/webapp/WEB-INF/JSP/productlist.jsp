@@ -29,6 +29,9 @@
         background-attachment: fixed;
         background-color: rgba(122, 122, 122, 1.0); /* 透明度を指定 */
     }
+    .cleanness {
+    	opacity: 0.7;
+    }
 </style>
 
 <c:if test="${not empty userBean}">
@@ -43,7 +46,7 @@
 
 <%@include file="../../assets/template/slideshow.jsp" %>
 
-<div class="row justify-content-center m-4" style="max-width: 100%;">
+<div class="row justify-content-center m-4, cleanness" style="max-width: 100%;">
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
       <div class="card " style="width: 17rem;">
