@@ -4,7 +4,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.OrderTableDao;
 
-public class HistoryCommand extends AbstractCommand {
+public class ShowBuyHistoryCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
