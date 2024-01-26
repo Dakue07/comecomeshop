@@ -15,7 +15,6 @@
 
 
 <!-- ここから下に書いてね -->
-商品一覧ページ
 <script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -32,19 +31,18 @@
     .cleanness {
     	opacity: 0.7;
     }
+    .infomation {
+    	text-align: center;
+    	color: #AA00CC;
+    	font-family: cursive, fantasy;
+    	font-weight: bold;
+    }
 </style>
-
-<c:if test="${not empty userBean}">
-    ${userBean.user_name}<br>
-    ${userBean.user_id}<br>
-</c:if>
-
-<c:if test="${empty userBean}">
-	ゆーざーないよ<br>
-</c:if>
 
 
 <%@include file="../../assets/template/slideshow.jsp" %>
+
+<h1 class="infomation">商品一覧</h1>
 
 <div class="row justify-content-center m-4, cleanness" style="max-width: 100%;">
   <c:forEach var="data" items="${data}">
