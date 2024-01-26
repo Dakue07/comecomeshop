@@ -1,5 +1,6 @@
 package commands;
 
+import java.security.GeneralSecurityException;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -9,6 +10,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import com.sun.mail.util.MailSSLSocketFactory;
 
 import context.ResponseContext;
 
@@ -32,6 +35,18 @@ public class BuyMailCommand extends AbstractCommand{
 
         // Properties
         Properties props = new Properties();
+        MailSSLSocketFactory sf;
+		try {
+			sf = new MailSSLSocketFactory();
+			sf.setTrustAllHosts(true); 
+	        props.put("mail.smtp.ssl.socketFactory", sf);
+
+		} catch (GeneralSecurityException e1) {
+			// TODO 自動生成された catch ブロック
+			e1.printStackTrace();
+		}
+        
+        props.put("mail.smtp.ssl.trust", "*");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
