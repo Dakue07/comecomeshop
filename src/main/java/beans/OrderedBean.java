@@ -7,7 +7,21 @@ public class OrderedBean {
 	private int order_quantity;
 	private int ordered_amount;
 	private String ordered_time;
+	private int useraddress_id;
+	private int card_id;
 	
+	public int getUseraddress_id() {
+		return useraddress_id;
+	}
+	public void setUseraddress_id(int useraddress_id) {
+		this.useraddress_id = useraddress_id;
+	}
+	public int getCard_id() {
+		return card_id;
+	}
+	public void setCard_id(int card_id) {
+		this.card_id = card_id;
+	}
 	public int getOrder_id() {
 		return order_id;
 	}

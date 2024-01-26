@@ -57,6 +57,7 @@
         var rice_quantity = quantitySelect.value;
         console.log('rice_Id:', riceId);           // デバッグ用
         console.log('rice_quantity:', rice_quantity); // デバッグ用
+        
 
         // XMLHttpRequestオブジェクトを初期化
         var send_data = new XMLHttpRequest();

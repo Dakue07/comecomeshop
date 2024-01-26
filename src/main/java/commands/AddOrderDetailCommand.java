@@ -62,7 +62,7 @@ public class AddOrderDetailCommand extends AbstractCommand {
 			
 		MySQLOperator.getInstance().commit();
 
-		resc.setTarget("come/productlist");
+		resc.setTarget("come/buymail");
 		
 		return resc;
 	}
