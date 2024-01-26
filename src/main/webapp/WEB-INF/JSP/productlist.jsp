@@ -21,6 +21,16 @@
 			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 			crossorigin="anonymous"></script>
 
+<style>
+    body {
+        background-image: url(/comecomeshop/images/backgroundine.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(122, 122, 122, 1.0); /* 透明度を指定 */
+    }
+</style>
+
 <c:if test="${not empty userBean}">
     ${userBean.user_name}<br>
     ${userBean.user_id}<br>
@@ -33,9 +43,7 @@
 
 <%@include file="../../assets/template/slideshow.jsp" %>
 
-
-
-<div class="row justify-content-center">
+ <div class="row justify-content-center">
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
       <div class="card" style="width: 17rem;">
