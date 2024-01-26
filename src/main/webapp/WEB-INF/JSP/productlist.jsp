@@ -33,15 +33,16 @@
     }
     .infomation {
     	text-align: center;
-    	color: #6A4C9C;
+    	color: #AA00CC;
     	font-family: cursive, fantasy;
+    	font-weight: bold;
     }
 </style>
 
 
 <%@include file="../../assets/template/slideshow.jsp" %>
 
-<h4 class="infomation">小米一蘭</h4>
+<h1 class="infomation">商品一覧</h1>
 
 <div class="row justify-content-center m-4, cleanness" style="max-width: 100%;">
   <c:forEach var="data" items="${data}">
