@@ -118,4 +118,6 @@ public ArrayList<OrderRiceDto> selectOrderByUserId(int user_id) {
 		}
 		return max_order_id;
 	}
+	
+	public String 
 }

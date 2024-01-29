@@ -13,10 +13,21 @@ import javax.mail.internet.MimeMessage;
 
 import com.sun.mail.util.MailSSLSocketFactory;
 
+import context.RequestContext;
 import context.ResponseContext;
+import dao.UserDao;
 
 public class BuyMailCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
+		
+		RequestContext reqc = getRequestContext();
+		
+		int user_id = reqc.getUserBeanInSession().getUser_id();
+		String order_id = reqc.getParameter("order_id")[0];
+		
+		UserDao userdao = new UserDao();
+		
+		String user_Email = userdao.SelectUserEmail(user_id);
 		
 		System.out.println("buyMailまで来たよ");
 		// Googleアカウントログイン情報
@@ -27,7 +38,7 @@ public class BuyMailCommand extends AbstractCommand{
         String to = "ki22304002@ga.ttc.ac.jp";
 
         // From
-        String from = "hy22304024@ga.ttc.ac.jp";
+        String from = "user_Email";
 
         // Set the host and port for the Gmail SMTP server
         String host = "smtp.gmail.com";
@@ -68,7 +79,8 @@ public class BuyMailCommand extends AbstractCommand{
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
             // メール件名
-            message.setSubject("Hello, this is a test email");
+            message.setSubject("購入完了のお知らせ");
+            
             // メール内容
             message.setText("This is the message body.");
 
