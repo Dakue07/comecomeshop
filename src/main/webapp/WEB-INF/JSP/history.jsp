@@ -75,8 +75,8 @@
     <button type="button" onclick="toggleModal('review', '${data.rice_id}')">reviewの追加</button><br>
     <form action="<%=request.getContextPath() %>/come/ordercancel" method="post" >
     	<input type="hidden" name="order_id" id="order_id_input" value="${data.order_id}">
-    	<input type="hidden" name="rice_stock" id="rice_id_input" value="${data.rice_id}">
-    	<input type="hidden" name="rice_stock" id="rice_stock_input" value="${data.rice_stock}">
+    	<input type="hidden" name="rice_id" id="rice_id_input" value="${data.rice_id}">
+    	<input type="hidden" name="order_quantity" id="order_quantity_input" value="${data.order_quantity}">
     	<button type="submit">注文をキャンセルする</button>
     </form>
     <div id="review_modal" class="modal-container">
