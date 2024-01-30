@@ -9,6 +9,7 @@ import dao.OrderTableDao;
 import dao.RiceTableDao;
 import database.MySQLOperator;
 import dto.RiceCartTableDto;
+import mail.SendMail;
 
 public class AddOrderDetailCommand extends AbstractCommand {
 	
@@ -46,8 +47,6 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		
 		cartlist = cart.AllSelect(user_id);
 		
-		System.out.println(cartlist.get(0).getRice_id());
-		
 		for (int i = 0; i < cartlist.size(); i++) {
 			System.out.println("アドオーダー" + i + "回目");
 			rice_id = cartlist.get(i).getRice_id();
@@ -61,8 +60,10 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		cart.deleteCart(user_id);
 			
 		MySQLOperator.getInstance().commit();
+		
+		SendMail.sendMail(user_id, order_id);
 
-		resc.setTarget("come/buymail");
+		resc.setTarget("come/productlist");
 		
 		return resc;
 	}
