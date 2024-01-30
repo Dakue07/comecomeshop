@@ -12,10 +12,8 @@ import dto.RiceCartTableDto;
 import mail.SendMail;
 
 public class AddOrderDetailCommand extends AbstractCommand {
-	
-	
-	
 	public ResponseContext execute(ResponseContext resc) {
+		Object result = null;
 		
 		//データベース内の値を1増加させる何か
 		
@@ -62,8 +60,14 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		MySQLOperator.getInstance().commit();
 		
 		SendMail.sendMail(user_id, order_id);
+		
+		RiceTableDao riceDao = new RiceTableDao();
+		
+		result = riceDao.SelectRice(null, null);
+		
+		resc.setResult(result);
 
-		resc.setTarget("come/productlist");
+		resc.setTarget("index");
 		
 		return resc;
 	}
