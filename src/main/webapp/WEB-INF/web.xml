@@ -196,6 +196,14 @@
   	<url-pattern>/review</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>index</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>index</servlet-name>
+  	<url-pattern>/index</url-pattern>
+  </servlet-mapping>
   
   <servlet>
 		<servlet-name>front</servlet-name>

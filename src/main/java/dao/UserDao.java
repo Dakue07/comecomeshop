@@ -15,6 +15,8 @@ public class UserDao {
 	private static final String SELECT_USER_ID = "SELECT user_id FROM USERTABLE WHERE user_name = ? AND user_pass = ?";
 	private static final String SELECT_ALL = "SELECT * FROM USERTABLE";
 	private static final String DELETE_USER = "DELETE FROM USERTABLE WHERE user_id = ?";
+	private static final String SELECT_USEREMAIL_BY_USER_ID = "SELECT user_Email FROM USERTABLE WHERE user_id = ?"; 
+
 	
 	Connection cn = null;
 	PreparedStatement prsmt = null;
@@ -117,5 +119,22 @@ public class UserDao {
 			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
 		}
+	}
+	
+	public String SelectUserEmail(int user_id) {
+		String user_Email = null;
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			prsmt = cn.prepareStatement(SELECT_USEREMAIL_BY_USER_ID);
+			prsmt.setInt(1, user_id);
+			rs = prsmt.executeQuery();
+			rs.next();
+			user_Email = rs.getString("user_Email");
+			System.out.println(user_Email);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user_Email;
 	}
 }

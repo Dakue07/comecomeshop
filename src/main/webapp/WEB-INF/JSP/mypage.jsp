@@ -48,7 +48,7 @@
   	</div>
 
   <div class="col-md-4 text-center">
-		<a href="<%=request.getContextPath() %>/come/contact" style="text-decoration:none;">
+		<a href="<%=request.getContextPath() %>/contact" style="text-decoration:none;">
     	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">

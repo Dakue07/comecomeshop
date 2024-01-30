@@ -20,15 +20,12 @@
     <div class="row bg-light text-dark py-5">
         <div class="col-md-8 offset-md-2">
             <h2 class="fs-1 mb-5 text-center fw-bold">お問い合わせ</h2>
-            <form method="post" action="">
+            <form method="post" action="<%= request.getContextPath() %>/come/sendmail">
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="お名前" placeholder="名前（必須）" value="" required>
+                    <input type="text" class="form-control" name="user_name" placeholder="名前（必須）" value="" required>
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="Email" placeholder="メールアドレス（必須）" value="" required>
-                </div> 
                 <div class="mb-4">
-                    <textarea class="form-control" name="お問い合わせ内容" rows="5" placeholder="メッセージを入力してください" required></textarea>
+                    <textarea class="form-control" name="content" rows="5" placeholder="メッセージを入力してください" required></textarea>
                 </div>
                 <div class="form-check mb-4">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" required>
