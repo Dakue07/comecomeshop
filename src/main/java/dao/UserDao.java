@@ -16,6 +16,8 @@ public class UserDao {
 	private static final String SELECT_ALL = "SELECT * FROM USERTABLE";
 	private static final String DELETE_USER = "DELETE FROM USERTABLE WHERE user_id = ?";
 	private static final String SELECT_USEREMAIL_BY_USER_ID = "SELECT user_Email FROM USERTABLE WHERE user_id = ?"; 
+	private static final String SELECT_PASSWORD_BY_USER_ID = "SELECT user_pass FROM USERTABLE WHERE user_id = ?";
+	private static final String UPDATE_PASSWORD_BY_USER_ID = "UPDATE USERTABLE SET user_pass = ? WHERE user_id = ?";
 
 	
 	Connection cn = null;
@@ -124,7 +126,7 @@ public class UserDao {
 	public String SelectUserEmail(int user_id) {
 		String user_Email = null;
 		try {
-			cn = MySQLOperator.getInstance().getConnection();
+			cn = connect();
 			prsmt = cn.prepareStatement(SELECT_USEREMAIL_BY_USER_ID);
 			prsmt.setInt(1, user_id);
 			rs = prsmt.executeQuery();
@@ -136,5 +138,33 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return user_Email;
+	}
+	
+	public String selectPassword(int user_id) {
+		String hashPassword = null;
+		try {
+			cn = connect();
+			prsmt = cn.prepareStatement(SELECT_PASSWORD_BY_USER_ID);
+			prsmt.setInt(1, user_id);
+			rs = prsmt.executeQuery();
+			rs.next();
+			hashPassword = rs.getString("user_pass");
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return hashPassword;
+	}
+	
+	public void updatePassword(String newPassword, int user_id) {
+		try {
+    		cn = MySQLOperator.getInstance().getConnection();
+    		prsmt = cn.prepareStatement(UPDATE_PASSWORD_BY_USER_ID);
+    		prsmt.setString(1, newPassword);
+    		prsmt.setInt(2, user_id);
+    		prsmt.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    		MySQLOperator.getInstance().rollback();
+    	}
 	}
 }
