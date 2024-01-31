@@ -99,7 +99,7 @@
 
         <c:forEach var="data" items="${data}">
             <div class="card" style="width: 40rem; margin-bottom: 10px;">
-                <img src="${data.rice_image_path}" class="card-img-top" alt="Product Image">
+                <img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title">${data.rice_name}</h5>
                   	<p class="card-text">
