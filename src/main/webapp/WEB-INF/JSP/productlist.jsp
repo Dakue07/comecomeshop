@@ -29,13 +29,15 @@
         background-color: rgba(122, 122, 122, 1.0); /* 透明度を指定 */
     }
     .cleanness {
-    	opacity: 0.7;
+    	opacity: 0.8;
     }
     .infomation {
     	text-align: center;
-    	color: #AA00CC;
-    	font-family: cursive, fantasy;
+    	color: #143204;
+    	font-family: "Yu Gothic", cursive, fantasy;
+    	font-size: 350%;
     	font-weight: bold;
+    	opacity: 0.7;
     }
 </style>
 
@@ -48,9 +50,11 @@
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
       <div class="card " style="width: 17rem;">
-        <img src="${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
+        <img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
         <div class="card-body">
-          <h5 class="card-title">${data.rice_name} ${data.rice_weight}kg</h5>
+          <h4 class="card-title">${data.rice_name}</h4>
+          <h5>重量:${data.rice_weight}kg</h5>
+          <h5>価格:${data.rice_price}円</h5>
           <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
           <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
     	  </select>

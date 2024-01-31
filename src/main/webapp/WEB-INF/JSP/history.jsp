@@ -65,8 +65,8 @@
 <!-- ここから下に書いてね -->
 購入履歴
 <c:forEach var="data" items="${data}">
-    <br><img src="${data.rice_image_path}" alt="${data.rice_name}">
-    ${data.rice_image_path}${data.rice_name}個数${data.order_quantity}合計${data.order_amount}
+    <br><img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="${data.rice_name}">
+    ${data.rice_name}個数${data.order_quantity}合計${data.order_amount}
     <form action="<%= request.getContextPath() %>/come/productdetail" method="post" onsubmit="return checkUserId()">
         <button>ここ押したらproductDetailに飛ぶよ</button>
         <!-- 購入履歴ページから。削除はproductdetailに飛ばす -->
@@ -120,7 +120,7 @@
         // モーダルを手動で閉じる
         closeModal();
     }
-
+ 
     function initializeRating() {
         var initialRating = 1;
         document.getElementById('evaluation').value = initialRating;
