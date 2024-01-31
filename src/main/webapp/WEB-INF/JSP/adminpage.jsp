@@ -1,17 +1,87 @@
-<!-- いじるな -->
-<HTML><%@ page language="java" pageEncoding="UTF-8"
-    contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="UTF-8">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        
+        body {
+        	background-color: #dcdcdc;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0; /* Added margin for spacing */
+        }
 
-<!-- ここから下に書いてね -->
+       .cp_iptxt {
+            position: relative;
+            width: 80%;
+            margin: 40px 3%;
+        }
 
+        .cp_iptxt input[type='text'] {
+            font: 15px/24px sans-serif;
+            box-sizing: border-box;
+            width: 50%;
+            padding: 0.3em;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            color: #aaaaaa;
+            border: 1px solid #1b2538;
+            border-radius: 4px;
+        }
 
-<a href="<%= request.getContextPath() %>/come/adminuser">ユーザー管理</a>
-<a href="<%= request.getContextPath() %>/come/adminproduct">商品管理</a>
-<a href="<%= request.getContextPath() %>/come/signout">サインアウト</a>
+        .cp_iptxt input[type='text']:focus {
+            border: 1px solid #da3c41;
+            outline: none;
+            box-shadow: 0 0 5px 1px rgba(218, 60, 65, .5);
+        }
 
+        a.btn-radius-solid {
+            border: 1px solid #ccc;
+            background: #f1e767;
+            background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+            background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+            -webkit-box-shadow: inset 1px 1px 1px #fff;
+            box-shadow: inset 1px 1px 1px #fff;
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 20px 0;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
+        a.btn-radius-solid:hover {
+            background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+            background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+        }
+    </style>
+</head>
 
-<!-- いじるな -->
+<body>
+
+    <br>
+    <h1>管理者ページ</h1><br><br><br><br>
+
+	<div class="button-container">
+        <a href="<%= request.getContextPath() %>/come/adminuser"" class="btn btn-radius-solid" style="text-decoration:none;">ユーザー管理<i class="fas fa-angle-right fa-position-right"></i></a>
+        
+        <a href="<%= request.getContextPath() %>/come/adminuser"" class="btn btn-radius-solid" style="text-decoration:none;">商品管理<i class="fas fa-angle-right fa-position-right"></i></a>
+        
+        <a href="<%= request.getContextPath() %>/come/adminuser"" class="btn btn-radius-solid" style="text-decoration:none;">サインアウト<i class="fas fa-angle-right fa-position-right"></i></a>
+     </div>
+
+</body>
+
+</html>
