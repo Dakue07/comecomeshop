@@ -114,7 +114,7 @@
         // モーダルを手動で閉じる
         closeModal();
     }
-
+ 
     function initializeRating() {
         var initialRating = 1;
         document.getElementById('evaluation').value = initialRating;
