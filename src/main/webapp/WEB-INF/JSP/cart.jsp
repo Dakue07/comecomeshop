@@ -11,7 +11,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var selects = document.querySelectorAll('.mySelect');
-        selects.forEach(function (select) {
+       /*  selects.forEach(function (select) {
             var riceStockValue = parseInt(select.dataset.riceStock, 10);
 
             select.innerHTML = '';
@@ -22,7 +22,7 @@
                 option.innerHTML = i;
                 select.add(option);
             }
-        });
+        }); */
         // ページ読み込み時に合計を計算して表示する
         calculateTotal();
     });
@@ -112,8 +112,14 @@
                     <c:set var="totalPrice" value="${totalPrice + ricePrice}" />
                     
 					<select class="mySelect" data-rice-stock="${data.rice_stock}" name="absolute_cart_quantity" onChange="selectPullDown(this, '${data.rice_id}');">
-    					<c:forEach var="i" begin="1" end="${data.rice_stock}">
-    					    <option value="${i}" <c:if test="${i eq data.cart_quantity}">selected</c:if>>${i}</option>
+    					<c:forEach var="i" begin="1" end="${data.rice_stock}">	
+    					    <option value="${i+1}"
+    					    	 <c:if test="${i == data.cart_quantity}">
+    					    	  	id="selected" selected
+    					    	  </c:if>
+   					    	  >
+   					    	  	${i}
+   					    	  </option>
 					    </c:forEach>
 					</select>
 					

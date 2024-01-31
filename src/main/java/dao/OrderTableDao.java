@@ -54,7 +54,7 @@ public class OrderTableDao {
 				OrderedBean order = new OrderedBean();
 				order.setOrder_id(rs.getInt("order_id"));
 				order.setUser_id(rs.getInt("user_id"));
-				order.setRice_id(rs.getInt("user_id"));
+				order.setRice_id(rs.getInt("rice_id"));
 				order.setOrder_quantity(rs.getInt("order_quantity"));
 				order.setOrdered_amount(rs.getInt("order_amount"));
 				order.setOrdered_time(rs.getString("order_time"));

@@ -255,8 +255,9 @@ public class RiceTableDao {
     	try {
     		cn = MySQLOperator.getInstance().getConnection();
     		prstm = cn.prepareStatement(ORDER_CANCEL);
-    		prstm.setInt(1, rice_id);
-    		prstm.setInt(2, order_quantity);
+    		System.out.println("ricedao" + rice_id + order_quantity);
+    		prstm.setInt(1, order_quantity);
+    		prstm.setInt(2, rice_id);
     		prstm.executeUpdate();
     	} catch (SQLException e) {
     		e.printStackTrace();
