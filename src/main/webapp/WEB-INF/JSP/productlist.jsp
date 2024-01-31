@@ -29,13 +29,15 @@
         background-color: rgba(122, 122, 122, 1.0); /* 透明度を指定 */
     }
     .cleanness {
-    	opacity: 0.7;
+    	opacity: 0.8;
     }
     .infomation {
     	text-align: center;
-    	color: #AA00CC;
-    	font-family: cursive, fantasy;
+    	color: #143204;
+    	font-family: "Yu Gothic", cursive, fantasy;
+    	font-size: 350%;
     	font-weight: bold;
+    	opacity: 0.7;
     }
 </style>
 
