@@ -55,6 +55,7 @@
           <h4 class="card-title">${data.rice_name}</h4>
           <h5>重量:${data.rice_weight}kg</h5>
           <h5>価格:${data.rice_price}円</h5>
+          
           <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
           <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
     	  </select>
