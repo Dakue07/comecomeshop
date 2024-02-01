@@ -50,6 +50,7 @@
 
 <h1 class="infomation">商品一覧</h1>
 
+
 <div class="row justify-content-center m-4, cleanness" style="max-width: 100%;">
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">

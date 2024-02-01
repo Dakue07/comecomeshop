@@ -206,6 +206,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>security</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/security.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>security</servlet-name>
+  	<url-pattern>/security</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
 		<servlet-name>front</servlet-name>
 		<servlet-class>servlet.FrontServlet</servlet-class>
 	</servlet>
