@@ -7,7 +7,7 @@ import database.MySQLOperator;
 import login.Encryption;
 
 public class ChangePasswordCommand extends AbstractCommand {
-public ResponseContext execute(ResponseContext resc) {
+	public ResponseContext execute(ResponseContext resc) {
 		
 		RequestContext reqc = getRequestContext();
 		
@@ -15,7 +15,7 @@ public ResponseContext execute(ResponseContext resc) {
 		
 		String oldPassword = Encryption.hash(reqc.getParameter("oldPassword")[0]);
 		String newPassword = reqc.getParameter("newPassword")[0];
-		int user_id = Integer.parseInt(reqc.getParameter("user_id")[0]);
+		int user_id = reqc.getUserBeanInSession().getUser_id();
 		
 		UserDao userdao = new UserDao();
 		String hashPassword = userdao.selectPassword(user_id);

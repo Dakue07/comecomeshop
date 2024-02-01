@@ -14,10 +14,12 @@ public class UserDao {
 	private static final String SELECT_USER_PASS = "SELECT user_id, user_name, user_pass FROM USERTABLE WHERE user_name = ?";
 	private static final String SELECT_USER_ID = "SELECT user_id FROM USERTABLE WHERE user_name = ? AND user_pass = ?";
 	private static final String SELECT_ALL = "SELECT * FROM USERTABLE";
+	private static final String SELECT_BY_USER_ID = "SELECT user_name, user_Email FROM USERTABLE WHERE user_id = ?";
 	private static final String DELETE_USER = "DELETE FROM USERTABLE WHERE user_id = ?";
 	private static final String SELECT_USEREMAIL_BY_USER_ID = "SELECT user_Email FROM USERTABLE WHERE user_id = ?"; 
 	private static final String SELECT_PASSWORD_BY_USER_ID = "SELECT user_pass FROM USERTABLE WHERE user_id = ?";
 	private static final String UPDATE_PASSWORD_BY_USER_ID = "UPDATE USERTABLE SET user_pass = ? WHERE user_id = ?";
+	private static final String UPDATE_EMAIL_BY_USER_ID = "UPDATE USERTABLE SET user_Email = ? WHERE user_id = ?";
 
 	
 	Connection cn = null;
@@ -166,5 +168,41 @@ public class UserDao {
     		e.printStackTrace();
     		MySQLOperator.getInstance().rollback();
     	}
+	}
+	
+	public void updateEmail(int user_id, String user_Email) {
+		try {
+    		cn = MySQLOperator.getInstance().getConnection();
+    		prsmt = cn.prepareStatement(UPDATE_EMAIL_BY_USER_ID);
+    		prsmt.setString(1, user_Email);
+    		prsmt.setInt(2, user_id);
+    		prsmt.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    		MySQLOperator.getInstance().rollback();
+    	}
+		
+	}
+	
+	public UserTableDto selectAll(int user_id) {
+		UserTableDto userdto = new UserTableDto();
+		try {
+			System.out.println(user_id);
+			cn = MySQLOperator.getInstance().getConnection();
+			prsmt = cn.prepareStatement(SELECT_BY_USER_ID);
+			prsmt.setInt(1, user_id);
+			rs = prsmt.executeQuery();
+			rs.next();
+			userdto.setUser_name(rs.getString("user_name"));
+			userdto.setUser_Email(rs.getString("user_Email"));
+			
+			System.out.println("UserDao user_Email" + userdto.getUser_Email());
+			System.out.println("UserDao user_name" + userdto.getUser_name());
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+			MySQLOperator.getInstance().getConnection();
+		}
+		return userdto;
 	}
 }
