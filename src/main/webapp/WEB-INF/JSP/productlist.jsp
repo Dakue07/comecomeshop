@@ -39,6 +39,10 @@
     	font-weight: bold;
     	opacity: 0.7;
     }
+   .btn-clear {
+    	border: none;
+    	background-color: #ffffff;
+    }
 </style>
 
 
@@ -49,20 +53,23 @@
 <div class="row justify-content-center m-4, cleanness" style="max-width: 100%;">
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
-      <div class="card " style="width: 17rem;">
-        <img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
+      <div class="card" style="width: 17rem;">
         <div class="card-body">
-          <h4 class="card-title">${data.rice_name}</h4>
-          <h5>重量:${data.rice_weight}kg</h5>
-          <h5>価格:${data.rice_price}円</h5>
+      	  <button onclick="window.location='<%= request.getContextPath() %>/come/productdetail';" class="btn-clear">
+        
+        	<img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
+      
+          	<h4 class="card-title">${data.rice_name}</h4>
+         	<h5>重量:${data.rice_weight}kg</h5>
+          	<h5>価格:${data.rice_price}円</h5>
+      	  </button>
           <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
           <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
     	  </select>
-
           	<button class="btn btn-primary">カートへ入れる</button>
           	<input type="hidden" name="rice_id" value="${data.rice_id}">
           </form>
-         </div>
+        </div>
       </div>
     </div>
   </c:forEach>
