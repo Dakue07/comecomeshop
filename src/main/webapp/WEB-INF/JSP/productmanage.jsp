@@ -23,6 +23,10 @@
         margin: 10px; /* アイテムの間隔を調整 */
     }
     
+    body {
+    	background-color: #dcdcdc;
+    }
+    
     .cp_iptxt {
             position: relative;
             width: 80%;
@@ -72,6 +76,7 @@
         }
 </style>
 
+<body>
 <a href="<%= request.getContextPath() %>/admin" class="btn btn-radius-solid" style="text-decoration:none;">管理者トップへ戻る<i class="fas fa-angle-right fa-position-right"></i></a>
 
 <a href="<%= request.getContextPath() %>/addproduct" class="btn btn-radius-solid" style="text-decoration:none;">商品を追加する<i class="fas fa-angle-right fa-position-right"></i></a>
@@ -127,5 +132,5 @@
     </c:forEach>
 </div>
 
-<!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
+</body>
+</HTML>
