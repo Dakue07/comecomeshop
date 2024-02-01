@@ -22,11 +22,64 @@
     .rice-item {
         margin: 10px; /* アイテムの間隔を調整 */
     }
+    
+    body {
+    	background-color: #dcdcdc;
+    }
+    
+    .cp_iptxt {
+            position: relative;
+            width: 80%;
+            margin: 40px 3%;
+        }
+
+        .cp_iptxt input[type='text'] {
+            font: 15px/24px sans-serif;
+            box-sizing: border-box;
+            width: 50%;
+            padding: 0.3em;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            color: #aaaaaa;
+            border: 1px solid #1b2538;
+            border-radius: 4px;
+        }
+
+        .cp_iptxt input[type='text']:focus {
+            border: 1px solid #da3c41;
+            outline: none;
+            box-shadow: 0 0 5px 1px rgba(218, 60, 65, .5);
+        }
+
+        a.btn-radius-solid {
+            border: 1px solid #ccc;
+            background: #f1e767;
+            background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+            background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+            -webkit-box-shadow: inset 1px 1px 1px #fff;
+            box-shadow: inset 1px 1px 1px #fff;
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 20px 0;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        a.btn-radius-solid:hover {
+            background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+            background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+        }
 </style>
 
-<a href="<%=request.getContextPath() %>/admin">管理者トップへ戻る</a><br>
+<body>
+<a href="<%= request.getContextPath() %>/admin" class="btn btn-radius-solid" style="text-decoration:none;">管理者トップへ戻る<i class="fas fa-angle-right fa-position-right"></i></a>
 
-<a href="<%=request.getContextPath() %>/addproduct">商品を追加する</a><br>
+<a href="<%= request.getContextPath() %>/addproduct" class="btn btn-radius-solid" style="text-decoration:none;">商品を追加する<i class="fas fa-angle-right fa-position-right"></i></a>
 
 
 <div class="row">
@@ -79,5 +132,5 @@
     </c:forEach>
 </div>
 
-<!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
+</body>
+</HTML>
