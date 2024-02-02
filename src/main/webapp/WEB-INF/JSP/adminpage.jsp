@@ -77,7 +77,7 @@
 	<div class="button-container">
         <a href="<%= request.getContextPath() %>/come/adminuser" class="btn btn-radius-solid" style="text-decoration:none;">ユーザー管理<i class="fas fa-angle-right fa-position-right"></i></a>
         
-        <a href="<%=request.getContextPath() %>/productmanage" class="btn btn-radius-solid" style="text-decoration:none;">商品管理<i class="fas fa-angle-right fa-position-right"></i></a>
+        <a href="<%=request.getContextPath() %>/come/adminproduct" class="btn btn-radius-solid" style="text-decoration:none;">商品管理<i class="fas fa-angle-right fa-position-right"></i></a>
         
         <a href="<%= request.getContextPath() %>/signin" class="btn btn-radius-solid" style="text-decoration:none;">サインアウト<i class="fas fa-angle-right fa-position-right"></i></a>
      </div>

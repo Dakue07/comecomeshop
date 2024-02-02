@@ -11,17 +11,14 @@ public class DeletePostCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().beginTransaction();
 		
-		System.out.println(reqc.getParameter("user_id")[0]);
+		int useraddress_id = Integer.parseInt(reqc.getParameter("useraddress_id")[0]);
 		
-		int user_id = Integer.parseInt(reqc.getParameter("user_id")[0]);
-		String useraddress_receiver = reqc.getParameter("useraddress_receiver")[0];
-		String useraddress_postcode = reqc.getParameter("useraddress_postcode")[0];
-		String useraddress_state_city = reqc.getParameter("useraddress_state_city")[0];
-		String useraddress_street = reqc.getParameter("useraddress_street")[0];
+		System.out.println(useraddress_id);
+	
 		
 		UserAddressDao userAddressDao = new UserAddressDao();
 		
-		userAddressDao.deleteAddress(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street);
+		userAddressDao.deleteAddress(useraddress_id);
 		
 		MySQLOperator.getInstance().commit();
 		

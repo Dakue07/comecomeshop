@@ -56,16 +56,12 @@
     <div class="address-container">
         <c:forEach var="data" items="${data}">
             <div class="address-item">
-                <b>郵便番号：</b>${data.useraddress_receiver}<br>
-                <b>都道府県：</b>${data.useraddress_postcode}<br>
-                <b>市町村・番地(部屋番号・建物名)：</b>${data.useraddress_state_city}<br>
-                <b>受取人：</b>${data.useraddress_street}<br>
+                <b>郵便番号：</b>${data.useraddress_postcode}<br>
+                <b>都道府県：</b>${data.useraddress_state_city}<br>
+                <b>市町村・番地(部屋番号・建物名)：</b>${data.useraddress_street}<br>
+                <b>受取人：</b>${data.useraddress_receiver}<br>
                 <form action="<%= request.getContextPath() %>/come/deletepost" method="post">
-                    <input type="hidden" name="user_id" value="${data.user_id}">
-                    <input type="hidden" name="useraddress_receiver" value="${data.useraddress_receiver}">
-                    <input type="hidden" name="useraddress_postcode" value="${data.useraddress_postcode}">
-                    <input type="hidden" name="useraddress_state_city" value="${data.useraddress_state_city}">
-                    <input type="hidden" name="useraddress_street" value="${data.useraddress_street}"><br>
+                    <input type="hidden" name="useraddress_id" value="${data.useraddress_id}">
                     <button type="submit" class="btn btn-outline-danger">この住所を削除する</button>
                 </form>
             </div>
