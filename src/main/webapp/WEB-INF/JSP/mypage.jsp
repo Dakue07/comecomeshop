@@ -3,6 +3,7 @@
     contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../../assets/template/header2.jsp" %>
 
 
