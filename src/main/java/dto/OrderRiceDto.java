@@ -4,6 +4,23 @@ import java.io.Serializable;
 
 public class OrderRiceDto implements Serializable {
     private int order_id;
+    private int user_id;
+    private int rice_id;
+    private int order_quantity;
+    private int order_amount;
+    private String order_time;
+    private int useraddress_id;
+    private int card_id;
+    private String rice_name;
+    private String rice_genre;
+    private int rice_weight;
+    private String rice_made;
+    private String rice_image_path;
+    private String rice_since;
+    private int rice_stock;
+    private int rice_price;
+    private boolean rice_flag;
+    
     public int getOrder_id() {
 		return order_id;
 	}
@@ -28,16 +45,17 @@ public class OrderRiceDto implements Serializable {
 	public void setOrder_quantity(int order_quantity) {
 		this.order_quantity = order_quantity;
 	}
+	
 	public int getOrder_amount() {
 		return order_amount;
 	}
-	public void setOrder_amount(int ordered_amount) {
+	public void setOrder_amount(int order_amount) {
 		this.order_amount = order_amount;
 	}
 	public String getOrder_time() {
 		return order_time;
 	}
-	public void setOrder_time(String ordered_time) {
+	public void setOrder_time(String order_time) {
 		this.order_time = order_time;
 	}
 	public int getUseraddress_id() {
@@ -106,20 +124,5 @@ public class OrderRiceDto implements Serializable {
 	public void setRice_flag(boolean rice_flag) {
 		this.rice_flag = rice_flag;
 	}
-	private int user_id;
-    private int rice_id;
-    private int order_quantity;
-    private int order_amount;
-    private String order_time;
-    private int useraddress_id;
-    private int card_id;
-    private String rice_name;
-    private String rice_genre;
-    private int rice_weight;
-    private String rice_made;
-    private String rice_image_path;
-    private String rice_since;
-    private int rice_stock;
-    private int rice_price;
-    private boolean rice_flag;
+	
 }

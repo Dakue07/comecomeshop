@@ -1,4 +1,4 @@
-package dao;
+/*package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,6 @@ import dto.OrderDetailsTableDto;
 
 public class OrderDetailsDao {
 
-	private static final String SELECT_ORDERDETAIL = "SELECT od.* FROM ORDERDETAILSTABLE od JOIN ORDERTABLE ot ON od.order_id = ot.order_id WHERE ot.user_id = ?";
 	
 	Connection cn = null;
 	PreparedStatement prsmt = null;
@@ -45,3 +44,4 @@ public class OrderDetailsDao {
 		return result;
 	}
 }
+*/
