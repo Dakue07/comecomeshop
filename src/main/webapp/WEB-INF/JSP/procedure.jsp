@@ -10,6 +10,18 @@
     body {
         font-family: Arial, sans-serif;
     }	
+    
+    form {
+    display: flex;
+    justify-content: space-between; /* Distribute the buttons evenly */
+    margin-top: 20px; /* Add some top margin for spacing */
+	}
+	
+	button {
+    	padding: 10px;
+    	margin: 0 5;
+    	cursor: pointer;
+	}
 
     .modal-container {
         display: none;
@@ -51,11 +63,43 @@
     .radio-group input {
         margin-bottom: 10px;
     }
+    
+	body {
+    	min-height: 100vh;
+    	margin: 0;
+    	display: flex;
+    	flex-direction: column;
+	}
+
+	header {
+    	position: sticky;
+    	top: 0;
+    	width: 100%;
+    	z-index: 1000; /* Ensure the header stays on top */
+	}
+
+	main {
+    	margin-top: 80px; /* Adjust the value based on your header height */
+	}
+
+	footer {
+    	margin-top: auto;
+	}
+
+	form {
+    	margin-top: 20px; /* Adjust the value based on your layout preferences */
+	}
+	
+	h2 {
+		text-align: center;
+	}
+
+
 </style>
 
-購入手続き<br>
+<h2>購入手続き</h2><br>
 <form action="come/addorderdetail" method="post">
-	<button type="button" onclick="toggleModal('address')">住所選択</button><br>
+	<button type="button" onclick="toggleModal('address')" style="position: absolute; left: 20%;">住所選択</button><br>
 	<div id="address_modal" class="modal-container">
 	    <div class="modal-content">
 	        <span class="close-btn" onclick="toggleModal('address')">&times;</span>
@@ -77,7 +121,7 @@
 	    </div>
 	</div>
 	
-	<button type="button" onclick="toggleModal('payment')">支払い方法選択</button><br>
+	<button type="button" onclick="toggleModal('payment')" style="position: relative;">支払い方法選択</button><br>
 	<div  id="payment_modal" class="modal-container">
 	    <div class="modal-content">
 	        <span class="close-btn" onclick="toggleModal('payment')">&times;</span>
@@ -92,7 +136,7 @@
 	    </div>
 	</div>
 
-<input type="submit" id="ConfirmOrderBtn" value="注文確定">
+<input type="submit" id="ConfirmOrderBtn" value="注文確定" style="position: absolute; right: 20%;">
 </form>
 
 
