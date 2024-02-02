@@ -24,6 +24,9 @@
     }
 
     .modal-content {
+    	height: auto;
+    	max-height: 80vh;
+    	overflow-y: auto;
         background-color: #fff;
         padding: 20px;
         border-radius: 5px;
@@ -34,11 +37,12 @@
     }
 
     .close-btn {
-        position: absolute;
+    	position: sticky;
         top: 10px;
-        right: 10px;
+        left: 300px;
         font-size: 20px;
         cursor: pointer;
+        width: 20px;
     }
 
     .radio-group {

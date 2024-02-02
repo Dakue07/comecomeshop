@@ -55,14 +55,16 @@
   <c:forEach var="data" items="${data}">
     <div class="col-md-auto mb-3 d-flex justify-content-center">
       <div class="card" style="width: 17rem;">
-        <div class="card-body">
-      	  <button onclick="window.location='<%= request.getContextPath() %>/come/productdetail';" class="btn-clear">
-        	<form >
+        <div class="card-body">  
+        	<form action="<%= request.getContextPath() %>/come/productdetail" method="post">
+        	<button type="submit" class="btn-clear">
+        	<input type="hidden" name="rice_id" value="${data.rice_id}">
         	<img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
       
           	<h4 class="card-title">${data.rice_name}</h4>
          	<h5>重量:${data.rice_weight}kg</h5>
           	<h5>価格:${data.rice_price}円</h5>
+          	
           	</form>
       	  </button>
       	  <c:choose>
