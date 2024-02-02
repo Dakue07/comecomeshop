@@ -136,7 +136,7 @@
 	    </div>
 	</div>
 
-<input type="submit" id="ConfirmOrderBtn" value="注文確定" style="position: absolute; right: 20%;">
+<input type="submit" id="ConfirmOrderBtn" value="注文確定" style="position: absolute; right: 20%; height: 50px;">
 </form>
 
 
