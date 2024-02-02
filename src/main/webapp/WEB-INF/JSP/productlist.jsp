@@ -57,19 +57,27 @@
       <div class="card" style="width: 17rem;">
         <div class="card-body">
       	  <button onclick="window.location='<%= request.getContextPath() %>/come/productdetail';" class="btn-clear">
-        
+        	<form >
         	<img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="${data.rice_name}">
       
           	<h4 class="card-title">${data.rice_name}</h4>
          	<h5>重量:${data.rice_weight}kg</h5>
           	<h5>価格:${data.rice_price}円</h5>
+          	</form>
       	  </button>
-          <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
-          <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
-    	  </select>
-          	<button class="btn btn-primary">カートへ入れる</button>
-          	<input type="hidden" name="rice_id" value="${data.rice_id}">
-          </form>
+      	  <c:choose>
+      	  	<c:when test="${data.rice_stock == 0}">
+      	  		<p style="color: red;">在庫がありません</p>
+      	  	</c:when>
+      	  	<c:otherwise>
+	          <form action = "<%= request.getContextPath() %>/come/addcart" method = post onsubmit="return checkUserId()">
+	          <select class="mySelect" data-rice-stock="${data.rice_stock}" name="cart_quantity">
+	    	  </select>
+	          	<button class="btn btn-primary">カートへ入れる</button>
+	          	<input type="hidden" name="rice_id" value="${data.rice_id}">
+	          </form>
+			</c:otherwise>
+			</c:choose>
         </div>
       </div>
     </div>

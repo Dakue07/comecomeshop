@@ -69,7 +69,10 @@
     </div>
 </c:if>
 
-<a class="register2-link" href="<%= request.getContextPath() %>/createpost">新しく住所を登録する</a>
+<form action="<%= request.getContextPath() %>/come/urlsave" method="post">
+	<input type="hidden" name="url" value="/createpost">
+	<button type="submit" class="register2-link">新しく住所を登録する</button>
+</form>
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
