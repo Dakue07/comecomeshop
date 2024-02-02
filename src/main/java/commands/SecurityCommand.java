@@ -25,7 +25,6 @@ public class SecurityCommand extends AbstractCommand {
 		userBean.setUser_Email(userDto.getUser_Email());
 		userBean.setUser_name(userDto.getUser_name());
 		
-		System.out.println("securityCommand.java" + result);
 		
 		resc.setResult(result);
 		
