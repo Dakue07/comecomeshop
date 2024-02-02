@@ -3,6 +3,7 @@
     contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../../assets/template/header2.jsp" %>
 
 
@@ -20,6 +21,7 @@
     	background-color: #c0c0c0;
     }
 </style>
+
 
 <script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -68,7 +70,7 @@
   	</div>
   
   <div class="col-md-4 text-center">
-		<a href="test.html" style="text-decoration:none;">
+		<a href="<%=request.getContextPath() %>/come/security" style="text-decoration:none;">
     	<div class="card mb-3" style="width: 18rem; height: 80%;">
     		<div class="cursor">
       			<div class="row g-4">

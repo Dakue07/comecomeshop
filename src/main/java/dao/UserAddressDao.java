@@ -12,7 +12,7 @@ import database.MySQLOperator;
 public class UserAddressDao {
 	private static final String INSERT_ADDRESS = "INSERT INTO USERADDRESSTABLE(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?, ?)";
 	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM USERADDRESSTABLE WHERE user_id = ?";
-	private static final String DELETE_ADDRESS = "DELETE FROM USERADDRESSTABLE WHERE user_id = ? and useraddress_receiver = ? and useraddress_postcode = ? and useraddress_state_city = ? and useraddress_street = ?";
+	private static final String DELETE_ADDRESS = "DELETE FROM USERADDRESSTABLE WHERE useraddress_id = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
@@ -59,18 +59,13 @@ public class UserAddressDao {
 		return result;
 	}
 	
-	public void deleteAddress(int user_id, String useraddress_receiver, String useraddress_postcode, String useraddress_state_city, String useraddress_street) {
+	public void deleteAddress(int useraddress_id) {
 		try {
 			cn = MySQLOperator.getInstance().getConnection();
 			PreparedStatement pstmt = cn.prepareStatement(DELETE_ADDRESS);
-			pstmt.setInt(1, user_id);
-			pstmt.setString(2, useraddress_receiver);
-			pstmt.setString(3, useraddress_postcode);
-			pstmt.setString(4, useraddress_state_city);
-			pstmt.setString(5, useraddress_street);
-			
+			pstmt.setInt(1, useraddress_id);
 			pstmt.executeUpdate();
-			
+			System.out.println("住所削除完了");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();

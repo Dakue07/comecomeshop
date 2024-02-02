@@ -75,11 +75,11 @@
     <h1>管理者ページ</h1><br><br><br><br>
 
 	<div class="button-container">
-        <a href="<%= request.getContextPath() %>/come/adminuser"" class="btn btn-radius-solid" style="text-decoration:none;">ユーザー管理<i class="fas fa-angle-right fa-position-right"></i></a>
+        <a href="<%= request.getContextPath() %>/come/adminuser" class="btn btn-radius-solid" style="text-decoration:none;">ユーザー管理<i class="fas fa-angle-right fa-position-right"></i></a>
         
-        <a href="<%= request.getContextPath() %>/come/adminuser"" class="btn btn-radius-solid" style="text-decoration:none;">商品管理<i class="fas fa-angle-right fa-position-right"></i></a>
+        <a href="<%=request.getContextPath() %>/come/adminproduct" class="btn btn-radius-solid" style="text-decoration:none;">商品管理<i class="fas fa-angle-right fa-position-right"></i></a>
         
-        <a href="<%= request.getContextPath() %>/come/adminuser"" class="btn btn-radius-solid" style="text-decoration:none;">サインアウト<i class="fas fa-angle-right fa-position-right"></i></a>
+        <a href="<%= request.getContextPath() %>/signin" class="btn btn-radius-solid" style="text-decoration:none;">サインアウト<i class="fas fa-angle-right fa-position-right"></i></a>
      </div>
 
 </body>

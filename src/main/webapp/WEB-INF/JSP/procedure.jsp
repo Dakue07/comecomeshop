@@ -36,6 +36,9 @@
     }
 
     .modal-content {
+    	height: auto;
+    	max-height: 80vh;
+    	overflow-y: auto;
         background-color: #fff;
         padding: 20px;
         border-radius: 5px;
@@ -46,11 +49,12 @@
     }
 
     .close-btn {
-        position: absolute;
+    	position: sticky;
         top: 10px;
-        right: 10px;
+        left: 300px;
         font-size: 20px;
         cursor: pointer;
+        width: 20px;
     }
 
     .radio-group {
@@ -98,6 +102,18 @@
 </style>
 
 <h2>購入手続き</h2><br>
+
+<form action="<%= request.getContextPath() %>/come/urlsave" method="post">
+	<input type="hidden" name="url" value="/createpost">
+	<button type="submit" class="register2-link">新しく住所を登録する</button>
+</form>
+
+<form action="<%= request.getContextPath() %>/come/urlsave" method="post">
+	<input type="hidden" name="url" value="/come/card">
+	<button type="submit" class="register2-link">新しく支払い方法を追加する</button>
+</form>
+
+
 <form action="come/addorderdetail" method="post">
 	<button type="button" onclick="toggleModal('address')" style="position: absolute; left: 20%;">住所選択</button><br>
 	<div id="address_modal" class="modal-container">

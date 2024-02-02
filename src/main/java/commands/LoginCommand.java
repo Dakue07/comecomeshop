@@ -19,7 +19,9 @@ public class LoginCommand extends AbstractCommand {
 		Object userResult = null;
 		Object riceResult = null;
 		
+		reqc.setReferer();
 		
+		System.out.println("リファラー" + reqc.getReferer());
 		
 		String name = reqc.getParameter("user_name")[0];
 		String pass = reqc.getParameter("user_pass")[0];
