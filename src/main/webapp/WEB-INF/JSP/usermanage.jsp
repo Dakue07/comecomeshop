@@ -83,6 +83,22 @@
 		}
 		
 		
+		.button-1 {
+			display: inline-block;
+			padding: 0.4em 1.6em;
+			font-size: 0.8em;
+			color: #00b5ad;
+			text-decoration: none;
+			user-select: none;
+			border: 1px #00b5ad solid;
+			border-radius: 3px;
+			transition: 0.4s ease;
+		}
+
+		.button-1:hover {
+			color: #fff;
+			background: #00b5ad;
+		}
 </style>
 
 <body>
@@ -95,7 +111,7 @@
            	<b>名前：</b>${data.user_name}<br>
            	<b>email</b>:${data.user_Email}<br>
            	<form action = "<%= request.getContextPath() %>/come/deleteuser" method = post>
-	       		<button type="submit">サイトから消す</button>
+	       		<button type="submit" class="button-1">サイトから消す</button>
         		<input type="hidden" name="user_id" value="${data.user_id}">				
         	</form>
         </div>
