@@ -87,18 +87,22 @@
         <div class="col-md-3 mb-3">
             <div class="card rice-item">
                 <div class="card-body">
-                    <h5 class="card-title">ID: ${data.rice_id}</h5>
-                    <p class="card-text">商品名: ${data.rice_name}</p>
-                    <p class="card-text">種類: ${data.rice_genre}</p>
-                    <p class="card-text">サイズ: ${data.rice_weight}kg</p>
-                    <p class="card-text">生産地: ${data.rice_made}</p>
+                    <h5 class="card-title"><b>ID:</b> ${data.rice_id}</h5>
+                    <p class="card-text"><b>商品名:</b> ${data.rice_name}</p>
+                    <p class="card-text"><b>種類:</b> ${data.rice_genre}</p>
+                    <p class="card-text"><b>サイズ:</b> ${data.rice_weight}kg</p>
+                    <p class="card-text"><b>生産地:</b> ${data.rice_made}</p>
                     <img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="商品の画像" class="card-img-top">
-                    <p class="card-text">収穫日: ${data.rice_since}月</p>
-                    <p class="card-text">在庫数: ${data.rice_stock}</p>
-                    <p class="card-text">価格: ${data.rice_price}円</p>
+                    <p class="card-text"><b>収穫日:</b> ${data.rice_since}月</p>
+                    <p class="card-text"><b>在庫数:</b> ${data.rice_stock}</p>
+                    <p class="card-text"><b>価格:</b> ${data.rice_price}円</p>
                     <p class="card-text">
-                        <c:if test="${data.rice_flag == true}">販売中</c:if>
-                        <c:if test="${data.rice_flag == false}">販売停止中</c:if>
+                      <c:if test="${data.rice_flag == true}">
+    					<span style="color: blue;"><b>販売中</b></span>
+					  </c:if>
+					  <c:if test="${data.rice_flag == false}">
+    					<span style="color: red;"><b>販売停止中</b></span>
+					  </c:if>
                     </p>
                     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
 		            	<c:if test="${data.rice_flag == true}">
@@ -118,7 +122,7 @@
 				        	<input type="hidden" name="rice_id" value="${data.rice_id}">
 				        </form>
 				        <form action="<%= request.getContextPath() %>/come/adminreview" method="post">
-				        	<button type="submit" class="btn btn-outline-danger">review一覧</button>
+				        	<button type="submit" class="btn btn-outline-success">review一覧</button>
 				        	<input type="hidden" name="rice_id" value="${data.rice_id}">
 				        </form>
 					</div>
