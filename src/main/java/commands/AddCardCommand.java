@@ -37,8 +37,10 @@ public class AddCardCommand extends AbstractCommand {
 		carddao.insertCard(user_id, card_holdername, card_number, card_validity, card_securitycode);
 		
 		MySQLOperator.getInstance().commit();
+		
+		String url = reqc.getReferer();
 
-		resc.setTarget("come/card");
+		resc.setTarget(url);
 
 	
 		

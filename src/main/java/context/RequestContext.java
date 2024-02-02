@@ -16,5 +16,7 @@ public interface RequestContext {
 	public String getSearchWord();
 	public void InvalidateSession();
 	public String getContextPath();
+	public void setReferer();
+	public String getReferer();
 	
 } 

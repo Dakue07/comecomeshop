@@ -54,6 +54,17 @@
 </style>
 
 購入手続き<br>
+
+<form action="<%= request.getContextPath() %>/come/urlsave" method="post">
+	<input type="hidden" name="url" value="/createpost">
+	<button type="submit" class="register2-link">新しく住所を登録する</button>
+</form>
+
+<form action="<%= request.getContextPath() %>/come/urlsave" method="post">
+	<input type="hidden" name="url" value="/come/card">
+	<button type="submit" class="register2-link">新しく支払い方法を追加する</button>
+</form>
+
 <form action="come/addorderdetail" method="post">
 	<button type="button" onclick="toggleModal('address')">住所選択</button><br>
 	<div id="address_modal" class="modal-container">

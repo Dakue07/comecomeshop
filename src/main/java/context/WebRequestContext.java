@@ -72,4 +72,15 @@ public class WebRequestContext implements RequestContext {
 	public String getContextPath() {
 		return request.getContextPath();
 	}
+	
+	public void setReferer() {
+		session = request.getSession();
+		System.out.println("ウェブリクコン" + request.getHeader("REFERER"));
+		session.setAttribute("referer", request.getHeader("REFERER").substring(34));
+	}
+	
+	public String getReferer() {
+		session = request.getSession();
+		return (String)session.getAttribute("referer");
+	}
 } 
