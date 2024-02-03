@@ -66,7 +66,7 @@
 購入履歴
 <c:forEach var="data" items="${data}">
     <br><img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="${data.rice_name}">
-    ${data.rice_name}個数${data.order_quantity}合計${data.order_amount}
+    ${data.rice_name}個数${data.order_quantity}合計${data.order_amount}rice_id${data.rice_id}
     <form action="<%= request.getContextPath() %>/come/productdetail" method="post" onsubmit="return checkUserId()">
         <button>ここ押したらproductDetailに飛ぶよ</button>
         <!-- 購入履歴ページから。削除はproductdetailに飛ばす -->
@@ -98,7 +98,7 @@
                                 <button type="button" onclick="setRating(5)"><i class="fas fa-star"></i></button>
                             </div>
                             <input type="hidden" name="review_star" id="evaluation" value="1">
-                            <input type="hidden" name="rice_id" id="rice_id_input" value="${data.rice_id}">
+							<input type="hidden" name="rice_id" class="rice_id_input" value="${data.rice_id}">
                         </td>
                     </tr>
                     <tr>
@@ -135,7 +135,11 @@
         console.log("rice_id: " + riceId);
 
         // rice_idをhidden inputに設定
-        document.getElementById('rice_id_input').value = riceId;
+        var riceIdInputs = document.querySelectorAll('.rice_id_input');
+        riceIdInputs.forEach(function(input) {
+            input.value = riceId;
+            console.log(input.value);
+        });
     }
 
     function closeModal() {
