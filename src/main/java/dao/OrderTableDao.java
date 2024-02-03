@@ -158,7 +158,7 @@ public class OrderTableDao {
 		}
 	}
 	
-	public ArrayList<OrderRiceDto> SELECT_ORDER(int user_id) {
+	public ArrayList<OrderRiceDto> select_order(int user_id) {
 		ArrayList<OrderRiceDto> result = new ArrayList<OrderRiceDto>();
 		
 		try {

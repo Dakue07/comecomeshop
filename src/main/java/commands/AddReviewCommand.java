@@ -28,7 +28,7 @@ public class AddReviewCommand extends AbstractCommand {
 		
 		OrderTableDao orderdao = new OrderTableDao();
 		
-		result = orderdao.SELECT_ORDER(user_id);
+		result = orderdao.selectOrderByUserId(user_id);
 		
 		resc.setResult(result);
 		
