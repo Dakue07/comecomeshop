@@ -2,7 +2,7 @@ package commands;
 
 import context.RequestContext;
 import context.ResponseContext;
-import dao.OrderDetailsDao;
+import dao.OrderTableDao;
 import dao.ReviewTableDao;
 import database.MySQLOperator;
 
@@ -26,9 +26,9 @@ public class AddReviewCommand extends AbstractCommand {
 		
 		reviewtabledao.Insert_Review(rice_id, user_id, review_comment, review_star);
 		
-		OrderDetailsDao orderdetailsdao = new OrderDetailsDao();
+		OrderTableDao orderdao = new OrderTableDao();
 		
-		result = orderdetailsdao.SELECT_ORDERDETAIL(user_id);
+		result = orderdao.selectOrderByUserId(user_id);
 		
 		resc.setResult(result);
 		

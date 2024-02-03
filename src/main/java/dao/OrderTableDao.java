@@ -17,6 +17,8 @@ public class OrderTableDao {
 	private static final String SELECT_ORDER_BY_USER_ID = "SELECT o.order_id, o.user_id, o.rice_id, o.order_quantity, o.order_amount, o.order_time, o.useraddress_id, o.card_id, r.rice_name, r.rice_genre, r.rice_weight, r.rice_made, r.rice_image_path, r.rice_since, r.rice_stock, r.rice_price, r.rice_flag FROM ORDERTABLE o JOIN RICETABLE r ON o.rice_id = r.rice_id WHERE o.user_id = ?";
 	private static final String SELECT_ORDER_DETAILS_BY_USER_ID ="SELECT DISTINCT o.order_time, ua.useraddress_postcode, ua.useraddress_state_city, ua.useraddress_street FROM USERADDRESSTABLE ua JOIN ORDERTABLE o ON ua.user_id = o.user_id WHERE o.user_id = ?";
 	private static final String ORDER_CANCEL = "DELETE FROM ORDERTABLE WHERE order_id = ?";
+	private static final String SELECT_ORDER = "SELECT * FROM ORDERDETAILSTABLE WHERE user_id = ?";
+
 	
 	
 	Connection cn = null;
@@ -154,5 +156,38 @@ public class OrderTableDao {
 			e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
 		}
+	}
+	
+	public ArrayList<OrderRiceDto> select_order(int user_id) {
+		ArrayList<OrderRiceDto> result = new ArrayList<OrderRiceDto>();
+		
+		try {
+			cn = MySQLOperator.getInstance().getConnection();
+			System.out.println("orderDetailsDAOまで来たよ");
+			pstmt = cn.prepareStatement(SELECT_ORDER);
+			pstmt.setInt(1, user_id);
+			rs = pstmt.executeQuery();
+			System.out.println("orderDetailsDAO");
+			while(rs.next()) {
+				OrderRiceDto orderbean = new OrderRiceDto();
+				System.out.println("orderDetailsDAO3");
+				orderbean.setOrder_id(rs.getInt("order_id"));
+				orderbean.setUser_id(rs.getInt("user_id"));
+				orderbean.setRice_id(rs.getInt("rice_id"));
+				orderbean.setUseraddress_id(rs.getInt("useraddress_id"));
+				orderbean.setRice_image_path(rs.getString("rice_image_path"));
+				orderbean.setRice_name(rs.getString("rice_name"));
+				orderbean.setOrder_quantity(rs.getInt("order_quantity"));
+				orderbean.setOrder_amount(rs.getInt("Order_amount"));
+				orderbean.setOrder_time(rs.getString("order_time"));
+
+				result.add(orderbean);
+			}
+			
+		} catch(SQLException e) {
+			MySQLOperator.getInstance().rollback();
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

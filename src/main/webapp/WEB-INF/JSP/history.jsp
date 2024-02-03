@@ -98,7 +98,7 @@
                                 <button type="button" onclick="setRating(5)"><i class="fas fa-star"></i></button>
                             </div>
                             <input type="hidden" name="review_star" id="evaluation" value="1">
-                            <input type="hidden" name="rice_id" id="rice_id_input" value="">
+                            <input type="hidden" name="rice_id" id="rice_id_input" value="${data.rice_id}">
                         </td>
                     </tr>
                     <tr>
