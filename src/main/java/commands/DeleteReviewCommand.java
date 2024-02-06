@@ -23,7 +23,7 @@ public class DeleteReviewCommand extends AbstractCommand {
 		
 		ReviewTableDao reviewtabledao = new ReviewTableDao();
 		
-		reviewtabledao.DELETE_REVIEW(review_id);
+		reviewtabledao.deleteReview(review_id);
 		MySQLOperator.getInstance().commit();
 		
 		resc.setTarget("/come/productdetail");						

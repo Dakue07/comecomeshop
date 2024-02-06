@@ -23,7 +23,7 @@ public class ProductDetailComamnd extends AbstractCommand{
 			
 			ReviewTableDao reviewdao = new ReviewTableDao();
 			
-			result3 = reviewdao.Select_Review(rice_id);
+			result3 = reviewdao.selectReview(rice_id);
 			
 			result.add(result2);
 			result.add(result3);

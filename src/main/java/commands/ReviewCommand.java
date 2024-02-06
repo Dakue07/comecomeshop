@@ -13,7 +13,7 @@ public class ReviewCommand extends AbstractCommand {
 		
 		ReviewTableDao reviewdao = new ReviewTableDao();
 		
-		result = reviewdao.Select_Review(rice_id);
+		result = reviewdao.selectReview(rice_id);
 		
 		resc.setResult(result);
 		

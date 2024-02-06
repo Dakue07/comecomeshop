@@ -24,7 +24,7 @@ public class AddReviewCommand extends AbstractCommand {
 		
 		ReviewTableDao reviewtabledao = new ReviewTableDao();
 		
-		reviewtabledao.Insert_Review(rice_id, user_id, review_comment, review_star);
+		reviewtabledao.insertReview(rice_id, user_id, review_comment, review_star);
 		
 		OrderTableDao orderdao = new OrderTableDao();
 		
