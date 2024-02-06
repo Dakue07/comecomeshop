@@ -15,7 +15,7 @@ public class AdminDeleteReviewCommand extends AbstractCommand {
 		
 		ReviewTableDao reviewdao = new ReviewTableDao();
 		
-		reviewdao.DELETE_REVIEW(review_id);
+		reviewdao.deleteReview(review_id);
 		
 		MySQLOperator.getInstance().commit();
 		

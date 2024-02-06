@@ -16,7 +16,7 @@ public class AdminReviewCommand extends AbstractCommand {
 		
 		ReviewTableDao reviewtabledao = new ReviewTableDao();
 		
-		result = reviewtabledao.Admin_Select_Review(rice_id);
+		result = reviewtabledao.adminSelectReview(rice_id);
 		
 		resc.setResult(result);
 		

@@ -12,8 +12,9 @@
         <c:forEach var="data" items="${data[0]}">
             <br><img src="${data.rice_image_path}" alt="${data.rice_name}"><br>名前:${data.rice_name}<br>値段:${data.rice_price}<br>
         </c:forEach>
-        review一覧
+        review一覧<br><br>
         <c:forEach var="data" items="${data[1]}">
+        	${data.user_name}
             <div class="star">${data.review_star}</div>
             ${data.review_comment}<br><br>
             
@@ -21,7 +22,7 @@
                 <form action="<%= request.getContextPath() %>/come/deletereview" method="post">
                     <input type="hidden" name="review_id" value="${data.review_id}">
                     <input type="hidden" name="rice_id" value="${data.rice_id}">
-                    <input type="submit" value="削除">
+                    <input type="submit" value="削除"><br><br>
                 </form>
             </c:if>
         </c:forEach>
