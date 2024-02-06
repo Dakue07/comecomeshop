@@ -30,7 +30,6 @@ public class WebApplicationController implements ApplicationController {
 	public ResponseContext handleRequest(RequestContext reqc, InputStream file) {
 		
 		AbstractCommand command = CommandFactory.getCommand(reqc, file);
-		System.out.println("あぷこん" + command);
 		command.init(reqc);
 		
 		
@@ -52,7 +51,6 @@ public class WebApplicationController implements ApplicationController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//cloneし直しテスト
 
 	}
 

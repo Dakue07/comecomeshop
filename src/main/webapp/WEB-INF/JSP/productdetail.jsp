@@ -5,50 +5,17 @@
 <head>
     <title>商品詳細</title>
     <%@include file="../../assets/template/header2.jsp" %>
-    <style>
-        .star-rating {
-            unicode-bidi: bidi-override;
-            color: #c5c5c5;
-            font-size: 20px;
-            height: 20px;
-            width: 100px;
-            margin: 0 auto;
-            position: relative;
-            padding: 0;
-        }
-
-        .star-rating > span {
-            display: inline-block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            overflow: hidden;
-            width: 0;
-            color: #ffca08;
-        }
-
-        .star-rating > span:before {
-            content: "★";
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-        }
-
-        .star-rating > span.full {
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
     <div>
         商品詳細
         <c:forEach var="data" items="${data[0]}">
-            <br><img src="${data.rice_image_path}" alt="${data.rice_name}"><br>名前:${data.rice_name}<br>値段:${data.rice_price}
+            <br><img src="${data.rice_image_path}" alt="${data.rice_name}"><br>名前:${data.rice_name}<br>値段:${data.rice_price}<br>
         </c:forEach>
+        review一覧
         <c:forEach var="data" items="${data[1]}">
-            <br>レビュー:${data.review_comment}<br>
-       
-            評価:${data.review_star}
+            <div class="star">${data.review_star}</div>
+            ${data.review_comment}<br><br>
             
             <c:if test="${userBean.user_id eq data.user_id}">
                 <form action="<%= request.getContextPath() %>/come/deletereview" method="post">
@@ -59,8 +26,25 @@
             </c:if>
         </c:forEach>
     </div>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var starElements = document.querySelectorAll(".star");
+        starElements.forEach(function(starElement) {
+            var reviewStar = parseInt(starElement.textContent);
+            starElement.innerHTML = "";
+            for (var i = 0; i < reviewStar; i++) {
+                var starSpan = document.createElement("span");
+                starSpan.innerHTML = "★";
+                starSpan.style.color = "gold";
+                starElement.appendChild(starSpan);
+            }
+        });
+    });
+    		
+    </script>
 
-    <!-- フッター -->
-    <%@include file="../../assets/template/footer.jsp" %>
+<!-- フッター -->
+<%@include file="../../assets/template/footer.jsp" %>
 </body>
 </html>
