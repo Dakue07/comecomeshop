@@ -56,15 +56,15 @@ VALUES('さこぴりか', 'もち米', 10, '埼玉県川口市',
 	'2013-07-18 00:00:00', 335, 7700);
 
 # user_id, useraddress_receiver, useraddress_postcode,
-	useraddress_state_city, useraddress_street
+#	useraddress_state_city, useraddress_street
 # 1, '石内遼', '231-0821', '神奈川県横浜市中区本牧大里町', '平茸荘962-22134'
 
 # user_id, useraddress_receiver, useraddress_postcode,
-	useraddress_state_city, useraddress_street
+#	useraddress_state_city, useraddress_street
 # 2, '光宙', '111-0032', '東京都台東区浅草', '舞茸ビル2-3-1'
 
 # user_id, useraddress_receiver, useraddress_postcode,
-	useraddress_state_city, useraddress_street
+#	useraddress_state_city, useraddress_street
 # 3, 'admin', '100-0002', '東京都千代田区千代田', '1番1号'
 
 INSERT INTO CARDTABLE (user_id, card_holdername, card_number,
@@ -86,33 +86,33 @@ VALUES(2, 6, 20);
 INSERT INTO CARTTABLE (user_id, rice_id, cart_quantity)
 VALUES(2, 7, 5);
 
-INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
-VALUES(1, 1, 19200);
+INSERT INTO ORDERTABLE (order_id, user_id, rice_id, order_amount, order_quantity)
+VALUES(1, 1, 1, 19200, 3);
 
-INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
-VALUES(1, 6, 24000);
+INSERT INTO ORDERTABLE (order_id, user_id, rice_id, order_amount, order_quantity)
+VALUES(1, 1, 6, 24000, 2);
 
-INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
-VALUES(2, 6, 120000);
+INSERT INTO ORDERTABLE (order_id, user_id, rice_id, order_amount, order_quantity)
+VALUES(2, 2, 6, 120000, 10);
 
-INSERT INTO ORDERTABLE (user_id, rice_id, order_amount)
-VALUES(2, 7, 31500);
+INSERT INTO ORDERTABLE (order_id, user_id, rice_id, order_amount, order_quantity)
+VALUES(2, 2, 7, 31500, 5);
 
-INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
-	order_amount, rice_name, rice_price)
-VALUES(1, 1, 3, 19200, 'たけだこまち', 6400);
+#INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
+#	order_amount, rice_name, rice_price)
+#VALUES(1, 1, 3, 19200, 'たけだこまち', 6400);
 
-INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
-	order_amount, rice_name, rice_price)
-VALUES(1, 6, 2, 24000, 'ジャスミンライス', 12000);
+#INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
+#	order_amount, rice_name, rice_price)
+#VALUES(1, 6, 2, 24000, 'ジャスミンライス', 12000);
+#
+#INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
+#	order_amount, rice_name, rice_price)
+#VALUES(2, 6, 10, 120000, 'ジャスミンライス', 12000);
 
-INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
-	order_amount, rice_name, rice_price)
-VALUES(2, 6, 10, 120000, 'ジャスミンライス', 12000);
-
-INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
-	order_amount, rice_name, rice_price)
-VALUES(2, 7, 5, 31500, 'かしわき', 6300);
+#INSERT INTO ORDERDETAILSTABLE (order_id, rice_id, order_quantity,
+#	order_amount, rice_name, rice_price)
+#VALUES(2, 7, 5, 31500, 'かしわき', 6300);
 
 INSERT INTO REVIEWTABLE (user_id, rice_id, review_comment, review_star)
 VALUES(1, 1, 'なんか白くておいしかったかも～', 4);

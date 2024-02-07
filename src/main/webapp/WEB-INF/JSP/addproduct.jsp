@@ -28,6 +28,7 @@
         .center-align {
             text-align: center;
         }
+        
 
         .cp_iptxt {
             position: relative;
@@ -52,6 +53,7 @@
             outline: none;
             box-shadow: 0 0 5px 1px rgba(218, 60, 65, .5);
         }
+        
 
         a.btn-radius-solid {
             border: 1px solid #ccc;
