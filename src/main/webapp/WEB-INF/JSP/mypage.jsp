@@ -20,6 +20,19 @@
 	.cursor:hover {
     	background-color: #c0c0c0;
     }
+    
+    footer {
+		position: sticky;
+  		top: 100vh;
+    }
+    
+    body {
+    	background-image: url(/comecomeshop/images/ine.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(122, 122, 122, 0.1); /* 透明度を指定 */
+    }
 </style>
 
 
@@ -28,6 +41,7 @@
 			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 			crossorigin="anonymous"></script>
 
+<br>
 <div class="row">
 	<div class="col-md-4 text-center">
 		<a href="<%=request.getContextPath() %>/come/history" style="text-decoration:none;">
@@ -153,4 +167,6 @@
 </div>
 
 <!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
+<hooter>
+	<%@include file="../../assets/template/footer.jsp" %>
+</hooter>
