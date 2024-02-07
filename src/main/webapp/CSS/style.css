@@ -4,3 +4,16 @@ form dl dt {
 	clear: both;
 	margin-right: 10px;
 }
+
+body{
+    position: relative;
+    padding-bottom: 110px;
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    padding: 0;
+    bottom: 0;
+}
