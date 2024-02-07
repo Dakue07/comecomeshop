@@ -17,11 +17,7 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="CSS/mypage.css">
-<style>
-.cursor:hover {
-	background-color: #c0c0c0;
-}
-</style>
+
 
 
 <script
