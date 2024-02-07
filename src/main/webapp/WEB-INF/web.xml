@@ -223,7 +223,20 @@
 		<url-pattern>/come/*</url-pattern>
 	</servlet-mapping>
 	
-	
+  <error-page>
+    <error-code>404</error-code>
+    <location>/assets/error/404error.html</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>405</error-code>
+    <location>/assets/error/405error.html</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>500</error-code>
+    <location>/assets/error/500error.html</location>
+  </error-page>
 	
   
 </web-app>
