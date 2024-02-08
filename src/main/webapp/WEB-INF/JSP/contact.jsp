@@ -34,12 +34,19 @@
                     </label>
                   </div>
                 <div class="text-center pt-4 col-md-6 offset-md-3">
-                    <button type="submit" class="btn btn-primary">送信</button>
+                    <button type="submit" class="btn btn-primary" onclick="completedsubmit()">送信</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 </div>
+
+<script>
+	function completedsubmit()
+	{
+		alert("送信完了しました。\n読み込みが終わり次第、トップページに遷移します。");
+	}
+</script>
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
