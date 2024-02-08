@@ -113,9 +113,12 @@
 </div>
 
 <c:forEach var="data" items="${data}"> 
-		${data.card_replace_number}<br>
-		${data.card_holdername}<br>
-		
+		カード番号:${data.card_replace_number}<br>
+		名　義　人:${data.card_holdername}<br>
+		<form action="<%= request.getContextPath() %>/come/deletecard" method="post">
+			<input type="hidden" name="card_number" value="${data.card_number}">
+			<button type="submit">このカードを削除する</button>
+		</form>
 </c:forEach>
 
 
