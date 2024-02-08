@@ -1,12 +1,12 @@
 ﻿<!-- いじるな -->
 <HTML><%@ page language="java" pageEncoding="UTF-8"
-    contentType="text/html; charset=UTF-8" %>
+	contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="../../assets/template/header2.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="../../assets/template/header2.jsp"%>
 
-
+<link rel="stylesheet" type="text/css" href="CSS/style.css">
 
 <!-- ここから下に書いてね -->
 
@@ -15,12 +15,9 @@
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-	
-<style>
-	.cursor:hover {
-    	background-color: #c0c0c0;
-    }
-</style>
+
+<link rel="stylesheet" type="text/css" href="CSS/mypage.css">
+
 
 
 <script
@@ -150,7 +147,8 @@
   	</div>
 
   
+
 </div>
 
 <!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
+<%@include file="../../assets/template/footer.jsp"%>

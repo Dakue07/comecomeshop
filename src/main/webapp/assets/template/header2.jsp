@@ -30,11 +30,14 @@ a:before {
 	transition: 0.4s;
 }
 
-
+header {
+	opacity:0.7;
+}
 
 form .btn.btn-outline-success {
     width: 150px;
 }
+
 </style>
 </head>
 <body>
