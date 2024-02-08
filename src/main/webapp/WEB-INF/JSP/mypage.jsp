@@ -120,7 +120,7 @@
         			<div class="col-md-8">
           				<div class="card-body">
             				<h5 class="card-title d-flex flex-column">お支払い方法</h5>
-            				<p class="card-text flex-fill"><small class="text-body-secondary">お支払い方法の<br>追加・変更・確認</small></p>
+            				<p class="card-text flex-fill"><small class="text-body-secondary">お支払い方法の<br>追加・削除・確認</small></p>
           				</div>
         			</div>
       			</div>
