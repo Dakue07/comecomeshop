@@ -4,6 +4,8 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-color: rgba(122, 122, 122, 1.0);
+	padding-top: 300px;
+	background-position-y: -200px; 
 	/* 透明度を指定 */
 }
 
@@ -18,9 +20,19 @@
 	font-size: 350%;
 	font-weight: bold;
 	opacity: 0.7;
+	padding: 40 0 40 0;
+	font-family: 'Noto Serif JP', serif;
 }
 
 .btn-clear {
 	border: none;
 	background-color: #ffffff;
+}
+
+.product_list {
+    background-color: white;
+}
+
+.rice_image {
+	height: 260px;
 }
