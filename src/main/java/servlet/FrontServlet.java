@@ -25,7 +25,7 @@ public class FrontServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
+		try {
 		req.setCharacterEncoding("UTF-8");
 		
 		ServletContext context = getServletContext();
@@ -48,6 +48,9 @@ public class FrontServlet extends HttpServlet {
 		
 		//forwardする
 		app.handleResponse(reqc, resc);
+		}catch(Throwable e) {
+			e.printStackTrace();
+		}
 
 	}
 }
