@@ -211,27 +211,9 @@ h2 {
 
 <script>
 
-function calculateSubtotal(select) {
-    var quantity = parseInt(select.value, 10);
-    var price = parseInt(select.closest('.card').querySelector('.rice-price').textContent, 10);
-    var subtotal = quantity * price;
-    select.nextElementSibling.textContent = subtotal;
-    calculateTotalPrice();
-}
-
-function selectPullDown(quantitySelect, riceId) {
-    var rice_quantity = quantitySelect.value;
-    var send_data = new XMLHttpRequest();
-    send_data.open('POST', '<%=request.getContextPath()%>/come/addcart', true);
-    send_data.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    send_data.onreadystatechange = function() {
-        if (send_data.readyState == 4 && send_data.status == 200) {
-            // サーバーからの応答を処理する（必要に応じて）
-        }
-    };
-    var data = 'rice_id=' + encodeURIComponent(riceId) + '&absolute_cart_quantity=' + encodeURIComponent(rice_quantity);
-    send_data.send(data);
-    calculateSubtotal(quantitySelect);
+function toggleModal(modalType) {
+    var modal = document.getElementById(modalType + '_modal');
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
 }
 </script>
 

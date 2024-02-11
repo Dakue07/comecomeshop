@@ -42,11 +42,5 @@
 </div>
 </div>
 
-<script>
-	function completedsubmit()
-	{
-		alert("送信完了しました。\n読み込みが終わり次第、トップページに遷移します。");
-	}
-</script>
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>

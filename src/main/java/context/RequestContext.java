@@ -18,5 +18,6 @@ public interface RequestContext {
 	public String getContextPath();
 	public void setReferer();
 	public String getReferer();
-	
+	public void setAttribute(String name, String value);
+	public String getAttribute(String name);
 } 
