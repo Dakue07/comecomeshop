@@ -83,4 +83,12 @@ public class WebRequestContext implements RequestContext {
 		session = request.getSession();
 		return (String)session.getAttribute("referer");
 	}
+	
+	public void setAttribute(String name, String value) {
+		request.setAttribute(name, value);
+	}
+	
+	public String getAttribute(String name) {
+		return (String)request.getAttribute(name);
+	}
 } 

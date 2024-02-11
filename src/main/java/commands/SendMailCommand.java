@@ -20,9 +20,11 @@ public class SendMailCommand extends AbstractCommand{
 		
 		result = riceDao.SelectRice(null, null);
 		
+		reqc.setAttribute("mail", "mail");
+		
 		resc.setResult(result);
 
-		resc.setTarget("index");
+		resc.setTarget("come/productlist");
 		
 		return resc;
 	}

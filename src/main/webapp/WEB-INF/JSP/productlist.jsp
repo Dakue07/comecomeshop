@@ -1,4 +1,4 @@
-﻿<!-- いじるな -->
+<!-- いじるな -->
 <HTML><%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
 
@@ -70,8 +70,25 @@
 		</c:forEach>
 	</div>
 </div>
+<%
+    String judgeAttribute = (String) request.getAttribute("judge");
+    String mailAttribute = (String) request.getAttribute("mail");
+%>
 
 <script>
+    window.onload = function() {
+        var judgeAttribute = "<%=judgeAttribute%>";
+        var mailAttribute = "<%=mailAttribute%>";
+
+        if (judgeAttribute === "ok") {
+            alert("ご購入ありがとうございました！");
+        } else if (judgeAttribute === "no"){
+			      alert("在庫がなくなってしまったので購入できませんでした。")
+        } else if (mailAttribute === "mail") {
+            alert("お問い合わせが完了しました");
+        }
+    };
+		
     document.addEventListener('DOMContentLoaded', function () {
         var selects = document.querySelectorAll('.mySelect');
         selects.forEach(function (select) {

@@ -14,6 +14,7 @@ import mail.SendMail;
 public class AddOrderDetailCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		Object result = null;
+		String judge  =null;
 		
 		//データベース内の値を1増加させる何か
 		
@@ -52,22 +53,27 @@ public class AddOrderDetailCommand extends AbstractCommand {
 			order_quantity = cartlist.get(i).getCart_quantity();
 			rice_amount = order_quantity * rice_price; 
 			order.InsertOrder(order_id, user_id, rice_id, address_id, card_id, order_quantity, rice_amount);
-			rice.updateRiceStock(rice_id, order_quantity);
+			judge = rice.updateRiceStock(rice_id, order_quantity);
 		}
 		
+		System.out.println("iudge: " + judge);
+		
 		cart.deleteCart(user_id);
-			
-		MySQLOperator.getInstance().commit();
 		
-		SendMail.sendMail(user_id, order_id);
-		
-		RiceTableDao riceDao = new RiceTableDao();
-		
-		result = riceDao.SelectRice(null, null);
+		if(judge.equals("ok")) {
+			System.out.println("ifの中に入ったよ");
+		    MySQLOperator.getInstance().commit();
+		    SendMail.sendMail(user_id, order_id);
+		    RiceTableDao riceDao = new RiceTableDao();
+		    reqc.setAttribute("judge", judge); // "ok"属性をセットする
+		    result = riceDao.SelectRice(null, null);
+		} else {
+		    reqc.setAttribute("judge", judge); // "no"属性をセットする
+		}
 		
 		resc.setResult(result);
-
-		resc.setTarget("index");
+		
+		resc.setTarget("come/productlist");
 		
 		return resc;
 	}
