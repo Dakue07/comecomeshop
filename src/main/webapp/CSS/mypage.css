@@ -2,8 +2,14 @@
 	background-color: #c0c0c0;
 }
 
+body {
+	padding-top: 100px;
+	width: 100%;
+}
+
 .cards_wrap {
 	margin-top: 100px;
+	width: 100%;
 }
 
 .menu_card {
