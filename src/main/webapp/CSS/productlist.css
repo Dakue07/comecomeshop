@@ -36,3 +36,8 @@
 .rice_image {
 	height: 260px;
 }
+
+.cart_buttom {
+	position: absolute;
+    bottom: 0;
+}
