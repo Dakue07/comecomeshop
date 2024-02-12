@@ -6,7 +6,10 @@
 
 <%@include file="../../assets/template/header2.jsp" %>
 
-<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/cart.css">
+
+
 
 <!-- ここから下に書いてね -->
 

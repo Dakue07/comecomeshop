@@ -4,47 +4,13 @@
 <!DOCTYPE html>
 
 <%@include file="../../assets/template/header2.jsp" %>
-<link rel="stylesheet" type="text/css" href="CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/post.css">
 
 <!-- ここから下に書いてね -->
 
 <title>住所の変更</title>
-<style>
-    h1 {
-        text-align: center;
-        line-height: 200px;
-    }
-    
-    h2 {
-        text-align: center;
-    }
 
-    /* Center-align the link text */
-    a.register-link,
-    a.register2-link {
-        display: block;
-        text-align: center;
-        line-height: 100px;
-        color: #0066FF;
-    }
-
-    /* Style for address container */
-    .address-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    /* Style for each address item */
-    .address-item {
-        width: 30%; /* Adjust the width as needed */
-        background: #ffe4e1;
-        border: #ff69b4 solid 2px;
-        font-size: 80%;
-        padding: 20px;
-        margin: 10px;
-    }
-</style>
 
 <h2>登録された住所一覧</h2>
 

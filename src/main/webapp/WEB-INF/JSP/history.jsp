@@ -63,6 +63,8 @@
 </style>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/history.css">
+
 
 <!-- ここから下に書いてね -->
 購入履歴
