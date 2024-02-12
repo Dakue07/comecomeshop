@@ -31,13 +31,7 @@ a:before {
 	transition: 0.4s;
 }
 
-<<<<<<< HEAD
-=======
-header {
-	opacity:0.7;
-}
 
->>>>>>> 2db0f7c02418a43e5c0e847e42385bbb1ae0a322
 form .btn.btn-outline-success {
 	width: 150px;
 }

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 
 <%@include file="../../assets/template/header2.jsp" %>
-
+<link rel="stylesheet" type="text/css" href="CSS/style.css">
 
 <!-- ここから下に書いてね -->
 
