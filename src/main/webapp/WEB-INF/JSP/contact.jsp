@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <%@include file="../../assets/template/header2.jsp" %>
-<link rel="stylesheet" type="text/css" href="CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 
 <!-- ここから下に書いてね -->
 <html lang="ja">
@@ -16,8 +16,8 @@
 </head>
 <body class="bg-light">
 <div class="container">
-<div class="main container-fluid">
-    <div class="row bg-light text-dark py-5">
+<div class="main container-fluid" style="padding: 0;">
+    <div class="row bg-light text-dark py-5" style="padding: 0!important;">
         <div class="col-md-8 offset-md-2">
             <h2 class="fs-1 mb-5 text-center fw-bold">お問い合わせ</h2>
             <form method="post" action="<%= request.getContextPath() %>/come/sendmail">

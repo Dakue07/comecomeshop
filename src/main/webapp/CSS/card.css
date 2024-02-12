@@ -1,16 +1,6 @@
 body {
 	font-family: Arial, sans-serif;
-	background-image: url(/comecomeshop/images/ine.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-color: rgba(122, 122, 122, 0.1);
-	/* 透明度を指定 */
-}
-
-footer {
-	position: sticky;
-	top: 100vh;
+	padding-top: 110px;
 }
 
 .modal-container {
