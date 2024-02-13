@@ -35,7 +35,7 @@
            	<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">郵便番号</label>
 				<span class="text-danger">*</span>
-            	<input type="number" id="input_zip" class="form-control" name="useraddress_postcode" id="postcode" autocomplete="off" placeholder="郵便番号" required>
+            	<input type="number" id="input_zip" class="form-control" name="useraddress_postcode" id="postcode" autocomplete="off" placeholder="郵便番号(ハイフンなし)" required>
            	</div>
 			<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">都道府県</label>
