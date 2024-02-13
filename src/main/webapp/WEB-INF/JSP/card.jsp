@@ -3,22 +3,12 @@
     contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/card.css">
+
 
 <%@include file="../../assets/template/header2.jsp" %>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-		background-image: url(/comecomeshop/images/ine.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-color: rgba(122, 122, 122, 0.1); /* 透明度を指定 */
-    }
-
-    footer {
-        position: sticky;
-        top: 100vh;
-    }
 
     .modal-container {
         display: none;
@@ -47,6 +37,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        margin-top: 150px;	
     }
 
     .modal-content p {
@@ -293,11 +284,13 @@ button.btn_06-2:hover:after {
 </div>
 
 <br>
-<c:forEach var="data" items="${data}">
-    <div class="box1">
-        <b>カード番号：</b>${data.card_replace_number}<br>
-        <b>名義人：</b>${data.card_holdername}<br>
-    </div>
+<c:forEach var="data" items="${data}"> 
+		<b>カード番号：</b>${data.card_replace_number}<br>
+    <b>名義人：</b>${data.card_holdername}<br>
+		<form action="<%= request.getContextPath() %>/come/deletecard" method="post">
+			<input type="hidden" name="card_number" value="${data.card_number}">
+			<button type="submit">このカードを削除する</button>
+		</form>
 </c:forEach>
 
 <script>
@@ -311,5 +304,8 @@ button.btn_06-2:hover:after {
         document.getElementById('modalContainer').style.display = 'none';
     }
 </script>
+
+
+<%@include file="../../assets/template/footer.jsp" %>
 
 

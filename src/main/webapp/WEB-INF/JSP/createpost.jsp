@@ -6,6 +6,7 @@
 
 <%@include file="../../assets/template/header2.jsp" %>
 
+
 <head>
 <style>
 body {
@@ -18,6 +19,9 @@ body {
     }
 </style>
 </head>
+=======
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+
 
 <!-- ここから下に書いてね -->
 

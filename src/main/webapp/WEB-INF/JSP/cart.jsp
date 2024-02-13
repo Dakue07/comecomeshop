@@ -6,6 +6,11 @@
 
 <%@include file="../../assets/template/header2.jsp" %>
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/cart.css">
+
+
+
 <!-- ここから下に書いてね -->
 
 <script>
@@ -51,7 +56,7 @@
             total += parseInt(subtotal.innerHTML, 10);
         });
         // 合計を表示するspan要素を取得して更新する
-        document.getElementById('total').innerHTML = '合計: ' + total;
+        document.getElementById('total').innerHTML = total;
     }
     function selectPullDown(quantitySelect, riceId) {
         var rice_quantity = quantitySelect.value;
@@ -101,16 +106,16 @@
             <div class="card" style="width: 40rem; margin-bottom: 10px;">
                 <img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top" alt="Product Image">
                 <div class="card-body">
-                    <h5 class="card-title">${data.rice_name}</h5>
-                  	<p class="card-text">
-					    ${data.rice_genre}<br>
-					    ${data.rice_weight} kg<br>
-					    <span class="rice-price">${data.rice_price}</span> 円
+                    <h4 class="card-title">品種:${data.rice_name} ${data.rice_weight}kg</h4>
+                  	<p class="card-text"  style="margin: 0;">
+					    品目:${data.rice_genre}<br>
+					    <span class="rice-price">単価:${data.rice_price}円</span>
 					</p>
 
                     <c:set var="ricePrice" value="${data.rice_price * data.cart_quantity}" />
                     <c:set var="totalPrice" value="${totalPrice + ricePrice}" />
                     
+                    個数:
 					<select class="mySelect" data-rice-stock="${data.rice_stock}" name="absolute_cart_quantity" onChange="selectPullDown(this, '${data.rice_id}');">
     					<c:forEach var="i" begin="1" end="${data.rice_stock}">	
     					    <option value="${i+1}"
@@ -122,8 +127,9 @@
    					    	  </option>
 					    </c:forEach>
 					</select>
+					個<br>
 					
-                     <span class="subtotal">${data.cart_quantity * data.rice_price}</span>
+                     小計:<span class="subtotal">${data.cart_quantity * data.rice_price}</span>円
                     <form action="<%= request.getContextPath() %>/come/deleteCart" method="post" style="float: right;">
                         <button class="btn btn-primary">削除</button>
                         <input type="hidden" name="rice_id" value="${data.rice_id}">

@@ -21,6 +21,7 @@ public class RiceTableDao {
     private static final String SELECT_RICE_PRICE = "SELECT rice_price FROM RICETABLE WHERE rice_id = ?";
     private static final String UPDATE_RICE_STOCK = "UPDATE RICETABLE SET rice_stock = rice_stock-? WHERE rice_id = ?";
     private static final String ORDER_CANCEL = "UPDATE RICETABLE SET rice_stock = rice_stock+? WHERE rice_id = ?";
+    private static final String SELECT_RICE_STOCK = "SELECT rice_stock FROM RICETABLE WHERE rice_id = ?"; 
     
     Connection cn = null; 
     Statement st = null;
@@ -238,17 +239,29 @@ public class RiceTableDao {
     	return price;
     }
     
-    public void updateRiceStock(int rice_id, int order_quantity) {
+    public synchronized String updateRiceStock(int rice_id, int order_quantity) {
+    	String judge = null;
     	try {
     		cn = MySQLOperator.getInstance().getConnection();
-    		prstm = cn.prepareStatement(UPDATE_RICE_STOCK);
-    		prstm.setInt(1, order_quantity);
-    		prstm.setInt(2, rice_id);
-    		prstm.executeUpdate();
+    		prstm = cn.prepareStatement(SELECT_RICE_STOCK);
+    		prstm.setInt(1, rice_id);
+    		rs = prstm.executeQuery();
+    		if(rs.next() && rs.getInt("rice_stock") > order_quantity) {
+    			prstm = cn.prepareStatement(UPDATE_RICE_STOCK);
+        		prstm.setInt(1, order_quantity);
+        		prstm.setInt(2, rice_id);
+        		prstm.executeUpdate();
+        		judge = "ok";
+    		} else {
+    			judge = "no";
+    		}
+    		
+    		System.out.println(judge);
     	} catch (SQLException e) {
     		e.printStackTrace();
     		MySQLOperator.getInstance().rollback();
     	}
+    	return judge;
     }
     
     public void orderCancel(int rice_id, int order_quantity) {

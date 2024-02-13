@@ -1,0 +1,7 @@
+.cursor:hover {
+	background-color: #c0c0c0;
+}
+
+.row.bg-light.text-dark {
+	display: block !important;
+}

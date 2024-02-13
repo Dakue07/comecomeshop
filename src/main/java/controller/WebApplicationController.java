@@ -42,6 +42,7 @@ public class WebApplicationController implements ApplicationController {
 		HttpServletResponse res = (HttpServletResponse) resc.getResponse();
 		
 		req.setAttribute("data", resc.getResult());
+
 		System.out.println("あぷ" + resc.getResult());
 
 		System.out.println(resc.getTarget());
