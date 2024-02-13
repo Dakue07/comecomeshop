@@ -5,7 +5,23 @@
 <!DOCTYPE html>
 
 <%@include file="../../assets/template/header2.jsp" %>
+
+
+<head>
+<style>
+body {
+        font-family: Arial, sans-serif;
+		background-image: url(/comecomeshop/images/ine.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(122, 122, 122, 0.1); /* 透明度を指定 */
+    }
+</style>
+</head>
+=======
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
+
 
 <!-- ここから下に書いてね -->
 
