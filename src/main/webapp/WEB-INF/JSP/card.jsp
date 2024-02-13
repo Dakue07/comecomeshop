@@ -8,6 +8,7 @@
 
 
 <%@include file="../../assets/template/header2.jsp" %>
+
 <style>
 
     .modal-container {
@@ -242,7 +243,7 @@ button.btn_06-2:hover:after {
 <div id="modalContainer" class="modal-container">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <p>クレジットカードの追加</p>
+        	<p>クレジットカードの追加</p>
         <form action="come/addcard" method="post">
             <table>
                 <tr>
