@@ -14,7 +14,7 @@ import mail.SendMail;
 public class AddOrderDetailCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		Object result = null;
-		String judge  =null;
+		String judge  ="";
 		
 		//データベース内の値を1増加させる何か
 		
@@ -65,10 +65,10 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		    MySQLOperator.getInstance().commit();
 		    SendMail.sendMail(user_id, order_id);
 		    RiceTableDao riceDao = new RiceTableDao();
-		    reqc.setAttribute("judge", judge); // "ok"属性をセットする
+		    reqc.setAttribute("judge", judge);
 		    result = riceDao.SelectRice(null, null);
 		} else {
-		    reqc.setAttribute("judge", judge); // "no"属性をセットする
+		    reqc.setAttribute("judge", judge); 
 		}
 		
 		resc.setResult(result);

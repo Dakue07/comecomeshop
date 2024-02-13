@@ -40,7 +40,7 @@ body {
            	<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">郵便番号</label>
 				<span class="text-danger">*</span>
-            	<input type="number" id="input_zip" class="form-control" name="useraddress_postcode" id="postcode" autocomplete="off" placeholder="郵便番号" required>
+            	<input id="input_zip" class="form-control" name="useraddress_postcode" id="postcode" autocomplete="off" placeholder="郵便番号(ハイフンなし)" maxlength="7" minlength="7" required>
            	</div>
 			<div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">都道府県</label>
@@ -69,6 +69,23 @@ body {
     
     <script type="text/javascript" src="https://postcode-jp.com/js/postcodejp.js" charset="utf-8"> </script>　<!--srcはそのままでお願いします-->
 	<script type="text/javascript" src="${pageContext.request.contextPath}/JS/postcodejp_script.js" charset="utf-8"></script>
+	<script>
+	  document.addEventListener('DOMContentLoaded', function() {
+	        var input = document.getElementById('input_zip');
+	        
+	        input.addEventListener('input', function() {
+	            
+	            var value = input.value.replace(/\D/g, '');
+	            input.value = value;
+	        });
+
+	        input.addEventListener('keydown', function(event) {
+	            if (event.key === '-') {
+	                event.preventDefault();
+	            }
+	        });
+	    });
+	</script>
 	
 
 

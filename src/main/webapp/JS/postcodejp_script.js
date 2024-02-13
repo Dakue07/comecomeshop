@@ -14,9 +14,12 @@ function initPostcodeJp() {
     // 郵便番号テキストボックスの監視を開始
     postcodeJp.observe();
 
-    }
+}
     if(window.addEventListener){
         window.addEventListener('load', initPostcodeJp)
     }else{
         window.attachEvent('onload', initPostcodeJp)
     }
+
+    
+   
