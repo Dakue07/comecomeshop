@@ -85,7 +85,7 @@
 <body>
     <h1>商品登録</h1>
 
-    <form action="<%= request.getContextPath() %>/come/addproduct">
+    <form action="<%= request.getContextPath() %>/come/addproduct" method="post">
 
         <table>
         	   <tr>
@@ -122,7 +122,7 @@
         </tr>
         </table>
 
-        <a href="" class="btn btn-radius-solid">登録<i class="fas fa-angle-right fa-position-right"></i></a>
+        <button class="btn btn-radius-solid">登録<i class="fas fa-angle-right fa-position-right"></i></button>
 
     </form>
 

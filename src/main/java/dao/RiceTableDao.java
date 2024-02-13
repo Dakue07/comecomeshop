@@ -176,7 +176,7 @@ public class RiceTableDao {
             prstm.setString(4, rice_made);
             prstm.setString(5, rice_image_path);
             
-            rice_since = rice_since.substring(0, 7).replace("-", "年");
+            //rice_since = rice_since.substring(0, 7).replace("-", "年");
             System.out.println(rice_since + "これが生まれた時間や");
             prstm.setString(6, rice_since);
             
@@ -196,6 +196,7 @@ public class RiceTableDao {
             prstm.setInt(1, rice_id);
             prstm.executeUpdate();
     	} catch(SQLException e) {
+    		e.printStackTrace();
 			MySQLOperator.getInstance().rollback();
     	}
     	
