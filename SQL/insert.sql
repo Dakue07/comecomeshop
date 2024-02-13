@@ -11,49 +11,49 @@
 # 'admin', 'admin', 'admin@gmail.com'
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('たけだこまち', 'うるち米', 5, '東京都八王子市',
-	'2003-07-13 00:00:00', 50, 6400);
+	'2003-07-13 00:00:00', 50, 6400, "/productsimage/okome1.png");
 	
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('コシヒカリ', 'うるち米', 10, '新潟県魚沼市',
-	'2016-09-20 00:00:00', 72, 8200);
+	'2016-09-20 00:00:00', 72, 8200, "/productsimage/okome2.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('おおまつにしき', 'もち米', 15, '神奈川県横須賀市',
-	'2023-11-01 00:00:00', 120, 9600);
+	'2023-11-01 00:00:00', 120, 9600, "/productsimage/okome3.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('おおまつにしき', 'もち米', 10, '神奈川県横須賀市',
-	'2023-11-01 00:00:00', 80, 6800);
+	'2023-11-01 00:00:00', 80, 6800, "/productsimage/okome3.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('おおまつにしき', 'もち米', 5, '神奈川県横須賀市',
-	'2023-11-01 00:00:00', 150, 3600);
+	'2023-11-01 00:00:00', 150, 3600, "/productsimage/okome3.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('ジャスミンライス', 'タイ米', 20, 'タイ',
-	'2022-06-08 00:00:00', 275, 12000);
+	'2022-06-08 00:00:00', 275, 12000, "/productsimage/okome4.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('かしわき', '無精米', 15, '石川県金沢市',
-	'2020-09-26 00:00:00', 180, 6300);
+	'2020-09-26 00:00:00', 180, 6300, "/productsimage/okome5.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('さわやか', 'うるち米', 5, '静岡県沼津市',
-	'2019-08-22 00:00:00', 210, 3300);
+	'2019-08-22 00:00:00', 210, 3300, "/productsimage/okome6.png");
 
 INSERT INTO RICETABLE (rice_name, rice_genre, rice_weight, rice_made,
-	rice_since, rice_stock, rice_price)
+	rice_since, rice_stock, rice_price, rice_image_path)
 VALUES('さこぴりか', 'もち米', 10, '埼玉県川口市',
-	'2013-07-18 00:00:00', 335, 7700);
+	'2013-07-18 00:00:00', 335, 7700, "/productsimage/okome7.png");
 
 # user_id, useraddress_receiver, useraddress_postcode,
 #	useraddress_state_city, useraddress_street
