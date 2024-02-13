@@ -92,7 +92,7 @@
                     <p class="card-text"><b>種類:</b> ${data.rice_genre}</p>
                     <p class="card-text"><b>サイズ:</b> ${data.rice_weight}kg</p>
                     <p class="card-text"><b>生産地:</b> ${data.rice_made}</p>
-                    <img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="商品の画像" class="card-img-top" style="width:100px; height:auto;">
+                    <img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="商品の画像" class="card-img-top">
                     <p class="card-text"><b>収穫日:</b> ${data.rice_since}月</p>
                     <p class="card-text"><b>在庫数:</b> ${data.rice_stock}</p>
                     <p class="card-text"><b>価格:</b> ${data.rice_price}円</p>
