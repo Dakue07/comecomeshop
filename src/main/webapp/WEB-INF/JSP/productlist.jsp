@@ -11,16 +11,15 @@
 <!DOCTYPE html>
 
 
-<%@include file="../../assets/template/header2.jsp"%>
+
 
 <link rel="stylesheet" type="text/css" href="../CSS/style.css">
 
+<%@include file="../../assets/template/header2.jsp"%>
+
 
 <!-- ここから下に書いてね -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-	crossorigin="anonymous"></script>
+
 
 <link rel="stylesheet" type="text/css" href="../CSS/productlist.css">
 
@@ -37,7 +36,7 @@
 				<div class="card" style="width: 17rem;">
 					<div class="card-body" style="min-height: 430px;">
 						<form action="<%=request.getContextPath()%>/come/productdetail"
-							method="post">
+							method="post" style="text-align: center;">
 							<button type="submit" class="btn-clear">
 								<input type="hidden" name="rice_id" value="${data.rice_id}">
 								<img
