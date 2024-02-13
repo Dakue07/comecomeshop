@@ -19,6 +19,10 @@ a {
 	text-decoration: none;
 }
 
+header {
+	opacity: 0.7;
+}
+
 a:before {
 	content: "";
 	position: absolute;
