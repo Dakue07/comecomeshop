@@ -145,7 +145,7 @@
     <!-- カートの購入フォーム -->
     <div id="purchaseContainer" style="margin-top: 120px;">
         <form action="<%= request.getContextPath() %>/come/procedure" method="post">
-            <div class="card" style="width: 18rem; margin-bottom: 70px; float: right;">
+            <div class="card" style="width: 18rem; margin-bottom: 70px; float: right; position: relative; top: 350px; right: 20px;">
                 <div class="card-body">
                     <!-- 合計金額のフォントサイズを大きくし、色を赤に変更 -->
                     合計金額：<span id="total" style="font-size: 1.5em; color: red;">${totalPrice}</span>円
