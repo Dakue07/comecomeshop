@@ -8,6 +8,8 @@ import database.MySQLOperator;
 public class AdminAddProductCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
+		System.out.println("addProductまで来たよ");
+		
 		RequestContext reqc = getRequestContext();
 		
 		MySQLOperator.getInstance().beginTransaction();
