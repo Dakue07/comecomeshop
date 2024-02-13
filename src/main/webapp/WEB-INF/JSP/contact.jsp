@@ -13,6 +13,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<style>
+body {
+        font-family: Arial, sans-serif;
+		background-image: url(/comecomeshop/images/ine.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(122, 122, 122, 0.1); /* 透明度を指定 */
+    }
+</style>
+
+
 </head>
 <body class="bg-light">
 <div class="container">
