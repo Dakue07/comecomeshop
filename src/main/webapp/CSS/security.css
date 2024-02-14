@@ -5,3 +5,7 @@
 .row.bg-light.text-dark {
 	display: block !important;
 }
+
+.text_center {
+	text-align:center;
+}

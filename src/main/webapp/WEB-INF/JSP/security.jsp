@@ -10,16 +10,10 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    .cursor:hover {
-        background-color: #c0c0c0;
-    }
-    .row.bg-light.text-dark {
-    display: block !important;
-	}
-</style>
 
-<div class="row bg-light text-dark">
+
+
+<div class="row justify-content-center bg-light text-dark">
 	<div class="col-md-8">
 		<h2 class="fs-1 mb-5 text-center fw-bold">パスワード変更</h2>
 
@@ -41,7 +35,7 @@
 	                <input type="password" class="form-control" name="newPassword" id="newPassword" autocomplete="off" placeholder="新しいパスワード" required>
 	                <button id="showNewPasswordButton" type="button" onclick="togglePassword('newPassword')">表示</button>
 	            </div>
-	            <button type="submit" style="width: 50%;">パスワードの変更</button>
+	            <button type="submit" style="width: 25%;" class="mx-auto text_center">パスワードの変更</button>
 	        </div>
 	    </form>
 
@@ -52,7 +46,12 @@
 	            <span class="text-danger">*</span>
 	            <input type="text" class="form-control" name="user_Ename" id="user_Ename" autocomplete="off" placeholder="新しいメールアドレス" required>
 	        </div>
-	        <button type="submit" style="width: 50%;">Eメールアドレスの変更</button>
+	        <div class="row justify-content-center">
+    			<div class="col-md-8 text-center">
+        			<button type="submit" style="width: 50%;" class="mx-auto text_center">Eメールアドレスの変更</button>
+    			</div>
+			</div>
+	        
 	    </div>
 		</form>
 	</div>
