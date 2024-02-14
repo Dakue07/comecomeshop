@@ -33,10 +33,7 @@
     <div id="review_modal" class="modal-container">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <p>reviewの追加</p>
             <form id="review_form" action="<%= request.getContextPath() %>/come/addreview" method="post">
-                <!-- モーダル内のボタンを変更 -->
-                <button type="button" onclick="submitReviewForm()">reviewの追加</button><br>
                 <table>
                     <tr>
                         <td>評価</td>
@@ -59,6 +56,7 @@
                         </td>
                     </tr>
                 </table>
+                <button type="button" onclick="submitReviewForm()">追加</button><br>
             </form>
         </div>
     </div>
@@ -66,9 +64,7 @@
 
 <script>
     function submitReviewForm() {
-        // フォーム送信
         document.getElementById('review_form').submit();
-        // モーダルを手動で閉じる
         closeModal();
     }
  
@@ -81,11 +77,6 @@
     function toggleModal(modalType, riceId) {
         var modal = document.getElementById(modalType + '_modal');
         modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-
-        // rice_idを表示してみる
-        console.log("rice_id: " + riceId);
-
-        // rice_idをhidden inputに設定
         var riceIdInputs = document.querySelectorAll('.rice_id_input');
         riceIdInputs.forEach(function(input) {
             input.value = riceId;
