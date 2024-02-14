@@ -54,3 +54,8 @@
    .rating-buttons button.selected {
    	color: gold;
    }
+   
+   .rice_img {
+	   width: 400px;
+	   height: 400px;
+   }

@@ -7,7 +7,8 @@
 }
 
 body {
-	padding-top: 100px;
+	padding-top: 110px;
+  	padding-top: 100px;
 	width: 100%;
     font-family: Arial, sans-serif;
 	background-image: url(/comecomeshop/images/ine.png);
@@ -15,4 +16,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
      /* 透明度を指定 */
+}
+
+.rice_img {
+	width: 200px;
+	height: 200px;
 }

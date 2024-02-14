@@ -27,6 +27,7 @@ button {
 	background-color: rgba(0, 0, 0, 0.7);
 	align-items: center;
 	justify-content: center;
+	z-index: 1;
 }
 
 .modal-content {
@@ -93,4 +94,9 @@ form {
 
 h2 {
 	text-align: center;
+}
+
+.rice_img {
+	width: 200px;
+	height: 200px;
 }

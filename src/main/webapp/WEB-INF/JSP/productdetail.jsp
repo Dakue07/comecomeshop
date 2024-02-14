@@ -13,7 +13,7 @@
     <div>
         商品詳細
         <c:forEach var="data" items="${data[0]}">
-            <br><img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="${data.rice_name}"><br>名前:${data.rice_name}<br>値段:${data.rice_price}<br>
+            <br><img class="rice_img" src="<%= request.getContextPath() %>${data.rice_image_path}" alt="${data.rice_name}"><br>名前:${data.rice_name}<br>値段:${data.rice_price}<br>
         </c:forEach>
         review一覧<br><br>
         <c:forEach var="data" items="${data[1]}">

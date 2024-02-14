@@ -13,16 +13,14 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="../CSS/style.css">
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 <%@include file="../../assets/template/header2.jsp"%>
 
 
 <!-- ここから下に書いてね -->
 
 
-<link rel="stylesheet" type="text/css" href="../CSS/productlist.css">
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/productlist.css">
 <%-- <%@include file="../../assets/template/slideshow.jsp"%> --%>
 
 <div class="product_list">
@@ -43,7 +41,8 @@
 									src="<%= request.getContextPath() %>${data.rice_image_path}"
 									class="card-img-top rice_image" alt="${data.rice_name}">
 
-								<h4 class="card-title">${data.rice_name} ${data.rice_weight}kg</h4>
+								<h4 class="card-title">${data.rice_name}
+									${data.rice_weight}kg</h4>
 								<h5>価格:${data.rice_price}円</h5>
 						</form>
 						</button>
@@ -52,12 +51,12 @@
 								<p style="color: red;">在庫がありません</p>
 							</c:when>
 							<c:otherwise>
-								<form class="cart_buttom" action="<%=request.getContextPath()%>/come/addcart"
+								<form class="cart_buttom"
+									action="<%=request.getContextPath()%>/come/addcart"
 									method="post" onsubmit="return checkUserId()">
-									<select class="mySelect" style="width: 53.6px;" data-rice-stock="${data.rice_stock}"
-										name="cart_quantity">
-									</select>
-									<input type="hidden" name="rice_id" value="${data.rice_id}">
+									<select class="mySelect" style="width: 53.6px;"
+										data-rice-stock="${data.rice_stock}" name="cart_quantity">
+									</select> <input type="hidden" name="rice_id" value="${data.rice_id}">
 									<button class="btn btn-primary">カートへ入れる</button>
 								</form>
 							</c:otherwise>
@@ -69,8 +68,8 @@
 	</div>
 </div>
 <%
-    String judgeAttribute = (String) request.getAttribute("judge");
-    String mailAttribute = (String) request.getAttribute("mail");
+String judgeAttribute = (String) request.getAttribute("judge");
+String mailAttribute = (String) request.getAttribute("mail");
 %>
 
 <script>

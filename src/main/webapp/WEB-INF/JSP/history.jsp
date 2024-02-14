@@ -4,72 +4,19 @@
 
 <%@include file="../../assets/template/header2.jsp" %>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-
-    .modal-container {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        align-items: center;
-        justify-content: center;
-    }
-
-    .modal-content {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        position: relative;
-        width: 80%;
-        max-width: 400px;
-        text-align: center;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-
-    .radio-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    .radio-group input {
-        margin-bottom: 10px;
-    }
-
-    .rating-buttons button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 24px;
-    }
-
-    .rating-buttons button.selected {
-        color: gold;
-    }
-</style>
-
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/history.css">
 
 
 <!-- ここから下に書いてね -->
 購入履歴
+
+
+
+
+
 <c:forEach var="data" items="${data}">
-    <br><img src="<%= request.getContextPath() %>${data.rice_image_path}" alt="${data.rice_name}">
+    <br><img class="rice_img" src="<%= request.getContextPath() %>${data.rice_image_path}" alt="${data.rice_name}">
     ${data.rice_name}個数${data.order_quantity}合計${data.order_amount}rice_id${data.rice_id}
     <form action="<%= request.getContextPath() %>/come/productdetail" method="post" onsubmit="return checkUserId()">
         <button>ここ押したらproductDetailに飛ぶよ</button>
