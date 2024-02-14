@@ -248,15 +248,15 @@ button.btn_06-2:hover:after {
             <table>
                 <tr>
                     <td>カード番号</td>
-                    <td><input type="tel" name="card_number" class="cp_iptxt" minlength="16" maxlength="16" required></td>
+                    <td><input type="tel" name="card_number" class="cp_iptxt" minlength="16" maxlength="16" placeholder="16ケタ" required></td>
                 </tr>
                 <tr>
                     <td>クレジットカード名義人</td>
-                    <td><input type="text" name="card_holdername" required></td>
+                    <td><input type="text" name="card_holdername" placeholder="英文字" required></td>
                 </tr>
                 <tr>
                     <td>セキュリティコード</td>
-                    <td><input type="number" name="card_securitycode" minlength="3" maxlength="3" required></input></td>
+                    <td><input name="card_securitycode" minlength="3" maxlength="3" placeholder="3ケタ" required></input></td>
                 </tr>
                 <tr>
                     <td>有効期限</td>

@@ -94,8 +94,6 @@
 
     <!-- カートの中身 -->
     <div style="width: 48%;">
-        カート
-
         <c:forEach var="data" items="${data}">
             <div class="card" style="width: 40rem; margin-bottom: 10px;">
 
