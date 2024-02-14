@@ -6,9 +6,7 @@ body {
 form {
 	display: flex;
 	justify-content: space-between;
-	/* Distribute the buttons evenly */
 	margin-top: 20px;
-	/* Add some top margin for spacing */
 }
 
 button {
