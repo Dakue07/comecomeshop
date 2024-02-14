@@ -72,7 +72,7 @@ form .btn.btn-outline-success {
 						<input class="form-control me-2" type="search"
 							placeholder="Enter content..." aria-label="Search" name="name">
 						<button class="btn btn-outline-success" type="submit"
-							onclick="location.href='<%=request.getContextPath()%>/come/search'">検索</button>
+							onclick="location.href='<%=request.getContextPath()%>/come/search'">名前検索</button>
 					</form>
 					<li class="nav-item"><a class="nav-link" aria-current="page"
 						href="<%=request.getContextPath()%>/come/productlist">ホーム</a></li>

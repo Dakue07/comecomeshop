@@ -59,7 +59,7 @@
 		<button type="submit" class="register2-link">新しく支払い方法を追加する</button>
 	</form>
 
-	<form action="come/addorderdetail" method="post">
+	<form action="<%=request.getContextPath()%>/come/addorderdetail" method="post">
 		<button type="button" onclick="toggleModal('address')"
 			style="position: absolute; left: 20%;">住所選択</button>
 		<br>

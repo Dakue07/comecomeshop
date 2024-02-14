@@ -7,6 +7,9 @@
 	/* アイテムの間隔を調整 */
 }
 
+.rice-image {
+    height: 260px; /* 画像の高さを固定するために適切な値を設定します */
+}
 body {
 	background-color: #dcdcdc;
 }

@@ -14,7 +14,8 @@ import mail.SendMail;
 public class AddOrderDetailCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		Object result = null;
-		String judge  =null;
+
+		String judge = "";
 			try {
 			
 			//データベース内の値を1増加させる何か

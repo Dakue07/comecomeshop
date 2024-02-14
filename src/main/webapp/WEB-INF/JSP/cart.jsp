@@ -1,4 +1,5 @@
 <HTML>
+<head>
 <%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,7 +9,8 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/cart.css">
-
+</head>
+<body>
 
 
 <!-- ここから下に書いてね -->
@@ -104,7 +106,9 @@
 
         <c:forEach var="data" items="${data}">
             <div class="card" style="width: 40rem; margin-bottom: 10px;">
+
                 <img src="<%= request.getContextPath() %>${data.rice_image_path}" class="card-img-top rice_img" alt="Product Image">
+
                 <div class="card-body">
                     <h4 class="card-title">品種:${data.rice_name} ${data.rice_weight}kg</h4>
                   	<p class="card-text"  style="margin: 0;">
@@ -156,6 +160,8 @@
         </form>
     </div>
 </div>
+</body>
 
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
+</HTML>
