@@ -54,8 +54,90 @@
    .rating-buttons button.selected {
    	color: gold;
    }
-   
+
    .rice_img {
-	   width: 400px;
-	   height: 400px;
+   	width: 150px;
+   	height: 150px;
    }
+
+   .product_wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+   	width: 100%;
+   	height: 100%;
+   	padding: 10px 50px 50px 50px;
+   }
+
+   .product_card {
+   	display: flex;
+   	align-items: center;
+   	justify-content: center;
+   	background-color: #f8f9fa;
+	width: 800px;
+   }
+   .order-thumbnail {
+	padding: 10px;
+   }
+
+   .order_data {
+	display: flex;
+	align-items: center;
+   }
+
+   .order_title {
+	font-weight: 700;
+   }
+
+   .rice_name {
+   }
+
+   .order_info {
+   	margin-left: 10px;
+   }
+
+   .rice_btn {
+	padding: 10px;
+   	position: relative;
+   	width: 300px;
+   }
+
+   /* .rice_btn>form, .rice_btn button {
+		border: none;
+		width: 100%;
+	    margin: 10px 0;
+	    border-radius: 5px;
+		background-color: #7fc37e;
+	} */
+
+   .green-btn {
+   	border: none;
+   	width: 100%;
+   	margin: 10px 0;
+   	border-radius: 5px;
+   	background-color: #7fc37e;
+   }
+
+   .rice_name {
+   	text-align: center;
+   }
+
+   p {
+   	margin: 0;
+   }
+
+   .order-details table {
+   	width: 100%;
+   	border-collapse: collapse;
+   	margin-top: 10px;
+   	/* 任意の上部のマージンを設定 */
+   }
+
+   .order-details th,
+   .order-details td {
+   	padding: 8px;
+   	/* 水平方向のパディングを設定 */
+   	text-align: left;
+   }
+
+   .order-details th {}

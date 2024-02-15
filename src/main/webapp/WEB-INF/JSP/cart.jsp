@@ -41,9 +41,6 @@
     	var price = priceElement ? parseInt(priceElement.innerHTML, 10) : 0;
     	var subtotal = quantity * price;
     
-    	console.log('quantity:', quantity);  // デバッグ用
-    	console.log('price:', price);        // デバッグ用
-    
     	// 小計を表示するspan要素を取得して更新する
     	select.nextElementSibling.innerHTML = subtotal;
     	// 合計を計算して表示する関数を呼び出す
@@ -57,23 +54,18 @@
         subtotals.forEach(function (subtotal) {
             total += parseInt(subtotal.innerHTML, 10);
         });
-        // 合計を表示するspan要素を取得して更新する
+   
         document.getElementById('total').innerHTML = total;
     }
     function selectPullDown(quantitySelect, riceId) {
         var rice_quantity = quantitySelect.value;
-        console.log('rice_Id:', riceId);           // デバッグ用
-        console.log('rice_quantity:', rice_quantity); // デバッグ用
         
-
-        // XMLHttpRequestオブジェクトを初期化
         var send_data = new XMLHttpRequest();
 
         send_data.open('POST', '<%= request.getContextPath() %>/come/addcart', true);
         send_data.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         send_data.onreadystatechange = function () {
             if (send_data.readyState == 4 && send_data.status == 200) {
-                // サーバーからの応答を処理する（必要に応じて）
             }
         };
 
@@ -102,8 +94,6 @@
 
     <!-- カートの中身 -->
     <div style="width: 48%;">
-        カート
-
         <c:forEach var="data" items="${data}">
             <div class="card" style="width: 40rem; margin-bottom: 10px;">
 
@@ -146,12 +136,12 @@
 
     <!-- カートの購入フォーム -->
     <div id="purchaseContainer" style="margin-top: 120px;">
-        <form action="<%= request.getContextPath() %>/come/procedure" method="post">
+        <form id="purchaseForm" action="<%= request.getContextPath() %>/come/procedure" method="post">
             <div class="card" style="width: 18rem; margin-bottom: 70px; float: right; position: relative; top: 350px; right: 20px;">
                 <div class="card-body">
                     <!-- 合計金額のフォントサイズを大きくし、色を赤に変更 -->
                     合計金額：<span id="total" style="font-size: 1.5em; color: red;">${totalPrice}</span>円
-                    <button class="btn btn-primary" style="width: 15rem; height: 5rem;">購入</button>
+                    <button id="purchaseButton" class="btn btn-primary" style="width: 15rem; height: 5rem;">購入</button>
                     <c:forEach var="data" items="${data}">
                         <input type="hidden" name="cart_quantity_${data.rice_id}" value="${data.cart_quantity}">
                     </c:forEach>
@@ -160,6 +150,18 @@
         </form>
     </div>
 </div>
+
+<script>
+document.getElementById("purchaseButton").addEventListener("click", function(event) {
+    if (${totalPrice} == 0) {
+        event.preventDefault();
+        window.location.href = "<%= request.getContextPath() %>/come/productlist";
+    }
+});
+</script>
+
+
+
 </body>
 
 <!-- いじるな -->
