@@ -130,4 +130,4 @@
     <!-- いじるな -->
     <%@include file="../../assets/template/footer.jsp"%>
 </body>
- --%></HTML>
+</HTML>
