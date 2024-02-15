@@ -15,69 +15,75 @@
 
 <!-- ここから下に書いてね -->
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var selects = document.querySelectorAll('.mySelect');
-       /*  selects.forEach(function (select) {
-            var riceStockValue = parseInt(select.dataset.riceStock, 10);
+ <script src="/comecomeshop/JS/cart.js">
+</script>
+ <%--
+ <script>
+ document.addEventListener('DOMContentLoaded', function () {
+     var selects = document.querySelectorAll('.mySelect');
+    /*  selects.forEach(function (select) {
+         var riceStockValue = parseInt(select.dataset.riceStock, 10);
 
-            select.innerHTML = '';
-            
-            for (var i = 1; i <= riceStockValue; i++) {
-                var option = document.createElement('option');
-                option.value = i;
-                option.innerHTML = i;
-                select.add(option);
-            }
-        }); */
-        // ページ読み込み時に合計を計算して表示する
-        calculateTotal();
-    });
+         select.innerHTML = '';
+         
+         for (var i = 1; i <= riceStockValue; i++) {
+             var option = document.createElement('option');
+             option.value = i;
+             option.innerHTML = i;
+             select.add(option);
+         }
+     }); */
+     // ページ読み込み時に合計を計算して表示する
+     calculateTotal();
+ });
 
-    // 数量が変更されたときに小計を計算して表示する関数
+ // 数量が変更されたときに小計を計算して表示する関数
 	function calculateSubtotal(select) {
-    	var quantity = parseInt(select.value, 10);
-    	var priceElement = select.closest('.card').querySelector('.card-text .rice-price');
-    	var price = priceElement ? parseInt(priceElement.innerHTML, 10) : 0;
-    	var subtotal = quantity * price;
-    
-    	// 小計を表示するspan要素を取得して更新する
-    	select.nextElementSibling.innerHTML = subtotal;
-    	// 合計を計算して表示する関数を呼び出す
-    	calculateTotal();
+ 	var quantity = parseInt(select.value, 10);
+ 	var priceElement = select.closest('.card').querySelector('.card-text .rice-price #rice-price-num');
+ 	var price = priceElement ? parseInt(priceElement.innerHTML, 10) : 0;
+ 	var subtotal = quantity * price;
+
+ 	console.log(subtotal);
+ 	// 小計を表示するspan要素を取得して更新する
+ 	select.nextElementSibling.innerHTML = subtotal;
+ 	// 合計を計算して表示する関数を呼び出す
+ 	calculateTotal();
 	}
 
-    // 合計を計算して表示する関数
-    function calculateTotal() {
-        var subtotals = document.querySelectorAll('.subtotal');
-        var total = 0;
-        subtotals.forEach(function (subtotal) {
-            total += parseInt(subtotal.innerHTML, 10);
-        });
-   
-        document.getElementById('total').innerHTML = total;
-    }
-    function selectPullDown(quantitySelect, riceId) {
-        var rice_quantity = quantitySelect.value;
-        
-        var send_data = new XMLHttpRequest();
+ // 合計を計算して表示する関数
+ function calculateTotal() {
+     var subtotals = document.querySelectorAll('.subtotal');
+     var total = 0;
+     subtotals.forEach(function (subtotal) {
+         total += parseInt(subtotal.innerHTML, 10);
+     });
 
-        send_data.open('POST', '<%= request.getContextPath() %>/come/addcart', true);
-        send_data.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        send_data.onreadystatechange = function () {
-            if (send_data.readyState == 4 && send_data.status == 200) {
-            }
-        };
+     document.getElementById('total').innerHTML = total;
+ }
+ function selectPullDown(quantitySelect, riceId) {
+     
+     var rice_quantity = quantitySelect.value;
+     
+     var send_data = new XMLHttpRequest();
 
-        // 送信するデータを組み立てる
-        var data = 'rice_id=' + encodeURIComponent(riceId) + '&absolute_cart_quantity=' + encodeURIComponent(rice_quantity);
+     send_data.open('POST', '<%= request.getContextPath() %>/come/addcart', true);
+     send_data.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+     send_data.onreadystatechange = function () {
+         if (send_data.readyState == 4 && send_data.status == 200) {
+         }
+     };
 
-        // データを送信
-        send_data.send(data);
-        // 数量が変更されたときに小計を計算して表示する関数を呼び出す
-        calculateSubtotal(quantitySelect);
-    }
-</script>
+     // 送信するデータを組み立てる
+     var data = 'rice_id=' + encodeURIComponent(riceId) + '&absolute_cart_quantity=' + encodeURIComponent(rice_quantity);
+
+     // データを送信
+     send_data.send(data);
+     // 数量が変更されたときに小計を計算して表示する関数を呼び出す
+     calculateSubtotal(quantitySelect);
+ }
+ </script>
+ --%>
 
 <style>
     #purchaseContainer {
@@ -93,7 +99,7 @@
 <div style="display: flex; justify-content: space-between;">
 
     <!-- カートの中身 -->
-    <div style="width: 48%;">
+    <div id="cart" style="width: 48%;">
 
         <c:forEach var="data" items="${data}">
 				<div class="card"
@@ -106,7 +112,7 @@
 						<h4 class="card-title">品種:${data.rice_name}
 							${data.rice_weight}kg</h4>
 						<p class="card-text" style="margin: 0;">
-							品目:${data.rice_genre}<br> <span class="rice-price">単価:${data.rice_price}円</span>
+							品目:${data.rice_genre}<br> <span class="rice-price">単価:<a id="rice-price-num">${data.rice_price}</a>円</span>
 						</p>
 
 						<c:set var="ricePrice"

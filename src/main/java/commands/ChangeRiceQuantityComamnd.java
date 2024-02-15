@@ -8,7 +8,9 @@ import dao.CartTableDao;
 import dao.RiceTableDao;
 import database.MySQLOperator;
 
-public class AddCartCommand extends AbstractCommand {
+public class ChangeRiceQuantityComamnd extends AbstractCommand {
+
+	@Override
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 		Object result = null;
@@ -54,7 +56,7 @@ public class AddCartCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().commit();
 		
-		resc.setTarget("cart");
+		resc.setTarget("cartdetail");
 		
 		return resc;
 	}
