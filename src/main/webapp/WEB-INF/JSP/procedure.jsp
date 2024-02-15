@@ -30,18 +30,12 @@
 				数量:${data.cart_quantity}個
 			</div>
 			<span class="subtotal">小計:${data.cart_quantity * data.rice_price}円</span>
-			<form action="<%=request.getContextPath()%>/come/deleteCart"
-				method="post" style="float: right;">
-				<button class="btn btn-primary">削除</button>
-				<input type="hidden" name="rice_id" value="${data.rice_id}">
-			</form>
 		</div>
 	</div>
 </c:forEach>
 
 <div id="purchaseContainer" style="margin-top: 120px;">
-	<form action="<%=request.getContextPath()%>/come/procedure"
-		method="post">
+	<form action="<%=request.getContextPath()%>/come/procedure" method="post">
 		<div class="card"
 			style="width: 18rem; margin-bottom: 70px; float: right;">
 			<div class="card-body">
