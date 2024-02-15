@@ -6,7 +6,18 @@
 	</head>
 	<body>
 		<p>正しくページ遷移できませんでした。</p>
-		<button type="button" onclick="history.back()">元のページに戻る</button>
+		<button type="button" onclick="goBack()">元のページに戻る</button>
 		<button onclick="/come/signin">サインインはこちら</button>
+		
+		
+	<script>
+		function goBack() {
+				history.back();
+				setTimeout(function() {
+					location.reload();
+				}, 1000); 
+			}
+	</script>
 	</body>
+	
 </html>

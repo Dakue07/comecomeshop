@@ -1,4 +1,5 @@
 <HTML>
+<head>
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
@@ -7,7 +8,8 @@
 <%@include file="../../assets/template/header2.jsp"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/procedure.css">
-
+</head>
+<body>
 <h2>購入手続き</h2>
 <br>
 
@@ -44,7 +46,7 @@
 			style="width: 18rem; margin-bottom: 70px; float: right;">
 			<div class="card-body">
 				<!-- 合計金額のフォントサイズを大きくし、色を赤に変更 -->
-				合計金額：<span id="total" style="font-size: 1.5em; color: red;">${totalPrice}</span>
+				合計金額：<span id="total" style="font-size: 1.5em; color: red;">${totalPrice}</span>円
 			</div>
 		</div>
 	</form>
@@ -109,5 +111,6 @@
     modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
 	}
 </script>
-
 <%@include file="../../assets/template/footer.jsp"%>
+</body>
+</HTML>
