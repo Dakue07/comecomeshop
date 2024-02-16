@@ -213,6 +213,14 @@
   	<servlet-name>security</servlet-name>
   	<url-pattern>/security</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>changequeantity</servlet-name>
+  	<jsp-file>/WEB-INF/JSP/cartdetail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>changequeantity</servlet-name>
+  	<url-pattern>/cartdetail</url-pattern>
+  </servlet-mapping>
   
   <servlet>
 		<servlet-name>front</servlet-name>
