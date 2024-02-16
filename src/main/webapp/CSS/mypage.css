@@ -6,10 +6,6 @@ body {
 	padding-top: 100px;
 	width: 100%;
     font-family: Arial, sans-serif;
-	background-image: url(/comecomeshop/images/ine.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
      /* 透明度を指定 */
 }
 

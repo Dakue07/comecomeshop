@@ -5,7 +5,6 @@ import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import dao.CartTableDao;
-import dao.RiceTableDao;
 import database.MySQLOperator;
 
 public class ChangeRiceQuantityComamnd extends AbstractCommand {
@@ -46,9 +45,7 @@ public class ChangeRiceQuantityComamnd extends AbstractCommand {
 		
 		cartDao.UpdateCartQuantity(cart_quantity, absolute_cart_quantity, user_id, rice_id);
 		
-		RiceTableDao riceDao = new RiceTableDao();
-		
-		result = riceDao.SelectRice(null, null);
+		result = cartDao.AllSelect(user_id);
 		
 		((WebRequestContext) reqc).getUserBeanInSession();
 		

@@ -54,7 +54,7 @@ public class AddCartCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().commit();
 		
-		resc.setTarget("cart");
+		resc.setTarget("productlist");
 		
 		return resc;
 	}

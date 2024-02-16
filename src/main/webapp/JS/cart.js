@@ -7,19 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
     calculateTotal();
 });
 
-// 数量が変更されたときに小計を計算して表示する関数
-function calculateSubtotal(select) {
-    var quantity = parseInt(select.value, 10);
-    var priceElement = select.closest('.card').querySelector('.card-text .rice-price #rice-price-num');
-    var price = priceElement ? parseInt(priceElement.innerHTML, 10) : 0;
-    var subtotal = quantity * price;
-
-    console.log(subtotal);
-    // 小計を表示するspan要素を取得して更新する
-    select.nextElementSibling.innerHTML = subtotal;
-    // 合計を計算して表示する関数を呼び出す
-    calculateTotal();
-}
 
 // 合計を計算して表示する関数
 function calculateTotal() {
@@ -29,19 +16,20 @@ function calculateTotal() {
         total += parseInt(subtotal.innerHTML, 10);
     });
 
-    document.getElementById('total').innerHTML = total;
+    document.getElementById('total').innerText = total;
 }
 // 個数が選択された時に呼び出される
 // quantitySelect : 選択された個数
 // riceId : rice_id
 async function selectPullDown(quantitySelect, riceId) {
     
-    var rice_quantity = quantitySelect.value;
+    var rice_quantity = 0;
+    
+    rice_quantity = quantitySelect.value
     
     var params = new URLSearchParams();
     params.append("rice_id", riceId);
     params.append("absolute_cart_quantity", rice_quantity);
-    params.append("ajax", "true");
     
     var response = await fetch('/comecomeshop/come/changequantity', {
         method: 'POST',
@@ -56,5 +44,16 @@ async function selectPullDown(quantitySelect, riceId) {
     var newCart = document.createElement("div");
     newCart.setAttribute("id","cart");
     newCart.innerHTML = await response.text();
+
+    var prices = newCart.querySelectorAll(".subtotal");
+
+    var total = 0;
+    for(var price of prices) {
+        total += parseInt(price.innerHTML, 10);
+    }
+
+    document.querySelector("#total").innerText = total;
+
+
     document.querySelector("#cart").replaceWith(newCart);
 }
