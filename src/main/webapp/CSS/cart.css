@@ -7,8 +7,7 @@
 }
 
 body {
-	padding-top: 110px;
-  	padding-top: 100px;
+  	padding-top: 120px;
 	width: 100%;
     font-family: Arial, sans-serif;
      /* 透明度を指定 */
@@ -18,3 +17,15 @@ body {
 	width: 200px;
 	height: 200px;
 }
+
+.cart_card_wrap {
+	display: flex;
+    justify-content: center;
+}
+
+.buy_box {
+	position: fixed;
+	padding-left: 200px;
+	bottom: 200px;
+}
+

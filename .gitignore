@@ -64,3 +64,4 @@ local.properties
 #.project
 comecomeshop/build/classes/.gitignore
 src/main/webapp/META-INF/MANIFEST.MF
+/target/
