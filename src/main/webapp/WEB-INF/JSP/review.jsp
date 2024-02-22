@@ -5,7 +5,12 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
 
-
+<style>
+	footer {
+		position: absolute;
+		bottom: 0;
+	}
+</style>
 
 <!-- ここから下に書いてね -->
 <a href="<%=request.getContextPath() %>/come/adminproduct"">商品一覧へ戻る</a><br>
@@ -20,4 +25,6 @@
 </c:forEach>
 
 <!-- いじるな -->
-<%@include file="../../assets/template/footer.jsp" %>
+<footer>
+	<%@include file="../../assets/template/footer.jsp" %>
+</footer>>
