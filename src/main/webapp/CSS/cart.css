@@ -14,8 +14,8 @@ body {
 }
 
 .rice_img {
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 }
 
 .cart_card_wrap {
@@ -24,8 +24,25 @@ body {
 }
 
 .buy_box {
-	position: fixed;
-	padding-left: 200px;
-	bottom: 200px;
+	width: 18rem;
+    margin-bottom: 70px;
+    float: right;
+    position: fixed;
+    top: 350px;
+    right: 100px;
+}
+
+.product_box {
+	width: 25rem;
+}
+
+.card {
+	margin-left: 40px;
+	margin-bottom: 10px;
+}
+
+.image_box {
+	height: 150px;
+	width: 150px;	
 }
 

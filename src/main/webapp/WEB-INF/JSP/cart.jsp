@@ -27,12 +27,11 @@
 		<div id="cart" style="width: 48%;">
 
 			<c:forEach var="data" items="${data}">
-				<div class="card"
-					style="margin-left: 40px; margin-bottom: 10px; width: 25rem;">
-
+				<div class="card product_box">
+					<div class="image_box">
 					<img src="<%= request.getContextPath() %>${data.rice_image_path}"
 						class="card-img-top, rice_img" alt="Product Image">
-
+					</div>
 					<div class="card-body">
 						<h4 class="card-title">${data.rice_name}
 							${data.rice_weight}kg</h4>
@@ -41,7 +40,9 @@
 								id="rice-price-num">${data.rice_price}</a>円
 							</span>
 						</p>
-
+					</div>
+					
+					<div>
 						<c:set var="ricePrice"
 							value="${data.rice_price * data.cart_quantity}" />
 						<c:set var="totalPrice" value="${totalPrice + ricePrice}" />
@@ -68,8 +69,7 @@
 		</div>
 		<div >
 
-			<div class="card"
-				style="width: 18rem; margin-bottom: 70px; float: right; position: relative; top: 350px; right: 20px;">
+			<div class="card buy_box">
 				<div class="card-body">
 					<form id="purchaseForm" 
 						action="<%=request.getContextPath()%>/come/procedure"
