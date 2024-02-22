@@ -6,9 +6,15 @@
 
 			<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 			<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/history.css">
-
+			
+			<style>
+				footer {
+					position: absolute;
+					bottom: 0;
+				}
+			</style>
+			
 			<!-- ここから下に書いてね -->
-
 			<c:forEach var="data" items="${data}" varStatus="loop">
 				<div>
 					<div class="product_wrap">
@@ -45,12 +51,12 @@
 							<div class="rice_btn">
 								<form action="<%=request.getContextPath()%>/come/productdetail" method="post"
 									onsubmit="return checkUserId()">
-									<button class="amazon-btn green-btn">ここ押したらproductDetailに飛ぶよ</button>
+									<button class="amazon-btn green-btn">商品詳細</button>
 									<!-- 購入履歴ページから。削除はproductdetailに飛ばす -->
 									<input type="hidden" name="rice_id" value="${data.rice_id}">
 								</form>
 								<button type="button" class="amazon-btn green-btn"
-									onclick="toggleModal('review', '${data.rice_id}')">reviewの追加</button>
+									onclick="toggleModal('review', '${data.rice_id}')">レビューの追加</button>
 								<br>
 								<form action="<%=request.getContextPath()%>/come/ordercancel" method="post">
 									<input type="hidden" name="order_id" id="order_id_input" value="${data.order_id}">
@@ -62,12 +68,12 @@
 								<div id="review_modal" class="modal-container">
 									<div class="modal-content">
 										<span class="close-btn" onclick="closeModal()">&times;</span>
-										<p>reviewの追加</p>
+										<p>レビューの追加</p>
 										<form id="review_form" action="<%=request.getContextPath()%>/come/addreview"
 											method="post">
 											<!-- モーダル内のボタンを変更 -->
 											<button type="button" class="amazon-btn"
-												onclick="submitReviewForm()">reviewの追加</button>
+												onclick="submitReviewForm()">レビューの追加</button>
 											<br>
 											<table>
 												<tr>
@@ -157,6 +163,7 @@
 
 				window.addEventListener('load', initializeRating);
 			</script>
-
-			<%@include file="../../assets/template/footer.jsp" %>
-
+			
+			<footer>
+				<%@include file="../../assets/template/footer.jsp" %>
+			</footer>
