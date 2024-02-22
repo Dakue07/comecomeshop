@@ -24,7 +24,7 @@
 <%-- <%@include file="../../assets/template/slideshow.jsp"%> --%>
 
 <div class="product_list">
-	<h1 class="infomation">てすとてすと</h1>
+	<h1 class="infomation">商品一覧</h1>
 
 
 	<div class="row justify-content-center m-4, cleanness"
