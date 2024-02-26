@@ -20,7 +20,6 @@ body {
 
 .cart_card_wrap {
 	display: flex;
-    justify-content: center;
 }
 
 .buy_box {
@@ -28,12 +27,14 @@ body {
     margin-bottom: 70px;
     float: right;
     position: fixed;
-    top: 350px;
+    top: 58vh;
     right: 100px;
 }
 
 .product_box {
-	width: 25rem;
+	width: 45vw;
+	display: flex;
+    flex-direction: row;
 }
 
 .card {
@@ -44,5 +45,27 @@ body {
 .image_box {
 	height: 150px;
 	width: 150px;	
+}
+
+.cart {
+	position: relative;
+	left: 150px;
+}
+
+.card_product_info {
+}
+
+.mySelect {
+	width: 2.5em;
+}
+
+.card_product_price {
+	margin: 20 100 0 0;
+}
+
+.delete_btn {
+    position: relative;
+    top: 85px;
+    right: 30px;
 }
 
