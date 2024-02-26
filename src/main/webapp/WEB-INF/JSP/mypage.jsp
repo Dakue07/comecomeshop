@@ -62,7 +62,7 @@
 
 		    <div class="menu_card">
 			    <a class="menu_card_link"
-				    href="<%=request.getContextPath()%>/come/security"></a>
+				    href="<%=request.getContextPath()%>/security"></a>
 			    <div class="menu_card_body">
 				    <div class="menu_card_icon">
 					    <img src="/comecomeshop/images/icon/shield-check.svg"

@@ -25,11 +25,12 @@ public class ChangePasswordCommand extends AbstractCommand {
            
             userdao.updatePassword(Encryption.hash(newPassword), user_id);
             MySQLOperator.getInstance().commit();
+            resc.setResult("ok");
         } else {
-            resc.setResult("miss");
+        	resc.setResult("miss");
         }
         
-        resc.setTarget("come/security");
+        resc.setTarget("security");
         
         return resc;
     }

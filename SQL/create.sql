@@ -64,19 +64,21 @@ CREATE TABLE USERADDRESSTABLE
  useraddress_postcode char(8) NOT NULL,
  useraddress_state_city varchar(100) NOT NULL,
  useraddress_street varchar(100) NOT NULL,
+ useraddress_flag boolean DEFAULT true,
  FOREIGN KEY fk_useraddress_userid (user_id) REFERENCES USERTABLE(user_id)
  ON DELETE CASCADE
 );
 
 CREATE TABLE CARDTABLE (
-	card_id int PRIMARY KEY AUTO_INCREMENT,
-    user_id int,
-    card_holdername varchar(30) NOT NULL,
-    card_number char(16) NOT NULL,
-    card_validity date NOT NULL,
-    card_securitycode char(3) NOT NULL,
-    CONSTRAINT uq_card_number UNIQUE(card_number),
-    FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id) ON DELETE CASCADE
+card_id int PRIMARY KEY AUTO_INCREMENT,
+user_id int,
+card_holdername varchar(30) NOT NULL,
+card_number char(16) NOT NULL,
+card_validity date NOT NULL,
+card_securitycode char(3) NOT NULL,
+card_flag boolean DEFAULT true,
+CONSTRAINT uq_card_number UNIQUE(card_number),
+FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE CARTTABLE
@@ -87,6 +89,7 @@ CREATE TABLE CARTTABLE
  FOREIGN KEY fk_cart_riceid (rice_id) REFERENCES RICETABLE(rice_id)
  ON DELETE CASCADE
 );
+
 
 CREATE TABLE ORDERTABLE
 (order_id int NOT NULL,

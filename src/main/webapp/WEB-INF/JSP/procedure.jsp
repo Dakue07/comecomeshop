@@ -45,12 +45,12 @@
 		</div>
 	</form>
 	
-	<form action="<%=request.getContextPath()%>/come/urlsave" method="post">
+	<form action="<%=request.getContextPath()%>/createpost" method="post">
 		<input type="hidden" name="url" value="/createpost">
 		<button type="submit" class="register2-link">新しく住所を登録する</button>
 	</form>
 	
-	<form action="<%=request.getContextPath()%>/come/urlsave" method="post">
+	<form action="<%=request.getContextPath()%>/come/card" method="post">
 		<input type="hidden" name="url" value="/come/card">
 		<button type="submit" class="register2-link">新しく支払い方法を追加する</button>
 	</form>

@@ -17,9 +17,15 @@
 	<div class="col-md-8">
 		<h2 class="fs-1 mb-5 text-center fw-bold">パスワード変更</h2>
 
-	    <c:if test="${data eq 'miss'}">
+	<c:choose>
+	    <c:when test="${data eq 'miss'}">
 	        <p class="text-center text-danger">パスワードが違います。</p>
-	    </c:if>
+	    </c:when>
+	    <c:when test="${data eq 'ok'}">
+	        <p class="text-center text-success">変更が完了しました。</p>
+	    </c:when>
+	</c:choose>
+
 	
 	    <form action="<%=request.getContextPath() %>/come/changepassword" method="post">
 	        <div class="row">
@@ -73,5 +79,7 @@
             }
         }
     </script>
+    
+    
 <!-- いじるな -->
 <%@include file="../../assets/template/footer.jsp" %>
