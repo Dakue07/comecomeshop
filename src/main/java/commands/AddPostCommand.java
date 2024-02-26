@@ -22,12 +22,8 @@ public class AddPostCommand extends AbstractCommand {
 		userAddressDao.insertAddress(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street);
 		
 		MySQLOperator.getInstance().commit();
-		
-		
-		String url = reqc.getReferer();
-		System.out.println("addpostでもらったurl" + url);
 
-		resc.setTarget(url);
+		resc.setTarget("/come/userpost");
 		
 		return resc;
 	}

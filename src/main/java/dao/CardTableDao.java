@@ -12,8 +12,8 @@ import database.MySQLOperator;
 
 public class CardTableDao {
 	private static final String INSERT_CARD = "INSERT INTO CARDTABLE(user_id, card_holdername, card_number, card_validity, card_securitycode) values(?, ?, ?, ?, ?)";
-	private static final String SELECT_CARD_BY_USER = "SELECT * FROM CARDTABLE WHERE user_id = ?";
-	private static final String DELETE_CARD = "DELETE FROM CARDTABLE WHERE user_id = ? AND card_number = ?";
+	private static final String SELECT_CARD_BY_USER = "SELECT * FROM CARDTABLE WHERE user_id = ? AND card_flag = true";
+	private static final String CHANGE_FALSE = "UPDATE CARDTABLE SET card_flag = false WHERE user_id = ? AND card_number = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
@@ -63,7 +63,7 @@ public class CardTableDao {
 	
 	public void deleteCard(int user_id, String card_number) {
 		try {
-			pstmt = cn.prepareStatement(DELETE_CARD);
+			pstmt = cn.prepareStatement(CHANGE_FALSE);
 			pstmt.setInt(1, user_id);
 			pstmt.setString(2, card_number);
 			pstmt.executeUpdate();

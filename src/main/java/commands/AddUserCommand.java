@@ -11,6 +11,7 @@ public class AddUserCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
 		System.out.println("ユーザー登録まできてるよ");
+		System.out.println("adduserの最初:" + resc.getResult());
 		
 		RequestContext reqc = getRequestContext();
 		
@@ -38,7 +39,8 @@ public class AddUserCommand extends AbstractCommand {
 		if (userDao.createUser(user_name, hashed, user_Email) == false) {
 			MySQLOperator.getInstance().rollback();
 			
-			resc.setResult("miss");
+			resc.setResult("unique");
+			System.out.println("adduserの最後:" + resc.getResult());
 			resc.setTarget("signup");
 
 		} else {
@@ -46,7 +48,7 @@ public class AddUserCommand extends AbstractCommand {
 			UAddressDao.insertAddress(user_id, useraddress_receiver, useraddress_postcord, useraddress_state_sity, useraddress_street);
 			
 			MySQLOperator.getInstance().commit();
-			resc.setTarget("/come/signin");
+			resc.setTarget("come/signin");
 		}
 		return resc;
 	}

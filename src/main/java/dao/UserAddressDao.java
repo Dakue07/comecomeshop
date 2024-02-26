@@ -11,8 +11,8 @@ import database.MySQLOperator;
 
 public class UserAddressDao {
 	private static final String INSERT_ADDRESS = "INSERT INTO USERADDRESSTABLE(user_id, useraddress_receiver, useraddress_postcode, useraddress_state_city, useraddress_street) values(?, ?, ?, ?, ?)";
-	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM USERADDRESSTABLE WHERE user_id = ?";
-	private static final String DELETE_ADDRESS = "DELETE FROM USERADDRESSTABLE WHERE useraddress_id = ?";
+	private static final String SELECT_ADDRESS_BY_USER = "SELECT * FROM USERADDRESSTABLE WHERE user_id = ? AND useraddress_flag = true";
+	private static final String DELETE_ADDRESS = "UPDATE USERADDRESSTABLE SET useraddress_flag = false WHERE useraddress_id = ?";
 	
 	Connection cn = MySQLOperator.getInstance().getConnection();
 	PreparedStatement pstmt = null;
