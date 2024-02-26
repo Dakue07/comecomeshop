@@ -78,7 +78,7 @@ form .btn.btn-outline-success {
 						href="<%=request.getContextPath()%>/come/productlist">ホーム</a></li>
 					<li class="nav-item"><a class="nav-link"
 						onclick="return checkUserId()"
-						href="<%=request.getContextPath()%>/mypage">マイページ</a></li>
+						href="<%=request.getContextPath()%>/ypage">マイページ</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="<%=request.getContextPath()%>/come/cart">カート</a></li>
 

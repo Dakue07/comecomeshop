@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html>
-	<meta charset="utf-8">
-	<head>
-		<title>500Error</title>
-	</head>
-	<body>
-		<p>正しくページ遷移できませんでした。</p>
-		<button type="button" onclick="goBack()">元のページに戻る</button>
-		<button onclick="/come/signin">サインインはこちら</button>
-		
-		
+<head>
+    <meta charset="utf-8">
+    <title>500Error</title>
+</head>
+<body>
+    <p>正しくページ遷移できませんでした。</p>
+    <button type="button" onclick="goBack()">元のページに戻る</button>
+    <button id="signinButton">サインインはこちら</button>
+    
 	<script>
-		function goBack() {
-				history.back();
-				setTimeout(function() {
-					location.reload();
-				}, 1000); 
+		function getContextPath() {
+			var pathArray = location.pathname.split('/');
+			var contextPath = '';
+			for (var i = 1; i < pathArray.length - 1; i++) {
+				contextPath += '/' + pathArray[i];
 			}
+			return contextPath;
+		}
+		
+		
+		document.getElementById('signinButton').addEventListener('click', function() {
+			var contextPath = getContextPath();
+			window.location.href = contextPath + '/signin';
+		});
+		
+		function goBack() {
+			history.back();
+			setTimeout(function() {
+				location.reload();
+			}, 1000);
+		}
 	</script>
-	</body>
-	
+</body>
 </html>
