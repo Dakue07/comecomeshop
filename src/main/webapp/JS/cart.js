@@ -43,6 +43,7 @@ async function selectPullDown(quantitySelect, riceId) {
     
     var newCart = document.createElement("div");
     newCart.setAttribute("id","cart");
+    newCart.setAttribute("class","cart");
     newCart.innerHTML = await response.text();
 
     var prices = newCart.querySelectorAll(".subtotal");
