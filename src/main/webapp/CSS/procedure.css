@@ -23,6 +23,7 @@ button {
 }
 
 .modal-content {
+	overflow: hidden;
 	height: auto;
 	max-height: 80vh;
 	overflow-y: auto;
@@ -135,8 +136,6 @@ h2 {
 }
 
 .procedure_button {
-	display: inline-block;
-	padding: 0.3em;
 	transition: .3s;
 	transform: scale(1);
 	color: blue;
@@ -147,4 +146,121 @@ h2 {
 }
 
 
+/* 住所選択モーダル */
+.address-modal{
+	display: none;
+	position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: #0007;
+    z-index: 1;
+}
 
+.address-modal-body{
+	position: absolute;
+	width: 30vw;
+	left: 35vw;
+	height: 60vh;
+	top: 20vh;
+	background-color: #fff;
+	border-radius: 20px;
+}
+
+.address-list{
+	overflow-y: scroll;
+	height: 100%;
+	text-align: center;
+}
+
+.address-modal-close{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -40px;
+    right: -40px;
+	cursor:pointer;
+}
+
+.address-close-btn {
+	content: "";
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    display: block;
+    transform: rotate(45deg) translate(0%, 50%);
+}
+
+.address-close-btn2 {
+    content: "";
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    display: block;
+    transform: rotate(-45deg) translate(0%, -50%);
+}
+
+/* 支払い方法選択モーダル */
+.payment-modal{
+	display: none;
+	position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: #0007;
+    z-index: 1;
+}
+
+.payment-modal-body{
+	position: absolute;
+	width: 30vw;
+	left: 35vw;
+	height: 60vh;
+	top: 20vh;
+	background-color: #fff;
+	border-radius: 20px;
+}
+
+.payment-list{
+	overflow-y: scroll;
+	height: 100%;
+	text-align: center;
+}
+
+.payment-modal-close{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -40px;
+    right: -40px;
+	cursor:pointer;
+}
+
+.payment-close-btn {
+	content: "";
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    display: block;
+    transform: rotate(45deg) translate(0%, 50%);
+}
+
+.payment-close-btn2 {
+    content: "";
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    display: block;
+    transform: rotate(-45deg) translate(0%, -50%);
+}
+
+.batsu{
+    font-size: 400%;
+    font-weight: bold;
+        position: absolute;
+    height: 40px;
+    bottom: 50px;
+    color: white;
+}
