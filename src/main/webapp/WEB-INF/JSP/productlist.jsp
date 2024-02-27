@@ -69,22 +69,25 @@
 </div>
 <%
 String judgeAttribute = (String) request.getAttribute("judge");
-String mailAttribute = (String) request.getAttribute("mail");
 %>
 
 <script>
-    window.onload = function() {
-        var judgeAttribute = "<%=judgeAttribute%>";
-        var mailAttribute = "<%=mailAttribute%>";
+window.onload = function() {
+    var judgeAttribute = "<%=judgeAttribute%>";
 
-        if (judgeAttribute === "ok") {
-            alert("ご購入ありがとうございました！");
-        } else if (judgeAttribute === "no"){
-			      alert("在庫がなくなってしまったので購入できませんでした。")
-        } else if (mailAttribute === "mail") {
-            alert("お問い合わせが完了しました");
-        }
-    };
+    if (judgeAttribute === "ok") {
+        alert("ご購入ありがとうございました！");
+    } else if (judgeAttribute === "no"){
+        alert("在庫がなくなってしまったので購入できませんでした。");
+    } else if (judgeAttribute === "mail") {
+        alert("お問い合わせが完了しました");
+    }
+
+    sessionStorage.removeItem("purchaseCompleted");
+};
+
+sessionStorage.setItem("purchaseCompleted", "true");
+
 		
     document.addEventListener('DOMContentLoaded', function () {
         var selects = document.querySelectorAll('.mySelect');

@@ -20,7 +20,7 @@ public class SendMailCommand extends AbstractCommand{
 		
 		result = riceDao.SelectRice(null, null);
 		
-		reqc.setAttribute("mail", "mail");
+		reqc.setAttribute("judge", "mail");
 		
 		resc.setResult(result);
 
