@@ -85,7 +85,8 @@ CREATE TABLE CARTTABLE
 (user_id int,
  rice_id int,
  cart_quantity int NOT NULL,
- FOREIGN KEY fk_cart_userid (user_id) REFERENCES USERTABLE(user_id),
+ FOREIGN KEY fk_cart_userid (user_id) REFERENCES USERTABLE(user_id)
+ ON DELETE CASCADE,
  FOREIGN KEY fk_cart_riceid (rice_id) REFERENCES RICETABLE(rice_id)
  ON DELETE CASCADE
 );
@@ -100,9 +101,12 @@ CREATE TABLE ORDERTABLE
  order_quantity int NOT NULL,
  order_amount int NOT NULL,
  order_time timestamp DEFAULT CURRENT_TIMESTAMP,
- FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id),
- FOREIGN KEY fk_order_useraddressid (useraddress_id) REFERENCES USERADDRESSTABLE(useraddress_id),
- FOREIGN KEY fk_order_cardid (card_id) REFERENCES CARDTABLE(card_id),
+ FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id)
+ ON DELETE CASCADE,
+ FOREIGN KEY fk_order_useraddressid (useraddress_id) REFERENCES USERADDRESSTABLE(useraddress_id)
+ ON DELETE CASCADE,
+ FOREIGN KEY fk_order_cardid (card_id) REFERENCES CARDTABLE(card_id)
+ ON DELETE CASCADE,
  FOREIGN KEY fk_order_riceid (rice_id) REFERENCES RICETABLE(rice_id)
  ON DELETE CASCADE
 );
