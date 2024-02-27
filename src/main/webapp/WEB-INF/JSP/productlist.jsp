@@ -73,6 +73,7 @@ String judgeAttribute = (String) request.getAttribute("judge");
 
 <script>
 window.onload = function() {
+	
     var judgeAttribute = "<%=judgeAttribute%>";
 
     if (judgeAttribute === "ok") {
@@ -82,13 +83,8 @@ window.onload = function() {
     } else if (judgeAttribute === "mail") {
         alert("お問い合わせが完了しました");
     }
-
-    sessionStorage.removeItem("purchaseCompleted");
 };
 
-sessionStorage.setItem("purchaseCompleted", "true");
-
-		
     document.addEventListener('DOMContentLoaded', function () {
         var selects = document.querySelectorAll('.mySelect');
         selects.forEach(function (select) {

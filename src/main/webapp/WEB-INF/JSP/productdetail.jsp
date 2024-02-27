@@ -20,7 +20,7 @@
 			<img class="rice_img"
 				src="<%= request.getContextPath() %>${data.rice_image_path}"
 				alt="${data.rice_name}">
-			<br>名前:${data.rice_name}<br>値段:${data.rice_price}<br>
+			<br>名前:${data.rice_name}<br>値段:${data.rice_price}円<br>
 			<form class="cart_button"
 				action="<%=request.getContextPath()%>/come/addcart" method="post"
 				onsubmit="return checkUserId()">
