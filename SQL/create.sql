@@ -64,29 +64,33 @@ CREATE TABLE USERADDRESSTABLE
  useraddress_postcode char(8) NOT NULL,
  useraddress_state_city varchar(100) NOT NULL,
  useraddress_street varchar(100) NOT NULL,
+ useraddress_flag boolean DEFAULT true,
  FOREIGN KEY fk_useraddress_userid (user_id) REFERENCES USERTABLE(user_id)
  ON DELETE CASCADE
 );
 
 CREATE TABLE CARDTABLE (
-	card_id int PRIMARY KEY AUTO_INCREMENT,
-    user_id int,
-    card_holdername varchar(30) NOT NULL,
-    card_number char(16) NOT NULL,
-    card_validity date NOT NULL,
-    card_securitycode char(3) NOT NULL,
-    CONSTRAINT uq_card_number UNIQUE(card_number),
-    FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id) ON DELETE CASCADE
+card_id int PRIMARY KEY AUTO_INCREMENT,
+user_id int,
+card_holdername varchar(30) NOT NULL,
+card_number char(16) NOT NULL,
+card_validity date NOT NULL,
+card_securitycode char(3) NOT NULL,
+card_flag boolean DEFAULT true,
+CONSTRAINT uq_card_number UNIQUE(card_number),
+FOREIGN KEY fk_card_userid (user_id) REFERENCES USERTABLE(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE CARTTABLE
 (user_id int,
  rice_id int,
  cart_quantity int NOT NULL,
- FOREIGN KEY fk_cart_userid (user_id) REFERENCES USERTABLE(user_id),
+ FOREIGN KEY fk_cart_userid (user_id) REFERENCES USERTABLE(user_id)
+ ON DELETE CASCADE,
  FOREIGN KEY fk_cart_riceid (rice_id) REFERENCES RICETABLE(rice_id)
  ON DELETE CASCADE
 );
+
 
 CREATE TABLE ORDERTABLE
 (order_id int NOT NULL,
@@ -97,9 +101,12 @@ CREATE TABLE ORDERTABLE
  order_quantity int NOT NULL,
  order_amount int NOT NULL,
  order_time timestamp DEFAULT CURRENT_TIMESTAMP,
- FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id),
- FOREIGN KEY fk_order_useraddressid (useraddress_id) REFERENCES USERADDRESSTABLE(useraddress_id),
- FOREIGN KEY fk_order_cardid (card_id) REFERENCES CARDTABLE(card_id),
+ FOREIGN KEY fk_order_userid (user_id) REFERENCES USERTABLE(user_id)
+ ON DELETE CASCADE,
+ FOREIGN KEY fk_order_useraddressid (useraddress_id) REFERENCES USERADDRESSTABLE(useraddress_id)
+ ON DELETE CASCADE,
+ FOREIGN KEY fk_order_cardid (card_id) REFERENCES CARDTABLE(card_id)
+ ON DELETE CASCADE,
  FOREIGN KEY fk_order_riceid (rice_id) REFERENCES RICETABLE(rice_id)
  ON DELETE CASCADE
 );

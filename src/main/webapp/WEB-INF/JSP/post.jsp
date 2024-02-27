@@ -18,7 +18,7 @@
     <h1>住所が登録されていません</h1>
 </c:if>
 
-<form action="<%= request.getContextPath() %>/come/urlsave" method="post">
+<form action="<%= request.getContextPath() %>/createpost" method="post">
 	<input type="hidden" name="url" value="/createpost">
 	<button type="submit" class="register2-link">新しく住所を登録する</button>
 </form>

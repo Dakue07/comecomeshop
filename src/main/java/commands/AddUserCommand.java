@@ -10,12 +10,7 @@ import login.Encryption;
 public class AddUserCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		
-		System.out.println("ユーザー登録まできてるよ");
-		
 		RequestContext reqc = getRequestContext();
-		
-		System.out.println("さいんあっぷこま" + reqc.getParameter("user_name")[0]);
-		System.out.println("さいんあっぷこま" + reqc.getParameter("user_pass")[0]);
 		
 		MySQLOperator.getInstance().beginTransaction();
 		
@@ -25,11 +20,10 @@ public class AddUserCommand extends AbstractCommand {
 		String useraddress_receiver = reqc.getParameter("useraddress_receiver")[0];
 		String useraddress_postcord = reqc.getParameter("useraddress_postcode")[0];
 		String useraddress_state_sity = reqc.getParameter("useraddress_state_city")[0];
-		String useraddress_street = reqc.getParameter("useraddress_street")[0];
+		String useraddress_street = reqc.getParameter("useraddress_street")[0] + reqc.getParameter("street_address")[0];
+		
 		
 		String hashed = Encryption.hash(user_pass);
-		
-		System.out.println(hashed);
 		
 		UserDao userDao = new UserDao();
 		UserAddressDao UAddressDao = new UserAddressDao();
@@ -38,7 +32,7 @@ public class AddUserCommand extends AbstractCommand {
 		if (userDao.createUser(user_name, hashed, user_Email) == false) {
 			MySQLOperator.getInstance().rollback();
 			
-			resc.setResult("miss");
+			resc.setResult("unique");
 			resc.setTarget("signup");
 
 		} else {
@@ -46,7 +40,7 @@ public class AddUserCommand extends AbstractCommand {
 			UAddressDao.insertAddress(user_id, useraddress_receiver, useraddress_postcord, useraddress_state_sity, useraddress_street);
 			
 			MySQLOperator.getInstance().commit();
-			resc.setTarget("/come/signin");
+			resc.setTarget("come/signin");
 		}
 		return resc;
 	}

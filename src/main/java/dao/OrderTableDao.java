@@ -112,7 +112,7 @@ public class OrderTableDao {
 		int max_order_id = 0;
 		try {
 			cn = MySQLOperator.getInstance().getConnection();
-			String sql = "SELECT max(order_id) FROM ordertable";
+			String sql = "SELECT max(order_id) FROM ORDERTABLE";
 			pstmt = cn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			rs.next();
