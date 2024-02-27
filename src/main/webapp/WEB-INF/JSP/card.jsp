@@ -285,14 +285,18 @@ button.btn_06-2:hover:after {
 </div>
 
 <br>
-<c:forEach var="data" items="${data}"> 
-		<b>カード番号：</b>${data.card_replace_number}<br>
-    <b>名義人：</b>${data.card_holdername}<br>
-		<form action="<%= request.getContextPath() %>/come/deletecard" method="post">
-			<input type="hidden" name="card_number" value="${data.card_number}">
-			<button type="submit">このカードを削除する</button>
-		</form>
-</c:forEach>
+<div class="address-container">
+	<c:forEach var="data" items="${data}">
+		<div class="address-item">
+			<b>カード番号：</b>${data.card_replace_number}<br> <b>名義人：</b>${data.card_holdername}<br>
+			<form action="<%=request.getContextPath()%>/come/deletecard"
+				method="post">
+				<input type="hidden" name="card_number" value="${data.card_number}">
+				<button type="submit">このカードを削除する</button>
+			</form>
+		</div>
+	</c:forEach>
+</div>
 
 <script>
     document.getElementById('addPaymentBtn').addEventListener('click', openModal);

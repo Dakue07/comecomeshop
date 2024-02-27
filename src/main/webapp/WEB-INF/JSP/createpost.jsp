@@ -8,6 +8,10 @@
 
 <%@include file="../../assets/template/header2.jsp"%>
 
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/CSS/style.css">
 <link rel="stylesheet" type="text/css"
@@ -25,12 +29,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>住所登録</title>
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-		rel="stylesheet">
+
 <body class="bg-light">
 	<div class="container">
-		<div class="main container-fluid">
+		<div class="main2 container-fluid">
 			<div class="row bg-light text-dark py-5">
 				<h2 class="fs-1 mb-5 text-center fw-bold">住所登録</h2>
 

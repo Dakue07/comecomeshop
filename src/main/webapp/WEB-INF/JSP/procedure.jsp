@@ -17,7 +17,7 @@
 
 	<c:set var="totalPrice" value="0" />
 
-	<div id="wrapper">
+	<div class="flex-area">
 		<div id="fixed-area">
 			<c:forEach var="data" items="${data[0]}">
 				<div class="card card_wrap">
@@ -49,10 +49,10 @@
 				</div>
 			</c:forEach>
 		</div>
-		<!--左エリア-->
+		<!--右エリア-->
 
-		<div id="container">
-			<div id="purchaseContainer" style="margin-top: 120px;">
+		<div class="procedure_buttons" id="purchaseContainer">
+			<div>
 				<form action="<%=request.getContextPath()%>/come/procedure"
 					method="post">
 					<div class="card"
@@ -63,76 +63,89 @@
 						</div>
 					</div>
 				</form>
+			</div>
 
+			<div>
 				<form action="<%=request.getContextPath()%>/come/urlsave"
 					method="post">
 					<input type="hidden" name="url" value="/createpost">
-					<button type="submit" class="register2-link">新しく住所を登録する</button>
+					<a type="submit" class="register2-link procedure_button">新しく住所を登録する</a>
 				</form>
+			</div>
 
+			<div>
 				<form action="<%=request.getContextPath()%>/come/urlsave"
 					method="post">
 					<input type="hidden" name="url" value="/come/card">
-					<button type="submit" class="register2-link">新しく支払い方法を追加する</button>
+					<a type="submit" class="register2-link procedure_button">新しく支払い方法を追加する</a>
 				</form>
+			</div>
 
+			<div>
 				<form action="<%=request.getContextPath()%>/come/addorderdetail"
 					method="post">
-					<button type="button" onclick="toggleModal('address')"
-						style="position: absolute; left: 20%;">住所選択</button>
-					<br>
-					<div id="address_modal" class="modal-container">
-						<div class="modal-content">
-							<span class="close-btn" onclick="toggleModal('address')">&times;</span>
-							<c:forEach var="data" items="${data[1]}">
-								<div class="radio-group">
-									<input type="radio" name="addressOption"
-										value=${data.useraddress_id } checked> <label>
-										受取人:${data.useraddress_receiver}<br>
-										郵便番号:${data.useraddress_postcode}<br>
-										都道府県:${data.useraddress_state_city}<br>
-										市町村:${data.useraddress_street}<br>
-									</label>
-								</div>
-							</c:forEach>
+					<div>
+						<a class="procedure_button" type="button" onclick="toggleModal('address')">住所選択</a>
+						<div id="address_modal" class="modal-container">
+							<div class="modal-content">
+								<span class="close-btn" onclick="toggleModal('address')">&times;</span>
+								<c:forEach var="data" items="${data[1]}">
+									<div class="radio-group">
+										<input type="radio" name="addressOption"
+											value=${data.useraddress_id } checked> <label>
+											受取人:${data.useraddress_receiver}<br>
+											郵便番号:${data.useraddress_postcode}<br>
+											都道府県:${data.useraddress_state_city}<br>
+											市町村:${data.useraddress_street}<br>
+										</label>
+									</div>
+								</c:forEach>
+							</div>
 						</div>
 					</div>
 
-					<button type="button" onclick="toggleModal('payment')"
-						style="position: relative;">支払い方法選択</button>
-					<br>
+					<div class="payment_btn procedure_button">
+						<a type="button" onclick="toggleModal('payment')">支払い方法選択</a>
+					</div>
+
 
 					<div id="payment_modal" class="modal-container">
 						<div class="modal-content">
 							<span class="close-btn" onclick="toggleModal('payment')">&times;</span>
 							<c:forEach var="data" items="${data[2]}">
 								<div class="radio-group">
-									<input type="radio" name="paymentOption" value=${data.card_id
-										} checked> カード番号:${data.card_replace_number}<br>
+									<input type="radio" name="paymentOption"
+										value=${data.card_id
+										} checked>
+									カード番号:${data.card_replace_number}<br>
 									カード名義人:${data.card_holdername}<br>
 									有効期限:${data.card_validity}<br>
 								</div>
 							</c:forEach>
 						</div>
 					</div>
+					
+					<div class="order_btn_area">
+						<input type="submit" class="order_btn" id="ConfirmOrderBtn" value="注文確定">
+					</div>
 
-					<input type="submit" id="ConfirmOrderBtn" value="注文確定"
-						style="position: absolute; right: 20%; height: 50px;">
+					
 				</form>
 			</div>
 		</div>
-		<!--右固定エリア-->
+	</div>
+	<!--右固定エリア-->
 
 
 
 
-		<script>
-			function toggleModal(modalType) {
-				var modal = document.getElementById(modalType + '_modal');
-				modal.style.display = (modal.style.display === 'flex') ? 'none'
-						: 'flex';
-			}
-		</script>
-		<%@include file="../../assets/template/footer.jsp"%>
+	<script>
+		function toggleModal(modalType) {
+			var modal = document.getElementById(modalType + '_modal');
+			modal.style.display = (modal.style.display === 'flex') ? 'none'
+					: 'flex';
+		}
+	</script>
+	<%@include file="../../assets/template/footer.jsp"%>
 </body>
 </HTML>
