@@ -37,8 +37,12 @@
 											<div class="order_info">${data.order_time}</div>
 										</div>
 										<div class="order_data">
+											<div class="order_title">個数</div>
+											<div class="order_info">${data.order_quantity}</div>個
+										</div>
+										<div class="order_data">
 											<div class="order_title">合計</div>
-											<div class="order_info">${data.order_amount}</div>
+											<div class="order_info">${data.order_amount}</div>円
 										</div>
 										<div class="order_data">
 											<div class="order_title">注文番号</div>
@@ -68,7 +72,6 @@
 								<div id="review_modal" class="modal-container">
 									<div class="modal-content">
 										<span class="close-btn" onclick="closeModal()">&times;</span>
-										<p>レビューの追加</p>
 										<form id="review_form" action="<%=request.getContextPath()%>/come/addreview"
 											method="post">
 											<!-- モーダル内のボタンを変更 -->
@@ -102,7 +105,7 @@
 												</tr>
 												<tr>
 													<td>コメント</td>
-													<td><input type="text" name="review_comment"></td>
+													<td><input type="text" name="review_comment"　required></td>
 												</tr>
 											</table>
 										</form>

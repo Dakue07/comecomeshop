@@ -38,9 +38,7 @@ public class AddCardCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().commit();
 		
-		String url = reqc.getReferer();
-
-		resc.setTarget(url);
+		resc.setTarget("come/card");
 
 	
 		

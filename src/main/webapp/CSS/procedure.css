@@ -3,12 +3,6 @@ body {
 	padding-top: 110px;
 }
 
-form {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 20px;
-}
-
 button {
 	padding: 10px;
 	margin: 0 5;
@@ -91,10 +85,66 @@ form {
 }
 
 h2 {
-	text-align: center;
+	padding-left: 100px;
 }
 
 .rice_img {
 	width: 200px;
 	height: 200px;
 }
+
+.card_wrap {
+	width: 40rem; 
+	margin-bottom: 10px;
+	display:flex;
+	flex-direction: row;
+	margin-left: 100px;
+}
+
+.flex-area {
+	display: flex;
+}
+
+.procedure_buttons {
+	position: fixed;	
+	right: 300px;
+	bottom: 100px;
+	
+}
+
+.payment_btn {
+	margin-top: 20px;
+}
+
+.order_btn_area {
+	padding-left: 200px;
+}
+
+.order_btn {
+	color: #fff;
+	background-color: #008039;
+	border: 0;
+	border-radius: 20px;
+	height: 70px;
+    width: 180px;
+}
+
+.order_btn:hover {
+	color: #fff;
+  background: #008039;
+}
+
+.procedure_button {
+	display: inline-block;
+	padding: 0.3em;
+	transition: .3s;
+	transform: scale(1);
+	color: blue;
+}
+
+.procedure_button:hover {
+	transform: scale(1.05);
+}
+
+
+
