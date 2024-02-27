@@ -21,7 +21,9 @@ public class ChangeEmailCommand extends AbstractCommand {
 		
 		MySQLOperator.getInstance().commit();
 		
-		resc.setTarget("come/security");
+		resc.setResult("ok");
+		
+		resc.setTarget("security");
 		
 		return resc;
 	}

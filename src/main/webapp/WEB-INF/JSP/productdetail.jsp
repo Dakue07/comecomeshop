@@ -20,7 +20,7 @@
 			<img class="rice_img"
 				src="<%= request.getContextPath() %>${data.rice_image_path}"
 				alt="${data.rice_name}">
-			<br>名前:${data.rice_name}<br>値段:${data.rice_price}円<br>ジャンル:${data.rice_genre}<br>重さ:${data.rice_weight}kg<br>生産地:${data.rice_made}<br>収穫日:${data.rice_since}月
+			<br>名前:${data.rice_name}<br>価格:${data.rice_price}円<br>ジャンル:${data.rice_genre}<br>重さ:${data.rice_weight}kg<br>生産地:${data.rice_made}<br>収穫日:${data.rice_since}月
 			<form class="cart_button"
 				action="<%=request.getContextPath()%>/come/addcart" method="post"
 				onsubmit="return checkUserId()">
