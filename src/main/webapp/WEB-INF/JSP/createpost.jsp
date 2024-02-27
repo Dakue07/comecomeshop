@@ -48,9 +48,14 @@ body {
             	<input type="text" id="input_state_town" class="form-control" name="useraddress_state_city" id="state_city" autocomplete="off" placeholder="都道府県" required>
          	</div>
          	<div class="col-md-6 mb-3">
-				<label class="form-label" for="inputEmail">市区町村・番地・(部屋番号・建物名)</label>
+				<label class="form-label" for="inputEmail">市区町村</label>
             	<span class="text-danger">*</span>
-            	<input type="text" id="input_street" class="form-control" name="useraddress_street" id="street" autocomplete="off" placeholder="市区町村・番地・(部屋番号・建物名)" required>
+            	<input type="text" id="input_street" class="form-control" name="useraddress_street" id="street" autocomplete="off" placeholder="市区町村" required>
+            </div>
+            <div class="col-md-6 mb-3">
+				<label class="form-label" for="inputEmail">番地・(部屋番号・建物名)</label>
+            	<span class="text-danger">*</span>
+            	<input type="text" id="input_street" class="form-control" name="street_address" autocomplete="off" placeholder="番地・(部屋番号・建物名)" required>
             </div>
             <div class="col-md-6 mb-3">
 				<label class="form-label" for="inputEmail">受取人</label>
