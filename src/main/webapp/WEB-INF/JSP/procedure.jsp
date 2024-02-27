@@ -67,16 +67,16 @@
 		</div>
 
 		<div>
-			<form action="<%=request.getContextPath()%>/post" method="post">
-				<input type="hidden" name="url" value="/createpost"> <a
-					type="submit" class="register2-link procedure_button">新しく住所を登録する</a>
+			<form id="myForm" method="post">
+				<a href="<%=request.getContextPath()%>/createpost"
+					class="register2-link procedure_button">新しく住所を追加する</a>
 			</form>
 		</div>
 
 		<div>
-			<form action="<%=request.getContextPath()%>/come/card" method="post">
-				<input type="hidden" name="url" value="/come/card"> <a
-					type="submit" class="register2-link procedure_button">新しく支払い方法を追加する</a>
+			<form id="myForm" method="post">
+				<a href="<%=request.getContextPath()%>/come/card"
+					class="register2-link procedure_button">新しく支払い方法を追加する</a>
 			</form>
 		</div>
 
@@ -146,7 +146,7 @@
 			<c:forEach var="data" items="${data[2]}">
 				<div class="radio-group">
 					<input type="radio" name="paymentOption" value=${data.card_id }
-						 checked onClick="choosePayment()"> <label>
+						checked onClick="choosePayment()"> <label>
 						カード番号:${data.card_replace_number}<br>
 						カード名義人:${data.card_holdername}<br> 有効期限:${data.card_validity}<br>
 					</label>
