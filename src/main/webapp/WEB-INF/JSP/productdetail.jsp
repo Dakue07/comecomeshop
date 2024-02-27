@@ -29,8 +29,7 @@
 					<c:forEach begin="1" end="${data.rice_stock}" var="i">
 						<option value="${i}">${i}</option>
 					</c:forEach>
-				</select>
-				<input type="hidden" name="rice_id" value="${data.rice_id}">
+				</select> <input type="hidden" name="rice_id" value="${data.rice_id}">
 				<button class="btn btn-primary">カートへ入れる</button>
 			</form>
 			<c:if test="${data.rice_stock == 0}">
@@ -73,7 +72,8 @@
 		function checkUserId() {
 			var user_id = "${userBean.user_id}";
 			if (!user_id || user_id.trim() === "") {
-				window.location.href = "<%=request.getContextPath()%>/signin";
+				window.location.href = "<%=request.getContextPath()%>
+		/signin";
 				return false;
 			}
 			return true;
