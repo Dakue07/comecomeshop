@@ -13,14 +13,23 @@
 <%@include file="../../assets/template/header2.jsp"%>
 </head>
 <body>
-	<div>
-		商品詳細
+	<div class="product_container">
 		<c:forEach var="data" items="${data[0]}">
-			<br>
-			<img class="rice_img"
-				src="<%= request.getContextPath() %>${data.rice_image_path}"
-				alt="${data.rice_name}">
-			<br>名前:${data.rice_name}<br>値段:${data.rice_price}円<br>ジャンル:${data.rice_genre}<br>重さ:${data.rice_weight}kg<br>生産地:${data.rice_made}<br>収穫日:${data.rice_since}月
+			<div class="rice">
+				<img class="rice_img" src="<%= request.getContextPath() %>${data.rice_image_path}"
+					alt="${data.rice_name}">
+			</div>
+
+			<div class="product_info">
+				<div class="product_name">${data.rice_name}</div>
+				<div class="product_price">￥${data.rice_price}</div>
+				<div class="product_genre">ジャンル:<strong>${data.rice_genre}</strong></div>
+				<div class="product_weight">重さ:<strong>${data.rice_weight}kg</strong></div>
+				<div class="product_made">生産地:${data.rice_made}</div>
+				<div class="product_since">収穫日:${data.rice_since}月</div>
+			</div>
+
+
 			<form class="cart_button"
 				action="<%=request.getContextPath()%>/come/addcart" method="post"
 				onsubmit="return checkUserId()">
@@ -36,23 +45,27 @@
 				<p style="color: red;">在庫がありません</p>
 			</c:if>
 		</c:forEach>
-		レビュー一覧<br> <br>
-		<c:forEach var="data" items="${data[1]}">
+
+	</div>
+
+	<div class="review">レビュー一覧</div>
+	<br>
+	<br>
+	<c:forEach var="data" items="${data[1]}">
         	${data.user_name}
             <div class="star">${data.review_star}</div>
             ${data.review_comment}<br>
-			<br>
+		<br>
 
-			<c:if test="${userBean.user_id eq data.user_id}">
-				<form action="<%=request.getContextPath()%>/come/deletereview"
-					method="post">
-					<input type="hidden" name="review_id" value="${data.review_id}">
-					<input type="hidden" name="rice_id" value="${data.rice_id}">
-					<input type="submit" value="削除"><br> <br>
-				</form>
-			</c:if>
-		</c:forEach>
-	</div>
+		<c:if test="${userBean.user_id eq data.user_id}">
+			<form action="<%=request.getContextPath()%>/come/deletereview"
+				method="post">
+				<input type="hidden" name="review_id" value="${data.review_id}">
+				<input type="hidden" name="rice_id" value="${data.rice_id}">
+				<input type="submit" value="削除"><br> <br>
+			</form>
+		</c:if>
+	</c:forEach>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
