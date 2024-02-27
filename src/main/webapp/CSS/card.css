@@ -212,3 +212,22 @@ button.btn_06-2:hover:after {
 		font-size: 16px;
 	}
 }
+
+/* Style for address container */
+.address-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+}
+
+/* Style for each address item */
+.address-item {
+	width: 20%;
+	/* Adjust the width as needed */
+	background: #ffe4e1;
+	border: #ff69b4 solid 2px;
+	font-size: 80%;
+	padding: 20px;
+	margin: 10px;
+}

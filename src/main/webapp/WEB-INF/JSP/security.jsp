@@ -4,11 +4,16 @@
 <!DOCTYPE html>
 
 <%@include file="../../assets/template/header2.jsp" %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/style.css">
 
 <!-- ここから下に書いてね -->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+	.nav-link {
+		color: #555;
+	}
+</style>
 
 
 
