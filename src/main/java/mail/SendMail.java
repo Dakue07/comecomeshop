@@ -152,7 +152,7 @@ public class SendMail {
 	        message.setSubject("お問い合わせ");
 
 	        // メール内容
-	        message.setText("ユーザーid:" +user_id + "\n" + "名前:" + user_name + "\n" + "お問い合わせ内容:" + content + "\n");
+	        message.setText("ユーザーid:" +user_id + "\n" + "タイトル:" + user_name + "\n" + "お問い合わせ内容:" + content + "\n");
 
 	        // メールを送る
 	        Transport.send(message);
