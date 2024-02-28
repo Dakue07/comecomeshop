@@ -12,33 +12,31 @@
 <style>
 
     .modal-container {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        align-items: center;
-        justify-content: center;
-        overflow: auto;
+       display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
     }
 
     .modal-content {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        position: relative;
-        width: 90%;
-        max-width: 600px;
-        text-align: center;
-        max-height: 80%;
-        overflow-y: auto;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        margin-top: 150px;	
+       overflow: hidden;
+	height: auto;
+	max-height: 80vh;
+	overflow-y: auto;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	position: relative;
+	width: 80%;
+	max-width: 400px;
+	text-align: center;
+	margin-top: 12vh;
     }
 
     .modal-content p {
@@ -234,7 +232,7 @@ button.btn_06-2:hover:after {
     request.setAttribute("years", years);
 %>
 
-
+<h2 style="text-align: center;"><strong>支払い方法一覧</strong></h2>
 
 <section>
   <br><button class="btn_06-2" id="addPaymentBtn"><span>支払方法の追加</span></a><br>
@@ -244,7 +242,7 @@ button.btn_06-2:hover:after {
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         	<p>クレジットカードの追加</p>
-        <form action="come/addcard" method="post">
+        <form action="come/addcard" method="post" style="margin-bottom: 0;">
             <table>
                 <tr>
                     <td>カード番号</td>
@@ -292,7 +290,7 @@ button.btn_06-2:hover:after {
 			<form action="<%=request.getContextPath()%>/come/deletecard"
 				method="post">
 				<input type="hidden" name="card_number" value="${data.card_number}">
-				<button type="submit">このカードを削除する</button>
+				<button type="submit" class="btn btn-outline-danger">このカードを削除する</button>
 			</form>
 		</div>
 	</c:forEach>

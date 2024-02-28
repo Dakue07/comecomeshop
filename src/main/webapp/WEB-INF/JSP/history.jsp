@@ -15,6 +15,9 @@
 			</style>
 			
 			<!-- ここから下に書いてね -->
+			
+			<h2 style="text-align: center;"><strong>注文履歴</strong></h2>
+			
 			<c:forEach var="data" items="${data}" varStatus="loop">
 				<div>
 					<div class="product_wrap">
