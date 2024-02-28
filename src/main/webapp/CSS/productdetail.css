@@ -6,14 +6,13 @@
 	display: flex;   
 }
 
-
 .product_name {
 	font-size: 60px;
     margin: 20px;
 }
 .product_price {
-	    font-size: 35;
-	    margin: 20px;
+    font-size: 35;
+    margin: 20px;
 }
 .product_weight {
 	margin: 20px;
@@ -31,4 +30,11 @@
 .review {
 	font-size: 40px;
 	text-align: center;
+}
+.price_cart_box {
+	display: flex;
+    justify-content: left;
+}
+.form_y {
+	padding-top: 32px;
 }

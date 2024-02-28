@@ -16,31 +16,42 @@
 	<div class="product_container">
 		<c:forEach var="data" items="${data[0]}">
 			<div class="rice">
-				<img class="rice_img" src="<%= request.getContextPath() %>${data.rice_image_path}"
+				<img class="rice_img"
+					src="<%= request.getContextPath() %>${data.rice_image_path}"
 					alt="${data.rice_name}">
 			</div>
 
 			<div class="product_info">
 				<div class="product_name">${data.rice_name}</div>
-				<div class="product_price">￥${data.rice_price}</div>
-				<div class="product_genre">ジャンル:<strong>${data.rice_genre}</strong></div>
-				<div class="product_weight">重さ:<strong>${data.rice_weight}kg</strong></div>
+				<div class="price_cart_box">
+					<div class="product_price">価格:￥${data.rice_price}</div>
+					<div class="form_y">
+						<form class="cart_button"
+							action="<%=request.getContextPath()%>/come/addcart" method="post"
+							onsubmit="return checkUserId()">
+							<select class="mySelect" style="width: 53.6px;"
+								data-rice-stock="${data.rice_stock}" name="cart_quantity">
+								<c:forEach begin="1" end="${data.rice_stock}" var="i">
+									<option value="${i}">${i}</option>
+								</c:forEach>
+							</select> <input type="hidden" name="rice_id" value="${data.rice_id}">
+							<button class="btn btn-primary">カートへ入れる</button>
+						</form>
+					</div>
+				</div>
+
+				<div class="product_genre">
+					ジャンル:<strong>${data.rice_genre}</strong>
+				</div>
+				<div class="product_weight">
+					重さ:<strong>${data.rice_weight}kg</strong>
+				</div>
 				<div class="product_made">生産地:${data.rice_made}</div>
 				<div class="product_since">収穫日:${data.rice_since}月</div>
 			</div>
 
 
-			<form class="cart_button"
-				action="<%=request.getContextPath()%>/come/addcart" method="post"
-				onsubmit="return checkUserId()">
-				<select class="mySelect" style="width: 53.6px;"
-					data-rice-stock="${data.rice_stock}" name="cart_quantity">
-					<c:forEach begin="1" end="${data.rice_stock}" var="i">
-						<option value="${i}">${i}</option>
-					</c:forEach>
-				</select> <input type="hidden" name="rice_id" value="${data.rice_id}">
-				<button class="btn btn-primary">カートへ入れる</button>
-			</form>
+
 			<c:if test="${data.rice_stock == 0}">
 				<p style="color: red;">在庫がありません</p>
 			</c:if>
