@@ -11,14 +11,14 @@
   <title>サインイン</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <body class="bg-light">
-<div class="container">
+<div class="container" style="height: 752px;">
 <div class="main container-fluid">
     <div class="row bg-light text-dark py-5">
         <div class="col-md-8 offset-md-2">
 	<h2 class="fs-1 mb-5 text-center fw-bold">サインイン</h2>
 	
 	<c:if test="${data eq 'miss'}">
-		<p class=" text-center text-danger">ユーザIDまたはパスワードが違います。</p>
+		<p class=" text-center text-danger">ユーザ名またはパスワードが違います。</p>
     </c:if>
 	
 	<form action="come/signin" method="post">
