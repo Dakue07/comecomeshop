@@ -74,9 +74,6 @@
 										<span class="close-btn" onclick="closeModal()">&times;</span>
 										<form id="review_form" action="<%=request.getContextPath()%>/come/addreview"
 											method="post">
-											<!-- モーダル内のボタンを変更 -->
-											<button type="button" class="amazon-btn"
-												onclick="submitReviewForm()">レビューの追加</button>
 											<br>
 											<table>
 												<tr>
@@ -105,9 +102,11 @@
 												</tr>
 												<tr>
 													<td>コメント</td>
-													<td><input type="text" name="review_comment"　required></td>
+													<td><textarea type="text" name="review_comment" required ></textarea></td>
 												</tr>
 											</table>
+											<button type="button" class="amazon-btn"
+												onclick="submitReviewForm()">レビューの投稿</button>
 										</form>
 									</div>
 								</div>
