@@ -24,7 +24,7 @@
 			<div class="product_info">
 				<div class="product_name">${data.rice_name}</div>
 				<div class="price_cart_box">
-					<div class="product_price">価格:￥${data.rice_price}</div>
+					<div class="product_price">価格:${data.rice_price}円</div>
 					<div class="form_y">
 						<form class="cart_button"
 							action="<%=request.getContextPath()%>/come/addcart" method="post"
