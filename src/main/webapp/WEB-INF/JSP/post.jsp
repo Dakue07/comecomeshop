@@ -12,7 +12,7 @@
 <title>住所の変更</title>
 
 
-<h2>登録された住所一覧</h2>
+<h2><strong>住所一覧</strong></h2>
 
 <c:if test="${empty data}">
     <h1>住所が登録されていません</h1>
@@ -20,7 +20,9 @@
 
 <form action="<%= request.getContextPath() %>/createpost" method="post">
 	<input type="hidden" name="url" value="/createpost">
-	<button type="submit" class="register2-link">新しく住所を登録する</button>
+	<section>
+	  <br><button class="btn_06-2" id="addPaymentBtn"><span>住所の追加</span></a><br>
+	</section>
 </form>
 
 <c:if test="${not empty data}">
