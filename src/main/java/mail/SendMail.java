@@ -149,7 +149,7 @@ public class SendMail {
 	        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
 	        // メール件名
-	        message.setSubject("購入完了のお知らせ");
+	        message.setSubject("お問い合わせ");
 
 	        // メール内容
 	        message.setText("ユーザーid:" +user_id + "\n" + "名前:" + user_name + "\n" + "お問い合わせ内容:" + content + "\n");
