@@ -49,9 +49,6 @@
 				<div class="product_made">生産地:${data.rice_made}</div>
 				<div class="product_since">収穫日:${data.rice_since}月</div>
 			</div>
-
-
-
 			<c:if test="${data.rice_stock == 0}">
 				<p style="color: red;">在庫がありません</p>
 			</c:if>
