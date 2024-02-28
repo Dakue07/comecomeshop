@@ -76,25 +76,24 @@
 	</c:forEach>
 
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var starElements = document.querySelectorAll(".star");
-			starElements.forEach(function(starElement) {
-				var reviewStar = parseInt(starElement.textContent);
-				starElement.innerHTML = "";
-				for (var i = 0; i < reviewStar; i++) {
-					var starSpan = document.createElement("span");
-					starSpan.innerHTML = "★";
-					starSpan.style.color = "gold";
-					starElement.appendChild(starSpan);
-				}
-			});
-		});
+	 document.addEventListener("DOMContentLoaded", function() {
+         var starElements = document.querySelectorAll(".star");
+         starElements.forEach(function(starElement) {
+             var reviewStar = parseInt(starElement.textContent);
+             starElement.innerHTML = "";
+             for (var i = 0; i < reviewStar; i++) {
+                 var starSpan = document.createElement("span");
+                 starSpan.innerHTML = "★";
+                 starSpan.style.color = "gold";
+                 starElement.appendChild(starSpan);
+             }
+         });
+     });
 
 		function checkUserId() {
 			var user_id = "${userBean.user_id}";
 			if (!user_id || user_id.trim() === "") {
-				window.location.href = "<%=request.getContextPath()%>
-		/signin";
+				window.location.href = "<%=request.getContextPath()%>/signin";
 				return false;
 			}
 			return true;
