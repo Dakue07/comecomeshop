@@ -225,8 +225,8 @@ button.btn_06-2:hover:after {
 .address-item {
 	width: 20%;
 	/* Adjust the width as needed */
-	background: #ffe4e1;
-	border: #ff69b4 solid 2px;
+	background: #f8f9fa;
+	border: black solid 1px;
 	font-size: 80%;
 	padding: 20px;
 	margin: 10px;

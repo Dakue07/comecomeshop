@@ -20,6 +20,8 @@
 	<script src="/comecomeshop/JS/cart.js">
 		
 	</script>
+	
+	<h2 style="text-align: center;"><strong>カート</strong></h2>
 
 	<c:set var="totalPrice" value="0" />
 	<div class="cart_card_wrap">
