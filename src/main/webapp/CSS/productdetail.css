@@ -38,3 +38,13 @@
 .form_y {
 	padding-top: 32px;
 }
+.review_box {
+	width: 39rem;
+    height: auto;
+    left: 30vw;
+    margin-bottom: 20px;
+}
+.delete_btn {
+	bottom: 20;
+    position: absolute;
+}

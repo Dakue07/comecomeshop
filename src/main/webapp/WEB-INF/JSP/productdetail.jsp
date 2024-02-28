@@ -59,20 +59,23 @@
 	<div class="review">レビュー一覧</div>
 	<br>
 	<br>
+	
 	<c:forEach var="data" items="${data[1]}">
-        	${data.user_name}
-            <div class="star">${data.review_star}</div>
-            ${data.review_comment}<br>
-		<br>
-
-		<c:if test="${userBean.user_id eq data.user_id}">
+	<div class="review_box card">
+	  <div class="card-body">
+	    <h5 class="card-title">${data.user_name}</h5>
+	    <h6 class="card-subtitle mb-2 text-body-secondary star">${data.review_star}</h6>
+	    <p class="card-text">${data.review_comment}</p>
+	    <c:if test="${userBean.user_id eq data.user_id}">
 			<form action="<%=request.getContextPath()%>/come/deletereview"
 				method="post">
 				<input type="hidden" name="review_id" value="${data.review_id}">
 				<input type="hidden" name="rice_id" value="${data.rice_id}">
-				<input type="submit" value="削除"><br> <br>
+				<input class="delete_btn" type="submit" value="削除"><br> <br>
 			</form>
 		</c:if>
+	  </div>
+	</div>
 	</c:forEach>
 
 	<script>
