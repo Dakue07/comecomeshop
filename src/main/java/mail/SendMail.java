@@ -79,7 +79,7 @@ public class SendMail {
 	        message.setSubject("購入完了のお知らせ");
 
 	        // メール内容
-	        message.setText("注文番号:" +order_id + "\n" + "注文日時:" + useraddressorderdto.getOrder_time() + "\n" + "郵便番号:" + useraddressorderdto.getUseraddress_postcode() + "\n" + "住所:" + useraddressorderdto.getUseraddress_street() + useraddressorderdto.getUseraddress_state_city() );
+	        message.setText("注文番号:" +order_id + "\n" + "注文日時:" + useraddressorderdto.getOrder_time() + "\n" + "郵便番号:" + useraddressorderdto.getUseraddress_postcode() + "\n" + "住所:" + useraddressorderdto.getUseraddress_state_city() + useraddressorderdto.getUseraddress_street() );
 
 	        // メールを送る
 	        Transport.send(message);
