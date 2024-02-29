@@ -28,14 +28,14 @@ public class SendMail {
 
 	    System.out.println(user_Email);
 	    // Googleアカウントログイン情報
-	    String username = "ki22304002@ga.ttc.ac.jp";
-	    String password = "kazu20010926";
+	    String username = "comecoemshopowenihewase8@gmail.com";
+	    String password = "inunpfggzntfujsn";
 
 	    // To
 	    String to = user_Email;
 
 	    // From
-	    String from = "ki22304002@ga.ttc.ac.jp";
+	    String from = "comecoemshopowenihewase8@gmail.com";
 
 	    // Set the host and port for the Gmail SMTP server
 	    String host = "smtp.gmail.com";
@@ -101,11 +101,11 @@ public class SendMail {
 		String user_Email = userdao.SelectUserEmail(user_id);
 
 	    // Googleアカウントログイン情報
-	    String username = "ki22304002@ga.ttc.ac.jp";
-	    String password = "kazu20010926";
+	    String username = "comecoemshopowenihewase8@gmail.com";
+	    String password = "inunpfggzntfujsn";
 
 	    // To
-	    String to = "ki22304002@ga.ttc.ac.jp";
+	    String to = "comecoemshopowenihewase8@gmail.com";
 
 	    // From
 	    String from = user_Email;
@@ -152,7 +152,7 @@ public class SendMail {
 	        message.setSubject("お問い合わせ");
 
 	        // メール内容
-	        message.setText("ユーザーid:" +user_id + "\n" + "タイトル:" + user_name + "\n" + "お問い合わせ内容:" + content + "\n");
+	        message.setText("ユーザーid:" +user_id + "\n" + "タイトル:" + user_name + "\n" + "お問い合わせ内容:" + content + "\n" + "送信元メールアドレス"+ user_Email);
 
 	        // メールを送る
 	        Transport.send(message);
