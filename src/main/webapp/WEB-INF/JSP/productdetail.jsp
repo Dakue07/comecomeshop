@@ -71,7 +71,7 @@
 				method="post">
 				<input type="hidden" name="review_id" value="${data.review_id}">
 				<input type="hidden" name="rice_id" value="${data.rice_id}">
-				<input class="delete_btn" type="submit" value="削除"><br> <br>
+				<input class="delete_btn btn btn-danger" type="submit" value="削除"><br> <br>
 			</form>
 		</c:if>
 	  </div>

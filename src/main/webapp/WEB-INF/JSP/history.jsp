@@ -108,7 +108,7 @@
 													<td><textarea type="text" name="review_comment" required ></textarea></td>
 												</tr>
 											</table>
-											<button type="button" class="amazon-btn"
+											<button type="button" class="btn btn-primary"
 												onclick="submitReviewForm()">レビューの投稿</button>
 										</form>
 									</div>
