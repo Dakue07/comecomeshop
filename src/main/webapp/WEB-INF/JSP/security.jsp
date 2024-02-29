@@ -38,15 +38,15 @@
 	                <label class="form-label" for="password">現在のパスワード</label>
 	                <span class="text-danger">*</span>
 	                <input type="password" class="form-control" name="oldPassword" id="oldPassword" autocomplete="off" placeholder="現在のパスワード" required>
-	                <button id="showOldPasswordButton" type="button" onclick="togglePassword('oldPassword')">表示</button>
+	                <button id="showOldPasswordButton" class="btn btn-success" type="button" onclick="togglePassword('oldPassword')">表示</button>
 	            </div>
 	            <div class="col-md-6 mb-3">
 	                <label class="form-label" for="password">新しいパスワード</label>
 	                <span class="text-danger">*</span>
 	                <input type="password" class="form-control" name="newPassword" id="newPassword" autocomplete="off" placeholder="新しいパスワード" required>
-	                <button id="showNewPasswordButton" type="button" onclick="togglePassword('newPassword')">表示</button>
+	                <button id="showNewPasswordButton" class="btn btn-success" type="button" onclick="togglePassword('newPassword')">表示</button>
 	            </div>
-	            <button type="submit" style="width: 25%;" class="mx-auto text_center">パスワードの変更</button>
+	            <button type="submit" style="width: 25%;     margin-right: 12px !important;" class="mx-auto text_center btn btn-primary">パスワードの変更</button>
 	        </div>
 	    </form>
 
@@ -57,9 +57,9 @@
 	            <span class="text-danger">*</span>
 	            <input type="text" class="form-control" name="user_Ename" id="user_Ename" autocomplete="off" placeholder="新しいメールアドレス" required>
 	        </div>
-	        <div class="row justify-content-center">
+	        <div class="" style="    right: -504px; position: relative;">
     			<div class="col-md-8 text-center">
-        			<button type="submit" style="width: 50%;" class="mx-auto text_center">Eメールアドレスの変更</button>
+        			<button type="submit" style="width: 50%; margin-right: 0 !important;" class="mx-auto text_center btn btn-primary">Eメールアドレスの変更</button>
     			</div>
 			</div>
 	        
